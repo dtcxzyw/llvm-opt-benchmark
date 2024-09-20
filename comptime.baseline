@@ -1858,7 +1858,7 @@ assimp/OpenDDLExport.cpp.ll 167906686
 assimp/OpenDDLParser.cpp.ll 1192732388
 assimp/OpenDDLStream.cpp.ll 57947822
 assimp/OpenGEXImporter.cpp.ll 2406807903
-assimp/OptimizeGraph.cpp.ll 890651553
+assimp/OptimizeGraph.cpp.ll 891542207
 assimp/OptimizeMeshes.cpp.ll 445203786
 assimp/PbrtExporter.cpp.ll 1342123796
 assimp/PlyExporter.cpp.ll 493130189
@@ -2201,7 +2201,7 @@ bullet3/btSoftBodyHelpers.ll 3493189996
 bullet3/btSoftBodyRigidBodyCollisionConfiguration.ll 102999960
 bullet3/btSoftMultiBodyDynamicsWorld.ll 415351297
 bullet3/btSoftRigidCollisionAlgorithm.ll 70839927
-bullet3/btSoftRigidDynamicsWorld.ll 396559812
+bullet3/btSoftRigidDynamicsWorld.ll 396956514
 bullet3/btSoftSoftCollisionAlgorithm.ll 94018213
 bullet3/btSphereBoxCollisionAlgorithm.ll 214638806
 bullet3/btSphereSphereCollisionAlgorithm.ll 134267933
@@ -9566,7 +9566,7 @@ grpc/resolver.cc.ll 54688487
 grpc/resolver_registry.cc.ll 693445737
 grpc/resource_quota.cc.ll 360327660
 grpc/retry_filter.cc.ll 252003679
-grpc/retry_filter_legacy_call_data.cc.ll 6122301054
+grpc/retry_filter_legacy_call_data.cc.ll 6128432084
 grpc/retry_service_config.cc.ll 882378957
 grpc/retry_throttle.cc.ll 265228997
 grpc/ring_hash.cc.ll 4482837038
@@ -38017,7 +38017,7 @@ tree-sitter-rs/l6js0ezoscq5xy2.ll 275568745
 tree-sitter-rs/r2wcjjxpw45z4gt.ll 9447905324
 tree-sitter-rs/s186efq8x74ief6.ll 275101065
 tree-sitter-rs/sw0aazrl08me20d.ll 831371344
-tree-sitter-rs/yv0n8gi0d3dhzht.ll 209054833
+tree-sitter-rs/yv0n8gi0d3dhzht.ll 209263913
 tree-sitter-rs/zic5iua0iufbd13.ll 1281292267
 typst-rs/15cic2jih5jwap60.ll 914167276
 typst-rs/15cosas43yh9dmeo.ll 2546688512
