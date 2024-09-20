@@ -7104,8 +7104,8 @@ declare double @expm1(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
-; Function Attrs: nounwind
-declare double @fdim(double noundef, double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @fdim(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fma.f64(double, double, double) #2
