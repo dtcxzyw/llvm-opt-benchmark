@@ -2359,7 +2359,7 @@ casadi/cs_maxtrans.c.ll 162604333
 casadi/cs_multiply.c.ll 109061280
 casadi/cs_norm.c.ll 50694896
 casadi/cs_permute.c.ll 128494763
-casadi/cs_pinv.c.ll 42679280
+casadi/cs_pinv.c.ll 42722000
 casadi/cs_post.c.ll 55858779
 casadi/cs_print.c.ll 118596812
 casadi/cs_pvec.c.ll 46568709
@@ -23927,7 +23927,7 @@ openjdk/cmspack.ll 1706066415
 openjdk/cmspcs.ll 251141163
 openjdk/cmsplugin.ll 249894406
 openjdk/cmsps2.ll 490063680
-openjdk/cmssamp.ll 143458901
+openjdk/cmssamp.ll 143602401
 openjdk/cmssm.ll 165705308
 openjdk/cmstypes.ll 2002618924
 openjdk/cmsvirt.ll 326258389
@@ -24915,7 +24915,7 @@ openjdk/shenandoahUtils.ll 928268980
 openjdk/shenandoahVMOperations.ll 94791372
 openjdk/shenandoahVerifier.ll 2080995108
 openjdk/shenandoahWorkGroup.ll 79930763
-openjdk/shenandoahWorkerPolicy.ll 43787237
+openjdk/shenandoahWorkerPolicy.ll 43831075
 openjdk/signals_posix.ll 557357527
 openjdk/signature.ll 779744796
 openjdk/singleWriterSynchronizer.ll 62084076
@@ -38096,7 +38096,7 @@ tree-sitter-rs/4zakogfbfa4d80x8.ll 189775067
 tree-sitter-rs/50gi8jfmf82cuy8e.ll 6522817870
 tree-sitter-rs/51rc99d4jdw1knkd.ll 341162211
 tree-sitter-rs/55e7aotywrgrb7st.ll 14952736540
-tree-sitter-rs/55tkq5cs30ym226o.ll 207333084
+tree-sitter-rs/55tkq5cs30ym226o.ll 207540610
 tree-sitter-rs/55zduq8lgts2e7ck.ll 45337974
 tree-sitter-rs/588qc88xowwzz48g.ll 295116499
 tree-sitter-rs/5bd3j7iunfjd22dx.ll 114743783
