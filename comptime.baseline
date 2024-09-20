@@ -6824,7 +6824,7 @@ eastl/TestAtomicBasic.cpp.ll 4762296425
 eastl/TestBitVector.cpp.ll 4188326799
 eastl/TestBitset.cpp.ll 7495858632
 eastl/TestCharTraits.cpp.ll 563340071
-eastl/TestChrono.cpp.ll 184339254
+eastl/TestChrono.cpp.ll 184153374
 eastl/TestDeque.cpp.ll 25962397339
 eastl/TestExtra.cpp.ll 5461734254
 eastl/TestFixedFunction.cpp.ll 2163934868
@@ -16162,7 +16162,7 @@ llvm/MachinePipeliner.cpp.ll 23025324677
 llvm/MachinePostDominators.cpp.ll 7357351583
 llvm/MachineRegionInfo.cpp.ll 4116048116
 llvm/MachineRegisterInfo.cpp.ll 1908439623
-llvm/MachineSSAContext.cpp.ll 432195707
+llvm/MachineSSAContext.cpp.ll 431763445
 llvm/MachineSSAUpdater.cpp.ll 1872604357
 llvm/MachineScheduler.cpp.ll 7720763060
 llvm/MachineSink.cpp.ll 10822363067
@@ -24301,7 +24301,7 @@ openjdk/jfrEventThrottler.ll 107220095
 openjdk/jfrFinalizerStatisticsEvent.ll 656116533
 openjdk/jfrFlush.ll 70786858
 openjdk/jfrIntrinsics.ll 127523395
-openjdk/jfrJavaCall.ll 245202928
+openjdk/jfrJavaCall.ll 244956978
 openjdk/jfrJavaEventWriter.ll 762245504
 openjdk/jfrJavaLog.ll 716195598
 openjdk/jfrJavaSupport.ll 1876330435
@@ -29977,7 +29977,7 @@ openusd/tetMeshTopologySchema.cpp.ll 789212688
 openusd/textFileFormat.cpp.ll 5952222263
 openusd/textFileFormat.lex.cpp.ll 994372169
 openusd/textFileFormat.tab.cpp.ll 17442492693
-openusd/textParserContext.cpp.ll 630508505
+openusd/textParserContext.cpp.ll 629877215
 openusd/textParserHelpers.cpp.ll 10415309093
 openusd/texture.cpp.ll 109253136
 openusd/textureUtils.cpp.ll 277140776
