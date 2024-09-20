@@ -8936,7 +8936,7 @@ eh.resume:                                        ; preds = %delete.notnull.i90,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7524DateTimePatternGenerator21getAppendFormatNumberEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, ptr nocapture noundef readonly %field) local_unnamed_addr #19 align 2 {
+define noundef range(i32 0, 17) i32 @_ZNK6icu_7524DateTimePatternGenerator21getAppendFormatNumberEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, ptr nocapture noundef readonly %field) local_unnamed_addr #19 align 2 {
 entry:
   br label %for.body
 
@@ -8963,7 +8963,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7524DateTimePatternGenerator23getFieldAndWidthIndicesEPKcP23UDateTimePGDisplayWidth(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %widthP) local_unnamed_addr #20 align 2 {
+define noundef range(i32 0, 17) i32 @_ZNK6icu_7524DateTimePatternGenerator23getFieldAndWidthIndicesEPKcP23UDateTimePGDisplayWidth(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %widthP) local_unnamed_addr #20 align 2 {
 entry:
   %cldrFieldKey = alloca [25 x i8], align 16
   %call = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %cldrFieldKey, ptr noundef nonnull dereferenceable(1) %key, i64 noundef 24) #34
@@ -9346,7 +9346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483648, 16) i32 @_ZNK6icu_7524DateTimePatternGenerator15getTopBitNumberEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %foundMask) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 16) i32 @_ZNK6icu_7524DateTimePatternGenerator15getTopBitNumberEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %foundMask) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i32 %foundMask, 0
   br i1 %cmp, label %return, label %while.body

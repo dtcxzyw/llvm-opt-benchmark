@@ -688,7 +688,7 @@ _ZN2cv2fs12encodeFormatEiPcm.exit:                ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2cv2fs12decodeFormatEPKcPii(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1073741824, 1073741824) i32 @_ZN2cv2fs12decodeFormatEPKcPii(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

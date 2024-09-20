@@ -1542,7 +1542,7 @@ declare i32 @save_freshclam_dat() local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 19, 18) i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca [26 x i8], align 16
@@ -1712,7 +1712,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @updatecustomdb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_download_url_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 19, 18) i32 @fc_download_url_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = icmp eq ptr %0, null
@@ -1724,27 +1724,27 @@ define noundef i32 @fc_download_url_databases(ptr noundef readonly %0, i32 nound
 
 9:                                                ; preds = %4
   %10 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.116) #15
-  br label %34
+  br label %33
 
 11:                                               ; preds = %4
   store i32 0, ptr %3, align 4
   %wide.trip.count = zext i32 %1 to i64
   br label %12
 
-12:                                               ; preds = %11, %30
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %30 ]
-  %.01963 = phi i32 [ 0, %11 ], [ %spec.select, %30 ]
+12:                                               ; preds = %11, %29
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %29 ]
+  %.01961 = phi i32 [ 0, %11 ], [ %spec.select, %29 ]
   %13 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @fc_download_url_database(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %5)
-  switch i32 %15, label %28 [
-    i32 0, label %30
-    i32 18, label %27
+  switch i32 %15, label %27 [
+    i32 0, label %29
+    i32 17, label %26
     i32 1, label %fc_strerror.exit.loopexit
-    i32 2, label %fc_strerror.exit.loopexit65
-    i32 3, label %fc_strerror.exit.loopexit86
-    i32 4, label %fc_strerror.exit.loopexit106
-    i32 5, label %fc_strerror.exit.loopexit126
+    i32 2, label %fc_strerror.exit.loopexit63
+    i32 3, label %fc_strerror.exit.loopexit83
+    i32 4, label %fc_strerror.exit.loopexit102
+    i32 5, label %fc_strerror.exit.loopexit121
     i32 6, label %fc_strerror.exit
     i32 7, label %16
     i32 8, label %17
@@ -1756,7 +1756,6 @@ define noundef i32 @fc_download_url_databases(ptr noundef readonly %0, i32 nound
     i32 14, label %23
     i32 15, label %24
     i32 16, label %25
-    i32 17, label %26
   ]
 
 16:                                               ; preds = %12
@@ -1795,44 +1794,41 @@ define noundef i32 @fc_download_url_databases(ptr noundef readonly %0, i32 nound
 27:                                               ; preds = %12
   br label %fc_strerror.exit
 
-28:                                               ; preds = %12
-  br label %fc_strerror.exit
-
 fc_strerror.exit.loopexit:                        ; preds = %12
   br label %fc_strerror.exit
 
-fc_strerror.exit.loopexit65:                      ; preds = %12
+fc_strerror.exit.loopexit63:                      ; preds = %12
   br label %fc_strerror.exit
 
-fc_strerror.exit.loopexit86:                      ; preds = %12
+fc_strerror.exit.loopexit83:                      ; preds = %12
   br label %fc_strerror.exit
 
-fc_strerror.exit.loopexit106:                     ; preds = %12
+fc_strerror.exit.loopexit102:                     ; preds = %12
   br label %fc_strerror.exit
 
-fc_strerror.exit.loopexit126:                     ; preds = %12
+fc_strerror.exit.loopexit121:                     ; preds = %12
   br label %fc_strerror.exit
 
-fc_strerror.exit:                                 ; preds = %12, %fc_strerror.exit.loopexit126, %fc_strerror.exit.loopexit106, %fc_strerror.exit.loopexit86, %fc_strerror.exit.loopexit65, %fc_strerror.exit.loopexit, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28
-  %.0.i = phi ptr [ @.str.19, %28 ], [ @.str.18, %27 ], [ @.str.17, %26 ], [ @.str.16, %25 ], [ @.str.15, %24 ], [ @.str.14, %23 ], [ @.str.13, %22 ], [ @.str.12, %21 ], [ @.str.11, %20 ], [ @.str.10, %19 ], [ @.str.9, %18 ], [ @.str.8, %17 ], [ @.str.7, %16 ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit65 ], [ @.str.3, %fc_strerror.exit.loopexit86 ], [ @.str.4, %fc_strerror.exit.loopexit106 ], [ @.str.5, %fc_strerror.exit.loopexit126 ], [ @.str.6, %12 ]
-  %29 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.117, ptr noundef nonnull %.0.i, i32 noundef %15) #15
-  br label %34
+fc_strerror.exit:                                 ; preds = %12, %fc_strerror.exit.loopexit121, %fc_strerror.exit.loopexit102, %fc_strerror.exit.loopexit83, %fc_strerror.exit.loopexit63, %fc_strerror.exit.loopexit, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27
+  %.0.i = phi ptr [ @.str.19, %27 ], [ @.str.17, %26 ], [ @.str.16, %25 ], [ @.str.15, %24 ], [ @.str.14, %23 ], [ @.str.13, %22 ], [ @.str.12, %21 ], [ @.str.11, %20 ], [ @.str.10, %19 ], [ @.str.9, %18 ], [ @.str.8, %17 ], [ @.str.7, %16 ], [ @.str.1, %fc_strerror.exit.loopexit ], [ @.str.2, %fc_strerror.exit.loopexit63 ], [ @.str.3, %fc_strerror.exit.loopexit83 ], [ @.str.4, %fc_strerror.exit.loopexit102 ], [ @.str.5, %fc_strerror.exit.loopexit121 ], [ @.str.6, %12 ]
+  %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.117, ptr noundef nonnull %.0.i, i32 noundef %15) #15
+  br label %33
 
-30:                                               ; preds = %12
-  %31 = load i32, ptr %5, align 4
-  %.not25 = icmp ne i32 %31, 0
-  %32 = zext i1 %.not25 to i32
-  %spec.select = add i32 %.01963, %32
+29:                                               ; preds = %12
+  %30 = load i32, ptr %5, align 4
+  %.not25 = icmp ne i32 %30, 0
+  %31 = zext i1 %.not25 to i32
+  %spec.select = add i32 %.01961, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %33, label %12
+  br i1 %exitcond.not, label %32, label %12
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   store i32 %spec.select, ptr %3, align 4
-  br label %34
+  br label %33
 
-34:                                               ; preds = %33, %fc_strerror.exit, %9
-  %.020 = phi i32 [ 16, %9 ], [ %15, %fc_strerror.exit ], [ 0, %33 ]
+33:                                               ; preds = %32, %fc_strerror.exit, %9
+  %.020 = phi i32 [ 16, %9 ], [ %15, %fc_strerror.exit ], [ 0, %32 ]
   ret i32 %.020
 }
 

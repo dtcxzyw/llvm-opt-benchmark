@@ -61326,7 +61326,7 @@ define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr nocapture nou
 declare i32 @_pcre2_ord2utf_8(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @char_othercase(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #10 {
+define internal fastcc range(i32 -2147483520, -2147483648) i32 @char_othercase(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

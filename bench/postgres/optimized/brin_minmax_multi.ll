@@ -2810,7 +2810,7 @@ compare_expanded_ranges.exit.thread:              ; preds = %23, %17, %.lr.ph, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reduce_expanded_ranges(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, 1073741824) i32 @reduce_expanded_ranges(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.compare_context, align 8
   %8 = add i32 %1, -1
   %9 = sdiv i32 %3, 2

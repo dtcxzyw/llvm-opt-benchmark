@@ -1399,7 +1399,7 @@ define i32 @Cloud_SupportSize(ptr nocapture noundef readonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1409,7 +1409,7 @@ define i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cloudDagSize(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @cloudDagSize(ptr nocapture noundef %0) unnamed_addr #7 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %1
@@ -1447,7 +1447,7 @@ common.ret:                                       ; preds = %tailrecurse, %5
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1474,7 +1474,7 @@ define i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 268435456

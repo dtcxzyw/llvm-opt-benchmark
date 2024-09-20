@@ -982,7 +982,7 @@ define dso_local void @_ZN4llvm8RISCV_MC27verifyInstructionPredicatesEjRKNS_13Fe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4llvm8RISCV_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3) local_unnamed_addr #1 {
   switch i32 %0, label %389 [
     i32 1833, label %5
     i32 1834, label %13

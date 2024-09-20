@@ -14295,7 +14295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_validate_ct(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ssl_validate_ct(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %session = getelementptr inbounds i8, ptr %s, i64 2176
   %0 = load ptr, ptr %session, align 8

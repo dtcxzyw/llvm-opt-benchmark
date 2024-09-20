@@ -60363,7 +60363,7 @@ cgltf_skip_json.exit:                             ; preds = %62, %50, %28, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cgltf_parse_json_string_array(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2, -2147483648) i32 @cgltf_parse_json_string_array(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %7
   %9 = load i32, ptr %8, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BZ2_rNums = external local_unnamed_addr global [512 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BZ2_decompress(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -5, 5) i32 @BZ2_decompress(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x i8], align 1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

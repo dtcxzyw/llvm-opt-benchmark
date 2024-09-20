@@ -495,7 +495,7 @@ declare void @Mio_GateSetValue(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Mio_GateReadNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Sfm_LibFindComplInputGate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @Sfm_LibFindComplInputGate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
   %6 = getelementptr i8, ptr %0, i64 8
   %.val61 = load ptr, ptr %6, align 8
   %7 = sext i32 %1 to i64

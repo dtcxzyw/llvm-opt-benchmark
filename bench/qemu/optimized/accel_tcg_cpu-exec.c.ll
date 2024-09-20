@@ -794,7 +794,7 @@ entry:
 declare void @tb_target_set_jmp_target(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @cpu_exec(ptr noundef %cpu) local_unnamed_addr #2 {
+define dso_local range(i32 0, -2147483648) i32 @cpu_exec(ptr noundef %cpu) local_unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   store ptr %cpu, ptr %0, align 8
@@ -879,7 +879,7 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @cpu_exec_setjmp(ptr noundef %cpu) unnamed_addr #2 {
+define internal fastcc range(i32 0, -2147483648) i32 @cpu_exec_setjmp(ptr noundef %cpu) unnamed_addr #2 {
 entry:
   %desc.i60.i = alloca %struct.tb_desc, align 8
   %desc.i.i = alloca %struct.tb_desc, align 8

@@ -486,7 +486,7 @@ strscan_terminate.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_get_string(i64 noundef %0) #0 {
+define internal range(i64 5, 4) i64 @strscan_get_string(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8

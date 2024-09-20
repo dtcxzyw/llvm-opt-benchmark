@@ -2475,7 +2475,7 @@ if.end298:                                        ; preds = %if.then, %land.lhs.
 declare noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7512RegexCompile14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %action) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512RegexCompile14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %action) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %SSet = alloca %"class.icu_75::UnicodeSet", align 8
   %digits = alloca %"class.icu_75::UnicodeSet", align 8

@@ -155,7 +155,7 @@ rb_obj_written.exit8:                             ; preds = %rb_obj_written.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @wmap_aref(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 37, 36) i64 @wmap_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

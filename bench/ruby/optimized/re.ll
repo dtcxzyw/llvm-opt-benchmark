@@ -1379,7 +1379,7 @@ define internal fastcc void @rb_reg_raise(ptr noundef nonnull %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_reg_onig_match(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @rb_reg_onig_match(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca [90 x i8], align 16
   %7 = tail call ptr @rb_reg_prepare_re(i64 noundef %0, i64 noundef %1)
   %8 = inttoptr i64 %0 to ptr
@@ -10179,7 +10179,7 @@ declare ptr @onigenc_get_left_adjust_char_head(ptr noundef, ptr noundef, ptr nou
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @reg_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @reg_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -10465,7 +10465,7 @@ declare i32 @rb_bool_expected(i64 noundef, ptr noundef, i32 noundef) local_unnam
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @reg_copy(i64 noundef returned %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @reg_copy(i64 noundef returned %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0

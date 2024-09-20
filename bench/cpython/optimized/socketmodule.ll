@@ -9611,7 +9611,7 @@ declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @getsockaddrarg(ptr nocapture noundef readonly %s, ptr noundef %args, ptr noundef nonnull %addrbuf, ptr nocapture noundef nonnull writeonly %len_ret, ptr noundef %caller) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getsockaddrarg(ptr nocapture noundef readonly %s, ptr noundef %args, ptr noundef nonnull %addrbuf, ptr nocapture noundef nonnull writeonly %len_ret, ptr noundef %caller) unnamed_addr #0 {
 entry:
   %path = alloca %struct.Py_buffer, align 8
   %pid = alloca i32, align 4

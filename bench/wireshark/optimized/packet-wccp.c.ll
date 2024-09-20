@@ -2898,7 +2898,7 @@ define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_command_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal range(i32 2147483644, 2147483643) i32 @dissect_wccp2_command_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = icmp eq i32 %2, 0
   br i1 %8, label %.loopexit, label %.lr.ph
@@ -3296,7 +3296,7 @@ default.unreachable61:                            ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -36, 2147483635) i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -35, 2147483635) i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_hash_assignment_buckets, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.417) #7
   %umin = tail call i32 @llvm.umin.i32(i32 %2, i32 31)
@@ -3368,7 +3368,7 @@ dissect_wccp2_assignment_weight_and_status_element.exit: ; preds = %32, %30, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483644) i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_mask_assignment_data_element, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.418) #7

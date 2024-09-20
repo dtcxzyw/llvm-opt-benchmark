@@ -11363,7 +11363,7 @@ return:                                           ; preds = %_PyOnceFlag_CallOnc
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @astmodule_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @astmodule_exec(ptr noundef %m) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -12278,7 +12278,7 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_types(ptr noundef %state) #0 {
+define internal range(i32 -1, 1) i32 @init_types(ptr noundef %state) #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.295) #6
   %__dict__.i = getelementptr inbounds i8, ptr %state, i64 1112
@@ -24188,7 +24188,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_stmt(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_stmt(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -33505,7 +33505,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4

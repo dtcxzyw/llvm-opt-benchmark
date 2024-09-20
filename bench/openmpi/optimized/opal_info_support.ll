@@ -511,7 +511,7 @@ define void @opal_info_finalize() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_info_register_project_frameworks(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -16, 1) i32 @opal_info_register_project_frameworks(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %1, align 8
   %.not24 = icmp eq ptr %4, null
   br i1 %.not24, label %.loopexit, label %.lr.ph

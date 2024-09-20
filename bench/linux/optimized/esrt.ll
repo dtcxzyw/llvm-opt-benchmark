@@ -359,7 +359,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @kset_create_and_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @register_entries() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @esrt, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8

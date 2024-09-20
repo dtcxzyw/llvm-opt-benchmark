@@ -12621,7 +12621,7 @@ _ZL19stbir__insert_coeffP19stbir__contributorsPfif.exit270: ; preds = %.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL22stbir__edge_clamp_fullii(i32 noundef %0, i32 noundef %1) #9 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @_ZL22stbir__edge_clamp_fullii(i32 noundef %0, i32 noundef %1) #9 {
   %3 = icmp slt i32 %0, 0
   %.not = icmp slt i32 %0, %1
   %4 = add nsw i32 %1, -1
@@ -12631,7 +12631,7 @@ define internal noundef i32 @_ZL22stbir__edge_clamp_fullii(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL24stbir__edge_reflect_fullii(i32 noundef %0, i32 noundef %1) #9 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @_ZL24stbir__edge_reflect_fullii(i32 noundef %0, i32 noundef %1) #9 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %11
 
@@ -47098,7 +47098,7 @@ _ZL12stbi__at_eofP13stbi__context.exit24.thread43: ; preds = %57, %_ZL12stbi__at
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL20stbi__pnm_getintegerP13stbi__contextPc(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -2147483648, 214748365) i32 @_ZL20stbi__pnm_getintegerP13stbi__contextPc(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40

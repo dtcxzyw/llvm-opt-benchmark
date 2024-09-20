@@ -1280,7 +1280,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = alloca %struct.power_supply_config, align 8
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4

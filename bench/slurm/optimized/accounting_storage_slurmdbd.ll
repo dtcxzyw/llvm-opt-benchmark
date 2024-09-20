@@ -4506,7 +4506,7 @@ define range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 10005, 10004) i32 @clusteracct_storage_p_cluster_tres(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 10006, 10004) i32 @clusteracct_storage_p_cluster_tres(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_cluster_tres_msg, align 8
   %8 = alloca i32, align 4

@@ -110,7 +110,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm22deserializeSectionKindEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 11) i32 @_ZN4llvm22deserializeSectionKindEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 5
   br i1 %3, label %4, label %8
 

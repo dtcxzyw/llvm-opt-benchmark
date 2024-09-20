@@ -31883,7 +31883,7 @@ define internal ptr @sqlite3MPrintf(ptr noundef %0, ptr noundef %1, ...) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeAddOp4Int(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp4Int(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 148
@@ -53340,7 +53340,7 @@ unixModeBit.exit:                                 ; preds = %128, %120, %118, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @unixSectorSize(ptr nocapture noundef %0) #21 {
+define internal range(i32 1, 0) i32 @unixSectorSize(ptr nocapture noundef %0) #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -55734,7 +55734,7 @@ sqlite3_free.exit:                                ; preds = %dotlockUnlock.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dotlockLock(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, -2147483648) i32 @dotlockLock(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -71836,7 +71836,7 @@ define internal zeroext i16 @cellSizePtr(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @cellSizePtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #8 {
+define internal zeroext range(i16 2, 14) i16 @cellSizePtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #8 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -139686,7 +139686,7 @@ checkOom.exit:                                    ; preds = %15, %9, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @checkTreePage(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @checkTreePage(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.CellInfo, align 8
@@ -142947,7 +142947,7 @@ define internal fastcc noundef i32 @keywordCode(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeAddOp2(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp2(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse.i
@@ -142992,7 +142992,7 @@ sqlite3VdbeAddOp3.exit:                           ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeAddOp3(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp3(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse
@@ -193085,7 +193085,7 @@ sqlite3VdbeCreate.exit:                           ; preds = %34, %36, %15, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeAddOp0(ptr nocapture noundef %0, i32 noundef range(i32 1, 188) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp0(ptr nocapture noundef %0, i32 noundef range(i32 1, 188) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse.i
@@ -193120,7 +193120,7 @@ sqlite3VdbeAddOp3.exit:                           ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeAddOp1(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp1(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse.i
@@ -193161,7 +193161,7 @@ sqlite3VdbeAddOp3.exit:                           ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sqlite3VdbeAddOp4(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeAddOp4(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 144
   %9 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse.i
@@ -193577,7 +193577,7 @@ sqlite3VdbeAddOp4Int.exit:                        ; preds = %116, %113, %109, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeLoadString(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @sqlite3VdbeLoadString(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %0, i64 148
   br label %tailrecurse.i.i
@@ -210935,7 +210935,7 @@ sqlite3ReleaseTempReg.exit120:                    ; preds = %225, %221, %sqlite3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3AuthCheck(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @sqlite3AuthCheck(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 504
   %8 = load ptr, ptr %7, align 8

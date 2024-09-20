@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8QuantLib7MINPACK3modEii(i32 noundef %k, i32 noundef %m) local_unnamed_addr #4 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZN8QuantLib7MINPACK3modEii(i32 noundef %k, i32 noundef %m) local_unnamed_addr #4 {
 entry:
   %rem = srem i32 %k, %m
   ret i32 %rem

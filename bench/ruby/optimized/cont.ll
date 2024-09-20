@@ -2828,7 +2828,7 @@ fiber_ptr.exit:                                   ; preds = %storage_access_must
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_fiber_storage_set(i64 noundef %0, i64 noundef returned %1) #0 {
+define internal range(i64 1, -7) i64 @rb_fiber_storage_set(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = tail call zeroext i1 @rb_warning_category_enabled_p(i32 noundef 2) #9
   br i1 %3, label %4, label %5
 

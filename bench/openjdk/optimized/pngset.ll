@@ -2335,7 +2335,7 @@ define hidden void @png_set_check_for_invalid_index(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @png_check_keyword(ptr noalias noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca [8 x [32 x i8]], align 16
   %5 = icmp eq ptr %1, null
   br i1 %5, label %7, label %.preheader

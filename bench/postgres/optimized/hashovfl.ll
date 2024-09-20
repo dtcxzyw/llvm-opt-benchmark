@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._hash_firstfreebit = private unnamed_addr constant [19 x i8] c"_hash_firstfreebit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_hash_ovflblkno_to_bitno(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @_hash_ovflblkno_to_bitno(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not20 = icmp eq i32 %4, 0

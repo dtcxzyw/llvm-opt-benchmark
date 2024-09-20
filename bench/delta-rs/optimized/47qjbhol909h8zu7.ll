@@ -113361,7 +113361,7 @@ define internal void @"_ZN4core3ptr99drop_in_place$LT$$RF$alloc..boxed..Box$LT$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17hc1e1026fffdd0968E.llvm.18016462908235130027"(ptr noundef %0, i64 noundef %1) unnamed_addr #4 {
+define hidden noundef range(i64 0, -1) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17hc1e1026fffdd0968E.llvm.18016462908235130027"(ptr noundef %0, i64 noundef %1) unnamed_addr #4 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %5 = icmp eq i64 %4, 1

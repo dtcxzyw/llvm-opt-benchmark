@@ -111301,7 +111301,7 @@ _ZN5QListI7QPointFE5beginEv.exit:                 ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -111458,7 +111458,7 @@ define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0

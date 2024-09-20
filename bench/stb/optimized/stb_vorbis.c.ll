@@ -8776,7 +8776,7 @@ return:                                           ; preds = %if.end99, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @start_decoder(ptr noundef %f) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @start_decoder(ptr noundef %f) local_unnamed_addr #26 {
 entry:
   %header = alloca [6 x i8], align 1
   %p = alloca [250 x %struct.stbv__floor_ordering], align 16

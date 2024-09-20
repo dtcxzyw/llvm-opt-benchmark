@@ -7358,7 +7358,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_unregister_afinfo(ptr noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_unregister_afinfo(ptr noundef readonly %0) #0 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 45
   br i1 %3, label %4, label %5, !prof !6

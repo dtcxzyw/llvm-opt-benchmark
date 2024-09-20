@@ -49270,7 +49270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN18OpenImageIO_v2_6_08ImageBuf20WrapMode_from_stringENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef readonly %name) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 6, 5) i32 @_ZN18OpenImageIO_v2_6_08ImageBuf20WrapMode_from_stringENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef readonly %name) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %name, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %name, i64 8

@@ -10667,7 +10667,7 @@ validate_c2.exit:                                 ; preds = %read_c2.exit, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ccm_dsp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 1) i32 @dissect_ccm_dsp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #20
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.737) #20
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #20

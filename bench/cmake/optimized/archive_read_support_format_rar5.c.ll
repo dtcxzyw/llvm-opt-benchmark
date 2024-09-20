@@ -268,7 +268,7 @@ define internal noundef i32 @rar5_options(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -9, -10) i32 @rar5_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2147483648, 2) i32 @rar5_read_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %0, i64 2072
@@ -3049,7 +3049,7 @@ do_unpack.exit.thread195:                         ; preds = %154, %parse_block_h
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rar5_read_data_skip(ptr noundef %0) #0 {
+define internal range(i32 -2147483648, 2) i32 @rar5_read_data_skip(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 2072
   %.val = load ptr, ptr %2, align 8
   %.val.val = load ptr, ptr %.val, align 8
@@ -3187,7 +3187,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @process_base_block(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3827,7 +3827,7 @@ read_var_sized.exit.thread:                       ; preds = %78, %116, %111, %re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_head_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @process_head_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call fastcc i32 @process_head_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %rar5_read_data_skip.exit.thread16

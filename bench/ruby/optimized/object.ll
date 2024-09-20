@@ -2691,7 +2691,7 @@ conv_method_index.exit.thread.i:                  ; preds = %47, %conv_method_in
 convert_type.exit:                                ; preds = %50, %conv_method_index.exit.thread.i
   %.09.i9.i = phi i32 [ %48, %50 ], [ %.09.i10.i, %conv_method_index.exit.thread.i ]
   %55 = phi i64 [ %53, %50 ], [ %54, %conv_method_index.exit.thread.i ]
-  %56 = tail call fastcc i64 @convert_type_with_id(i64 noundef %0, ptr noundef nonnull %2, i64 noundef %55, i32 noundef 1, i32 noundef %.09.i9.i)
+  %56 = tail call fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %0, ptr noundef nonnull %2, i64 noundef %55, i32 noundef 1, i32 noundef %.09.i9.i)
   %57 = and i64 %56, 7
   %58 = icmp ne i64 %57, 0
   %59 = icmp eq i64 %56, 0
@@ -2873,7 +2873,7 @@ RSTRING_PTR.exit:                                 ; preds = %42, %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @convert_type_with_id(i64 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 -2147483648, 13) %4) unnamed_addr #2 {
+define internal fastcc range(i64 37, 36) i64 @convert_type_with_id(i64 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 -2147483648, 13) %4) unnamed_addr #2 {
   %6 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %2, i32 noundef 0, ptr noundef null) #20
   %7 = icmp eq i64 %6, 36
   br i1 %7, label %8, label %28
@@ -2893,7 +2893,7 @@ define internal fastcc i64 @convert_type_with_id(i64 noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %9, %11
   %15 = phi i32 [ %13, %11 ], [ %4, %9 ]
-  %16 = icmp slt i32 %15, 7
+  %16 = icmp ult i32 %15, 7
   %17 = select i1 %16, ptr @.str.146, ptr @.str.147
   %18 = icmp eq i64 %0, 4
   %19 = icmp eq i64 %0, 20
@@ -8186,7 +8186,7 @@ declare i32 @rb_is_const_name(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483648, 13) i32 @conv_method_index(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc range(i32 0, 13) i32 @conv_method_index(ptr nocapture noundef readonly %0) unnamed_addr #15 {
 sub_0:
   %1 = load i8, ptr %0, align 1
   %2 = zext i8 %1 to i32

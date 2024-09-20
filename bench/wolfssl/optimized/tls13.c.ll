@@ -3228,7 +3228,7 @@ return:                                           ; preds = %GetMsgHash.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CreateRSAEncodedSig(ptr noundef %sig, ptr noundef %sigData, i32 noundef %sigDataSz, i32 %sigAlgo, i32 noundef %hashAlgo) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @CreateRSAEncodedSig(ptr noundef %sig, ptr noundef %sigData, i32 noundef %sigDataSz, i32 %sigAlgo, i32 noundef %hashAlgo) local_unnamed_addr #0 {
 entry:
   %digest = alloca %union.Digest, align 16
   switch i32 %hashAlgo, label %sw.epilog.thread [
@@ -7634,7 +7634,7 @@ declare i32 @PickHashSigAlgo(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @ProcessPeerCerts(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CreateECCEncodedSig(ptr noundef %sigData, i32 noundef range(i32 0, 65536) %sigDataSz, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @CreateECCEncodedSig(ptr noundef %sigData, i32 noundef range(i32 0, 65536) %sigDataSz, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
 entry:
   %digest = alloca %union.Digest, align 16
   %trunc = trunc nuw i32 %hashAlgo to i8

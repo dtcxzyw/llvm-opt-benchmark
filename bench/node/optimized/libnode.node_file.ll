@@ -9512,7 +9512,7 @@ if.end97:                                         ; preds = %_ZNKSt14default_del
 declare void @_ZN4node11Environment17RemoveUnmanagedFdEi(ptr noundef nonnull align 8 dereferenceable(2872), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node2fs10MKDirpSyncEP9uv_loop_sP7uv_fs_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPFvS4_E(ptr noundef %loop, ptr noundef %req, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %mode, ptr noundef %cb) local_unnamed_addr #3 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @_ZN4node2fs10MKDirpSyncEP9uv_loop_sP7uv_fs_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPFvS4_E(ptr noundef %loop, ptr noundef %req, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %mode, ptr noundef %cb) local_unnamed_addr #3 {
 entry:
   %next_path = alloca %"class.std::__cxx11::basic_string", align 8
   %dirname = alloca %"class.std::__cxx11::basic_string", align 8

@@ -1323,7 +1323,7 @@ define hidden noundef zeroext i1 @_ZN10C2Compiler22is_intrinsic_supportedE13vmIn
 declare noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -2147483392, -2147483648) i32 @_ZN10C2Compiler24initial_code_buffer_sizeEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -2147481200, -2147483648) i32 @_ZN10C2Compiler24initial_code_buffer_sizeEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr @CodeEntryAlignment, align 8
   %3 = trunc i64 %2 to i32
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 8)

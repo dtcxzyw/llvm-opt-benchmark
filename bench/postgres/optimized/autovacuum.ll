@@ -157,7 +157,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [4 x i8] c" %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @StartAutoVacLauncher() local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @StartAutoVacLauncher() local_unnamed_addr #0 {
   %1 = tail call i32 @fork_process() #18
   switch i32 %1, label %7 [
     i32 -1, label %2
@@ -836,7 +836,7 @@ define dso_local void @AutoVacWorkerFailed() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @StartAutoVacWorker() local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @StartAutoVacWorker() local_unnamed_addr #0 {
   %1 = tail call i32 @fork_process() #18
   switch i32 %1, label %7 [
     i32 -1, label %2

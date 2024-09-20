@@ -2900,7 +2900,7 @@ define internal noundef i32 @t1_get_glyph_name(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @t1_get_name_index(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -2147483648, 2147483647) i32 @t1_get_name_index(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 640
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -2967,7 +2967,7 @@ define internal noundef i32 @t1_ps_get_font_private(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @t1_ps_get_font_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #2 {
+define internal range(i64 1, 0) i64 @t1_ps_get_font_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #2 {
   %6 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   switch i32 %1, label %.thread499 [
     i32 0, label %7
@@ -5216,7 +5216,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare hidden i32 @FT_Stream_EnterFrame(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @t1_get_index(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #7 {
+define internal range(i32 -2147483648, 2147483647) i32 @t1_get_index(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #7 {
   %4 = icmp ugt i64 %1, 65535
   br i1 %4, label %.loopexit, label %.preheader
 

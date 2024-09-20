@@ -2777,7 +2777,7 @@ define internal void @adlp_tc_phy_init(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tc_phy_get_current_mode(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 4) i32 @tc_phy_get_current_mode(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

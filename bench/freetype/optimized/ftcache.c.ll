@@ -4449,7 +4449,7 @@ FTC_GNode_Done.exit:                              ; preds = %._crit_edge, %15, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftc_snode_load(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8

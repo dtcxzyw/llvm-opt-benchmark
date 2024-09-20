@@ -673,7 +673,7 @@ return:                                           ; preds = %l_str2d.exit.thread
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden i32 @luaO_utf8esc(ptr nocapture noundef writeonly %buff, i64 noundef %x) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @luaO_utf8esc(ptr nocapture noundef writeonly %buff, i64 noundef %x) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %x, 128
   br i1 %cmp, label %if.end, label %do.body

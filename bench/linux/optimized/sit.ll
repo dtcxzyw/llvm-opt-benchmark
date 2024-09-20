@@ -287,7 +287,7 @@ define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipip6_newlink(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ipip6_newlink(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #4 align 16 {
   %6 = alloca %struct.ip_tunnel_encap, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 272
   %8 = load ptr, ptr %7, align 8

@@ -790,7 +790,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %conv = zext i32 %call to i64
+  %conv = zext nneg i32 %call to i64
   %3 = inttoptr i64 %conv to ptr
   %_current = getelementptr inbounds i8, ptr %state, i64 56
   store ptr %3, ptr %_current, align 8
@@ -817,7 +817,7 @@ return:                                           ; preds = %if.end9, %if.then13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @llhttp__internal__run(ptr noundef %state, ptr noundef %p, ptr noundef %endp) unnamed_addr #4 {
+define internal fastcc range(i32 0, 227) i32 @llhttp__internal__run(ptr noundef %state, ptr noundef %p, ptr noundef %endp) unnamed_addr #4 {
 entry:
   %_current = getelementptr inbounds i8, ptr %state, i64 56
   %0 = load ptr, ptr %_current, align 8

@@ -429,7 +429,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i64 0, -1) i64 @"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = fcmp oge double %1, 1.000000e+00
   %4 = fcmp ole double %1, 0.000000e+00
   %or.cond = or i1 %3, %4

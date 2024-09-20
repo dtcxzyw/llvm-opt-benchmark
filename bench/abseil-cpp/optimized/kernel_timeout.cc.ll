@@ -358,7 +358,7 @@ return:                                           ; preds = %_ZNK4absl24synchron
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1

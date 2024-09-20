@@ -1711,7 +1711,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   switch i32 %3, label %5 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
@@ -2264,7 +2264,7 @@ define internal noundef i32 @_ZN7glslang12_GLOBAL__N_16op_divEii(i32 noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN7glslang12_GLOBAL__N_16op_modEii(i32 noundef %0, i32 noundef %1) #4 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN7glslang12_GLOBAL__N_16op_modEii(i32 noundef %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %0, -2147483648
   %4 = icmp eq i32 %1, -1
   %or.cond = and i1 %3, %4
@@ -4476,7 +4476,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext7CPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext7CPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.glslang::TSourceLoc", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -5231,7 +5231,7 @@ define noundef i32 @_ZN7glslang10TPpContext12CPPextensionEPNS_8TPpTokenE(ptr nou
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::array.188", align 8
   %4 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
   switch i32 %4, label %128 [

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cset = type { ptr, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lmat, align 8
   %7 = alloca %struct.smat, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24

@@ -8368,7 +8368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RM_GetContextFlags(ptr noundef readonly %ctx) #0 {
+define dso_local range(i32 4, 33554432) i32 @RM_GetContextFlags(ptr noundef readonly %ctx) #0 {
 entry:
   %level = alloca float, align 4
   %tobool.not = icmp eq ptr %ctx, null

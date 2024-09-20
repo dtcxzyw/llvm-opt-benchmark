@@ -43025,7 +43025,7 @@ switch.lookup183:                                 ; preds = %81
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc range(i64 73014444032, 9899899617280) i64 @_ZN3ide19syntax_highlighting9highlight21highlight_method_call17hfc957037ad27520bE(ptr noundef nonnull align 8 %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 73014444032, 9895608844288) i64 @_ZN3ide19syntax_highlighting9highlight21highlight_method_call17hfc957037ad27520bE(ptr noundef nonnull align 8 %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { { ptr, ptr }, { ptr, [1 x i64] } }, align 8

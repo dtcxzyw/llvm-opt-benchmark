@@ -49,7 +49,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_socket_check(i32 noundef %readfd0, i32 noundef %readfd1, i32 noundef %writefd, i64 noundef %timeout_ms) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %readfd0, i32 noundef %readfd1, i32 noundef %writefd, i64 noundef %timeout_ms) local_unnamed_addr #0 {
 entry:
   %pfd = alloca [3 x %struct.pollfd], align 16
   %0 = and i32 %readfd1, %readfd0

@@ -489,7 +489,7 @@ declare i32 @is_terminal_dumb() local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i32 @decimal_width(i64 noundef %number) local_unnamed_addr #7 {
+define dso_local range(i32 1, 0) i32 @decimal_width(i64 noundef %number) local_unnamed_addr #7 {
 entry:
   %cmp3 = icmp ugt i64 %number, 9
   br i1 %cmp3, label %for.body, label %for.end

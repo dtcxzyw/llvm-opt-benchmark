@@ -947,7 +947,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm7Hades
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 536870912) i32 @_ZN6hermes2vm7HadesGC6OldGen17getFreelistBucketEj(i32 noundef %size) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 277) i32 @_ZN6hermes2vm7HadesGC6OldGen17getFreelistBucketEj(i32 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %size, 2048
   %shr = lshr i32 %size, 3

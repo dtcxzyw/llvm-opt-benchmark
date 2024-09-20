@@ -73590,7 +73590,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm10DataLayout16getTypeAllocSizeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZNK4llvm21AArch64TargetLowering17getRegisterByNameEPKcNS_3LLTERKNS_15MachineFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408240) %0, ptr noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1041) %3) unnamed_addr #0 align 2 {
+define dso_local range(i32 1, 330) i32 @_ZNK4llvm21AArch64TargetLowering17getRegisterByNameEPKcNS_3LLTERKNS_15MachineFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408240) %0, ptr noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1041) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::StringRef", align 8

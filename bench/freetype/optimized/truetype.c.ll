@@ -5755,7 +5755,7 @@ Ins_SPVTL.exit.thread538:                         ; preds = %589, %1333, %1334, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @Current_Ppem_Stretched(ptr nocapture noundef %0) #2 {
+define internal range(i64 -2147450880, 2147450880) i64 @Current_Ppem_Stretched(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 472
   %3 = load i16, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 456

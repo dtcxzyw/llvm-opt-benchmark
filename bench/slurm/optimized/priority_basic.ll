@@ -44,7 +44,7 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   %4 = load i16, ptr %3, align 8
   %.not = icmp eq i16 %4, 0

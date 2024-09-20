@@ -2059,7 +2059,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
 declare void @pfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 12) i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %9

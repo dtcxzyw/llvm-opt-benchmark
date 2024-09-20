@@ -334,7 +334,7 @@ define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_pattern(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wtap_file_read_number(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_number(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [12 x i8], align 1
   %6 = alloca ptr, align 8
   br label %7

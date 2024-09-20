@@ -768,7 +768,7 @@ define ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @mca_coll_han_topo_lvl_name_to_id(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 4, 3) i32 @mca_coll_han_topo_lvl_name_to_id(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %1, %7

@@ -2386,7 +2386,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_session_with_only_int_cache() #1 {
+define internal range(i32 0, 2) i32 @test_session_with_only_int_cache() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_session(i32 noundef 772, i32 noundef 1, i32 noundef 0, i64 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
@@ -2402,7 +2402,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_session_with_only_ext_cache() #1 {
+define internal range(i32 0, 2) i32 @test_session_with_only_ext_cache() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_session(i32 noundef 772, i32 noundef 0, i32 noundef 1, i64 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
@@ -2418,7 +2418,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_session_with_both_cache() #1 {
+define internal range(i32 0, 2) i32 @test_session_with_both_cache() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_session(i32 noundef 772, i32 noundef 1, i32 noundef 1, i64 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
@@ -2434,7 +2434,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_session_wo_ca_names() #1 {
+define internal range(i32 0, 2) i32 @test_session_wo_ca_names() #1 {
 entry:
   %call = tail call fastcc i32 @execute_test_session(i32 noundef 772, i32 noundef 1, i32 noundef 0, i64 noundef 512)
   %tobool.not = icmp eq i32 %call, 0
@@ -2577,7 +2577,7 @@ end:                                              ; preds = %lor.lhs.false34, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_extra_tickets(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_extra_tickets(i32 noundef %idx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -17187,7 +17187,7 @@ declare i32 @OCSP_RESPID_match_ex(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_test_session(i32 noundef range(i32 771, 773) %maxprot, i32 noundef range(i32 0, 2) %use_int_cache, i32 noundef range(i32 0, 2) %use_ext_cache, i64 noundef range(i64 0, 513) %s_options) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test_session(i32 noundef range(i32 771, 773) %maxprot, i32 noundef range(i32 0, 2) %use_int_cache, i32 noundef range(i32 0, 2) %use_ext_cache, i64 noundef range(i64 0, 513) %s_options) unnamed_addr #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8

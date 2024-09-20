@@ -33,7 +33,7 @@ if.end27:                                         ; preds = %do.body.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base13RandGeneratorEm(i64 noundef %range) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, -1) i64 @_ZN4base13RandGeneratorEm(i64 noundef %range) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.end:
   %0 = urem i64 -1, %range
   %sub = sub nuw i64 -2, %0

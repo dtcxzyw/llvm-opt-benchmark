@@ -25578,7 +25578,7 @@ define void @_ZN17cranelift_codegen8machinst3abi6SigSet7get_ret17hdabdea617995b9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i64 -4294967296, 4294967296) i64 @_ZN17cranelift_codegen8machinst3abi6SigSet8num_args17hb20be322eaa22e9aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef range(i64 -1, 4294967296) i64 @_ZN17cranelift_codegen8machinst3abi6SigSet8num_args17hb20be322eaa22e9aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6938)
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 72

@@ -16431,7 +16431,7 @@ cleanup:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL24push_json_value_getdepthRKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #4 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZL24push_json_value_getdepthRKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #4 {
 entry:
   %__begin1 = alloca %"class.Json::ValueConstIterator", align 8
   %__end1 = alloca %"class.Json::ValueConstIterator", align 8

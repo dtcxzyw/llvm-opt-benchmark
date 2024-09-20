@@ -397,7 +397,7 @@ cond.end:                                         ; preds = %for.body.i, %cumula
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dbIteratorGetCurrentSlot(ptr nocapture noundef readonly %dbit) local_unnamed_addr #0 {
+define dso_local range(i32 0, 16384) i32 @dbIteratorGetCurrentSlot(ptr nocapture noundef readonly %dbit) local_unnamed_addr #0 {
 entry:
   %slot = getelementptr inbounds i8, ptr %dbit, i64 8
   %0 = load i32, ptr %slot, align 8
@@ -4752,7 +4752,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @string2ull(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getObjectTypeByName(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i64 9223372036854775807, 7) i64 @getObjectTypeByName(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   br label %for.body
 

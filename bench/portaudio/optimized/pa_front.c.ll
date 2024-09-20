@@ -541,7 +541,7 @@ define noundef nonnull ptr @Pa_GetErrorText(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @initializationCount_, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1635,7 +1635,7 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pa_SetStreamFinishedCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 2, 1) i32 @Pa_SetStreamFinishedCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @initializationCount_, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %4

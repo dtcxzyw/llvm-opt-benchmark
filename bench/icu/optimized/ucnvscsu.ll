@@ -1897,7 +1897,7 @@ if.then163:                                       ; preds = %if.else160
   %conv168 = zext i8 %41 to i32
   %add169 = shl nuw nsw i32 %conv168, 16
   %shl170 = add nuw nsw i32 %add169, 1572864
-  %shl171 = shl i32 %call161, 8
+  %shl171 = shl nuw nsw i32 %call161, 8
   %sub173 = sub i32 %conv11, %42
   %or172 = or i32 %shl171, %shl170
   %or174 = or i32 %or172, %sub173
@@ -2116,7 +2116,7 @@ if.then262:                                       ; preds = %if.else259
   %conv267 = zext i8 %55 to i32
   %add268 = shl nuw nsw i32 %conv267, 16
   %shl269 = add nuw nsw i32 %add268, 15204352
-  %shl270 = shl i32 %call260, 8
+  %shl270 = shl nuw nsw i32 %call260, 8
   %sub272 = sub i32 %conv206, %56
   %or271 = or i32 %shl270, %shl269
   %or273 = or i32 %or271, %sub272
@@ -3117,7 +3117,7 @@ if.then186:                                       ; preds = %if.else183
   %conv191 = zext i8 %44 to i32
   %add192 = shl nuw nsw i32 %conv191, 16
   %shl193 = add nuw nsw i32 %add192, 1572864
-  %shl194 = shl i32 %call184, 8
+  %shl194 = shl nuw nsw i32 %call184, 8
   %sub196 = sub i32 %conv13, %45
   %or195 = or i32 %shl194, %shl193
   %or197 = or i32 %or195, %sub196
@@ -3344,7 +3344,7 @@ if.then291:                                       ; preds = %if.else288
   %conv296 = zext i8 %57 to i32
   %add297 = shl nuw nsw i32 %conv296, 16
   %shl298 = add nuw nsw i32 %add297, 15204352
-  %shl299 = shl i32 %call289, 8
+  %shl299 = shl nuw nsw i32 %call289, 8
   %sub301 = sub i32 %conv229, %58
   %or300 = or i32 %shl299, %shl298
   %or302 = or i32 %or300, %sub301
@@ -3968,7 +3968,7 @@ while.end:                                        ; preds = %while.body, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %c, ptr nocapture noundef nonnull writeonly %pOffset) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %c, ptr nocapture noundef nonnull writeonly %pOffset) unnamed_addr #8 {
 entry:
   br label %for.body
 

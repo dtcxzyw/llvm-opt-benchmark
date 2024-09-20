@@ -7070,7 +7070,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_erase_flash_bank_ich8lan(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1128
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %4, 1
@@ -7784,7 +7784,6 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   br i1 %104, label %107, label %.preheader, !llvm.loop !53
 
 .thread14:                                        ; preds = %63, %81, %78, %22, %82, %86, %91, %95, %26
-  %.ph13 = phi i32 [ %27, %26 ], [ -1, %95 ], [ -1, %91 ], [ -1, %86 ], [ -1, %82 ], [ -1, %22 ], [ -1, %78 ], [ -1, %81 ], [ -1, %63 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 1072
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef %0) #9
@@ -7801,7 +7800,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   br label %112
 
 112:                                              ; preds = %.thread14, %107, %7, %1
-  %113 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %107 ], [ %.ph13, %.thread14 ]
+  %113 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %107 ], [ -1, %.thread14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   ret i32 %113

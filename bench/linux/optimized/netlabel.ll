@@ -687,7 +687,7 @@ define dso_local void @selinux_netlbl_sctp_sk_clone(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @selinux_netlbl_socket_post_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = and i16 %1, -9

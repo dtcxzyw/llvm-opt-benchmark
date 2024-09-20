@@ -6225,7 +6225,7 @@ define internal void @t1_cmap_std_done(ptr nocapture noundef writeonly %0) #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @t1_cmap_std_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal range(i32 0, -1) i32 @t1_cmap_std_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
   %3 = icmp ult i32 %1, 256
   br i1 %3, label %4, label %.loopexit
 

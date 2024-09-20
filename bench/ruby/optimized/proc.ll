@@ -3899,7 +3899,7 @@ rb_proc_arity.exit:                               ; preds = %72, %74, %75
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @proc_ruby2_keywords(i64 noundef returned %0) #0 {
+define internal range(i64 1, -7) i64 @proc_ruby2_keywords(i64 noundef returned %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8

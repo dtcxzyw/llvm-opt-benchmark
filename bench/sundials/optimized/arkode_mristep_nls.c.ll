@@ -736,7 +736,7 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %3, align 8

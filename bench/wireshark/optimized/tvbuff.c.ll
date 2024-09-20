@@ -9030,7 +9030,7 @@ tvb_get_dect_standard_8bits_stringz.exit:         ; preds = %ensure_contiguous.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 

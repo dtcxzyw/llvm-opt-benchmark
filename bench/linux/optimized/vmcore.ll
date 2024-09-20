@@ -491,7 +491,7 @@ declare dso_local i32 @__srcu_read_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @__srcu_read_unlock(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @parse_crash_elf_headers() unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @parse_crash_elf_headers() unnamed_addr #5 section ".init.text" align 16 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #11
@@ -569,7 +569,7 @@ define internal fastcc i32 @parse_crash_elf_headers() unnamed_addr #5 section ".
 declare dso_local ptr @proc_create(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @parse_crash_elf64_headers() unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @parse_crash_elf64_headers() unnamed_addr #5 section ".init.text" align 16 {
   %1 = alloca %struct.elf64_hdr, align 8
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #11
@@ -698,7 +698,7 @@ define internal fastcc i32 @parse_crash_elf64_headers() unnamed_addr #5 section 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @parse_crash_elf32_headers() unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @parse_crash_elf32_headers() unnamed_addr #5 section ".init.text" align 16 {
   %1 = alloca %struct.elf32_hdr, align 4
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %1) #11
@@ -1004,7 +1004,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @update_note_header_size_elf64(ptr nocapture noundef %0) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @update_note_header_size_elf64(ptr nocapture noundef %0) unnamed_addr #5 section ".init.text" align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i16, ptr %3, align 8
@@ -1112,7 +1112,7 @@ define internal fastcc i32 @update_note_header_size_elf64(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @copy_notes_elf64(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @copy_notes_elf64(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #5 section ".init.text" align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i16, ptr %4, align 8
@@ -1361,7 +1361,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @update_note_header_size_elf32(ptr nocapture noundef %0) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @update_note_header_size_elf32(ptr nocapture noundef %0) unnamed_addr #5 section ".init.text" align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i16, ptr %3, align 4
@@ -1474,7 +1474,7 @@ define internal fastcc i32 @update_note_header_size_elf32(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @copy_notes_elf32(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @copy_notes_elf32(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #5 section ".init.text" align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i16, ptr %4, align 4

@@ -122,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.61 = private unnamed_addr constant [10 x i8] c"timestamp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @base_yylex() local_unnamed_addr #0 {
+define dso_local range(i32 -128, -2147483648) i32 @base_yylex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %50, label %1
 

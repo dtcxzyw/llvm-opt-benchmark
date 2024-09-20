@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc(ptr nocapture noundef readonly %name) local_unnamed_addr #6 {
+define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc(ptr nocapture noundef readonly %name) local_unnamed_addr #6 {
 entry:
   br label %for.body
 
@@ -388,7 +388,7 @@ return:                                           ; preds = %for.inc, %return.sp
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeENS_7ustringE(ptr nocapture noundef readonly %name) local_unnamed_addr #8 {
+define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeENS_7ustringE(ptr nocapture noundef readonly %name) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %name, align 8
   br label %for.body

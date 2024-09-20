@@ -3030,7 +3030,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare double @pow(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @Emb_ManComputeDistance_old(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 1, 0) i32 @Emb_ManComputeDistance_old(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
 .lr.ph115:
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %3 = getelementptr i8, ptr %2, i64 4

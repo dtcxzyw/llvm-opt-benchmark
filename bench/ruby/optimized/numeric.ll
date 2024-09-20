@@ -737,7 +737,7 @@ do_coerce.exit.thread:                            ; preds = %3, %3, %35
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_num_coerce_relop(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i64 5, 4) i64 @rb_num_coerce_relop(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = load i64, ptr @id_coerce, align 8
@@ -5370,7 +5370,7 @@ define dso_local void @rb_out_of_int(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_num2int(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @rb_num2int(i64 noundef %0) local_unnamed_addr #2 {
   %2 = tail call i64 @rb_num2long(i64 noundef %0)
   %3 = add i64 %2, 2147483648
   %.not.i = icmp ult i64 %3, 4294967296
@@ -5385,7 +5385,7 @@ check_int.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_fix2int(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @rb_fix2int(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %5, label %3
@@ -5413,7 +5413,7 @@ check_int.exit:                                   ; preds = %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_num2uint(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 4294967296) i64 @rb_num2uint(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = call fastcc i64 @rb_num2ulong_internal(i64 noundef %0, ptr noundef nonnull %2)
   %4 = load i32, ptr %2, align 4
@@ -5443,7 +5443,7 @@ check_uint.exit:                                  ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_fix2uint(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 4294967296) i64 @rb_fix2uint(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = and i64 %0, 1
   %.not = icmp eq i64 %3, 0
@@ -5648,7 +5648,7 @@ check_ushort.exit:                                ; preds = %21, %17, %rb_num2us
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_num2fix(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 1, 0) i64 @rb_num2fix(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %3, label %11
@@ -8329,7 +8329,7 @@ define hidden i64 @rb_int_comp(i64 noundef %0) local_unnamed_addr #2 {
 declare i64 @rb_big_comp(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_num_coerce_bit(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i64 37, 36) i64 @rb_num_coerce_bit(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [3 x i64], align 16
   store i64 %2, ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -10058,7 +10058,7 @@ RB_FLOAT_TYPE_P.exit.thread61:                    ; preds = %53, %RB_FLOAT_TYPE_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @num_positive_p(i64 noundef %0) #2 {
+define internal range(i64 37, 36) i64 @num_positive_p(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
   %3 = and i64 %0, 1
   %.not27 = icmp eq i64 %3, 0
@@ -16186,7 +16186,7 @@ declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @int_dotimes_size(i64 noundef %0, i64 %1, i64 %2) #2 {
+define internal range(i64 1, 0) i64 @int_dotimes_size(i64 noundef %0, i64 %1, i64 %2) #2 {
   %4 = and i64 %0, 1
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %7, label %5

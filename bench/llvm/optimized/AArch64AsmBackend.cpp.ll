@@ -530,7 +530,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117AArch64AsmBackend16getNumFixupK
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12getFixupKindEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
+define internal range(i64 0, 8589934592) i64 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12getFixupKindEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3
@@ -3180,7 +3180,7 @@ declare noundef zeroext i1 @_ZNK4llvm12MCAsmBackend28isDarwinCanonicalPersonalit
 declare noundef zeroext i1 @_ZNK4llvm9MCContext29emitCompactUnwindNonCanonicalEv(ptr noundef nonnull align 8 dereferenceable(2432)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc noundef range(i32 237, 206) i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #2 {
   switch i32 %0, label %34 [
     i32 206, label %35
     i32 207, label %2

@@ -1387,7 +1387,7 @@ declare noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull
 declare noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef i32 @_ZN14CompilerOracle17parse_option_nameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 41) i32 @_ZN14CompilerOracle17parse_option_nameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -1416,7 +1416,7 @@ define hidden noundef i32 @_ZN14CompilerOracle17parse_option_nameEPKc(ptr nocapt
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef i32 @_ZN14CompilerOracle17parse_option_typeEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, 7) i32 @_ZN14CompilerOracle17parse_option_typeEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7

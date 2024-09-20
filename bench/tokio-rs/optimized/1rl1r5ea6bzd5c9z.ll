@@ -6821,7 +6821,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time5entry11TimerShared11cached_whe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5tokio7runtime4time5entry11TimerShared9sync_when17h5d50bebf5488a98eE.llvm.5542961546488995764(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -1) i64 @_ZN5tokio7runtime4time5entry11TimerShared9sync_when17h5d50bebf5488a98eE.llvm.5542961546488995764(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.not.i = icmp eq i64 %3, -1
@@ -6845,7 +6845,7 @@ define hidden void @_ZN5tokio7runtime4time5entry11TimerShared15set_cached_when17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5tokio7runtime4time5entry11TimerShared9true_when17hc07fcc61f0cc1661E.llvm.5542961546488995764(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -1) i64 @_ZN5tokio7runtime4time5entry11TimerShared9true_when17hc07fcc61f0cc1661E.llvm.5542961546488995764(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.not = icmp eq i64 %3, -1
@@ -7236,7 +7236,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time5entry11TimerHandle11cached_whe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5tokio7runtime4time5entry11TimerHandle9sync_when17h0571d1d2a675f99eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, -1) i64 @_ZN5tokio7runtime4time5entry11TimerHandle9sync_when17h0571d1d2a675f99eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load atomic i64, ptr %3 monotonic, align 8
@@ -7720,7 +7720,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define hidden noundef i64 @_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764(i64 noundef %0) unnamed_addr #17 {
+define hidden noundef range(i64 0, -63) i64 @_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764(i64 noundef %0) unnamed_addr #17 {
   %2 = trunc i64 %0 to i32
   switch i32 %2, label %.lr.ph.i.i [
     i32 0, label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit

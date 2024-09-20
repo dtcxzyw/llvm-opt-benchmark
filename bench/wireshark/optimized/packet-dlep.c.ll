@@ -740,7 +740,7 @@ define internal noundef i32 @decode_dataitem_heartbeat(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_dataitem_extsupp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -2147483646, -2147483648) i32 @decode_dataitem_extsupp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5

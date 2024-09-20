@@ -699,7 +699,7 @@ declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_addr #9 {
+define range(i32 -2147483648, 2147483647) i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @select_context_cnt, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

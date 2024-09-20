@@ -857,7 +857,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -80, 4294967296) i64 @ZSTD_readSkippableFrame(ptr noundef writeonly %dst, i64 noundef %dstCapacity, ptr noundef writeonly %magicVariant, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define range(i64 -80, 4294967288) i64 @ZSTD_readSkippableFrame(ptr noundef writeonly %dst, i64 noundef %dstCapacity, ptr noundef writeonly %magicVariant, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ult i64 %srcSize, 8
   br i1 %cmp, label %return, label %do.end8.i
@@ -2101,7 +2101,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #0 {
+define range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %trace.i = alloca %struct.ZSTD_Trace, align 8
   %bp = alloca %struct.blockProperties_t, align 4
@@ -4288,7 +4288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define range(i64 -119, 2147972921) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %zfh = alloca %struct.ZSTD_frameHeader, align 8
   %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)

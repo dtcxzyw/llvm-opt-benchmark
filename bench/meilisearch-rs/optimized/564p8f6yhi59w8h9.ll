@@ -3587,7 +3587,7 @@ define noundef zeroext i1 @"_ZN183_$LT$meilisearch_types..error.._..$LT$impl$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @_ZN17meilisearch_types5error4Code4http17h6a5d9de730835a9aE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #18 {
+define noundef range(i16 400, 504) i16 @_ZN17meilisearch_types5error4Code4http17h6a5d9de730835a9aE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !717, !noundef !4
   %switch.tableidx = xor i8 %1, -128

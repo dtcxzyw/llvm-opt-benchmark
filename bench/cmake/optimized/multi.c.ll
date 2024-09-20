@@ -6847,7 +6847,7 @@ declare ptr @Curl_hash_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 declare i32 @Curl_hash_delete(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @trhash(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) #4 {
+define internal range(i64 0, -1) i64 @trhash(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = urem i64 %5, %2

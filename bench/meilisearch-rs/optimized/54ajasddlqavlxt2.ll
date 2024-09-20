@@ -3784,7 +3784,7 @@ define noundef range(i8 0, 35) i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 0, 35) i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$4last17h9a346fa1ed4af163E"() unnamed_addr #9 {
+define noundef range(i8 0, 34) i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$4last17h9a346fa1ed4af163E"() unnamed_addr #9 {
 _ZN17meilisearch_types4keys1_16previous_variant17h62db00f10dfdab93E.exit:
   ret i8 33
 }

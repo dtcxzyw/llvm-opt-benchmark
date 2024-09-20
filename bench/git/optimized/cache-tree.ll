@@ -2042,7 +2042,7 @@ while.end:                                        ; preds = %if.end29, %entry
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @cache_tree_matches_traversal(ptr noundef readonly %root, ptr nocapture noundef readonly %ent, ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
+define dso_local range(i32 0, -2147483648) i32 @cache_tree_matches_traversal(ptr noundef readonly %root, ptr nocapture noundef readonly %ent, ptr nocapture noundef readonly %info) local_unnamed_addr #7 {
 entry:
   %call = tail call fastcc ptr @find_cache_tree_from_traversal(ptr noundef %root, ptr noundef %info)
   %path = getelementptr inbounds i8, ptr %ent, i64 40

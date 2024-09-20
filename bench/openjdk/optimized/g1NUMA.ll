@@ -307,7 +307,7 @@ define hidden noundef i32 @_ZNK6G1NUMA23index_of_current_threadEv(ptr nocapture 
 declare noundef i32 @_ZN2os17numa_get_group_idEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK6G1NUMA30preferred_node_index_for_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK6G1NUMA30preferred_node_index_for_indexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -367,7 +367,7 @@ define hidden noundef i32 @_ZNK6G1NUMA16index_of_addressEPP12HeapWordImpl(ptr no
 declare noundef i32 @_ZN2os29numa_get_group_id_for_addressEPKv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK6G1NUMA16index_for_regionEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK6G1NUMA16index_for_regionEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1

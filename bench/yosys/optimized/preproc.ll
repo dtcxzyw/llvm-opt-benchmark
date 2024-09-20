@@ -5735,7 +5735,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZN5YosysL9next_charEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 14, 13) i8 @_ZN5YosysL9next_charEv() unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8
   %2 = icmp eq ptr %1, @_ZN5YosysL12input_bufferB5cxx11E
   br i1 %2, label %._crit_edge, label %.lr.ph

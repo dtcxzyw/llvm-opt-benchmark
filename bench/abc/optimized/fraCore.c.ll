@@ -119,7 +119,7 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fra_FraigMiterAssertedOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Fra_FraigMiterAssertedOutput(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 140
   %.val = load i32, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 104

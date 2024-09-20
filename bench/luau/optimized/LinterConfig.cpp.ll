@@ -1199,7 +1199,7 @@ define dso_local noundef ptr @_ZN4Luau11LintWarning7getNameENS0_4CodeE(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7

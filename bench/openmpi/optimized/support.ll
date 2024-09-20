@@ -476,7 +476,7 @@ define dso_local void @pmix_info_finalize() local_unnamed_addr #2 {
 declare i32 @pmix_mca_base_close() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pmix_info_register_project_frameworks(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -64, 1) i32 @pmix_info_register_project_frameworks(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8
   %.not23 = icmp eq ptr %3, null
   br i1 %.not23, label %.loopexit, label %.lr.ph

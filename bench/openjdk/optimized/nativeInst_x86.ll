@@ -278,7 +278,7 @@ define hidden void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %5 [
     i8 -59, label %55
@@ -396,7 +396,7 @@ define hidden noundef i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 2, 0) i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 2, 15) i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %3 [
     i8 -59, label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
@@ -896,7 +896,7 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
   %57 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %60 = sext i32 %59 to i64
+  %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, i64 noundef %58, i32 noundef %62) #7
@@ -1156,7 +1156,7 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
   %57 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %60 = sext i32 %59 to i64
+  %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.18, i64 noundef %58, i32 noundef %62) #7

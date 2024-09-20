@@ -3606,7 +3606,7 @@ define ptr @freadFile(ptr nocapture noundef readonly %0, i64 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @openFile(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 11, 10) i32 @openFile(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br label %5
 

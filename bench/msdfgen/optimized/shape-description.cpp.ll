@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [13 x i8] c"%.12g, %.12g\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 33, 32) i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr nocapture noundef %input) local_unnamed_addr #0 {
+define dso_local noundef range(i32 11, 9) i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr nocapture noundef %input) local_unnamed_addr #0 {
 entry:
   br label %do.body
 

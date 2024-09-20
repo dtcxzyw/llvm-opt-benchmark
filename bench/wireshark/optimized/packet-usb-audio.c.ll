@@ -1901,7 +1901,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ac_if_hdr_body(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 2147483646) i32 @dissect_ac_if_hdr_body(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3) #8
   %5 = lshr i16 %4, 8
   %6 = lshr i16 %4, 12
@@ -2089,7 +2089,7 @@ define internal fastcc range(i32 0, 10) i32 @dissect_ac_if_output_terminal(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ac_if_mixed_unit(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 4, 3) i32 @dissect_ac_if_mixed_unit(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_ac_if_mu_unitid, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #8
   %5 = load i32, ptr @hf_ac_if_mu_nrinpins, align 4
@@ -2486,7 +2486,7 @@ set_entity_type.exit:                             ; preds = %18, %13, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ac_if_clock_selector(ptr noundef %0, i16 %.80.val.50.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, -1) i32 @dissect_ac_if_clock_selector(ptr noundef %0, i16 %.80.val.50.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = and i16 %.80.val.50.val, 8
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %set_entity_type.exit
@@ -2815,7 +2815,7 @@ define internal fastcc void @dissect_ms_if_midi_in_body(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ms_if_midi_out_body(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, -2) i32 @dissect_ms_if_midi_out_body(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_ms_if_midi_out_bjacktype, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #8
   %5 = load i32, ptr @hf_ms_if_midi_out_bjackid, align 4
@@ -2848,7 +2848,7 @@ define internal fastcc noundef i32 @dissect_ms_if_midi_out_body(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ms_ep_general_body(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 2147483646) i32 @dissect_ms_ep_general_body(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_ms_ep_gen_numjacks, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #8

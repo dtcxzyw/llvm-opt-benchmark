@@ -1981,7 +1981,7 @@ define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @png_get_text(ptr noalias noundef readnone %0, ptr noalias noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone %0, ptr noalias noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6

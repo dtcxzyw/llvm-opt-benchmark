@@ -458,7 +458,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_sqlite3_authorizer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
+define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [5 x %struct._zval_struct], align 16
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8

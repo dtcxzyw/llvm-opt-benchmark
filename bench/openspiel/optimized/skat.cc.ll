@@ -3135,7 +3135,7 @@ define noundef zeroext i1 @_ZNK10open_spiel4skat9SkatState7IsTrumpEi(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -268435442, 268435470) i32 @_ZNK10open_spiel4skat9SkatState9CardOrderEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -7, 268435470) i32 @_ZNK10open_spiel4skat9SkatState9CardOrderEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 6
@@ -3222,7 +3222,7 @@ _ZNK10open_spiel4skat9SkatState9NullOrderENS0_4RankE.exit: ; preds = %.thread, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -268435449, 268435463) i32 @_ZNK10open_spiel4skat9SkatState10TrumpOrderEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -7, 268435463) i32 @_ZNK10open_spiel4skat9SkatState10TrumpOrderEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 6

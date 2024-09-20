@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.fdt_reserve_entry = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_add_mem_rsv(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @fdt_add_mem_rsv(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %fdt_rw_probe_.exit.thread, label %6
@@ -242,7 +242,7 @@ fdt_splice_.exit.thread:                          ; preds = %56, %49, %4, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_del_mem_rsv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @fdt_del_mem_rsv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -944,7 +944,7 @@ define i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_appendprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9

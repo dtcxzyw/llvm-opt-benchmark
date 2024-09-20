@@ -1253,7 +1253,7 @@ if.end:                                           ; preds = %invoke.cont10, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %externalIndex) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, -1) i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %externalIndex) local_unnamed_addr #7 align 2 {
 entry:
   %head_ = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %head_, align 4
@@ -1925,7 +1925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8proxygen11HeaderTable10toInternalEjjj(i32 noundef %head, i32 noundef %length, i32 noundef %externalIndex) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, -1) i32 @_ZN8proxygen11HeaderTable10toInternalEjjj(i32 noundef %head, i32 noundef %length, i32 noundef %externalIndex) local_unnamed_addr #3 align 2 {
 entry:
   %dec.neg = add i32 %head, 1
   %add = add i32 %dec.neg, %length

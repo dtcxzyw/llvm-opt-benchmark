@@ -12392,7 +12392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN5arrow8internal19GetOptionalThreadIdEv() local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 0) i64 @_ZN5arrow8internal19GetOptionalThreadIdEv() local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @pthread_self() #38
   %cmp = icmp eq i64 %call.i.i, 0

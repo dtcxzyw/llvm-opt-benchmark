@@ -1029,7 +1029,7 @@ define dso_local void @_Z15V3PreLexourtextPKcm(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z11V3PreLexlexv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 401) i32 @_Z11V3PreLexlexv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.6", align 1
@@ -13781,7 +13781,7 @@ define dso_local void @_ZN8V3PreLex10setYYDebugEb(i1 noundef zeroext %0) local_u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN8V3PreLex3lexEv(ptr noundef nonnull align 8 dereferenceable(264) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 401) i32 @_ZN8V3PreLex3lexEv(ptr noundef nonnull align 8 dereferenceable(264) %0) local_unnamed_addr #5 align 2 {
   store ptr %0, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noalias !598
@@ -21961,7 +21961,7 @@ _ZN11VSpellCheck13pushCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12V3PreProcImp11getRawTokenEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 401) i32 @_ZN12V3PreProcImp11getRawTokenEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22166,7 +22166,7 @@ _ZN8V3PreLex3lexEv.exit:                          ; preds = %_ZN8V3PreLex12curFi
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %107, i64 104
   store ptr %122, ptr %123, align 8
-  %124 = call noundef i32 @_Z11V3PreLexlexv()
+  %124 = call noundef range(i32 0, 401) i32 @_Z11V3PreLexlexv()
   %125 = call noundef i32 @_ZN9V3PreProc5debugEv()
   %126 = icmp sgt i32 %125, 4
   br i1 %126, label %127, label %128
@@ -22749,7 +22749,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @_ZNK8FileLine12asciiLineColB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12V3PreProcImp13getStateTokenEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 401) i32 @_ZN12V3PreProcImp13getStateTokenEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -23461,7 +23461,7 @@ _ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_7
 
 .thread:                                          ; preds = %243, %418
   %.1 = phi i32 [ %.2, %418 ], [ %244, %243 ]
-  %.1.off = add i32 %.1, -312
+  %.1.off = add nsw i32 %.1, -312
   %switch = icmp ult i32 %.1.off, 3
   br i1 %switch, label %420, label %.thread..thread.thread_crit_edge
 

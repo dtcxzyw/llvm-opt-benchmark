@@ -2277,7 +2277,7 @@ define noundef i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef12from_raw_u3217h1a2f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef15from_heap_index17h5646dc3f8468fde0E(i32 noundef %0) unnamed_addr #13 {
+define noundef range(i32 0, -1) i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef15from_heap_index17h5646dc3f8468fde0E(i32 noundef %0) unnamed_addr #13 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = and i32 %0, 1
@@ -2307,7 +2307,7 @@ define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef14unc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef13as_heap_index17h0291006176feeaf0E(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #11 {
+define noundef range(i32 0, -1) i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef13as_heap_index17h0291006176feeaf0E(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #11 {
   %2 = load i32, ptr %0, align 4, !range !81, !noundef !14
   %3 = and i32 %2, 1
   %4 = icmp eq i32 %3, 0

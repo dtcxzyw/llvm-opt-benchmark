@@ -4102,7 +4102,7 @@ if.end:                                           ; preds = %if.then, %arrayctor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE(i64 noundef %capacity, i64 noundef %estimated_value_size, i32 noundef %metadata_charge_policy) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2147483647) i32 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE(i64 noundef %capacity, i64 noundef %estimated_value_size, i32 noundef %metadata_charge_policy) local_unnamed_addr #9 align 2 {
 entry:
   %conv = uitofp i64 %estimated_value_size to double
   %mul = fmul double %conv, 0x3FE6666666666666

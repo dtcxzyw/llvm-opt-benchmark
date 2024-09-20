@@ -1454,7 +1454,7 @@ _ZN7testing7MessageD2Ev.exit12:                   ; preds = %53, %50, %46, %43, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7testing8internal6Random8GenerateEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -1) i32 @_ZN7testing8internal6Random8GenerateEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.testing::internal::GTestLog", align 4
   %4 = alloca %"class.testing::internal::GTestLog", align 4
   %5 = load i32, ptr %0, align 4

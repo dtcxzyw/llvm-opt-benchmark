@@ -942,7 +942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_CCtx_setParameter(ptr nocapture noundef %cctx, i32 noundef %param, i32 noundef %value) local_unnamed_addr #6 {
+define range(i64 -60, 2147483648) i64 @ZSTD_CCtx_setParameter(ptr nocapture noundef %cctx, i32 noundef %param, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
@@ -1028,7 +1028,7 @@ return:                                           ; preds = %if.then, %if.end12,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i64 @ZSTD_CCtxParams_setParameter(ptr nocapture noundef writeonly %CCtxParams, i32 noundef %param, i32 noundef %value) local_unnamed_addr #5 {
+define range(i64 -42, 2147483648) i64 @ZSTD_CCtxParams_setParameter(ptr nocapture noundef writeonly %CCtxParams, i32 noundef %param, i32 noundef %value) local_unnamed_addr #5 {
 entry:
   switch i32 %param, label %sw.epilog [
     i32 10, label %do.body2
@@ -1761,7 +1761,7 @@ return:                                           ; preds = %do.body11, %entry, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -60, 4294967296) i64 @ZSTD_CCtx_setCParams(ptr nocapture noundef %cctx, ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cparams) local_unnamed_addr #6 {
+define range(i64 -60, 10) i64 @ZSTD_CCtx_setCParams(ptr nocapture noundef %cctx, ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cparams) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %cparams, align 8
   %1 = add i32 %0, -32
@@ -4459,7 +4459,7 @@ return:                                           ; preds = %ZSTD_buildBlockEntr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @ZSTD_writeSkippableFrame(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize, i32 noundef %magicVariant) local_unnamed_addr #6 {
+define range(i64 -72, 4294967304) i64 @ZSTD_writeSkippableFrame(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize, i32 noundef %magicVariant) local_unnamed_addr #6 {
 entry:
   %add = add i64 %srcSize, 8
   %cmp = icmp ult i64 %dstCapacity, %add
@@ -5772,7 +5772,7 @@ declare i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_advanced_internal(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_advanced_internal(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
   %cParams = getelementptr inbounds i8, ptr %params, i64 4
   %byval-temp.sroa.0.0.copyload = load i32, ptr %cParams, align 4
@@ -5821,7 +5821,7 @@ return:                                           ; preds = %do.body60.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBegin_internal(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i32 noundef range(i32 0, 2) %zbuff) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_compressBegin_internal(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i32 noundef range(i32 0, 2) %zbuff) unnamed_addr #1 {
 entry:
   %params13.i = alloca %struct.ZSTD_CCtx_params_s, align 8
   %params9.i = alloca %struct.ZSTD_CCtx_params_s, align 8
@@ -6049,7 +6049,6 @@ if.end61.i.i:                                     ; preds = %if.end54.i.i, %do.e
   br label %ZSTD_resetCCtx_byAttachingCDict.exit.i
 
 ZSTD_resetCCtx_byAttachingCDict.exit.i:           ; preds = %if.end61.i.i, %ZSTD_adjustCParams_internal.exit.i.i
-  %retval.0.i.i = phi i64 [ 0, %if.end61.i.i ], [ %call.i.i, %ZSTD_adjustCParams_internal.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %params9.i)
   br label %return
 
@@ -6219,9 +6218,9 @@ if.end37.i.i:                                     ; preds = %for.body.i48.i.i, %
   %57 = icmp ult i32 %56, -3
   %cmp.i58.i.i = icmp ne i32 %55, 1
   %.not65.i.i = or i1 %57, %cmp.i58.i.i
-  br i1 %.not65.i.i, label %if.end51.i.i, label %if.then42.i21.i
+  br i1 %.not65.i.i, label %if.end51.i.i, label %if.then42.i20.i
 
-if.then42.i21.i:                                  ; preds = %if.end37.i.i
+if.then42.i20.i:                                  ; preds = %if.end37.i.i
   %tagTable.i.i = getelementptr inbounds i8, ptr %cctx, i64 3272
   %58 = load ptr, ptr %tagTable.i.i, align 8
   %tagTable46.i.i = getelementptr inbounds i8, ptr %cdict, i64 160
@@ -6233,7 +6232,7 @@ if.then42.i21.i:                                  ; preds = %if.end37.i.i
   store i64 %60, ptr %hashSalt50.i.i, align 8
   br label %if.end51.i.i
 
-if.end51.i.i:                                     ; preds = %if.then42.i21.i, %if.end37.i.i
+if.end51.i.i:                                     ; preds = %if.then42.i20.i, %if.end37.i.i
   %hashLog3.i.i = getelementptr inbounds i8, ptr %cctx, i64 3264
   %61 = load i32, ptr %hashLog3.i.i, align 8
   %tobool54.not.i.i = icmp eq i32 %61, 0
@@ -6259,24 +6258,24 @@ ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %if.then.i.i.i, %if.
   %66 = load i32, ptr %nextToUpdate.i.i, align 4
   %nextToUpdate68.i.i = getelementptr inbounds i8, ptr %cctx, i64 3260
   store i32 %66, ptr %nextToUpdate68.i.i, align 4
-  %loadedDictEnd.i22.i = getelementptr inbounds i8, ptr %cdict, i64 144
-  %67 = load i32, ptr %loadedDictEnd.i22.i, align 8
+  %loadedDictEnd.i21.i = getelementptr inbounds i8, ptr %cdict, i64 144
+  %67 = load i32, ptr %loadedDictEnd.i21.i, align 8
   %loadedDictEnd69.i.i = getelementptr inbounds i8, ptr %cctx, i64 3256
   store i32 %67, ptr %loadedDictEnd69.i.i, align 8
-  %dictID.i23.i = getelementptr inbounds i8, ptr %cdict, i64 6064
-  %68 = load i32, ptr %dictID.i23.i, align 8
+  %dictID.i22.i = getelementptr inbounds i8, ptr %cdict, i64 6064
+  %68 = load i32, ptr %dictID.i22.i, align 8
   %dictID70.i.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %68, ptr %dictID70.i.i, align 8
   %69 = load i64, ptr %dictContentSize7, align 8
   %dictContentSize71.i.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %69, ptr %dictContentSize71.i.i, align 8
   %70 = load ptr, ptr %blockState81.i.i, align 8
-  %cBlockState.i25.i = getelementptr inbounds i8, ptr %cdict, i64 408
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %70, ptr noundef nonnull readonly align 8 dereferenceable(5632) %cBlockState.i25.i, i64 5632, i1 false)
+  %cBlockState.i24.i = getelementptr inbounds i8, ptr %cdict, i64 408
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %70, ptr noundef nonnull readonly align 8 dereferenceable(5632) %cBlockState.i24.i, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
 ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tables_clean.exit.i.i, %if.else.i
-  %retval.0.i19.i = phi i64 [ 0, %ZSTD_cwksp_mark_tables_clean.exit.i.i ], [ %call.i17.i, %if.else.i ]
+  %retval.0.i.i = phi i64 [ 0, %ZSTD_cwksp_mark_tables_clean.exit.i.i ], [ %call.i17.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %params13.i)
   br label %return
 
@@ -6333,12 +6332,12 @@ do.end66:                                         ; preds = %cond.end50
   br label %return
 
 return:                                           ; preds = %do.body19.thread, %ZSTD_resetCCtx_byCopyingCDict.exit.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i, %cond.end50, %do.body19, %do.end66
-  %retval.0 = phi i64 [ 0, %do.end66 ], [ %call20, %do.body19 ], [ %cond51, %cond.end50 ], [ %retval.0.i.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %retval.0.i19.i, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %call2043, %do.body19.thread ]
+  %retval.0 = phi i64 [ 0, %do.end66 ], [ %call20, %do.body19 ], [ %cond51, %cond.end50 ], [ %call.i.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %retval.0.i.i, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %call2043, %do.body19.thread ]
   ret i64 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_advanced(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_advanced(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
   %cctxParams = alloca %struct.ZSTD_CCtx_params_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
@@ -6512,14 +6511,14 @@ ZSTD_compressBegin_advanced_internal.exit:        ; preds = %do.end66.i, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_usingDict(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %compressionLevel) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_usingDict(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %compressionLevel) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBegin_usingDict_deprecated(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %compressionLevel)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBegin_usingDict_deprecated(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %compressionLevel) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_compressBegin_usingDict_deprecated(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %compressionLevel) unnamed_addr #1 {
 entry:
   %cctxParams = alloca %struct.ZSTD_CCtx_params_s, align 8
   %cmp6.i.i = icmp eq i64 %dictSize, 0
@@ -6723,7 +6722,7 @@ ZSTD_compressBegin_internal.exit:                 ; preds = %cond.end.i.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin(ptr noundef %cctx, i32 noundef %compressionLevel) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin(ptr noundef %cctx, i32 noundef %compressionLevel) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBegin_usingDict_deprecated(ptr noundef %cctx, ptr noundef null, i64 noundef 0, i32 noundef %compressionLevel)
   ret i64 %call
@@ -7929,7 +7928,7 @@ return:                                           ; preds = %ZSTD_createCDict_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_initCDict_internal(ptr noundef %cdict, ptr noundef %dictBuffer, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_initCDict_internal(ptr noundef %cdict, ptr noundef %dictBuffer, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params) unnamed_addr #1 {
 entry:
   %matchState = getelementptr inbounds i8, ptr %cdict, i64 104
   %cParams = getelementptr inbounds i8, ptr %cdict, i64 360
@@ -8309,14 +8308,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_usingCDict_advanced(ptr noundef %cctx, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_usingCDict_advanced(ptr noundef %cctx, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBegin_usingCDict_internal(ptr noundef %cctx, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBegin_usingCDict_internal(ptr noundef %cctx, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_compressBegin_usingCDict_internal(ptr noundef %cctx, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) unnamed_addr #1 {
 entry:
   %cctxParams = alloca %struct.ZSTD_CCtx_params_s, align 8
   %params.sroa.6 = alloca { i32, i32, i32, i32, i32 }, align 8
@@ -8453,7 +8452,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_usingCDict_deprecated(ptr noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_usingCDict_deprecated(ptr noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
 entry:
   %cctxParams.i = alloca %struct.ZSTD_CCtx_params_s, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %cctxParams.i)
@@ -8530,7 +8529,7 @@ ZSTD_compressBegin_usingCDict_internal.exit:      ; preds = %entry, %ZSTD_CCtxPa
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBegin_usingCDict(ptr noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
+define range(i64 -119, 1) i64 @ZSTD_compressBegin_usingCDict(ptr noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
 entry:
   %cctxParams.i.i = alloca %struct.ZSTD_CCtx_params_s, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %cctxParams.i.i)
@@ -9654,7 +9653,7 @@ return:                                           ; preds = %if.then17.i, %lor.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_CCtx_init_compressStream2(ptr noundef %cctx, i32 noundef range(i32 0, 3) %endOp, i64 noundef %inSize) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_CCtx_init_compressStream2(ptr noundef %cctx, i32 noundef range(i32 0, 3) %endOp, i64 noundef %inSize) unnamed_addr #1 {
 entry:
   %params = alloca %struct.ZSTD_CCtx_params_s, align 8
   %tmp = alloca %struct.ZSTD_compressionParameters, align 4
@@ -11753,7 +11752,7 @@ return:                                           ; preds = %ZSTD_compressSequen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i64 @ZSTD_writeFrameHeader(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i32 noundef %dictID) unnamed_addr #6 {
+define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i32 noundef %dictID) unnamed_addr #6 {
 entry:
   %cmp = icmp ne i32 %dictID, 0
   %conv = zext i1 %cmp to i32
@@ -12055,7 +12054,7 @@ declare i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef byval(%struct.ldmParams_t) align 8
 declare void @ZSTD_ldm_adjustParameters(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef %zc, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i64 noundef %loadedDictSize, i32 noundef range(i32 0, 2) %crp, i32 noundef %zbuff) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_resetCCtx_internal(ptr noundef %zc, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i64 noundef %loadedDictSize, i32 noundef range(i32 0, 2) %crp, i32 noundef %zbuff) unnamed_addr #1 {
 entry:
   %workspace = getelementptr inbounds i8, ptr %zc, i64 680
   %isFirstBlock = getelementptr inbounds i8, ptr %zc, i64 944
@@ -14748,7 +14747,7 @@ if.end10:                                         ; preds = %ZSTD_cwksp_mark_tab
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_buildSeqStore(ptr noundef %zc, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 2) i64 @ZSTD_buildSeqStore(ptr noundef %zc, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #1 {
 entry:
   %ldmSeqStore = alloca %struct.rawSeqStore_t, align 8
   %seqPos = alloca %struct.ZSTD_sequencePosition, align 8
@@ -16495,7 +16494,7 @@ declare i64 @ZSTD_encodeSequences(ptr noundef, i64 noundef, ptr noundef, ptr nou
 declare extern_weak i64 @ZSTD_trace_compress_begin(ptr noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %bs, ptr noundef %ms, ptr noundef %ls, ptr nocapture noundef %ws, ptr noundef %params, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, i32 noundef range(i32 0, 2) %tfp, ptr noundef %workspace) unnamed_addr #1 {
+define internal fastcc range(i64 -119, 4294967296) i64 @ZSTD_compress_insertDictionary(ptr noundef %bs, ptr noundef %ms, ptr noundef %ls, ptr nocapture noundef %ws, ptr noundef %params, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, i32 noundef range(i32 0, 2) %tfp, ptr noundef %workspace) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dict, null
   %cmp1 = icmp ult i64 %dictSize, 8

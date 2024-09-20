@@ -2753,7 +2753,7 @@ for.end:                                          ; preds = %for.body, %_ZNK6icu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this, i1 noundef zeroext %includeTrailingZeros) local_unnamed_addr #15 align 2 {
+define noundef range(i64 -128, -8446744073709551488) i64 @_ZNK6icu_756number4impl15DecimalQuantity14toFractionLongEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this, i1 noundef zeroext %includeTrailingZeros) local_unnamed_addr #15 align 2 {
 entry:
   %exponent = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %exponent, align 4

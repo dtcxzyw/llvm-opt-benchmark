@@ -1029,7 +1029,7 @@ _ZN12_GLOBAL__N_17SVEType13applyModifierEc.exit:  ; preds = %43, %44, %46, %47, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @_Z16getProtoModifierN4llvm9StringRefEj(ptr nocapture readonly %0, i64 %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i64 4294967296, 34359738368) i64 @_Z16getProtoModifierN4llvm9StringRefEj(ptr nocapture readonly %0, i64 %1, i32 noundef %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %21, %3

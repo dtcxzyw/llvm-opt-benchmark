@@ -158,7 +158,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483633, 2147483609) i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %0) local_unnamed_addr #3 {
+define noundef range(i32 -12, 15) i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %0) local_unnamed_addr #3 {
   %2 = and i32 %0, -2
   %or.cond = icmp eq i32 %2, 52
   br i1 %or.cond, label %3, label %5

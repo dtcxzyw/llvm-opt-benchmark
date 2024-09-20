@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef %bits_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef %bits_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
@@ -74,7 +74,7 @@ _ZN3net13QuicBandwidthC2El.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3net13QuicBandwidth18FromKBitsPerSecondEl(i64 noundef %k_bits_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZN3net13QuicBandwidth18FromKBitsPerSecondEl(i64 noundef %k_bits_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %mul = mul nsw i64 %k_bits_per_second, 1000
@@ -113,7 +113,7 @@ _ZN3net13QuicBandwidthC2El.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775801) i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef %bytes_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 9223372036854775801) i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef %bytes_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %mul = shl nsw i64 %bytes_per_second, 3
@@ -152,7 +152,7 @@ _ZN3net13QuicBandwidthC2El.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3net13QuicBandwidth19FromKBytesPerSecondEl(i64 noundef %k_bytes_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZN3net13QuicBandwidth19FromKBytesPerSecondEl(i64 noundef %k_bytes_per_second) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %mul = mul nsw i64 %k_bytes_per_second, 8000
@@ -191,7 +191,7 @@ _ZN3net13QuicBandwidthC2El.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775801) i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %bytes, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 9223372036854775801) i64 @_ZN3net13QuicBandwidth21FromBytesAndTimeDeltaEmNS_8QuicTime5DeltaE(i64 noundef %bytes, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %mul = mul i64 %bytes, 1000000

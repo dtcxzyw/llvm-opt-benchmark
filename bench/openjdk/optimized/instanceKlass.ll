@@ -8291,7 +8291,7 @@ define internal noundef i32 @_ZL24compare_fields_by_offsetP4PairIii11ResourceObj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z13linear_searchPK5ArrayIP6MethodEPK6Symbol(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_Z13linear_searchPK5ArrayIP6MethodEPK6Symbol(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.not11 = icmp sgt i32 %3, 0

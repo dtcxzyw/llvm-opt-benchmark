@@ -6683,7 +6683,7 @@ _ZN16wasmtime_runtime3sys4unix2vm8decommit17hc2ccf01db4f9c549E.llvm.936989471284
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE() unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { {} }, align 1
   %2 = tail call noundef i64 @sysconf(i32 noundef 30)
   %3 = icmp sgt i64 %2, -1

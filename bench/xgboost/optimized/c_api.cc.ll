@@ -4073,7 +4073,7 @@ define linkonce_odr void @_ZN4dmlc5ErrorD2Ev(ptr noundef nonnull align 8 derefer
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @XGBRegisterLogCallback(ptr noundef %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @XGBRegisterLogCallback(ptr noundef %0) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreIN7xgboost19LogCallbackRegistryEE3GetEvE4inst, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %5, !prof !4

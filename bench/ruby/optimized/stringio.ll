@@ -2939,7 +2939,7 @@ get_strio.exit:                                   ; preds = %1
 declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strio_readchar(i64 noundef %0) #0 {
+define internal range(i64 5, 4) i64 @strio_readchar(i64 noundef %0) #0 {
   %.pr.i = load i64, ptr @strio_readchar.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -2965,7 +2965,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strio_readbyte(i64 noundef %0) #0 {
+define internal range(i64 5, 4) i64 @strio_readbyte(i64 noundef %0) #0 {
   %.pr.i = load i64, ptr @strio_readbyte.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -2991,7 +2991,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strio_readline(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 5, 4) i64 @strio_readline(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %.pr.i = load i64, ptr @strio_readline.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -3018,7 +3018,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strio_sysread(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 5, 4) i64 @strio_sysread(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %.pr.i = load i64, ptr @strio_sysread.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit

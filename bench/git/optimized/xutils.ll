@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [4 x i8] c" @@\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @xdl_bogosqrt(i64 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @xdl_bogosqrt(i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp3 = icmp sgt i64 %n, 0
   br i1 %cmp3, label %for.body, label %for.end
@@ -983,7 +983,7 @@ return:                                           ; preds = %for.end, %xdl_hash_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local range(i32 1, 0) i32 @xdl_hashbits(i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 1, 33) i32 @xdl_hashbits(i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp5 = icmp ugt i32 %size, 1
   br i1 %cmp5, label %for.inc, label %for.end

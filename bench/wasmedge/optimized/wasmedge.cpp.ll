@@ -12829,7 +12829,7 @@ define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @WasmEdge_GlobalInstanceSetValue(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.WasmEdge_Value) align 16 %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 1040) i32 @WasmEdge_GlobalInstanceSetValue(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.WasmEdge_Value) align 16 %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8

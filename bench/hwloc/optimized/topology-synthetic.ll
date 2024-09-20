@@ -1219,7 +1219,7 @@ hwloc__export_synthetic_update_status.exit45.thread: ; preds = %hwloc__export_sy
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__export_synthetic_obj(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @hwloc__export_synthetic_obj(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca [12 x i8], align 1
   %8 = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, i8 0, i64 12, i1 false)

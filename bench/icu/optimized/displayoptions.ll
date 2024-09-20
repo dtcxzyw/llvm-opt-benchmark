@@ -144,7 +144,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromGrammaticalCaseIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 15) i32 @udispopt_fromGrammaticalCaseIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -191,7 +191,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromPluralCategoryIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 7) i32 @udispopt_fromPluralCategoryIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromNounClassIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 9) i32 @udispopt_fromNounClassIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 

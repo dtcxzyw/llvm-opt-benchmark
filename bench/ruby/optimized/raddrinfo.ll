@@ -1635,7 +1635,7 @@ rsock_unixpath_str.exit:                          ; preds = %unixsocket_len.exit
 declare i64 @rb_assoc_new(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2, 0) i32 @rsock_unix_sockaddr_len(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 2, -2147483646) i32 @rsock_unix_sockaddr_len(i64 noundef %0) local_unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8

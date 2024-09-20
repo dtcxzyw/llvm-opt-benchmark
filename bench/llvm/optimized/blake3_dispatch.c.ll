@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @get_cpu_features], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_cpu_features() #0 {
+define internal range(i32 1073741825, 1073741824) i32 @get_cpu_features() #0 {
   %1 = load i32, ptr @g_cpu_features, align 4
   %.not = icmp eq i32 %1, 1073741824
   br i1 %.not, label %2, label %35

@@ -6009,7 +6009,7 @@ return:                                           ; preds = %Py_DECREF.exit61, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sslmodule_init_constants(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @sslmodule_init_constants(ptr noundef %m) #0 {
 entry:
   %call = tail call i32 @PyModule_AddStringConstant(ptr noundef %m, ptr noundef nonnull @.str.1817, ptr noundef nonnull @.str.214) #11
   %cmp = icmp slt i32 %call, 0
@@ -16340,7 +16340,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @certificate_hash(ptr nocapture noundef %self) #0 {
+define internal range(i64 0, -1) i64 @certificate_hash(ptr nocapture noundef %self) #0 {
 entry:
   %hash = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %hash, align 8

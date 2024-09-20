@@ -142,7 +142,7 @@ handle.exit:                                      ; preds = %11, %13, %17
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_force0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_force0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %6 = icmp eq i8 %3, 0
   br i1 %6, label %7, label %9
@@ -180,7 +180,7 @@ declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_truncate0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_truncate0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %6 = tail call i32 @ftruncate64(i32 noundef %5, i64 noundef %3) #6
   %7 = icmp sgt i32 %6, -1
@@ -437,7 +437,7 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_unmap0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_unmap0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @munmap(ptr noundef %5, i64 noundef %3) #6
   %7 = icmp sgt i32 %6, -1

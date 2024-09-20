@@ -889,7 +889,7 @@ register_fstring.exit:                            ; preds = %42, %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_resize(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local range(i64 1, -7) i64 @rb_str_resize(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %6
 
@@ -8686,7 +8686,7 @@ RB_FL_SET.exit:                                   ; preds = %1, %.thread, %.crit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_unlocktmp(i64 noundef returned %0) #1 {
+define dso_local range(i64 1, -7) i64 @rb_str_unlocktmp(i64 noundef returned %0) #1 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -10114,7 +10114,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
 declare i32 @rb_num_to_uint(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @rb_ascii8bit_appendable_encoding_index(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 3) i32 @rb_ascii8bit_appendable_encoding_index(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @rb_enc_to_index(ptr noundef %0) #32
   %4 = icmp eq i32 %3, 2
   switch i32 %3, label %11 [
@@ -12389,7 +12389,7 @@ define internal range(i32 0, 2) i32 @include_range_i(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_drop_bytes(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local range(i64 1, -7) i64 @rb_str_drop_bytes(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8192
@@ -12943,7 +12943,7 @@ RB_ENC_CODERANGE_AND.exit.thread:                 ; preds = %88, %RB_ENC_CODERAN
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_str_replace(i64 noundef returned %0, i64 noundef %1) #1 {
+define dso_local range(i64 1, -7) i64 @rb_str_replace(i64 noundef returned %0, i64 noundef %1) #1 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = and i64 %0, 7
@@ -25165,7 +25165,7 @@ define internal noundef i64 @rb_str_delete_suffix(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_sub_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define internal range(i64 1, -7) i64 @rb_str_sub_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -25844,7 +25844,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_chomp_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define internal range(i64 1, -7) i64 @rb_str_chomp_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
   %4 = and i64 %2, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %2, 0
@@ -26309,7 +26309,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_delete_prefix_bang(i64 noundef %0, i64 noundef %1) #1 {
+define internal range(i64 1, -7) i64 @rb_str_delete_prefix_bang(i64 noundef %0, i64 noundef %1) #1 {
   tail call fastcc void @str_modify_keep_cr(i64 noundef %0)
   %3 = tail call fastcc i64 @deleted_prefix_length(i64 noundef %0, i64 noundef %1)
   %4 = icmp eq i64 %3, 0
@@ -26325,7 +26325,7 @@ define internal noundef i64 @rb_str_delete_prefix_bang(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_delete_suffix_bang(i64 noundef %0, i64 noundef %1) #1 {
+define internal range(i64 1, -7) i64 @rb_str_delete_suffix_bang(i64 noundef %0, i64 noundef %1) #1 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -28518,7 +28518,7 @@ get_pat_quoted.exit:                              ; preds = %10, %.thread.i, %.t
 declare i64 @rb_obj_encoding(i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_force_encoding(i64 noundef returned %0, i64 noundef %1) #1 {
+define internal range(i64 1, -7) i64 @rb_str_force_encoding(i64 noundef returned %0, i64 noundef %1) #1 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -28811,7 +28811,7 @@ unicode_normalize_common.exit:                    ; preds = %rb_check_arity.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_str_unicode_normalize_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #1 {
+define internal range(i64 1, -7) i64 @rb_str_unicode_normalize_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #1 {
   %4 = alloca [2 x i64], align 16
   %5 = load i64, ptr @id_normalize, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

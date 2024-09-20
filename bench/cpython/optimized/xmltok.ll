@@ -4356,7 +4356,7 @@ for.inc.fold.split87:                             ; preds = %sw.bb156
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @normal_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
+define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
 entry:
   %add.ptr = getelementptr i8, ptr %ptr, i64 2
   %0 = load i8, ptr %add.ptr, align 1
@@ -10375,7 +10375,7 @@ for.inc.fold.split95:                             ; preds = %sw.bb195
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @little2_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
+define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
 entry:
   %add.ptr = getelementptr i8, ptr %ptr, i64 4
   %arrayidx = getelementptr i8, ptr %ptr, i64 5
@@ -16426,7 +16426,7 @@ for.inc.fold.split95:                             ; preds = %sw.bb197
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @big2_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
+define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr nocapture readnone %enc, ptr nocapture noundef readonly %ptr) #7 {
 entry:
   %add.ptr = getelementptr i8, ptr %ptr, i64 4
   %0 = load i8, ptr %add.ptr, align 1

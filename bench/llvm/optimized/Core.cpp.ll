@@ -6896,7 +6896,7 @@ define dso_local noundef ptr @LLVMConstantPtrAuth(ptr noundef %0, ptr noundef %1
 declare noundef ptr @_ZN4llvm15ConstantPtrAuth3getEPNS_8ConstantEPNS_11ConstantIntES4_S2_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @LLVMGetConstOpcode(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define dso_local noundef range(i32 1, 69) i32 @LLVMGetConstOpcode(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -6905,7 +6905,7 @@ define dso_local noundef i32 @LLVMGetConstOpcode(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL17map_to_llvmopcodei(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 1, 69) i32 @_ZL17map_to_llvmopcodei(i32 noundef %0) unnamed_addr #10 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
@@ -10019,7 +10019,7 @@ define dso_local range(i32 0, 64) i32 @LLVMGetFCmpPredicate(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @LLVMGetInstructionOpcode(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define dso_local range(i32 0, 69) i32 @LLVMGetInstructionOpcode(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ult i8 %2, 29
   br i1 %3, label %8, label %4
@@ -15265,7 +15265,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL19map_from_llvmopcode10LLVMOpcode(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 1, 68) i32 @_ZL19map_from_llvmopcode10LLVMOpcode(i32 noundef %0) unnamed_addr #10 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = sext i32 %switch.tableidx to i64
@@ -17391,7 +17391,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @LLVMGetCastOpcode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 69) i32 @LLVMGetCastOpcode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne i32 %1, 0
   %6 = icmp ne i32 %3, 0
   %7 = tail call noundef i32 @_ZN4llvm8CastInst13getCastOpcodeEPKNS_5ValueEbPNS_4TypeEb(ptr noundef %0, i1 noundef zeroext %5, ptr noundef %2, i1 noundef zeroext %6) #35

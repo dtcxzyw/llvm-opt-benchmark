@@ -1931,7 +1931,7 @@ define range(i32 0, 2) i32 @wtap_encap_requires_phdr(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   switch i32 %0, label %27 [
     i32 13, label %28
     i32 44, label %3

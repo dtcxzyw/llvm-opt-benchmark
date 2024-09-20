@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"\0D\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2132), align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3

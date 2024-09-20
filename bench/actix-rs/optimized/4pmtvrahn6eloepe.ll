@@ -944,7 +944,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h467f9d560b1698f1E(ptr noundef %0, i64 noundef %1) unnamed_addr #11 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h467f9d560b1698f1E(ptr noundef %0, i64 noundef %1) unnamed_addr #11 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

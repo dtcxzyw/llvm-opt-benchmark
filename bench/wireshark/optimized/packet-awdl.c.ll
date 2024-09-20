@@ -1995,7 +1995,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @awdl_tag_sync_tree(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -2147483647, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = add i32 %5, -6
   %.not7 = icmp slt i32 %6, 0

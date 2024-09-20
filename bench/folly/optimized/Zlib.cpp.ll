@@ -3371,7 +3371,7 @@ cleanup13:                                        ; preds = %_ZN5folly2io6detail
 declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5folly2io4zlib12_GLOBAL__N_116zlibThrowOnErrorEi(i32 noundef returned %rc) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -5, 2) i32 @_ZN5folly2io4zlib12_GLOBAL__N_116zlibThrowOnErrorEi(i32 noundef returned %rc) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %rc.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

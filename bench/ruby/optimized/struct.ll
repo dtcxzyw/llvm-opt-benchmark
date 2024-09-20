@@ -126,7 +126,7 @@ struct_ivar_get.exit:                             ; preds = %.preheader.i, %1, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_struct_s_members(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_struct_s_members(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @id_members, align 8
   %3 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %2) #15
   %4 = icmp eq i64 %3, 4
@@ -188,7 +188,7 @@ struct_ivar_get.exit.thread22:                    ; preds = %1, %struct_ivar_get
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_struct_members(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_struct_members(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #15
   %3 = tail call i64 @rb_struct_s_members(i64 noundef %2)
   %4 = inttoptr i64 %0 to ptr

@@ -3892,7 +3892,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %14, %_ZN4llvmeqENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 4294967296, 1) i64 @_ZN5clang7targets17HexagonTargetInfo16getHexagonCPURevEN4llvm9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN5clang7targets17HexagonTargetInfo16getHexagonCPURevEN4llvm9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %.not.i.i = icmp ult i64 %1, 8
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i

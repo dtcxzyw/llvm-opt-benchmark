@@ -3114,7 +3114,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6DINode13getFlagStringENS0_7DIFlagsE(i32 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm6DINode10splitFlagsENS0_7DIFlagsERNS_15SmallVectorImplIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, -536870912) i32 @_ZN4llvm6DINode10splitFlagsENS0_7DIFlagsERNS_15SmallVectorImplIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %0, 3
   switch i32 %3, label %default.unreachable [
     i32 0, label %23
@@ -8149,7 +8149,7 @@ define dso_local { ptr, i64 } @_ZN4llvm12DISubprogram13getFlagStringENS0_9DISPFl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12DISubprogram10splitFlagsENS0_9DISPFlagsERNS_15SmallVectorImplIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, -2048) i32 @_ZN4llvm12DISubprogram10splitFlagsENS0_9DISPFlagsERNS_15SmallVectorImplIS1_EE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %0, 1
   %.not58 = icmp eq i32 %3, 0
   br i1 %.not58, label %16, label %4

@@ -3776,7 +3776,7 @@ common.resume:                                    ; preds = %11, %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h05f6e2a8783e18fcE.llvm.171605402441639591"(ptr noundef %0, i64 noundef %1) unnamed_addr #12 {
+define hidden noundef range(i64 0, -1) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h05f6e2a8783e18fcE.llvm.171605402441639591"(ptr noundef %0, i64 noundef %1) unnamed_addr #12 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %5 = icmp eq i64 %4, 1

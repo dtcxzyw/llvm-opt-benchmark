@@ -77,7 +77,7 @@ define hidden noundef zeroext range(i8 6, 13) i8 @_ZNK11constantTag10basic_typeE
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef signext i8 @_ZNK11constantTag15non_error_valueEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef signext range(i8 107, 103) i8 @_ZNK11constantTag15non_error_valueEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr %0, align 1
   %switch.tableidx = add i8 %2, -103
   %3 = icmp ult i8 %switch.tableidx, 4

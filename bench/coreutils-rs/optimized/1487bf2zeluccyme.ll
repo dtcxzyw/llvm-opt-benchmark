@@ -2472,7 +2472,7 @@ define range(i48 0, 8796093022208) i48 @"_ZN95_$LT$uu_sort..KeySettings$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i48 0, 8796093022208) i48 @"_ZN63_$LT$uu_sort..KeySettings$u20$as$u20$core..default..Default$GT$7default17hf4db088c47e6c65fE"() unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef range(i48 6597069766656, 6605659701248) i48 @"_ZN63_$LT$uu_sort..KeySettings$u20$as$u20$core..default..Default$GT$7default17hf4db088c47e6c65fE"() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, i64, i64, i8, [7 x i8] }, i64, i64, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, { i8, [16 x i8] }, i8, i8, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 152

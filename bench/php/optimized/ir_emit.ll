@@ -43072,7 +43072,7 @@ declare noalias ptr @_emalloc_large(i64 noundef) local_unnamed_addr #14
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ir_match_insn(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 1073741952) i32 @ir_match_insn(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4

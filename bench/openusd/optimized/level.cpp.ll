@@ -3679,7 +3679,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level17getFaceFVarValu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level40gatherQuadRegularPartialRingAroundVertexEiRKNS3_5VSpanEPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(7) %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483646, -2147483648) i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level40gatherQuadRegularPartialRingAroundVertexEiRKNS3_5VSpanEPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(7) %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264

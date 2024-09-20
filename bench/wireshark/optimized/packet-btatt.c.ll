@@ -7194,7 +7194,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btgatt_microbit_pin_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 2, 1) i32 @dissect_btgatt_microbit_pin_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8

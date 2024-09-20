@@ -19465,7 +19465,7 @@ define internal fastcc noundef zeroext i1 @_ZL17upgradeMemoryAttrRN4llvm17Memory
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL16tokenToAttributeN4llvm5lltok4KindE(i32 noundef %0) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 94) i32 @_ZL16tokenToAttributeN4llvm5lltok4KindE(i32 noundef %0) unnamed_addr #8 {
   %switch.tableidx = add i32 %0, -164
   %2 = icmp ult i32 %switch.tableidx, 93
   %switch.offset = add i32 %0, -163

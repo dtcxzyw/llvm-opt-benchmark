@@ -2783,7 +2783,7 @@ declare float @llvm.ceil.f32(float) #10
 declare float @llvm.rint.f32(float) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %0, float noundef %1) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %0, float noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %1, %3
   br i1 %4, label %5, label %12

@@ -149,7 +149,7 @@ declare ptr @qbase64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ringbuf_chr_write(ptr noundef %chr, ptr noundef readonly %buf, i32 noundef %len) #0 {
+define internal range(i32 -2147483647, -2147483648) i32 @ringbuf_chr_write(ptr noundef %chr, ptr noundef readonly %buf, i32 noundef %len) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
   %tobool = icmp eq ptr %buf, null

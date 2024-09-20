@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [162 x i8] c"  This problem is often due to a missing call to Cudd_Ref\0A  or to an extra call to Cudd_RecursiveDeref.\0A  See the CUDD Programmer's Guide for additional details.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @Cudd_Prime(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @Cudd_Prime(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   br label %.loopexit
 

@@ -3252,13 +3252,9 @@ if.end.i22.i:                                     ; preds = %if.then.i38.i, %if.
   br i1 %tobool.not.i24.i, label %if.else.i34.i, label %if.then4.i25.i
 
 if.then4.i25.i:                                   ; preds = %if.end.i22.i
-  switch i32 %variant.1.i, label %if.end23.i.i [
-    i32 5, label %if.end19.sink.split.i26.i
-    i32 1, label %sw.bb5.i.i
-    i32 2, label %if.end19.sink.split.i26.i
-    i32 3, label %if.end19.sink.split.i26.i
-    i32 4, label %if.end19.sink.split.i26.i
-  ]
+  %variant.1.off.i = add nsw i32 %variant.1.i, -2
+  %switch.i = icmp ult i32 %variant.1.off.i, 4
+  br i1 %switch.i, label %if.end19.sink.split.i26.i, label %sw.bb5.i.i
 
 sw.bb5.i.i:                                       ; preds = %if.then4.i25.i
   %call6.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.115)
@@ -3271,21 +3267,17 @@ if.else.i34.i:                                    ; preds = %if.end.i22.i
   br i1 %tobool10.not.i36.i, label %if.end19.i29.i, label %if.then11.i37.i
 
 if.then11.i37.i:                                  ; preds = %if.else.i34.i
-  switch i32 %variant.1.i, label %if.end23.i.i [
-    i32 5, label %if.end19.sink.split.i26.i
-    i32 1, label %sw.bb13.i.i
-    i32 2, label %if.end19.sink.split.i26.i
-    i32 3, label %if.end19.sink.split.i26.i
-    i32 4, label %if.end19.sink.split.i26.i
-  ]
+  %variant.1.off51.i = add nsw i32 %variant.1.i, -2
+  %switch52.i = icmp ult i32 %variant.1.off51.i, 4
+  br i1 %switch52.i, label %if.end19.sink.split.i26.i, label %sw.bb13.i.i
 
 sw.bb13.i.i:                                      ; preds = %if.then11.i37.i
   %call14.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.117)
   call void (ptr, ...) @die(ptr noundef %call14.i.i) #24
   unreachable
 
-if.end19.sink.split.i26.i:                        ; preds = %if.then11.i37.i, %if.then11.i37.i, %if.then11.i37.i, %if.then11.i37.i, %if.then4.i25.i, %if.then4.i25.i, %if.then4.i25.i, %if.then4.i25.i
-  %.str.118.sink.i27.i = phi ptr [ @.str.116, %if.then4.i25.i ], [ @.str.116, %if.then4.i25.i ], [ @.str.116, %if.then4.i25.i ], [ @.str.116, %if.then4.i25.i ], [ @.str.118, %if.then11.i37.i ], [ @.str.118, %if.then11.i37.i ], [ @.str.118, %if.then11.i37.i ], [ @.str.118, %if.then11.i37.i ]
+if.end19.sink.split.i26.i:                        ; preds = %if.then11.i37.i, %if.then4.i25.i
+  %.str.118.sink.i27.i = phi ptr [ @.str.116, %if.then4.i25.i ], [ @.str.118, %if.then11.i37.i ]
   %call16.i28.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef nonnull %.str.118.sink.i27.i) #23
   br label %if.end19.i29.i
 
@@ -3297,12 +3289,12 @@ if.then21.i.i:                                    ; preds = %if.end19.i29.i
   %call22.i.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef nonnull @.str.119) #23
   br label %if.end23.i.i
 
-if.end23.i.i:                                     ; preds = %if.then21.i.i, %if.end19.i29.i, %if.then11.i37.i, %if.then4.i25.i
+if.end23.i.i:                                     ; preds = %if.then21.i.i, %if.end19.i29.i
   %tobool24.not.i30.i = icmp eq ptr %62, null
   br i1 %tobool24.not.i30.i, label %fill_ssh_args.exit, label %if.then25.i31.i
 
 if.then25.i31.i:                                  ; preds = %if.end23.i.i
-  switch i32 %variant.1.i, label %sw.epilog33.i.i [
+  switch i32 %variant.1.i, label %default.unreachable.i [
     i32 5, label %sw.bb31.i.i
     i32 1, label %sw.bb27.i.i
     i32 2, label %sw.epilog33.sink.split.i.i
@@ -3321,13 +3313,13 @@ sw.bb31.i.i:                                      ; preds = %if.then25.i31.i, %i
 sw.epilog33.sink.split.i.i:                       ; preds = %sw.bb31.i.i, %if.then25.i31.i
   %.str.122.sink.i.i = phi ptr [ @.str.122, %sw.bb31.i.i ], [ @.str.121, %if.then25.i31.i ]
   %call32.i32.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef nonnull %.str.122.sink.i.i) #23
-  br label %sw.epilog33.i.i
-
-sw.epilog33.i.i:                                  ; preds = %sw.epilog33.sink.split.i.i, %if.then25.i31.i
   %call34.i33.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef nonnull %62) #23
   br label %fill_ssh_args.exit
 
-fill_ssh_args.exit:                               ; preds = %if.end23.i.i, %sw.epilog33.i.i
+default.unreachable.i:                            ; preds = %if.then25.i31.i
+  unreachable
+
+fill_ssh_args.exit:                               ; preds = %if.end23.i.i, %sw.epilog33.sink.split.i.i
   %call43.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef %call64.i) #23
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %detect.i)
   br label %if.end80
@@ -3710,7 +3702,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @determine_ssh_variant(ptr noundef %ssh_command, i32 noundef range(i32 0, 2) %is_cmdline) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @determine_ssh_variant(ptr noundef %ssh_command, i32 noundef range(i32 0, 2) %is_cmdline) unnamed_addr #0 {
 entry:
   %variant.i = alloca ptr, align 8
   %ssh_argv = alloca ptr, align 8

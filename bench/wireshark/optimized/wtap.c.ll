@@ -1736,7 +1736,7 @@ define i32 @wtap_register_encap_type(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_name_to_encap(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @wtap_num_encap_types, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

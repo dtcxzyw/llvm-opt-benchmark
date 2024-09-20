@@ -3073,7 +3073,7 @@ define internal void @rpc_cb_add_xprt_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_clnt_setup_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @rpc_clnt_setup_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
   %7 = tail call ptr @xprt_get(ptr noundef %2) #20

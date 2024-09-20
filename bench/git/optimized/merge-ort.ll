@@ -8965,7 +8965,7 @@ declare ptr @merge_remote_util(ptr noundef) local_unnamed_addr #3
 declare void @repo_format_commit_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -255, 256) i32 @sort_dirs_next_to_their_children(ptr nocapture noundef readonly %one, ptr nocapture noundef readonly %two) #12 {
+define internal range(i32 -254, 256) i32 @sort_dirs_next_to_their_children(ptr nocapture noundef readonly %one, ptr nocapture noundef readonly %two) #12 {
 entry:
   %0 = load i8, ptr %one, align 1
   %tobool.not12 = icmp eq i8 %0, 0

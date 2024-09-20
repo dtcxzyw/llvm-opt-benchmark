@@ -1130,7 +1130,7 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @get_object_directory() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @encode_in_pack_object_header(ptr nocapture noundef writeonly %hdr, i32 noundef %hdr_len, i32 noundef %type, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr nocapture noundef writeonly %hdr, i32 noundef %hdr_len, i32 noundef %type, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %type, -8
   %or.cond = icmp ult i32 %0, -7

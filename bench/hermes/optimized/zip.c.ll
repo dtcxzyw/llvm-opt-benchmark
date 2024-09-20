@@ -1240,7 +1240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10000, 2) i32 @mz_compress2(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len, i32 noundef %level) local_unnamed_addr #4 {
+define hidden range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len, i32 noundef %level) local_unnamed_addr #4 {
 entry:
   %stream = alloca %struct.mz_stream_s, align 8
   %0 = getelementptr inbounds i8, ptr %stream, i64 8
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.then2.i10, %if.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10000, 2) i32 @mz_compress(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
+define hidden range(i32 -10000, 1) i32 @mz_compress(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
 entry:
   %stream.i = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %stream.i)
@@ -4716,7 +4716,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10000, 2) i32 @mz_uncompress(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
+define hidden range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %pDest, ptr nocapture noundef %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
 entry:
   %stream = alloca %struct.mz_stream_s, align 8
   %0 = getelementptr inbounds i8, ptr %stream, i64 8

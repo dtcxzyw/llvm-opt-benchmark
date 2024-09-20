@@ -409,7 +409,7 @@ _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit: ; preds = %_ZN18Gro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN11StringDedup5Table6Bucket15needed_capacityEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -536870910, -1610612735) i32 @_ZN11StringDedup5Table6Bucket15needed_capacityEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %12, label %3
 

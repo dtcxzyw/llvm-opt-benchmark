@@ -1926,7 +1926,7 @@ define dso_local zeroext i1 @drm_client_rotation(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_client_modeset_check(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -34, -35) i32 @drm_client_modeset_check(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -1964,7 +1964,7 @@ define dso_local i32 @drm_client_modeset_check(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_client_modeset_commit_atomic(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -34, -35) i32 @drm_client_modeset_commit_atomic(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_modeset_acquire_ctx, align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
@@ -2362,7 +2362,7 @@ declare dso_local zeroext i1 @drm_master_internal_acquire(ptr noundef) local_unn
 declare dso_local void @drm_master_internal_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_client_modeset_dpms(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -34, -35) i32 @drm_client_modeset_dpms(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.drm_modeset_acquire_ctx, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call zeroext i1 @drm_master_internal_acquire(ptr noundef %4) #11

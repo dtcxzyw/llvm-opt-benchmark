@@ -170,7 +170,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue218UTF8ComponentClassC2ERKNS_9ParseModeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3ue219translateForUcpModeENS_15PredefinedClassERKNS_9ParseModeE(i32 noundef %in, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode) local_unnamed_addr #0 {
+define hidden noundef range(i32 2, 0) i32 @_ZN3ue219translateForUcpModeENS_15PredefinedClassERKNS_9ParseModeE(i32 noundef %in, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode) local_unnamed_addr #0 {
 entry:
   switch i32 %in, label %sw.default [
     i32 0, label %return

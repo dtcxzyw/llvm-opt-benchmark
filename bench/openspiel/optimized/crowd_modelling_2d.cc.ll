@@ -2921,7 +2921,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
 
 298:                                              ; preds = %291
   %299 = getelementptr inbounds float, ptr %235, i64 %indvars.iv
-  %300 = sext i32 %297 to i64
+  %300 = zext nneg i32 %297 to i64
   %301 = load float, ptr %299, align 4
   %302 = fpext float %301 to double
   %303 = load ptr, ptr %236, align 8
@@ -5264,7 +5264,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %70, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8560,7 +8560,7 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7Rewards
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load i32, ptr %18, align 8
   %20 = tail call fastcc noundef i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %15, i32 noundef %17, i32 noundef %19)
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds double, ptr %22, i64 %21
   %24 = load double, ptr %23, align 8
@@ -8664,7 +8664,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit33:                  ; preds = %._crit_edge
   %88 = load i32, ptr %14, align 4
   %89 = load i32, ptr %16, align 8
   %90 = tail call fastcc noundef i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %88, i32 noundef %89, i32 noundef %81)
-  %91 = sext i32 %90 to i64
+  %91 = zext nneg i32 %90 to i64
   %92 = load ptr, ptr %13, align 8
   %93 = getelementptr inbounds double, ptr %92, i64 %91
   %94 = load double, ptr %93, align 8

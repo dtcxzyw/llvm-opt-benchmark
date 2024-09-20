@@ -584,7 +584,7 @@ declare i32 @fork() local_unnamed_addr #5
 declare i32 @setsid() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @daemonize() local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @daemonize() local_unnamed_addr #1 {
   %1 = tail call i32 @close_std_descriptors()
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %8

@@ -1596,7 +1596,7 @@ declare i32 @_mi_prim_alloc_huge_os_pages(ptr noundef, i64 noundef, i32 noundef,
 declare i64 @_mi_clock_end(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_os_numa_node_count_get() local_unnamed_addr #1 {
+define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @_mi_numa_node_count acquire, align 8
   %cmp = icmp eq i64 %0, 0

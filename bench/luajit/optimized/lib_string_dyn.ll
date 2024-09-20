@@ -60,7 +60,7 @@ declare hidden void @lj_lib_prereg(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @luaopen_string_buffer(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 0) i32 @lj_ffh_string_byte(ptr noundef %L) #0 {
+define internal range(i32 -2147483646, -2147483648) i32 @lj_ffh_string_byte(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #7
   %len1 = getelementptr inbounds i8, ptr %call, i64 20

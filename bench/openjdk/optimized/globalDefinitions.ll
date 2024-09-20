@@ -197,7 +197,7 @@ define hidden noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %0) local_u
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_Z9name2typePKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden noundef zeroext range(i8 0, 100) i8 @_Z9name2typePKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %1, %8

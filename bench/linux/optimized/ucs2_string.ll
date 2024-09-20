@@ -70,7 +70,7 @@ define dso_local i64 @ucs2_strlen(ptr nocapture noundef readonly %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @ucs2_strsize(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i64 2, 1) i64 @ucs2_strsize(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = lshr i64 %1, 1
   %4 = load i16, ptr %0, align 2
   %5 = icmp ne i16 %4, 0

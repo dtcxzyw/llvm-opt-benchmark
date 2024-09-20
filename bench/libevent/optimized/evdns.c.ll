@@ -8864,7 +8864,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #3
 declare i64 @bufferevent_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @dnsname_to_labels(ptr nocapture noundef %buf, i64 noundef range(i64 12, -9223372036854775808) %buf_len, i64 noundef %j, ptr noundef %name, i64 noundef %name_len, ptr noundef %table) unnamed_addr #2 {
+define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @dnsname_to_labels(ptr nocapture noundef %buf, i64 noundef range(i64 12, -9223372036854775808) %buf_len, i64 noundef %j, ptr noundef %name, i64 noundef %name_len, ptr noundef %table) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %name, i64 %name_len
   %cmp = icmp ugt i64 %name_len, 255

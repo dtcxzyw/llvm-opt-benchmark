@@ -1517,7 +1517,7 @@ am_rdma_respond.exit:                             ; preds = %153, %am_rdma_copy_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_respond(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @am_rdma_respond(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   %7 = icmp eq ptr %6, null

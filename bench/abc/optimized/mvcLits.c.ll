@@ -494,7 +494,7 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #2
 declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mvc_CoverFirstCubeFirstLit(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #5
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8

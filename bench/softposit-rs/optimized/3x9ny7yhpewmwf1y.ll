@@ -97,7 +97,7 @@ define noundef i32 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Qui
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define noundef range(i32 -2139095040, -2147483647) i32 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Quire$LT$softposit..p8e0..P8E0$GT$$GT$10from_posit17h922d947d1bc55730E"(i8 noundef %0) unnamed_addr #2 {
+define noundef range(i32 -2147483648, 2139095041) i32 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Quire$LT$softposit..p8e0..P8E0$GT$$GT$10from_posit17h922d947d1bc55730E"(i8 noundef %0) unnamed_addr #2 {
   switch i8 %0, label %2 [
     i8 -128, label %_ZN9softposit6quire83ops3fdp17h907619d422d2fb9fE.exit
     i8 0, label %_ZN9softposit6quire83ops3fdp17h907619d422d2fb9fE.exit.fold.split
@@ -536,7 +536,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN9softposit5p32e24math5sleef6kernel
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE(i32 noundef %0) unnamed_addr #2 {
+define hidden noundef range(i32 -512, 512) i32 @_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE(i32 noundef %0) unnamed_addr #2 {
   %.0 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %2 = shl i32 %.0, 2
   %3 = and i32 %.0, 1073741824

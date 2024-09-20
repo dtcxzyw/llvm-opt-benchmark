@@ -2170,7 +2170,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_user_get_vq_index(ptr nocapture noundef readonly %dev, i32 noundef returned %idx) #0 {
+define internal range(i32 0, -1) i32 @vhost_user_get_vq_index(ptr nocapture noundef readonly %dev, i32 noundef returned %idx) #0 {
 entry:
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
@@ -3308,7 +3308,7 @@ return:                                           ; preds = %vhost_user_get_u64.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_postcopy_notifier(ptr nocapture noundef readonly %notifier, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_postcopy_notifier(ptr nocapture noundef readonly %notifier, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %_now.i.i9.i = alloca %struct.timeval, align 8
   %msg_reply.i.i15 = alloca %struct.VhostUserMsg, align 4

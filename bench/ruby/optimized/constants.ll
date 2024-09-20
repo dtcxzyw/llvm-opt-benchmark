@@ -549,7 +549,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @rsock_family_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_family_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   switch i64 %1, label %172 [
     i64 2, label %4
     i64 3, label %6
@@ -1570,7 +1570,7 @@ define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @rsock_so_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   switch i64 %1, label %204 [
     i64 32, label %202
     i64 4, label %4
@@ -2107,7 +2107,7 @@ define noundef i32 @rsock_so_optname_to_int(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @rsock_ip_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   switch i64 %1, label %152 [
     i64 3, label %4
     i64 6, label %10
@@ -2510,7 +2510,7 @@ define noundef i32 @rsock_ip_optname_to_int(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @rsock_ipv6_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   switch i64 %1, label %116 [
     i64 5, label %4
     i64 6, label %6
@@ -2819,7 +2819,7 @@ define noundef i32 @rsock_ipv6_optname_to_int(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @rsock_tcp_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   switch i64 %1, label %100 [
     i64 4, label %4
     i64 24, label %98

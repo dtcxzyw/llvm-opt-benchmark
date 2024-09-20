@@ -17469,7 +17469,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %27, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8LightGBM8Metadata11SizesInByteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %0) local_unnamed_addr #23 align 2 {
+define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata11SizesInByteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %0) local_unnamed_addr #23 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64

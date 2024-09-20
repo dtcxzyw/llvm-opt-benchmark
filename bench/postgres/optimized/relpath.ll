@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [26 x i8] c"pg_tblspc/%u/%s/%u/t%d_%u\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 4) i32 @forkname_to_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %7

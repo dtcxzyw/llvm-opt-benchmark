@@ -2999,7 +2999,7 @@ declare i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef, ptr noundef, i32 noun
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr nonnull %args.coerce) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr nonnull %args.coerce) local_unnamed_addr #4 {
 entry:
   %call3 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %args.coerce) #24
   br i1 %call3, label %do.end7, label %do.body6

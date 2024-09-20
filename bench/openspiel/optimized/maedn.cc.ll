@@ -3843,7 +3843,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483607, -2147483648) i32 @_ZNK10open_spiel5maedn10MaednState14AbsPosToRelPosEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483604, -2147483648) i32 @_ZNK10open_spiel5maedn10MaednState14AbsPosToRelPosEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = icmp slt i32 %1, 40
   br i1 %4, label %5, label %9
 

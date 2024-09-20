@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @luaO_log2(i32 noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 -2147483640, -2147483648) i32 @luaO_log2(i32 noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp5 = icmp ugt i32 %x, 255
   br i1 %cmp5, label %while.body, label %while.end

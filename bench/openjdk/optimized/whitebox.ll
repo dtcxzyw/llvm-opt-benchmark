@@ -36280,7 +36280,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @WB_AddCompilerDirective(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 0, -1) i32 @WB_AddCompilerDirective(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960

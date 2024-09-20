@@ -5226,7 +5226,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow8internal10ThreadPool15DefaultCapacityEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 0) i32 @_ZN5arrow8internal10ThreadPool15DefaultCapacityEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::util::ArrowLog", align 8
   %call = tail call fastcc noundef i32 @_ZN5arrow8internalL14ParseOMPEnvVarEPKc(ptr noundef nonnull @.str.4)

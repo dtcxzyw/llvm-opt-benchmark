@@ -334,7 +334,7 @@ define hidden void @hb_tag_to_string(i32 noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_direction_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 8) i32 @hb_direction_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -620,7 +620,7 @@ define hidden range(i32 0, 2) i32 @hb_language_matches(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 2105376, 1) i32 @hb_script_from_iso15924_tag(i32 noundef %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2139062144) i32 @hb_script_from_iso15924_tag(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %21, label %3
 
@@ -691,7 +691,7 @@ define hidden range(i32 2105376, 1) i32 @hb_script_from_iso15924_tag(i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 2105376, 1) i32 @hb_script_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2139062144) i32 @hb_script_from_string(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = icmp ne ptr %0, null

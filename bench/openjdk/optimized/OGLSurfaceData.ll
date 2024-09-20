@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @j2d_glTexParameteri = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @OGLSD_NextPowerOfTwo(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147483647) i32 @OGLSD_NextPowerOfTwo(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

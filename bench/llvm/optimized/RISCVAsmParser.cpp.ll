@@ -8655,7 +8655,7 @@ declare ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereference
 declare ptr @_ZNK4llvm8AsmToken9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZNK12_GLOBAL__N_114RISCVAsmParser23matchRegisterNameHelperEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc range(i32 0, 107) i32 @_ZNK12_GLOBAL__N_114RISCVAsmParser23matchRegisterNameHelperEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = tail call fastcc i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr %1, i64 %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %_ZL20MatchRegisterAltNameN4llvm9StringRefE.exit
@@ -8920,7 +8920,7 @@ _ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup17, %s
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 70368744177664
   %95 = icmp ne i64 %94, 0
-  %96 = add i32 %.sroa.06.0, -59
+  %96 = add nsw i32 %.sroa.06.0, -59
   %97 = icmp ult i32 %96, 16
   %or.cond10 = select i1 %95, i1 %97, i1 false
   %.sroa.06.1 = select i1 %or.cond10, i32 0, i32 %.sroa.06.0
@@ -8928,7 +8928,7 @@ _ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup17, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #12 {
+define internal fastcc range(i32 0, 107) i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #12 {
   switch i64 %1, label %91 [
     i64 1, label %3
     i64 2, label %5

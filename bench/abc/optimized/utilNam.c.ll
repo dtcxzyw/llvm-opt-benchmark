@@ -865,7 +865,7 @@ define i32 @Abc_NamMemAlloc(ptr noundef readonly %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %.preheader35
 
@@ -957,7 +957,7 @@ define i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef readnone %1, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %.not = icmp ne ptr %1, null
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64

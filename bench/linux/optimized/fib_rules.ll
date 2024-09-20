@@ -773,7 +773,7 @@ declare dso_local i32 @rtnl_is_locked() local_unnamed_addr #4
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fib_nl_newrule(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fib_nl_newrule(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca %struct.fib_rule_notifier_info, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [25 x ptr], align 16

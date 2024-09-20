@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [45 x i8] c"\\%c is not a valid character escape sequence\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 46) i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0

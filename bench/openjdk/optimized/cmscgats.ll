@@ -5457,7 +5457,7 @@ GetData.exit:                                     ; preds = %GetDataFormat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LocatePatch(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @LocatePatch(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -6314,7 +6314,7 @@ GetData.exit.thread:                              ; preds = %31, %GetTable.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8GetPatchByName(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147483647) i32 @cmsIT8GetPatchByName(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @LocatePatch(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }

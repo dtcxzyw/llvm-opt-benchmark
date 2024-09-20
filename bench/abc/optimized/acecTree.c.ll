@@ -2493,7 +2493,7 @@ Acec_TreeAddInOutPoint.exit60:                    ; preds = %.sink.split.i58, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Acec_TreeWhichPoint(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 -1, 5) i32 @Acec_TreeWhichPoint(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = mul nsw i32 %1, 6
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8

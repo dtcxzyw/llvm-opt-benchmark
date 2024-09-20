@@ -120,7 +120,7 @@ cpu_get_phys_page_attrs_debug.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, -2147483648) i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2147483647) i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %cc = getelementptr inbounds i8, ptr %cpu, i64 160
   %0 = load ptr, ptr %cc, align 16

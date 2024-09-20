@@ -1211,7 +1211,7 @@ define noundef i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils8CardSuitEi(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils8CardRankEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils8CardRankEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = srem i32 %1, %3
   ret i32 %4
@@ -2195,7 +2195,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -2147483647, 11) i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils9CardValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2147483646, 11) i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils9CardValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = srem i32 %1, %3
   %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 9)

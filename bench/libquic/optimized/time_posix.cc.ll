@@ -63,7 +63,7 @@ declare noundef i64 @_ZNK4base9TimeDelta14InMicrosecondsEv(ptr noundef nonnull a
 declare noundef i64 @_ZNK4base9TimeDelta9InSecondsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4base4Time3NowEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -9211727563254775808, -9223372036854775808) i64 @_ZN4base4Time3NowEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %tz = alloca %struct.timezone, align 8
@@ -128,7 +128,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7logging15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4base4Time17NowFromSystemTimeEv() local_unnamed_addr #0 align 2 {
+define dso_local range(i64 -9211727563254775808, -9223372036854775808) i64 @_ZN4base4Time17NowFromSystemTimeEv() local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @_ZN4base4Time3NowEv()
   ret i64 %call
@@ -528,7 +528,7 @@ _ZN12_GLOBAL__N_18ClockNowEi.exit:                ; preds = %entry, %_ZN12_GLOBA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4base4Time11FromTimeValE7timeval(i64 %t.coerce0, i64 %t.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -9211727563254775808, -9223372036854775808) i64 @_ZN4base4Time11FromTimeValE7timeval(i64 %t.coerce0, i64 %t.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end12:
   %cmp = icmp eq i64 %t.coerce1, 0
   %cmp13 = icmp eq i64 %t.coerce0, 0

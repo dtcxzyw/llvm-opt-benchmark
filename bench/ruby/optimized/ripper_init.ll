@@ -688,7 +688,7 @@ define internal i64 @ripper_lex_io_get(ptr nocapture readnone %0, i64 noundef %1
 declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ripper_lex_get_generic(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ripper_lex_get_generic(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @id_gets, align 8
   %4 = tail call i64 @rb_funcallv_public(i64 noundef %1, i64 noundef %3, i32 noundef 0, ptr noundef null) #4
   %5 = icmp eq i64 %4, 4

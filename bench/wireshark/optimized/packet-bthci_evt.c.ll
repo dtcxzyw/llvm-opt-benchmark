@@ -8274,7 +8274,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_number_of_completed_packets(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 3, 0) i32 @dissect_bthci_evt_number_of_completed_packets(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %4 = load i32, ptr @hf_bthci_evt_num_handles, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
@@ -11917,7 +11917,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_number_of_completed_data_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 5, 0) i32 @dissect_bthci_evt_number_of_completed_data_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_bthci_evt_total_num_data_blocks, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
@@ -12455,7 +12455,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_iq_sample_list(ptr noundef %0, i32 noundef range(i32 14, 16) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 2, 0) i32 @dissect_iq_sample_list(ptr noundef %0, i32 noundef range(i32 14, 16) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_evt_sample_count, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5

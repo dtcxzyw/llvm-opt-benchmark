@@ -3798,7 +3798,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 9, 20) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc range(i32 4, 0) i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 9, 20) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_btavrcp_attribute_list, align 4
   %6 = shl nuw nsw i32 %3, 2
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef %6, i32 noundef 0) #4

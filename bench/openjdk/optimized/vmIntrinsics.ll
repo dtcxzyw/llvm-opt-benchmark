@@ -857,7 +857,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 422, 421) i32 @_ZN12vmIntrinsics7find_idEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.preheader, label %.preheader16
@@ -1136,7 +1136,7 @@ declare noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIt
 declare void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN12vmIntrinsics12find_id_implE10vmSymbolIDS0_S0_s(i32 noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef signext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 421) i32 @_ZN12vmIntrinsics12find_id_implE10vmSymbolIDS0_S0_s(i32 noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef signext %3) local_unnamed_addr #0 align 2 {
   %5 = sext i32 %2 to i64
   %6 = sext i32 %1 to i64
   %7 = shl nsw i64 %6, 11

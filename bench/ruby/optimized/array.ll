@@ -1739,7 +1739,7 @@ rb_obj_write.exit:                                ; preds = %rb_ary_ptr_use_star
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @ary_ensure_room_for_push(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i64 1, -7) i64 @ary_ensure_room_for_push(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8192
@@ -7679,7 +7679,7 @@ ary_memcpy.exit70:                                ; preds = %rb_obj_write.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_ary_clear(i64 noundef returned %0) #3 {
+define dso_local range(i64 1, -7) i64 @rb_ary_clear(i64 noundef returned %0) #3 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -8225,7 +8225,7 @@ RARRAY_AREF.exit17:                               ; preds = %.thread20, %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_ary_rassoc(i64 noundef %0, i64 noundef %1) #3 {
+define dso_local range(i64 1, -7) i64 @rb_ary_rassoc(i64 noundef %0, i64 noundef %1) #3 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 32
@@ -8411,7 +8411,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_ary_cmp(i64 noundef %0, i64 noundef %1) #3 {
+define dso_local range(i64 37, 36) i64 @rb_ary_cmp(i64 noundef %0, i64 noundef %1) #3 {
   %3 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %1, i32 noundef 7, ptr noundef nonnull @.str, i64 noundef 3217) #21
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %33, label %5
@@ -11917,7 +11917,7 @@ rb_ary_shift.exit:                                ; preds = %rb_ary_shift.exit.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_ary_insert(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #3 {
+define internal range(i64 1, -7) i64 @rb_ary_insert(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #3 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %5, label %rb_check_arity.exit
 
@@ -18234,7 +18234,7 @@ ary_make_shared_copy.exit18:                      ; preds = %37, %40
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_ary_flatten_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
+define internal range(i64 1, -7) i64 @rb_ary_flatten_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 {
   %4 = icmp ugt i32 %0, 1
   br i1 %4, label %5, label %rb_check_arity.exit
 

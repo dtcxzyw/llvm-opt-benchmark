@@ -4307,7 +4307,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 -56613888, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -1, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
 entry:
   %cmp = icmp slt i32 %index, %search.8.val
   br i1 %cmp, label %do.body, label %return

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.GifImageDesc = type { i32, i32, i32, i32, i8, ptr }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @GifBitSize(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 1, 10) i32 @GifBitSize(i32 noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1

@@ -1685,7 +1685,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10algorithms9AFCEState11HasDefectedEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK10open_spiel10algorithms9AFCEState17CurRecommendationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_ZNK10open_spiel10algorithms9AFCEState17CurRecommendationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

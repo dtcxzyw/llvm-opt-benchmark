@@ -13,7 +13,7 @@ define void @srand(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i64 @nrand(i64 noundef %0) local_unnamed_addr #1 {
+define range(i64 0, -1) i64 @nrand(i64 noundef %0) local_unnamed_addr #1 {
   %2 = uitofp i64 %0 to double
   %.promoted.i = load i64, ptr @g_randint1, align 8
   br label %3
@@ -36,7 +36,7 @@ nrand_r.exit:                                     ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @rand_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2147483647) i32 @rand_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   br label %4

@@ -57,7 +57,7 @@ define noundef zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @mca_coll_han_component_name_to_id(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 7) i32 @mca_coll_han_component_name_to_id(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

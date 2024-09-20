@@ -566,7 +566,7 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5SM__get_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1, 4294967295) i64 @H5SM__get_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %1, -1
   %3 = icmp ult i32 %switch.tableidx, 12
   br i1 %3, label %switch.hole_check, label %11

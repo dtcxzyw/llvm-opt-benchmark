@@ -615,7 +615,7 @@ define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @pci_vpd_find_ro_info_keyword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #4 align 16 {
+define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #4 align 16 {
   br label %5
 
 5:                                                ; preds = %14, %4

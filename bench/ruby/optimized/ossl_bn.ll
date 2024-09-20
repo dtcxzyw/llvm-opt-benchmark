@@ -621,7 +621,7 @@ RSTRING_LENINT.exit27:                            ; preds = %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_bn_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_bn_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = and i64 %0, 7

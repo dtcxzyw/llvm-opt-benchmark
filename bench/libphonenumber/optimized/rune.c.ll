@@ -322,7 +322,7 @@ runetochar.exit:                                  ; preds = %5, %3, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not12 = icmp eq i32 %1, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 

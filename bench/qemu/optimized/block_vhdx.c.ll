@@ -462,7 +462,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %md_entry.i = alloca %struct.VHDXMetadataTableEntry, align 1
   %rt_entry.i = alloca %struct.VHDXRegionTableEntry, align 1

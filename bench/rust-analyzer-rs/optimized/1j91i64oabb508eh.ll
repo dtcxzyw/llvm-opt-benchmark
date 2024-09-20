@@ -17066,7 +17066,7 @@ define internal void @"_ZN4core3ptr129drop_in_place$LT$rust_analyzer..cli..lsif.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h4eff030758acb178E(ptr noundef %0, i64 noundef %1) unnamed_addr #8 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h4eff030758acb178E(ptr noundef %0, i64 noundef %1) unnamed_addr #8 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

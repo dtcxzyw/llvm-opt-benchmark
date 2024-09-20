@@ -1284,7 +1284,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 12) i32 @pg_itoa(i16 noundef signext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = sext i16 %0 to i32
   %4 = icmp slt i16 %0, 0
   br i1 %4, label %.thread.i, label %7

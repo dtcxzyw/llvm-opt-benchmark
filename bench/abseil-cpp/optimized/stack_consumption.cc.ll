@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [17 x i8] c"Unreachable code\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl18debugging_internal32GetSignalHandlerStackConsumptionEPFviE(ptr noundef %signal_handler) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -2147483646, -2147483648) i32 @_ZN4absl18debugging_internal32GetSignalHandlerStackConsumptionEPFviE(ptr noundef %signal_handler) local_unnamed_addr #0 {
 entry:
   %sigstk = alloca %struct.stack_t, align 8
   %old_sigstk = alloca %struct.stack_t, align 8

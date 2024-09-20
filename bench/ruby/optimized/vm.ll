@@ -21002,7 +21002,7 @@ define hidden void @Init_eval_method() local_unnamed_addr #2 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @obj_respond_to(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define internal range(i64 37, 36) i64 @obj_respond_to(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = alloca %struct.rb_calling_info, align 8
   %5 = alloca %struct.rb_call_data, align 8
   %6 = alloca %struct.rb_callinfo, align 8
@@ -34556,7 +34556,7 @@ define internal noundef i64 @m_core_set_postexe(i64 %0) #2 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @m_core_hash_merge_ptr(i32 noundef %0, ptr noundef %1, i64 %2) #2 {
+define internal range(i64 1, -7) i64 @m_core_hash_merge_ptr(i32 noundef %0, ptr noundef %1, i64 %2) #2 {
   %4 = load i64, ptr %1, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8
@@ -35219,7 +35219,7 @@ declare zeroext i1 @rb_ractor_main_p_() local_unnamed_addr #3
 declare i64 @rb_ivar_lookup(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @vm_get_cvar_base(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
+define internal fastcc range(i64 5, 4) i64 @vm_get_cvar_base(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.0.val2111 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %.0.val2111, null

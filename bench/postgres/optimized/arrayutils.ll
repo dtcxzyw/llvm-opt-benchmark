@@ -47,13 +47,13 @@ define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ArrayGetNItems(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItems(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = tail call i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr noundef %1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %25, label %.preheader.preheader
 

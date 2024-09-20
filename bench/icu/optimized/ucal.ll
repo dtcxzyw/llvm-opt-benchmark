@@ -2379,7 +2379,7 @@ declare noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef no
 declare void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucal_getWindowsTimeZoneID_75(ptr noundef %id, i32 noundef %len, ptr noundef %winid, i32 noundef %winidCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -2147483648) i32 @ucal_getWindowsTimeZoneID_75(ptr noundef %id, i32 noundef %len, ptr noundef %winid, i32 noundef %winidCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %resultWinID = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -2462,7 +2462,7 @@ return:                                           ; preds = %entry, %if.end16
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone12getWindowsIDERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucal_getTimeZoneIDForWindowsID_75(ptr noundef %winid, i32 noundef %len, ptr noundef %region, ptr noundef %id, i32 noundef %idCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -2147483648) i32 @ucal_getTimeZoneIDForWindowsID_75(ptr noundef %winid, i32 noundef %len, ptr noundef %region, ptr noundef %id, i32 noundef %idCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %resultID = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8

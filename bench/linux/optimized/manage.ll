@@ -417,7 +417,7 @@ define dso_local void @irq_set_thread_affinity(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_do_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 3, 1) i32 @irq_do_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -575,7 +575,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_set_affinity_locked(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 3, 1) i32 @irq_set_affinity_locked(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -702,7 +702,7 @@ define dso_local noundef i32 @irq_update_affinity_desc(i32 noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_set_affinity(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 3, 1) i32 @irq_set_affinity(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -721,7 +721,7 @@ define dso_local i32 @irq_set_affinity(i32 noundef %0, ptr noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_force_affinity(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 3, 1) i32 @irq_force_affinity(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -935,7 +935,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local zeroext i1 @cancel_work_sync(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_setup_affinity(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 3, 1) i32 @irq_setup_affinity(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq ptr %0, null
@@ -1571,7 +1571,7 @@ define dso_local noundef range(i32 0, 2) i32 @can_request_irq(i32 noundef %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__irq_set_trigger(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 3, 1) i32 @__irq_set_trigger(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8

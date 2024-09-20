@@ -307,7 +307,7 @@ define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unname
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %4 = getelementptr inbounds i8, ptr %3, i64 408
   %5 = load i32, ptr %4, align 8

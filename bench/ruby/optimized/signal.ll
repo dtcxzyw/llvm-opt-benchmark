@@ -789,7 +789,7 @@ define hidden i32 @rb_signal_buff_size() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, argmem: none) uwtable
-define hidden i32 @rb_get_next_signal() local_unnamed_addr #8 {
+define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #8 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @signal_buff, i64 260), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader

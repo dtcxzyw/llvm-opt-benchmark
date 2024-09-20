@@ -2797,7 +2797,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, -2147483648) i32 @ucnv_getNextUChar_75(ptr noundef %cnv, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %err) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_75(ptr noundef %cnv, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.UConverterToUnicodeArgs, align 8
   %buffer = alloca [2 x i16], align 2

@@ -6882,7 +6882,7 @@ _PyCompile_InstructionSequence_Addop.exit:        ; preds = %entry, %instr_seque
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compiler_visit_stmt(ptr noundef nonnull %c, ptr noundef %s) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @compiler_visit_stmt(ptr noundef nonnull %c, ptr noundef %s) unnamed_addr #1 {
 entry:
   %loc.i672 = alloca %struct._PyCompilerSrcLocation, align 8
   %loop.i673 = alloca ptr, align 8

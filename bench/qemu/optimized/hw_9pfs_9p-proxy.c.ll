@@ -538,7 +538,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef %fs) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %fullname, i64 8

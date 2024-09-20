@@ -686,7 +686,7 @@ define dso_local i32 @binaryop_from_token(i32 noundef %0) local_unnamed_addr #5 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @binaryop_to_token(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -754,7 +754,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @attribute_by_name(ptr noundef readnone %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %1, %6

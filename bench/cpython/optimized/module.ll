@@ -1908,7 +1908,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_integer_constants(ptr noundef %module) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @add_integer_constants(ptr noundef %module) unnamed_addr #1 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.143, i64 noundef 1) #5
   %cmp = icmp slt i32 %call, 0

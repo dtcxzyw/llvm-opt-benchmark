@@ -4331,7 +4331,7 @@ define internal noundef i32 @ivar_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_remove_instance_variable(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_obj_remove_instance_variable(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
@@ -5820,7 +5820,7 @@ rb_const_location.exit:                           ; preds = %2, %7, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_mod_remove_const(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_mod_remove_const(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24
@@ -5862,7 +5862,7 @@ define internal fastcc void @undefined_constant(i64 noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_const_remove(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_const_remove(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = and i64 %0, 7
@@ -8365,7 +8365,7 @@ cvar_list.exit:                                   ; preds = %85, %87
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_mod_remove_cvar(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_mod_remove_cvar(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call i64 @rb_check_id(ptr noundef nonnull %3) #24

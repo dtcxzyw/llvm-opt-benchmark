@@ -146,7 +146,7 @@ define i64 @Java_java_io_FileInputStream_skip0(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_io_FileInputStream_available0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Java_java_io_FileInputStream_available0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr @fis_fd, align 8
   %5 = tail call i32 @getFD(ptr noundef %0, ptr noundef %1, ptr noundef %4) #4

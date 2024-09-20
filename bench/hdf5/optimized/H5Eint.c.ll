@@ -624,7 +624,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.219 = private unnamed_addr constant [45 x i8] c"unable to decrement ref count on error class\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5E_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5E_init() local_unnamed_addr #0 {
   %1 = tail call i32 @H5I_register_type(ptr noundef nonnull @H5I_ERRCLS_CLS) #16
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %3, label %7

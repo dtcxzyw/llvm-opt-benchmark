@@ -300,7 +300,7 @@ declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @recent_insert_column(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @column_prefs_has_custom(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

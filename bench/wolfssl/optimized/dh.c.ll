@@ -330,7 +330,7 @@ if.end72:                                         ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
+define range(i32 -263, 1) i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
 entry:
   %x = alloca [1 x %struct.sp_int], align 16
   %q = alloca [1 x %struct.sp_int], align 16
@@ -420,7 +420,7 @@ declare i32 @sp_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @sp_forcezero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPrivKey(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
+define range(i32 -263, 1) i32 @wc_DhCheckPrivKey(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @wc_DhCheckPrivKey_ex(ptr noundef %key, ptr noundef %priv, i32 noundef %privSz, ptr noundef null, i32 noundef 0)
   ret i32 %call

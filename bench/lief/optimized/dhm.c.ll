@@ -249,7 +249,7 @@ dhm_read_bignum.exit.thread:                      ; preds = %60, %54, %35, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_dhm_make_params(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = tail call fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %40
@@ -447,7 +447,7 @@ define hidden range(i32 -2147483648, 2147470848) i32 @mbedtls_dhm_read_public(pt
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_dhm_make_public(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 2147470720) i32 @mbedtls_dhm_make_public(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %20, label %8
 

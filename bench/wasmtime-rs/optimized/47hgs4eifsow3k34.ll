@@ -143,7 +143,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE = external local_unnamed_addr global { i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h03be56acf5bc7e45E(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h03be56acf5bc7e45E(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

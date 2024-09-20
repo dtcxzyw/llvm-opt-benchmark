@@ -505,7 +505,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @read_offset(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @read_offset(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %read_sign.exit [
@@ -988,10 +988,10 @@ read_trans_spec_mwd.exit:                         ; preds = %read_number.exit44.
   %102 = getelementptr inbounds i8, ptr %98, i64 1
   store ptr %102, ptr %0, align 8
   %103 = tail call fastcc i64 @read_offset(ptr noundef %0)
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nsw i64 %103 to i32
   %105 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %104, ptr %105, align 4
-  %106 = icmp eq i32 %104, -9999999
+  %106 = icmp eq i64 %103, -9999999
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %101

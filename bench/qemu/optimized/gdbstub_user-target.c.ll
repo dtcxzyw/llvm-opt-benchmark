@@ -42,7 +42,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define dso_local i32 @gdb_target_signal_to_gdb(i32 noundef %sig) local_unnamed_addr #1 {
+define dso_local range(i32 0, 151) i32 @gdb_target_signal_to_gdb(i32 noundef %sig) local_unnamed_addr #1 {
 entry:
   br label %for.body
 

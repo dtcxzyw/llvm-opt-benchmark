@@ -1892,7 +1892,7 @@ define dso_local void @tcf_block_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_classify(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local range(i32 -1, -2147483648) i32 @tcf_classify(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.loopexit, label %7
 

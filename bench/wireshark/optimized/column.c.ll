@@ -500,7 +500,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare void @g_ptr_array_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @get_column_format_from_str(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 -1, 46) i32 @get_column_format_from_str(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   br label %col_format_to_string.exit
 
 col_format_to_string.exit:                        ; preds = %1, %6

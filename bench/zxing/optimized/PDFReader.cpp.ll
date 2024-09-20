@@ -802,7 +802,7 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   %.0.i27.i = phi i32 [ %86, %76 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
   %88 = call i32 @llvm.umin.i32(i32 %.0.i27.i, i32 %.0.i25.i)
   %89 = call i32 @llvm.umin.i32(i32 %.0.i23.i, i32 %.0.i.i)
-  %90 = call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %88, i32 %89)
+  %90 = call noundef range(i32 0, 119304648) i32 @llvm.umin.i32(i32 %88, i32 %89)
   br i1 %34, label %91, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 91:                                               ; preds = %87

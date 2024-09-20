@@ -615,7 +615,7 @@ entry:
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z14trailing_zerosm(i64 noundef %x) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 65) i32 @_Z14trailing_zerosm(i64 noundef %x) local_unnamed_addr #3 {
 entry:
   %and4.i = and i64 %x, 1
   %cmp5.i = icmp eq i64 %and4.i, 0

@@ -16708,7 +16708,7 @@ newarc.exit:                                      ; preds = %1502, %1472, %1467,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @next(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @next(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not756 = icmp eq i32 %3, 0

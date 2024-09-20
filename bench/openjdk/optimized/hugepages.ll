@@ -807,7 +807,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN9HugePages21thp_pagesize_fallbackEv() local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 1, 0) i64 @_ZN9HugePages21thp_pagesize_fallbackEv() local_unnamed_addr #7 align 2 {
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9HugePages12_thp_supportE, i64 8), align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %2, label %8

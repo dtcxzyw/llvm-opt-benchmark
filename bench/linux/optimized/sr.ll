@@ -1173,7 +1173,7 @@ define internal void @sr_release(ptr nocapture readnone %0) #6 align 16 {
 declare dso_local i32 @sr_drive_status(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sr_check_events(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define internal range(i32 0, 4) i32 @sr_check_events(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [10 x i8], align 1
   %6 = alloca %struct.scsi_sense_hdr, align 8

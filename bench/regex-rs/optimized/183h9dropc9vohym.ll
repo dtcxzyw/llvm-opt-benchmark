@@ -4635,7 +4635,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   %1265 = load i64, ptr %1103, align 8, !alias.scope !815, !noalias !818, !noundef !4
   %1266 = add i64 %1265, 1
   store i64 %1266, ptr %1103, align 8, !alias.scope !815, !noalias !818
-  %1267 = zext i32 %1255 to i64
+  %1267 = zext nneg i32 %1255 to i64
   %.val77.pre.i.i = load i64, ptr %1078, align 8, !alias.scope !754, !noalias !757
   br label %_ZN14regex_automata3nfa8thompson10range_trie10NextInsert4push17h3a3f67b17992cf89E.exit.i.i
 
@@ -4908,7 +4908,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   %1341 = load i64, ptr %1103, align 8, !alias.scope !841, !noalias !844, !noundef !4
   %1342 = add i64 %1341, 1
   store i64 %1342, ptr %1103, align 8, !alias.scope !841, !noalias !844
-  %1343 = zext i32 %1333 to i64
+  %1343 = zext nneg i32 %1333 to i64
   %.val69.pre.i.i = load i64, ptr %1078, align 8, !alias.scope !754, !noalias !757
   br label %_ZN14regex_automata3nfa8thompson10range_trie10NextInsert4push17h3a3f67b17992cf89E.exit112.i.i
 
@@ -5290,7 +5290,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
   %.sroa.4.0.insert.ext.i44.i.i.i = zext i8 %1440 to i64
   %.sroa.4.0.insert.shift.i45.i.i.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i44.i.i.i, 32
   %.sroa.4.0.insert.insert.i46.i.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i43.i.i.i, %.sroa.4.0.insert.shift.i45.i.i.i
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %1460 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %1460 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.4.0.insert.insert.i46.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
   %1471 = getelementptr inbounds i8, ptr %1463, i64 8
   %1472 = load ptr, ptr %1471, align 8, !alias.scope !897, !noalias !775, !nonnull !4, !noundef !4
@@ -5440,7 +5440,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17add_transition_at17h5716
   %.sroa.4.0.insert.ext.i140.i.i = zext i8 %.sroa.518.0.copyload.i.i to i64
   %.sroa.4.0.insert.shift.i141.i.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i140.i.i, 32
   %.sroa.4.0.insert.insert.i142.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i139.i.i, %.sroa.4.0.insert.shift.i141.i.i
-  %.sroa.0.0.insert.ext.i143.i.i = zext i32 %.0.i133.i.i to i64
+  %.sroa.0.0.insert.ext.i143.i.i = zext nneg i32 %.0.i133.i.i to i64
   %.sroa.0.0.insert.insert.i144.i.i = or disjoint i64 %.sroa.4.0.insert.insert.i142.i.i, %.sroa.0.0.insert.ext.i143.i.i
   store i64 %.sroa.0.0.insert.insert.i144.i.i, ptr %1511, align 4, !noalias !775
   %1519 = add i64 %1502, 1
@@ -5600,7 +5600,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17add_transition_at17h5716
   %.sroa.4.0.insert.ext.i173.i.i = zext i8 %.sroa.518.0.copyload.i.i to i64
   %.sroa.4.0.insert.shift.i174.i.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i173.i.i, 32
   %.sroa.4.0.insert.insert.i175.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i172.i.i, %.sroa.4.0.insert.shift.i174.i.i
-  %.sroa.0.0.insert.ext.i176.i.i = zext i32 %.0.i161.i.i to i64
+  %.sroa.0.0.insert.ext.i176.i.i = zext nneg i32 %.0.i161.i.i to i64
   %.sroa.0.0.insert.insert.i177.i.i = or disjoint i64 %.sroa.4.0.insert.insert.i175.i.i, %.sroa.0.0.insert.ext.i176.i.i
   store i64 %.sroa.0.0.insert.insert.i177.i.i, ptr %1571, align 4, !noalias !775
   %1579 = add i64 %1562, 1
@@ -9997,7 +9997,7 @@ define noundef zeroext i1 @"_ZN92_$LT$regex_automata..nfa..thompson..literal_tri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9add_empty17he71dd38c92ac81f4E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9add_empty17he71dd38c92ac81f4E(ptr noalias noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr }, i64 } }, align 8
   %4 = alloca { { { i64, ptr }, i64 } }, align 8

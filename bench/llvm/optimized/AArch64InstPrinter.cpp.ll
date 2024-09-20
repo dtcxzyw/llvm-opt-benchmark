@@ -23071,7 +23071,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit64:               ; preds = %173, %175
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef range(i32 266, 237) i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #3 {
   switch i32 %0, label %34 [
     i32 237, label %35
     i32 238, label %2

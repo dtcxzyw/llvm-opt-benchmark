@@ -238,21 +238,21 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cNumeric = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enumeratorize(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enumeratorize(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @rb_keyword_given_p() #17
-  %6 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, i32 noundef %5)
+  %6 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, i32 noundef %5)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enumeratorize_with_size(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enumeratorize_with_size(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @rb_keyword_given_p() #17
   %7 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %6)
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i64, ptr @rb_cEnumerator, align 8
   %8 = load i64, ptr @rb_cLazy, align 8
   %9 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %8) #17
@@ -319,7 +319,7 @@ enumerator_allocate.exit11:                       ; preds = %30, %37
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @enumerator_init(i64 noundef returned %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i64 1, -7) i64 @enumerator_init(i64 noundef returned %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = and i64 %0, 7
   %10 = icmp ne i64 %9, 0
   %11 = icmp eq i64 %0, 0
@@ -439,7 +439,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 declare i32 @rb_keyword_given_p() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_arith_seq_new(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_arith_seq_new(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load i64, ptr @rb_cArithSeq, align 8
   %11 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %10, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %12 = inttoptr i64 %11 to ptr
@@ -1189,7 +1189,7 @@ rb_class_of.exit:                                 ; preds = %311, %314, %315, %3
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @obj_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 1, -7) i64 @obj_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp sgt i32 %0, 0
   %.010.idx = select i1 %4, i64 8, i64 0
   %.010 = getelementptr i8, ptr %1, i64 %.010.idx
@@ -1198,7 +1198,7 @@ define internal i64 @obj_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   %.0.in = select i1 %4, ptr %1, ptr @sym_each
   %.0 = load i64, ptr %.0.in, align 8
   %6 = tail call i32 @rb_keyword_given_p() #17
-  %7 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %.0, i32 noundef %.09, ptr noundef %.010, ptr noundef null, i32 noundef %6)
+  %7 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %.0, i32 noundef %.09, ptr noundef %.010, ptr noundef null, i32 noundef %6)
   %8 = tail call i32 @rb_block_given_p() #17
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %rb_obj_write.exit, label %9
@@ -1243,7 +1243,7 @@ declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @enumerator_initialize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @enumerator_initialize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
   %4 = tail call i64 @rb_block_proc() #17
   %5 = load i64, ptr @rb_cGenerator, align 8
   %6 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 16, ptr noundef nonnull @generator_data_type) #17
@@ -1689,7 +1689,7 @@ define internal i64 @enumerator_each_with_index(i64 noundef %0) #0 {
   %4 = tail call i64 @rb_frame_this_func() #17
   %5 = tail call i64 @rb_id2sym(i64 noundef %4) #17
   %6 = tail call i32 @rb_keyword_given_p() #17
-  %7 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %5, i32 noundef 0, ptr noundef null, ptr noundef nonnull @enumerator_enum_size, i32 noundef %6)
+  %7 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %5, i32 noundef 0, ptr noundef null, ptr noundef nonnull @enumerator_enum_size, i32 noundef %6)
   br label %enumerator_with_index.exit
 
 8:                                                ; preds = %1
@@ -1719,7 +1719,7 @@ define internal i64 @enumerator_with_object(i64 noundef %0, i64 noundef %1) #0 {
   %6 = tail call i64 @rb_frame_this_func() #17
   %7 = tail call i64 @rb_id2sym(i64 noundef %6) #17
   %8 = tail call i32 @rb_keyword_given_p() #17
-  %9 = call i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %7, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull @enumerator_enum_size, i32 noundef %8)
+  %9 = call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %7, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull @enumerator_enum_size, i32 noundef %8)
   br label %12
 
 10:                                               ; preds = %2
@@ -1749,7 +1749,7 @@ rb_check_arity.exit:                              ; preds = %3
   %7 = tail call i64 @rb_frame_this_func() #17
   %8 = tail call i64 @rb_id2sym(i64 noundef %7) #17
   %9 = tail call i32 @rb_keyword_given_p() #17
-  %10 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %8, i32 noundef %0, ptr noundef %1, ptr noundef nonnull @enumerator_enum_size, i32 noundef %9)
+  %10 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %8, i32 noundef %0, ptr noundef %1, ptr noundef nonnull @enumerator_enum_size, i32 noundef %9)
   br label %24
 
 11:                                               ; preds = %rb_check_arity.exit
@@ -2086,7 +2086,7 @@ rb_obj_write.exit:                                ; preds = %25, %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @enumerator_rewind(i64 noundef returned %0) #0 {
+define internal range(i64 1, -7) i64 @enumerator_rewind(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @enumerator_data_type) #17
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %3
@@ -2476,7 +2476,7 @@ rb_obj_write.exit:                                ; preds = %35, %enumerator_ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lazy_eager(i64 noundef %0) #0 {
+define internal range(i64 1, -7) i64 @lazy_eager(i64 noundef %0) #0 {
   %2 = load i64, ptr @rb_cEnumerator, align 8
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 96, ptr noundef nonnull @enumerator_data_type) #17
   %4 = inttoptr i64 %3 to ptr
@@ -2884,7 +2884,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @generator_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @generator_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = icmp eq i32 %0, 0
   br i1 %5, label %6, label %8
@@ -3227,7 +3227,7 @@ define internal i64 @producer_each(i64 noundef %0) #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enumerator_s_produce(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 1, -7) i64 @enumerator_s_produce(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = tail call i32 @rb_block_given_p() #17
   %.not = icmp eq i32 %5, 0
@@ -3333,7 +3333,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @enum_chain_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @enum_chain_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -3428,7 +3428,7 @@ define internal i64 @enum_chain_each(i32 noundef %0, ptr noundef %1, i64 noundef
   %8 = icmp sgt i32 %0, 0
   %9 = select i1 %8, ptr @enum_chain_enum_no_size, ptr @enum_chain_enum_size
   %10 = tail call i32 @rb_keyword_given_p() #17
-  %11 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %7, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %10)
+  %11 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %7, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %10)
   br label %.loopexit
 
 12:                                               ; preds = %3
@@ -3703,7 +3703,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @enum_product_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @enum_product_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 4, ptr %4, align 8
@@ -3831,7 +3831,7 @@ define internal i64 @enum_product_each(i64 noundef %0) #0 {
   %4 = tail call i64 @rb_frame_this_func() #17
   %5 = tail call i64 @rb_id2sym(i64 noundef %4) #17
   %6 = tail call i32 @rb_keyword_given_p() #17
-  %7 = tail call i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %5, i32 noundef 0, ptr noundef null, ptr noundef nonnull @enum_product_enum_size, i32 noundef %6)
+  %7 = tail call range(i64 1, -7) i64 @rb_enumeratorize_with_size_kw(i64 noundef %0, i64 noundef %5, i32 noundef 0, ptr noundef null, ptr noundef nonnull @enum_product_enum_size, i32 noundef %6)
   br label %11
 
 8:                                                ; preds = %1
@@ -4017,7 +4017,7 @@ define internal i64 @enum_product_inspect(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enumerator_s_product(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
+define internal range(i64 1, -7) i64 @enumerator_s_product(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -5686,7 +5686,7 @@ rb_obj_write.exit:                                ; preds = %enumerator_ptr.exit
 declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @next_ii(i64 %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 %4) #0 {
+define internal range(i64 37, 36) i64 @next_ii(i64 %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 %4) #0 {
   %6 = alloca i64, align 8
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @enumerator_data_type) #17
   %.not.i = icmp eq ptr %7, null

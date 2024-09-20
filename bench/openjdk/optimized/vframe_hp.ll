@@ -1986,7 +1986,7 @@ define hidden noundef ptr @_ZNK14compiledVFrame6methodEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK14compiledVFrame3bciEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK14compiledVFrame3bciEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

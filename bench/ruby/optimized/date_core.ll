@@ -3747,7 +3747,7 @@ f_zero_p.exit74.thread99:                         ; preds = %215, %rb_type.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @d_lite_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @d_lite_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -15290,7 +15290,7 @@ c_jd_to_civil.exit53:                             ; preds = %56, %85
 declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #8 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #8 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge

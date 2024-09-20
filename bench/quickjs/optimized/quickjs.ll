@@ -110035,7 +110035,7 @@ JS_FreeValue.exit:                                ; preds = %94, %89, %string_bu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @string_indexof_char(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_char(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #30 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
@@ -111437,7 +111437,7 @@ string_get.exit198:                               ; preds = %243, %247
   br i1 %.not147, label %286, label %.loopexit
 
 286:                                              ; preds = %279, %283
-  %287 = add nuw i32 %273, 1
+  %287 = add nuw nsw i32 %273, 1
   br label %string_buffer_putc8.exit
 
 .thread:                                          ; preds = %260, %270, %272
@@ -151173,7 +151173,7 @@ emit_op.exit154:                                  ; preds = %431, %438
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @js_parse_property_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 32) i32 @js_parse_property_name(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp ne i32 %2, 0
   br i1 %7, label %8, label %JS_FreeAtom.exit
@@ -152812,7 +152812,7 @@ emit_op.exit31:                                   ; preds = %emit_op.exit29, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
@@ -153573,8 +153573,8 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br label %417
 
 417:                                              ; preds = %416, %415
-  %418 = trunc nuw i32 %389 to i8
-  %.reass = add i8 %418, 3
+  %418 = trunc nuw nsw i32 %389 to i8
+  %.reass = add nuw nsw i8 %418, 3
   %.0.i536 = select i1 %406, i8 %.reass, i8 4
   %.val75.i = load ptr, ptr %313, align 8
   %419 = getelementptr inbounds i8, ptr %.val75.i, i64 304

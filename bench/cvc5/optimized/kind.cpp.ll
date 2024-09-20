@@ -558,7 +558,7 @@ _ZN4cvc58internal8toStringENS0_12TypeConstantE.exit: ; preds = %entry, %switch.l
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %k) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 14) i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %k) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %switch.tableidx = add i32 %k, -1
   %0 = icmp ult i32 %switch.tableidx, 364

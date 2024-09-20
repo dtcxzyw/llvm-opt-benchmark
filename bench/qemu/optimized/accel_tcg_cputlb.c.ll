@@ -2282,7 +2282,7 @@ tlb_set_page_with_attrs.exit:                     ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 4096) i32 @probe_access_full(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, ptr nocapture noundef %pfull, i64 noundef %retaddr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2049) i32 @probe_access_full(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, ptr nocapture noundef %pfull, i64 noundef %retaddr) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc i32 @probe_access_internal(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr noundef %phost, ptr noundef %pfull, i64 noundef %retaddr, i1 noundef zeroext true)
@@ -2304,7 +2304,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 4096) i32 @probe_access_internal(ptr noundef %cpu, i64 noundef %addr, i32 noundef %fault_size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, ptr nocapture noundef writeonly %pfull, i64 noundef %retaddr, i1 noundef zeroext %check_mem_cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2049) i32 @probe_access_internal(ptr noundef %cpu, i64 noundef %addr, i32 noundef %fault_size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, ptr nocapture noundef writeonly %pfull, i64 noundef %retaddr, i1 noundef zeroext %check_mem_cbs) unnamed_addr #0 {
 entry:
   %tmptlb.sroa.0.i = alloca %struct.anon.2, align 8
   %tmpf.i = alloca %struct.CPUTLBEntryFull, align 8
@@ -2752,7 +2752,7 @@ if.end3:                                          ; preds = %tlb_set_dirty.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 4096) i32 @probe_access_full_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, ptr noundef writeonly %phost, ptr noundef %pfull) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2049) i32 @probe_access_full_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, ptr noundef writeonly %phost, ptr noundef %pfull) local_unnamed_addr #0 {
 entry:
   %discard_phost = alloca ptr, align 8
   %discard_tlb = alloca ptr, align 8
@@ -2780,7 +2780,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 4096) i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %retaddr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2049) i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %retaddr) local_unnamed_addr #0 {
 entry:
   %full = alloca ptr, align 8
   %or = or i64 %addr, -4096

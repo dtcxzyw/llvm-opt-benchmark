@@ -470,7 +470,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @Curl_hash_str(ptr noundef readonly %key, i64 noundef %key_length, i64 noundef %slots_num) local_unnamed_addr #3 {
+define hidden range(i64 0, -1) i64 @Curl_hash_str(ptr noundef readonly %key, i64 noundef %key_length, i64 noundef %slots_num) local_unnamed_addr #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %key_length
   %cmp6 = icmp sgt i64 %key_length, 0

@@ -6720,7 +6720,7 @@ define dso_local void @snd_hda_codec_cleanup(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_codec_parse_pcms(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_parse_pcms(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

@@ -102,7 +102,7 @@ define void @printVecPtrOfString(ptr nocapture noundef readonly %0) local_unname
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @getPoIndex(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @getPoIndex(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 112
   %.val9 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val9, 0

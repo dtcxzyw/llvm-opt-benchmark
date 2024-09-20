@@ -138,7 +138,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.162 = private unnamed_addr constant [11 x i8] c"s_standard\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ossl_param_find_pidx(ptr noundef readonly %s) local_unnamed_addr #0 {
+define range(i32 -1, 290) i32 @ossl_param_find_pidx(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
   switch i8 %0, label %sw.epilog3087 [

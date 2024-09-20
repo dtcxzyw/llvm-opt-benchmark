@@ -6545,7 +6545,7 @@ return:                                           ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow7compute6detail16InferBatchLengthERKSt6vectorINS_5DatumESaIS3_EEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values, ptr nocapture noundef writeonly %all_same) local_unnamed_addr #5 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZN5arrow7compute6detail16InferBatchLengthERKSt6vectorINS_5DatumESaIS3_EEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values, ptr nocapture noundef writeonly %all_same) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %values, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %values, i64 8

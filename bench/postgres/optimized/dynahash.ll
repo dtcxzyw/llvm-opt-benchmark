@@ -810,7 +810,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @hash_select_dirsize(i64 noundef %0) local_unnamed_addr #9 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash_select_dirsize(i64 noundef %0) local_unnamed_addr #9 {
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %2 = add i64 %spec.store.select.i.i, -1
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)

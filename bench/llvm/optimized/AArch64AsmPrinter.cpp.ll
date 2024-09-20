@@ -17859,7 +17859,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_117AArch64AsmPrinter24emitPtrauthDiscriminatorEtjRj(ptr noundef nonnull align 8 dereferenceable(1040) %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZN12_GLOBAL__N_117AArch64AsmPrinter24emitPtrauthDiscriminatorEtjRj(ptr noundef nonnull align 8 dereferenceable(1040) %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MCInstBuilder", align 8
   %6 = alloca %"class.llvm::MCInstBuilder", align 8
   %7 = alloca %"class.llvm::MCInstBuilder", align 8
@@ -18450,7 +18450,7 @@ declare noundef ptr @_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb(ptr noun
 declare void @_ZN4llvm10AsmPrinter10recordSledEPNS_8MCSymbolERKNS_12MachineInstrENS0_8SledKindEh(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef, ptr noundef nonnull align 8 dereferenceable(70), i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 237, 206) i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #10 {
   switch i32 %0, label %34 [
     i32 206, label %35
     i32 207, label %2
@@ -18592,7 +18592,7 @@ define internal fastcc noundef i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 266, 237) i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #10 {
   switch i32 %0, label %34 [
     i32 237, label %35
     i32 238, label %2

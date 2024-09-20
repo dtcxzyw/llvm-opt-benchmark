@@ -1197,7 +1197,7 @@ declare dso_local i32 @rpc_unlink(ptr noundef) local_unnamed_addr #8
 declare dso_local i64 @rpc_pipe_generic_upcall(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @idmap_pipe_downcall(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define internal noundef range(i64 -2147483648, 141) i64 @idmap_pipe_downcall(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca [11 x i8], align 1
   %5 = alloca %struct.idmap_msg, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 168

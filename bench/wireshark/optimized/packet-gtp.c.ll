@@ -9824,7 +9824,7 @@ define internal i32 @dissect_diameter_3gpp_qosprofile(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gtp_3gpp_mbms_service_area(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 1, 0) i32 @dissect_gtp_3gpp_mbms_service_area(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %6 = add i8 %5, 1
   %7 = load i32, ptr @hf_gtp_no_of_mbms_sa_codes, align 4

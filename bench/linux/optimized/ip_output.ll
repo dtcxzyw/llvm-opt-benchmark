@@ -4879,7 +4879,7 @@ define dso_local ptr @__ip_make_skb(ptr noundef %0, ptr nocapture noundef readon
 declare dso_local void @icmp_out_count(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_send_skb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @ip_send_skb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @__ip_local_out(ptr noundef %0, ptr noundef %4, ptr noundef %1)
@@ -4934,7 +4934,7 @@ define dso_local noundef i32 @ip_send_skb(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_push_pending_frames(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @ip_push_pending_frames(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = getelementptr inbounds i8, ptr %0, i64 816
   %5 = tail call ptr @__ip_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)

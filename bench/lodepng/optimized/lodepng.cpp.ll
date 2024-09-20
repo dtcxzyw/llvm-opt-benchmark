@@ -18545,7 +18545,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13addChunk_iTXtP8ucvectorjPKcS2_S2_S2_P23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, i32 noundef %compress, ptr noundef %keyword, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 112) i32 @_ZL13addChunk_iTXtP8ucvectorjPKcS2_S2_S2_P23LodePNGCompressSettings(ptr nocapture noundef nonnull %out, i32 noundef %compress, ptr noundef %keyword, ptr noundef %langtag, ptr noundef %transkey, ptr noundef %textstring, ptr noundef %zlibsettings) unnamed_addr #5 {
 entry:
   %compressed = alloca ptr, align 8
   %compressedsize = alloca i64, align 8

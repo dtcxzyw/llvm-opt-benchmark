@@ -214,7 +214,7 @@ define dso_local range(i32 0, 2) i32 @rb_enc_dummy_p(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_to_encoding_index(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @rb_to_encoding_index(i64 noundef %0) local_unnamed_addr #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -330,7 +330,7 @@ enc_check_encoding.exit.thread10:                 ; preds = %rb_enc_get.exit, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @enc_check_encoding(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @enc_check_encoding(i64 noundef %0) unnamed_addr #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -427,7 +427,7 @@ rb_enc_from_index.exit:                           ; preds = %1, %8
 declare ptr @rb_str_to_cstr(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_find_index(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @rb_enc_find_index(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
@@ -696,7 +696,7 @@ rb_enc_from_index.exit:                           ; preds = %rb_enc_from_index.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @str_find_encindex(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @str_find_encindex(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   store i64 %0, ptr %2, align 8
@@ -1836,7 +1836,7 @@ define dso_local range(i32 0, 2) i32 @rb_enc_unicode_p(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_alias(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @rb_enc_alias(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -2115,7 +2115,7 @@ rb_enc_from_index.exit.thread:                    ; preds = %1, %rb_enc_from_ind
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_enc_autoload(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @rb_enc_autoload(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2347,7 +2347,7 @@ rb_vm_lock_leave.exit:                            ; preds = %53, %55
 declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_enc_find_index2(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @rb_enc_find_index2(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp sgt i64 %1, 63
   br i1 %4, label %9, label %5
@@ -2440,7 +2440,7 @@ enc_capable.exit:                                 ; preds = %RB_SYMBOL_P.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_id_encoding() local_unnamed_addr #0 {
+define hidden range(i64 1, 0) i64 @rb_id_encoding() local_unnamed_addr #0 {
   %.pr.i = load i64, ptr @rb_id_encoding.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -2778,7 +2778,7 @@ rb_id_encoding.exit:                              ; preds = %.lr.ph.i.i, %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_enc_associate_index(i64 noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enc_associate_index(i64 noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -2866,7 +2866,7 @@ rb_enc_from_index.exit:                           ; preds = %rb_enc_asciicompat.
 declare void @rb_str_change_terminator_length(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_enc_associate(i64 noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enc_associate(i64 noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %rb_enc_to_index.exit, label %3
 
@@ -3280,7 +3280,7 @@ define dso_local void @rb_enc_copy(i64 noundef %0, i64 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_encoding(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 5, 4) i64 @rb_obj_encoding(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rb_enc_get_index(i64 noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %6
@@ -3372,7 +3372,7 @@ define dso_local i32 @rb_enc_precise_mbclen(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_ascget(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @rb_enc_ascget(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %5, label %32
 
@@ -4750,7 +4750,7 @@ rb_enc_default_external.exit:                     ; preds = %13, %rb_default_ext
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @set_default_external(i64 %0, i64 noundef returned %1) #0 {
+define internal range(i64 5, 4) i64 @set_default_external(i64 %0, i64 noundef returned %1) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.57) #20
   %3 = icmp eq i64 %1, 4
   br i1 %3, label %4, label %rb_enc_set_default_external.exit

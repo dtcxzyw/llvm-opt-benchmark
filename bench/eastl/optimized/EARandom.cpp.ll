@@ -56,7 +56,7 @@ if.end4:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %nLimit) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %nLimit) local_unnamed_addr #1 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
   %cmp.i = icmp ult i32 %0, 2
@@ -935,7 +935,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEj(ptr noundef nonnull align 8 dereferenceable(2508) %this, i32 noundef %nLimit) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEj(ptr noundef nonnull align 8 dereferenceable(2508) %this, i32 noundef %nLimit) local_unnamed_addr #6 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
   %cmp.i = icmp ult i32 %0, 2

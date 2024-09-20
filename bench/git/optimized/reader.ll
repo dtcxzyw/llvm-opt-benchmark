@@ -1448,7 +1448,7 @@ declare void @iterator_set_empty(ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reader_seek_linear(ptr noundef nonnull %ti, ptr noundef %want) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @reader_seek_linear(ptr noundef nonnull %ti, ptr noundef %want) unnamed_addr #0 {
 entry:
   %br1.i = alloca %struct.block_reader, align 8
   %rec = alloca %struct.reftable_record, align 8

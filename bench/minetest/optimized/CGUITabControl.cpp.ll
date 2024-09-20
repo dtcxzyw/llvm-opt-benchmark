@@ -4911,7 +4911,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr3gui14CGUITabControl8getTabAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this, i32 noundef %xpos, i32 noundef %ypos) unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3irr3gui14CGUITabControl8getTabAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this, i32 noundef %xpos, i32 noundef %ypos) unnamed_addr #0 align 2 {
 entry:
   %Environment = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %Environment, align 8, !tbaa !46

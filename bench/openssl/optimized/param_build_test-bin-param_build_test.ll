@@ -1011,7 +1011,7 @@ if.end46:                                         ; preds = %lor.lhs.false38, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_private_test(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %tstid) #0 {
 entry:
   %i = alloca i32, align 4
   %l = alloca i64, align 8
@@ -1839,7 +1839,7 @@ err:                                              ; preds = %for.body, %for.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @builder_merge_test() #0 {
+define internal range(i32 0, 2) i32 @builder_merge_test() #0 {
 entry:
   %i = alloca i32, align 4
   %l = alloca i64, align 8

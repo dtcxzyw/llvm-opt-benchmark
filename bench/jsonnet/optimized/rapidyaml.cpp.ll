@@ -11511,7 +11511,7 @@ define dso_local void @_ZN2c43yml4Tree9to_streamEmm(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree18num_tag_directivesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i64 0, 5) i64 @_ZNK2c43yml4Tree18num_tag_directivesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   br label %3
 

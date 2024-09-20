@@ -3602,7 +3602,7 @@ declare void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef, ptr noundef) l
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @passwd_callback(ptr nocapture noundef writeonly %buf, i32 noundef %num, i32 noundef %encrypting, ptr nocapture noundef readonly %global_passwd) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @passwd_callback(ptr nocapture noundef writeonly %buf, i32 noundef %num, i32 noundef %encrypting, ptr nocapture noundef readonly %global_passwd) #0 {
 entry:
   %tobool.not = icmp eq i32 %encrypting, 0
   br i1 %tobool.not, label %if.then, label %return

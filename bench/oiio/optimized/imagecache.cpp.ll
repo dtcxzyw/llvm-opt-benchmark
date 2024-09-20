@@ -29641,7 +29641,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl18subimage_from_nameEPNS0_14ImageCacheFileENS_7ustringE(ptr nocapture noundef nonnull readnone align 64 dereferenceable(25280) %this, ptr nocapture noundef readonly %file, ptr nocapture noundef readonly %subimagename) local_unnamed_addr #18 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl18subimage_from_nameEPNS0_14ImageCacheFileENS_7ustringE(ptr nocapture noundef nonnull readnone align 64 dereferenceable(25280) %this, ptr nocapture noundef readonly %file, ptr nocapture noundef readonly %subimagename) local_unnamed_addr #18 align 2 {
 entry:
   %m_subimages.i = getelementptr inbounds i8, ptr %file, i64 80
   %_M_finish.i.i = getelementptr inbounds i8, ptr %file, i64 88

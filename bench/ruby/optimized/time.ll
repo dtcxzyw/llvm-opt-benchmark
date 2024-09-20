@@ -1718,7 +1718,7 @@ cmp.exit7.thread12:                               ; preds = %cmp.exit.thread9, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @time_set_utc_offset(i64 noundef returned %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @time_set_utc_offset(i64 noundef returned %0, i64 noundef %1) unnamed_addr #1 {
   %3 = tail call fastcc i64 @num_exact(i64 noundef %1)
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -7710,7 +7710,7 @@ define hidden void @Init_builtin_timev() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @time_s_now(ptr nocapture noundef readnone %0, i64 noundef %1, i64 noundef %2) #1 {
+define internal range(i64 1, -7) i64 @time_s_now(ptr nocapture noundef readnone %0, i64 noundef %1, i64 noundef %2) #1 {
   %4 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %1, i64 noundef 48, ptr noundef nonnull @time_data_type) #18
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -8197,7 +8197,7 @@ time_new_timew.exit:                              ; preds = %250, %245, %RTYPEDD
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @time_init_now(ptr nocapture readnone %0, i64 noundef returned %1, i64 noundef %2) #1 {
+define internal range(i64 1, -7) i64 @time_init_now(ptr nocapture readnone %0, i64 noundef returned %1, i64 noundef %2) #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
@@ -8343,7 +8343,7 @@ time_set_timew.exit:                              ; preds = %timenano2timew.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @time_init_parse(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
+define internal range(i64 1, -7) i64 @time_init_parse(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.vtm, align 8
@@ -8925,7 +8925,7 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @time_init_args(ptr nocapture readnone %0, i64 noundef returned %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #1 {
+define internal range(i64 1, -7) i64 @time_init_args(ptr nocapture readnone %0, i64 noundef returned %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #1 {
   %10 = alloca %struct.vtm, align 8
   %11 = alloca i64, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 36
@@ -9425,7 +9425,7 @@ declare i64 @rb_big_minus(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @num_exact(i64 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i64 5, 4) i64 @num_exact(i64 noundef %0) unnamed_addr #1 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -19096,7 +19096,7 @@ declare i64 @rb_str_subseq(i64 noundef, i64 noundef, i64 noundef) local_unnamed_
 declare i64 @rb_int_mul(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @time_init_vtm(i64 noundef returned %0, ptr nocapture noundef byval(%struct.vtm) align 8 %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @time_init_vtm(i64 noundef returned %0, ptr nocapture noundef byval(%struct.vtm) align 8 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 36

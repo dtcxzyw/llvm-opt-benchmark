@@ -550,7 +550,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @compute_user_block_size(i64 noundef %0) local_unnamed_addr #8 {
+define dso_local range(i64 0, -1) i64 @compute_user_block_size(i64 noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %.loopexit, label %.preheader
 

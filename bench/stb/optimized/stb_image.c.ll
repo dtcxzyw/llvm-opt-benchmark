@@ -16445,7 +16445,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @stbi__skip_jpeg_junk_at_end(ptr nocapture noundef readonly %j) local_unnamed_addr #2 {
+define zeroext range(i8 1, 0) i8 @stbi__skip_jpeg_junk_at_end(ptr nocapture noundef readonly %j) local_unnamed_addr #2 {
 entry:
   br label %while.cond
 
@@ -24941,7 +24941,7 @@ return:                                           ; preds = %if.else11.i, %if.th
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 32) i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @stbi__tga_get_comp(i32 noundef %bits_per_pixel, i32 noundef %is_grey, ptr noundef writeonly %is_rgb16) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %is_rgb16, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -32411,7 +32411,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__pnm_getinteger(ptr noundef %s, ptr nocapture noundef %c) local_unnamed_addr #2 {
+define range(i32 -2147483648, 214748365) i32 @stbi__pnm_getinteger(ptr noundef %s, ptr nocapture noundef %c) local_unnamed_addr #2 {
 entry:
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
   %eof.i = getelementptr inbounds i8, ptr %s, i64 32

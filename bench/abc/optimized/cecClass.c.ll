@@ -606,7 +606,7 @@ define void @Cec_ManSimClassCreate(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_ManSimClassRefineOne_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Cec_ManSimClassRefineOne_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = getelementptr i8, ptr %0, i64 24
@@ -1182,7 +1182,7 @@ Cec_ManSimClassCreate.exit82:                     ; preds = %247, %Cec_ManSimCla
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_ManSimClassRefineOne_(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Cec_ManSimClassRefineOne_(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   store i32 0, ptr @s_Count, align 4
   %3 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef %0, i32 noundef %1)
   %4 = load i32, ptr @s_Count, align 4
@@ -1201,7 +1201,7 @@ define i32 @Cec_ManSimClassRefineOne_(ptr nocapture noundef readonly %0, i32 nou
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Cec_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef %0, i32 noundef %1)
   ret i32 %3
 }
@@ -1518,7 +1518,7 @@ Cec_ManSimClassCreate.exit55:                     ; preds = %139, %Cec_ManSimCla
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Cec_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @Cec_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -1993,7 +1993,7 @@ Gia_ObjIsHead.exit:                               ; preds = %95
   br i1 %108, label %Gia_ObjIsHead.exit.thread, label %109
 
 109:                                              ; preds = %Gia_ObjIsHead.exit
-  %110 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %97)
+  %110 = tail call range(i32 -2147483647, -2147483648) i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %97)
   %.val59.pre = load i32, ptr %3, align 4
   br label %Gia_ObjIsHead.exit.thread
 
@@ -3711,7 +3711,7 @@ Vec_IntPush.exit263:                              ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %322
   %.pre-phi403 = phi i32 [ %.pre402, %._crit_edge.loopexit ], [ 0, %322 ]
-  %368 = tail call i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %.pre-phi403)
+  %368 = tail call range(i32 -2147483647, -2147483648) i32 @Cec_ManSimClassRefineOne_rec(ptr noundef nonnull readonly %0, i32 noundef %.pre-phi403)
   %369 = load ptr, ptr %66, align 8
   %370 = getelementptr i8, ptr %369, i64 4
   %.val218334 = load i32, ptr %370, align 4

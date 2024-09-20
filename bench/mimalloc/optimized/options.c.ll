@@ -993,7 +993,7 @@ if.end:                                           ; preds = %mi_show_error_messa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden signext i8 @_mi_toupper(i8 noundef signext %c) local_unnamed_addr #0 {
+define hidden signext range(i8 123, 97) i8 @_mi_toupper(i8 noundef signext %c) local_unnamed_addr #0 {
 entry:
   %0 = add i8 %c, -97
   %or.cond = icmp ult i8 %0, 26

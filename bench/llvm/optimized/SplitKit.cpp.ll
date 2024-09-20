@@ -3624,7 +3624,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN4llvm11SplitEditor21buildSingleSubRegCopyENS_8RegisterES1_RNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEjRNS_12LiveIntervalEbNS_9SlotIndexERKNS_11MCInstrDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1824) %0, i32 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr %4, i32 noundef %5, ptr nocapture nonnull readnone align 8 %6, i1 noundef zeroext %7, i64 %8, ptr noundef nonnull align 8 dereferenceable(32) %9) local_unnamed_addr #0 align 2 {
+define hidden range(i64 4, 0) i64 @_ZN4llvm11SplitEditor21buildSingleSubRegCopyENS_8RegisterES1_RNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEjRNS_12LiveIntervalEbNS_9SlotIndexERKNS_11MCInstrDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1824) %0, i32 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr %4, i32 noundef %5, ptr nocapture nonnull readnone align 8 %6, i1 noundef zeroext %7, i64 %8, ptr noundef nonnull align 8 dereferenceable(32) %9) local_unnamed_addr #0 align 2 {
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit:
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -4126,7 +4126,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12Dense
 declare void @_ZN4llvm12MachineInstr14bundleWithPredEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN4llvm11SplitEditor9buildCopyENS_8RegisterES1_NS_11LaneBitmaskERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEbj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1824) %0, i32 %1, i32 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(288) %4, ptr %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden range(i64 4, 1) i64 @_ZN4llvm11SplitEditor9buildCopyENS_8RegisterES1_NS_11LaneBitmaskERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEbj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1824) %0, i32 %1, i32 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(288) %4, ptr %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MIMetadata", align 8
   %11 = alloca %"class.llvm::DebugLoc", align 8

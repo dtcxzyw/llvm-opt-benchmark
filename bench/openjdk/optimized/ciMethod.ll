@@ -3030,7 +3030,7 @@ declare noundef ptr @_ZN12LinkResolver30resolve_interface_call_or_nullEP5KlassRK
 declare noundef ptr @_ZN12LinkResolver28resolve_virtual_call_or_nullEP5KlassRK8LinkInfo(ptr noundef, ptr noundef nonnull align 8 dereferenceable(51)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8ciMethod20resolve_vtable_indexEP7ciKlassS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, -2) i32 @_ZN8ciMethod20resolve_vtable_indexEP7ciKlassS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LinkInfo, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 184

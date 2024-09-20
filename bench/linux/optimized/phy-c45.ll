@@ -1885,7 +1885,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_baset1_read_status(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @genphy_c45_read_status(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_status(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @genphy_c45_read_link(ptr noundef %0), !range !10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.thread

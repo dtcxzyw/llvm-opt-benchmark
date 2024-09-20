@@ -2177,7 +2177,7 @@ define noundef i32 @_ZNK11DataPrinter14byteLineLengthEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 24, 160) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
+define noundef range(i32 24, 146) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %2 = icmp ult i32 %1, 4
   br i1 %2, label %switch.lookup, label %3

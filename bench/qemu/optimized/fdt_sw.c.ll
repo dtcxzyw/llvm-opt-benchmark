@@ -1218,7 +1218,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_finish(ptr noundef %fdt) local_unnamed_addr #6 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_finish(ptr noundef %fdt) local_unnamed_addr #6 {
 entry:
   %nextoffset = alloca i32, align 4
   %0 = load i8, ptr %fdt, align 1

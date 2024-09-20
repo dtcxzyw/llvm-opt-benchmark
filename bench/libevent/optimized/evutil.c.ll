@@ -3284,7 +3284,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @evutil_weakrand_range_(ptr nocapture noundef %state, i32 noundef %top) local_unnamed_addr #24 {
+define dso_local range(i32 -2147483647, 2147483647) i32 @evutil_weakrand_range_(ptr nocapture noundef %state, i32 noundef %top) local_unnamed_addr #24 {
 entry:
   %div = sdiv i32 2147483647, %top
   %state.promoted = load i32, ptr %state, align 4

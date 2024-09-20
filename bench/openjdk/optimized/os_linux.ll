@@ -727,7 +727,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @switch.table._ZN2os14protect_memoryEPcmNS_8ProtTypeEb = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 3, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 -9223372036854775806, 9223372036854775807) i64 @_ZN2os5Linux29available_memory_in_containerEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 -1, 9223372036854775807) i64 @_ZN2os5Linux29available_memory_in_containerEv() local_unnamed_addr #0 align 2 {
   %1 = load i8, ptr @_ZN11OSContainer17_is_containerizedE, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %.thread
@@ -5416,7 +5416,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN2os5Linux18commit_memory_implEPcmb(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 96) i32 @_ZN2os5Linux18commit_memory_implEPcmb(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = select i1 %2, i32 7, i32 3
   %5 = tail call ptr @mmap64(ptr noundef %0, i64 noundef %1, i32 noundef %4, i32 noundef 50, i32 noundef -1, i64 noundef 0) #26
   %.not = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
@@ -5595,7 +5595,7 @@ define hidden void @_ZN2os24pd_commit_memory_or_exitEPcmbPKc(ptr noundef %0, i64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN2os5Linux18commit_memory_implEPcmmb(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 96) i32 @_ZN2os5Linux18commit_memory_implEPcmmb(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i32 @_ZN2os5Linux18commit_memory_implEPcmb(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -8361,7 +8361,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN2os14vm_min_addressEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 1, 0) i64 @_ZN2os14vm_min_addressEv() local_unnamed_addr #0 align 2 {
   %1 = load i64, ptr @_ZZN2os14vm_min_addressEvE5value, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %13
@@ -9441,7 +9441,7 @@ define hidden noundef i32 @_ZN2os22active_processor_countEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN2os12processor_idEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN2os12processor_idEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZN2os5Linux13_sched_getcpuE, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN2os5Linux12sched_getcpuEv.exit, label %2

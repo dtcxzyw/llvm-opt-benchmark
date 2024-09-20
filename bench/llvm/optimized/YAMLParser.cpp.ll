@@ -6808,7 +6808,7 @@ _ZN4llvm4yaml7Scanner23scanBlockStyleIndicatorEv.exit: ; preds = %5, %10, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef signext i8 @_ZN4llvm4yaml7Scanner23scanBlockStyleIndicatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef signext range(i8 32, 125) i8 @_ZN4llvm4yaml7Scanner23scanBlockStyleIndicatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7178,7 +7178,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %133, %137
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef signext i8 @_ZN4llvm4yaml7Scanner26scanBlockChompingIndicatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef signext range(i8 32, 46) i8 @_ZN4llvm4yaml7Scanner26scanBlockChompingIndicatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

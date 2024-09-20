@@ -3578,7 +3578,7 @@ return:                                           ; preds = %do.body, %if.end6, 
 declare i32 @utf8_back1SafeBody_75(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_75L11spanOneUTF8ERKNS_10UnicodeSetEPKhi(ptr noundef nonnull align 8 dereferenceable(200) %set, ptr nocapture noundef readonly %s, i32 noundef %length) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -4, 5) i32 @_ZN6icu_75L11spanOneUTF8ERKNS_10UnicodeSetEPKhi(ptr noundef nonnull align 8 dereferenceable(200) %set, ptr nocapture noundef readonly %s, i32 noundef %length) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
   %conv = zext i8 %0 to i32

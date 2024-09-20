@@ -620,8 +620,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 149:                                              ; preds = %137
-  %150 = trunc i64 %146 to i32
-  %151 = add i32 %134, %150
+  %150 = trunc nsw i64 %146 to i32
+  %151 = add nuw i32 %134, %150
   %152 = icmp ult i32 %151, 4
   br i1 %152, label %153, label %154
 
@@ -664,8 +664,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 175:                                              ; preds = %163
-  %176 = trunc i64 %172 to i32
-  %177 = add i32 %161, %176
+  %176 = trunc nsw i64 %172 to i32
+  %177 = add nuw i32 %161, %176
   %178 = icmp ult i32 %177, 4
   br i1 %178, label %179, label %180
 
@@ -708,8 +708,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 201:                                              ; preds = %189
-  %202 = trunc i64 %198 to i32
-  %203 = add i32 %187, %202
+  %202 = trunc nsw i64 %198 to i32
+  %203 = add nuw i32 %187, %202
   %204 = icmp ult i32 %203, 4
   br i1 %204, label %205, label %206
 
@@ -752,8 +752,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 227:                                              ; preds = %215
-  %228 = trunc i64 %224 to i32
-  %229 = add i32 %213, %228
+  %228 = trunc nsw i64 %224 to i32
+  %229 = add nuw i32 %213, %228
   %230 = icmp ult i32 %229, 4
   br i1 %230, label %231, label %232
 
@@ -796,8 +796,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 253:                                              ; preds = %241
-  %254 = trunc i64 %250 to i32
-  %255 = add i32 %239, %254
+  %254 = trunc nsw i64 %250 to i32
+  %255 = add nuw i32 %239, %254
   %256 = icmp ult i32 %255, 4
   br i1 %256, label %257, label %258
 
@@ -840,8 +840,8 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br label %.thread685.i
 
 279:                                              ; preds = %267
-  %280 = trunc i64 %276 to i32
-  %281 = add i32 %265, %280
+  %280 = trunc nsw i64 %276 to i32
+  %281 = add nuw i32 %265, %280
   %282 = icmp ult i32 %281, 4
   br i1 %282, label %283, label %284
 
@@ -1355,8 +1355,8 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   br label %.thread685.i
 
 491:                                              ; preds = %479
-  %492 = trunc i64 %488 to i32
-  %493 = add i32 %134, %492
+  %492 = trunc nsw i64 %488 to i32
+  %493 = add nuw i32 %134, %492
   %494 = icmp ult i32 %493, 4
   br i1 %494, label %495, label %496
 
@@ -1404,8 +1404,8 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   br label %.thread685.i
 
 519:                                              ; preds = %507
-  %520 = trunc i64 %516 to i32
-  %521 = add i32 %134, %520
+  %520 = trunc nsw i64 %516 to i32
+  %521 = add nuw i32 %134, %520
   %522 = icmp ult i32 %521, 4
   br i1 %522, label %523, label %524
 
@@ -1452,8 +1452,8 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   br label %.thread685.i
 
 546:                                              ; preds = %534
-  %547 = trunc i64 %543 to i32
-  %548 = add i32 %134, %547
+  %547 = trunc nsw i64 %543 to i32
+  %548 = add nuw i32 %134, %547
   %549 = icmp ult i32 %548, 4
   br i1 %549, label %550, label %551
 
@@ -2548,7 +2548,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 4294967296) i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %2, %6

@@ -10949,7 +10949,7 @@ return:                                           ; preds = %if.end, %_ZL18Asser
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @duckdb_union_type_member_count(ptr noundef %type) local_unnamed_addr #0 {
+define noundef range(i64 0, -1) i64 @duckdb_union_type_member_count(ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %type, null
   br i1 %tobool.not.i, label %return, label %_ZL19AssertLogicalTypeIdP20_duckdb_logical_typeN6duckdb13LogicalTypeIdE.exit
@@ -11866,7 +11866,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 256) i32 @duckdb_pending_execute_task(ptr noundef %pending_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @duckdb_pending_execute_task(ptr noundef %pending_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.duckdb::PreservedError", align 8
   %agg.tmp29 = alloca %"class.duckdb::PreservedError", align 8

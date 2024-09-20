@@ -25475,7 +25475,7 @@ define internal i32 @ieee80211_tag_ssid(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ieee80211_tag_supp_rates(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 -2147483646, -2147483648) i32 @ieee80211_tag_supp_rates(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %8, label %.preheader
@@ -26107,7 +26107,7 @@ define internal range(i32 1, 3) i32 @ieee80211_tag_fh_hopping_parameter(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ieee80211_tag_fh_hopping_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 -2147483646, -2147483648) i32 @ieee80211_tag_fh_hopping_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %7, label %11
@@ -28313,7 +28313,7 @@ define internal noundef i32 @dissect_wide_bw_channel_switch(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_vht_tx_pwr_envelope(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 1, 0) i32 @dissect_vht_tx_pwr_envelope(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = add i32 %5, -10
   %or.cond = icmp ult i32 %6, -8
@@ -30874,7 +30874,7 @@ define internal range(i32 1, 8) i32 @dissect_s1g_relay(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_reachable_address(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 7, 0) i32 @dissect_reachable_address(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
   %5 = load i32, ptr @hf_ieee80211_s1g_initiator_mac_address, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #22
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #22
@@ -33096,7 +33096,7 @@ define internal noundef i32 @dissect_20_40_bss_coexistence(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_20_40_bss_intolerant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 1, 0) i32 @dissect_20_40_bss_intolerant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = add i32 %5, -1
   %7 = icmp slt i32 %5, 2
@@ -33313,7 +33313,7 @@ define internal i32 @ieee80211_tag_mesh_configuration(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ieee80211_tag_mesh_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal range(i32 1, -2147483648) i32 @ieee80211_tag_mesh_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %7 = load i32, ptr @hf_ieee80211_mesh_id, align 4
@@ -37559,7 +37559,7 @@ define internal i32 @dissect_mbo_oce(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wfa_wnm_non_pref_chan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 3, 2) i32 @dissect_wfa_wnm_non_pref_chan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %24, label %7

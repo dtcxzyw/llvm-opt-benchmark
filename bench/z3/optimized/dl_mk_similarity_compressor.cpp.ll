@@ -5633,7 +5633,7 @@ return:                                           ; preds = %for.inc.i, %_ZN7dat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr nocapture noundef readonly %r1, ptr nocapture noundef readonly %r2) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr nocapture noundef readonly %r1, ptr nocapture noundef readonly %r2) unnamed_addr #5 {
 entry:
   %m_tail_size.i = getelementptr inbounds i8, ptr %r1, i64 56
   %0 = load i32, ptr %m_tail_size.i, align 8

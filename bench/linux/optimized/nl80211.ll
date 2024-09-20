@@ -3744,7 +3744,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %463, label %468, label %464
 
 464:                                              ; preds = %459
-  %465 = add nuw i32 %453, 1
+  %465 = add nuw nsw i32 %453, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #26
   store i32 98, ptr %35, align 4
   %466 = call i32 @nla_put(ptr noundef %2, i32 noundef %465, i32 noundef 4, ptr noundef nonnull %35) #26
@@ -3765,7 +3765,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %473, label %478, label %474
 
 474:                                              ; preds = %468
-  %475 = add nuw i32 %470, 1
+  %475 = add nuw nsw i32 %470, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #26
   store i32 99, ptr %34, align 4
   %476 = call i32 @nla_put(ptr noundef %2, i32 noundef %475, i32 noundef 4, ptr noundef nonnull %34) #26
@@ -3793,7 +3793,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %487, label %492, label %488
 
 488:                                              ; preds = %484
-  %489 = add nuw i32 %479, 1
+  %489 = add nuw nsw i32 %479, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #26
   store i32 102, ptr %33, align 4
   %490 = call i32 @nla_put(ptr noundef %2, i32 noundef %489, i32 noundef 4, ptr noundef nonnull %33) #26
@@ -3814,7 +3814,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %497, label %502, label %498
 
 498:                                              ; preds = %492
-  %499 = add nuw i32 %494, 1
+  %499 = add nuw nsw i32 %494, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #26
   store i32 104, ptr %32, align 4
   %500 = call i32 @nla_put(ptr noundef %2, i32 noundef %499, i32 noundef 4, ptr noundef nonnull %32) #26
@@ -3842,7 +3842,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %511, label %516, label %512
 
 512:                                              ; preds = %508
-  %513 = add nuw i32 %503, 1
+  %513 = add nuw nsw i32 %503, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #26
   store i32 105, ptr %31, align 4
   %514 = call i32 @nla_put(ptr noundef %2, i32 noundef %513, i32 noundef 4, ptr noundef nonnull %31) #26
@@ -3863,7 +3863,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %521, label %526, label %522
 
 522:                                              ; preds = %516
-  %523 = add nuw i32 %518, 1
+  %523 = add nuw nsw i32 %518, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #26
   store i32 121, ptr %30, align 4
   %524 = call i32 @nla_put(ptr noundef %2, i32 noundef %523, i32 noundef 4, ptr noundef nonnull %30) #26
@@ -3884,7 +3884,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %531, label %536, label %532
 
 532:                                              ; preds = %526
-  %533 = add nuw i32 %528, 1
+  %533 = add nuw nsw i32 %528, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #26
   store i32 122, ptr %29, align 4
   %534 = call i32 @nla_put(ptr noundef %2, i32 noundef %533, i32 noundef 4, ptr noundef nonnull %29) #26
@@ -3905,7 +3905,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %541, label %546, label %542
 
 542:                                              ; preds = %536
-  %543 = add nuw i32 %538, 1
+  %543 = add nuw nsw i32 %538, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #26
   store i32 96, ptr %28, align 4
   %544 = call i32 @nla_put(ptr noundef %2, i32 noundef %543, i32 noundef 4, ptr noundef nonnull %28) #26
@@ -3928,7 +3928,7 @@ split:                                            ; preds = %367, %._crit_edge11
   br i1 %555, label %560, label %556
 
 556:                                              ; preds = %551
-  %557 = add nuw i32 %547, 1
+  %557 = add nuw nsw i32 %547, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #26
   store i32 140, ptr %27, align 4
   %558 = call i32 @nla_put(ptr noundef %2, i32 noundef %557, i32 noundef 4, ptr noundef nonnull %27) #26
@@ -54700,7 +54700,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_band_rateinfo(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_add_commands_unsplit(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -105, 34) i32 @nl80211_add_commands_unsplit(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

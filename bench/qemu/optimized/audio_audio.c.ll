@@ -6687,7 +6687,7 @@ entry:
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_rate_peek_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info) local_unnamed_addr #6 {
+define dso_local range(i64 -140737488355328, 140737488289793) i64 @audio_rate_peek_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info) local_unnamed_addr #6 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %0 = load i64, ptr %rate, align 8

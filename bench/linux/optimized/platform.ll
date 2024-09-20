@@ -396,7 +396,7 @@ define dso_local ptr @platform_get_resource_byname(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @platform_get_irq_optional(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = tail call ptr @__dev_fwnode(ptr noundef %3) #15
   %5 = getelementptr inbounds i8, ptr %0, i64 768

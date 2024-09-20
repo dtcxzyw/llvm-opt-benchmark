@@ -576,7 +576,7 @@ return:                                           ; preds = %tr2_dst_want_warnin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tr2_dst_try_path(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_path(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %tgt_value, i32 noundef 1089, i32 noundef 438) #12
   %cmp = icmp eq i32 %call, -1
@@ -662,7 +662,7 @@ return:                                           ; preds = %if.end6, %tr2_dst_t
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tr2_dst_try_unix_domain_socket(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @tr2_dst_try_unix_domain_socket(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
 entry:
   %sa.i71 = alloca %struct.sockaddr_un, align 2
   %sa.i = alloca %struct.sockaddr_un, align 2

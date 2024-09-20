@@ -371,7 +371,7 @@ define internal fastcc noundef ptr @_tjInitDecompress(ptr noundef nonnull %0) un
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %7
 

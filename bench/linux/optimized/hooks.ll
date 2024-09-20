@@ -1621,7 +1621,7 @@ declare dso_local ptr @d_find_alias(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @d_find_any_alias(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3136, i64 noundef 256) #28
   %7 = icmp eq ptr %6, null
@@ -9933,7 +9933,7 @@ define internal range(i32 -2147483648, 1) i32 @selinux_setselfattr(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_getprocattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define internal range(i32 -94, -95) i32 @selinux_getprocattr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = tail call i64 @lsm_name_to_attr(ptr noundef %1) #24
   %5 = trunc i64 %4 to i32
   %6 = icmp eq i32 %5, 0

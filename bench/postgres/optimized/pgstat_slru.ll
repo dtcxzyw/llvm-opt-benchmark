@@ -66,7 +66,7 @@ pgstat_get_slru_index.exit:                       ; preds = %8, %.split.loop.exi
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pgstat_get_slru_index(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 0, 8) i32 @pgstat_get_slru_index(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %1, %7

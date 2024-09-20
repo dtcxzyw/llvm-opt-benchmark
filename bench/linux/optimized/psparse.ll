@@ -247,7 +247,7 @@ declare dso_local ptr @acpi_ps_alloc_op(i16 noundef zeroext, ptr noundef) local_
 declare dso_local void @acpi_ps_delete_parse_tree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ps_next_parse_state(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 20480, 16395) i32 @acpi_ps_next_parse_state(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   switch i32 %2, label %46 [
     i32 16387, label %4
     i32 16393, label %8

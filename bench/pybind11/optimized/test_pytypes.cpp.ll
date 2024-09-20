@@ -91864,7 +91864,7 @@ _ZN8pybind116detail15argument_loaderIJNS_6objectEEE9load_argsERNS0_13function_ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE4callIlNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_77EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, -1) i64 @"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE4callIlNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_77EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::object", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i64, ptr %0, align 8
@@ -97723,7 +97723,7 @@ _ZN8pybind116detail15argument_loaderIJNS_5bytesEEE9load_argsERNS0_13function_cal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZNO8pybind116detail15argument_loaderIJNS_5bytesEEE4callImNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_94EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, -9223372036854775808) i64 @"_ZNO8pybind116detail15argument_loaderIJNS_5bytesEEE4callImNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_94EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::bytes", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i64, ptr %0, align 8
@@ -97907,7 +97907,7 @@ _ZN8pybind116detail15argument_loaderIJNS_3strEEE9load_argsERNS0_13function_callE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZNO8pybind116detail15argument_loaderIJNS_3strEEE4callImNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_95EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, -9223372036854775808) i64 @"_ZNO8pybind116detail15argument_loaderIJNS_3strEEE4callImNS0_9void_typeERZ22test_submodule_pytypesRNS_7module_EE4$_95EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::str", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = load i64, ptr %0, align 8

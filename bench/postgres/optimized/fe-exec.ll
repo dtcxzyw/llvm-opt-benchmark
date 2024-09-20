@@ -4950,7 +4950,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQfnumber(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %3 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %3

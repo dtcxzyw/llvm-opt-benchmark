@@ -597,7 +597,7 @@ define internal i64 @ossl_pkcs7_alloc(i64 noundef %0) #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkcs7_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_pkcs7_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -919,7 +919,7 @@ define internal i64 @ossl_pkcs7_get_type(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_pkcs7_set_detached(i64 noundef %0, i64 noundef returned %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_pkcs7_set_detached(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_pkcs7_type) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6

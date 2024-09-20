@@ -14371,7 +14371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node5http211Http2Stream14SubmitResponseERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEEi(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers, i32 noundef %options) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -900, -901) i32 @_ZN4node5http211Http2Stream14SubmitResponseERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEEi(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers, i32 noundef %options) local_unnamed_addr #4 align 2 {
 entry:
   %prov = alloca %"class.node::http2::Http2Stream::Provider::Stream", align 8
   %flags_.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -14527,7 +14527,7 @@ _ZN4node5http210Http2ScopeD2Ev.exit:              ; preds = %do.end27, %if.then.
 declare i32 @nghttp2_submit_response(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node5http211Http2Stream10SubmitInfoERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -900, -901) i32 @_ZN4node5http211Http2Stream10SubmitInfoERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca i64, align 8
   %flags_.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -14718,7 +14718,7 @@ do.end6:                                          ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node5http211Http2Stream14SubmitTrailersERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -900, -901) i32 @_ZN4node5http211Http2Stream14SubmitTrailersERKNS_9NgHeadersINS0_18Http2HeadersTraitsEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %headers) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca i64, align 8
   %prov = alloca %"class.node::http2::Http2Stream::Provider::Stream", align 8
@@ -14883,7 +14883,7 @@ declare i32 @nghttp2_submit_data(ptr noundef, i8 noundef zeroext, i32 noundef, p
 declare i32 @nghttp2_submit_trailer(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node5http211Http2Stream14SubmitPriorityERKNS0_13Http2PriorityEb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 4 dereferenceable(12) %priority, i1 noundef zeroext %silent) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -900, -901) i32 @_ZN4node5http211Http2Stream14SubmitPriorityERKNS0_13Http2PriorityEb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 4 dereferenceable(12) %priority, i1 noundef zeroext %silent) local_unnamed_addr #4 align 2 {
 entry:
   %flags_.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i32, ptr %flags_.i, align 8

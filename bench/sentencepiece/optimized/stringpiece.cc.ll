@@ -349,7 +349,7 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece5rfindEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11StringPiece5rfindEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 1
@@ -567,7 +567,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6google8protobuf11StringPiece12find_last_ofES1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece12find_last_ofES1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -645,7 +645,7 @@ _ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit: ; preds = %31, %38, %se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofES1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofES1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -723,7 +723,7 @@ _ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit: ; preds = %30, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 1

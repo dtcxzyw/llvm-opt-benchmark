@@ -1019,7 +1019,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @fdt_add_subnode(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_fdt_add_path(ptr noundef %fdt, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @qemu_fdt_add_path(ptr noundef %fdt, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %path, align 1
   %cmp.not = icmp eq i8 %0, 47

@@ -410,7 +410,7 @@ define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Wlc_PrsFindLine(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define range(i32 1, 0) i32 @Wlc_PrsFindLine(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4

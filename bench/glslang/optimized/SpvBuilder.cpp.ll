@@ -13413,7 +13413,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder21getMostBasicTypeClassEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef range(i32 25, 23) i32 @_ZNK3spv7Builder21getMostBasicTypeClassEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse

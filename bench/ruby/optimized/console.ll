@@ -764,7 +764,7 @@ define internal noundef i64 @console_goto(i64 noundef returned %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @console_cursor_pos(i64 noundef %0) #0 {
+define internal range(i64 1, -7) i64 @console_cursor_pos(i64 noundef %0) #0 {
   %2 = alloca %struct.ttymode_callback_args, align 8
   %3 = alloca %struct.rawmode_arg_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)

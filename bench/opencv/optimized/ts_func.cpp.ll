@@ -260,7 +260,7 @@ define hidden noundef ptr @_ZN6cvtest11getTypeNameEi(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN6cvtest10typeByNameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden noundef range(i32 -1, 8) i32 @_ZN6cvtest10typeByNameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %7

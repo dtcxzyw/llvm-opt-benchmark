@@ -286,7 +286,7 @@ find_smbios_instance_string.exit:                 ; preds = %38, %3, %29, %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -1, 2147483648) i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 0)
@@ -295,7 +295,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @label_show(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, -2147483648) i32 @dsm_get_label(ptr %.632.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %.632.val) #3
   %4 = getelementptr i8, ptr %.632.val, i64 -16
   %5 = icmp ne ptr %4, null
@@ -395,7 +395,7 @@ declare dso_local i32 @utf16s_to_utf8s(ptr noundef, i32 noundef, i32 noundef, pt
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @acpi_index_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -1, 2147483648) i64 @acpi_index_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 1)

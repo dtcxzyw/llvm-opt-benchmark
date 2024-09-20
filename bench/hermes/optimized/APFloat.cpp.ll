@@ -4566,7 +4566,7 @@ _ZN4llvh5APIntD2Ev.exit25:                        ; preds = %if.end, %if.then.i2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail9IEEEFloat3modERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %rhs) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 25) i32 @_ZN4llvh6detail9IEEEFloat3modERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %rhs) local_unnamed_addr #2 align 2 {
 entry:
   %V = alloca %"class.llvh::detail::IEEEFloat", align 8
   %agg.tmp = alloca %"class.llvh::detail::IEEEFloat", align 8
@@ -15971,7 +15971,7 @@ _ZN4llvh7APFloatD2Ev.exit34:                      ; preds = %if.then.i.i26, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat3modERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %RHS) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 25) i32 @_ZN4llvh6detail13DoubleAPFloat3modERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %RHS) local_unnamed_addr #2 align 2 {
 entry:
   %Tmp = alloca %"class.llvh::APFloat", align 8
   %ref.tmp = alloca %"class.llvh::APInt", align 8

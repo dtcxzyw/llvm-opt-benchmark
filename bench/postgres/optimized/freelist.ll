@@ -380,7 +380,7 @@ define dso_local void @StrategyFreeBuffer(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @StrategySyncStart(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @StrategyControl, align 8
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #8, !srcloc !7
   %.not = icmp eq i8 %4, 0

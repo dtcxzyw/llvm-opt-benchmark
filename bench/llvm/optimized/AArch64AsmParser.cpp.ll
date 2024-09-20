@@ -14634,7 +14634,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit215: ; preds = %_ZN4llv
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL18matchMatrixRegNameN4llvm9StringRefE(ptr %0, i64 %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 329) i32 @_ZL18matchMatrixRegNameN4llvm9StringRefE(ptr %0, i64 %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %0, ptr %3, align 8
@@ -15131,7 +15131,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit744: ; preds = %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #10 {
+define internal fastcc range(i32 0, 330) i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #10 {
   switch i64 %1, label %309 [
     i64 2, label %3
     i64 3, label %62
@@ -38575,7 +38575,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #12 {
+define internal fastcc noundef range(i32 237, 206) i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0) unnamed_addr #12 {
   switch i32 %0, label %34 [
     i32 206, label %35
     i32 207, label %2
@@ -38717,7 +38717,7 @@ define internal fastcc noundef i32 @_ZN4llvmL15getXRegFromWRegEj(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #12 {
+define internal fastcc noundef range(i32 266, 237) i32 @_ZN4llvmL15getWRegFromXRegEj(i32 noundef %0) unnamed_addr #12 {
   switch i32 %0, label %34 [
     i32 237, label %35
     i32 238, label %2
@@ -52529,7 +52529,7 @@ switch.lookup969:                                 ; preds = %2210
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 221) i32 @_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [7 x i32], align 4
   %5 = alloca [10 x i32], align 4

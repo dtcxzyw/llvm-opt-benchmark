@@ -5029,7 +5029,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3ISD13isVPReductionEj(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm3ISD12getVPMaskIdxEj(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm3ISD12getVPMaskIdxEj(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -387
   %2 = icmp ult i32 %switch.tableidx, 98
   br i1 %2, label %switch.lookup, label %6
@@ -5050,7 +5050,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm3ISD28getVPExplicitVectorLengthIdxEj(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm3ISD28getVPExplicitVectorLengthIdxEj(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -387
   %2 = icmp ult i32 %switch.tableidx, 98
   br i1 %2, label %switch.lookup, label %5
@@ -5068,7 +5068,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm3ISD18getBaseOpcodeForVPEjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm3ISD18getBaseOpcodeForVPEjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -387
   %3 = icmp ult i32 %switch.tableidx, 94
   br i1 %3, label %switch.lookup, label %7
@@ -5089,7 +5089,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm3ISD18getVPForBaseOpcodeEj(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm3ISD18getVPForBaseOpcodeEj(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %82 [
     i32 56, label %2
     i32 185, label %3

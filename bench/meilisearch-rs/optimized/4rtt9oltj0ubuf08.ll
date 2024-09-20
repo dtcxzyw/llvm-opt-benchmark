@@ -123147,7 +123147,7 @@ common.ret:                                       ; preds = %20, %16, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17hd408ed89c49526eaE(ptr noundef %0, i64 noundef %1) unnamed_addr #21 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17hd408ed89c49526eaE(ptr noundef %0, i64 noundef %1) unnamed_addr #21 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4
@@ -136139,7 +136139,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17he08f8fe33beddfc7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #31 {
+define internal noundef range(i64 0, 2147483648) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17he08f8fe33beddfc7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #31 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = zext i32 %1 to i64
@@ -136380,7 +136380,7 @@ define internal noundef range(i8 0, 3) i8 @"_ZN92_$LT$aho_corasick..nfa..noncont
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE"(ptr noalias noundef readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #31 {
+define internal noundef range(i32 2, 1) i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hbd623d17ffc95e6dE"(ptr noalias noundef readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #31 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %.val8 = load i64, ptr %5, align 8, !noundef !4
   %6 = zext i32 %2 to i64

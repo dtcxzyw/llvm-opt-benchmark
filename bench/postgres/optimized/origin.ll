@@ -132,7 +132,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @replorigin_create(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, -1) i16 @replorigin_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SnapshotData, align 8
   %3 = alloca %struct.ScanKeyData, align 8
   %4 = alloca [2 x i8], align 2
@@ -1493,7 +1493,7 @@ define dso_local i64 @replorigin_session_get_progress(i1 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 65536) i64 @pg_replication_origin_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65535) i64 @pg_replication_origin_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 

@@ -446,7 +446,7 @@ return:                                           ; preds = %_ZN6hermes2vm5vmisa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %strPrim.coerce) local_unnamed_addr #0 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %strPrim.coerce) local_unnamed_addr #0 {
 entry:
   %call = tail call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %strPrim.coerce) #18
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -458,7 +458,7 @@ entry:
 declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes2vm12toArrayIndexENS0_10StringViewE(ptr readonly %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm12toArrayIndexENS0_10StringViewE(ptr readonly %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 {
 entry:
   %str.sroa.3.8.extract.trunc = trunc i64 %str.coerce1 to i32
   %str.sroa.8.8.extract.shift = lshr i64 %str.coerce1, 32

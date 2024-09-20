@@ -3576,7 +3576,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN101_$LT$diesel..mysq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN89_$LT$diesel..mysql..connection..bind..Flags$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h479208a96dc8cb4cE"(i32 noundef returned %0) unnamed_addr #7 {
+define noundef range(i32 0, 917504) i32 @"_ZN89_$LT$diesel..mysql..connection..bind..Flags$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h479208a96dc8cb4cE"(i32 noundef returned %0) unnamed_addr #7 {
   %2 = and i32 %0, -917504
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %4, label %3
@@ -4445,7 +4445,7 @@ define hidden void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_app
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @"_ZN103_$LT$diesel..pg..types..floats..quickcheck_impls..Digit$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hae938d7447ede686E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #7 {
+define noundef range(i16 0, 10000) i16 @"_ZN103_$LT$diesel..pg..types..floats..quickcheck_impls..Digit$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hae938d7447ede686E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %2

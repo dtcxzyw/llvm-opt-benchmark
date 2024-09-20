@@ -10326,7 +10326,7 @@ declare void @_ZN4llvm17MCTargetAsmParserD2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 372) i32 @_ZL17MatchRegisterNameN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #11 {
   switch i64 %1, label %436 [
     i64 2, label %3
     i64 3, label %56

@@ -1306,7 +1306,7 @@ dir_each_entry.exit:                              ; preds = %.backedge.i, %dir_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @dir_rewind(i64 noundef returned %0) #0 {
+define internal range(i64 1, -7) i64 @dir_rewind(i64 noundef returned %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -1381,7 +1381,7 @@ dir_check.exit:                                   ; preds = %dir_get.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @dir_seek(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @dir_seek(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %4
@@ -1941,7 +1941,7 @@ rb_check_arity.exit:                              ; preds = %3
 declare i64 @rb_file_directory_p(i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_dir_s_empty_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, -1) i64 @rb_dir_s_empty_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8

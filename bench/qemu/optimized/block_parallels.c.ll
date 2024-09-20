@@ -109,7 +109,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @parallels_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @parallels_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %local_err.i = alloca ptr, align 8
   %ph = alloca %struct.ParallelsHeader, align 1

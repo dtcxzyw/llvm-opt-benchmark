@@ -2694,7 +2694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16b3GpuNarrowPhase18allocateCollidableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN16b3GpuNarrowPhase18allocateCollidableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
@@ -2747,7 +2747,7 @@ return:                                           ; preds = %do.body, %_ZN20b3Al
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16b3GpuNarrowPhase19registerSphereShapeEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float noundef %radius) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN16b3GpuNarrowPhase19registerSphereShapeEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float noundef %radius) local_unnamed_addr #9 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data.i, align 8
@@ -2914,7 +2914,7 @@ _ZN20b3AlignedObjectArrayI9b3GpuFaceE6expandERKS0_.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16b3GpuNarrowPhase18registerPlaneShapeERK9b3Vector3f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeNormal, float noundef %planeConstant) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN16b3GpuNarrowPhase18registerPlaneShapeERK9b3Vector3f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeNormal, float noundef %planeConstant) local_unnamed_addr #9 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data.i, align 8

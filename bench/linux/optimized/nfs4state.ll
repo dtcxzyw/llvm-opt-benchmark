@@ -4232,7 +4232,7 @@ declare dso_local void @__module_put_and_kthread_exit(ptr noundef, i64 noundef) 
 declare dso_local void @kernel_sigaction(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfs4_do_reclaim(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   store ptr %3, ptr %3, align 8
@@ -5285,7 +5285,7 @@ declare dso_local void @nfs_delegation_mark_reclaim(ptr noundef) local_unnamed_a
 declare dso_local void @nfs_mark_test_expired_all_delegations(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfs4_recovery_handle_error(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_recovery_handle_error(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   switch i32 %1, label %102 [
     i32 0, label %101
     i32 -10048, label %3

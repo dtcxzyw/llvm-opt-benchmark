@@ -4124,7 +4124,7 @@ define dso_local void @_ZN17RealCommandRunner5AbortEv(ptr noundef nonnull align 
 declare void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(688)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK17RealCommandRunner10CanRunMoreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK17RealCommandRunner10CanRunMoreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8

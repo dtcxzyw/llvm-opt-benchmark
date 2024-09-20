@@ -6898,7 +6898,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6Optio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden noundef range(i32 -1, 105) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %7

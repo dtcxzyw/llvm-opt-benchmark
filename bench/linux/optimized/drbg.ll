@@ -214,7 +214,7 @@ define internal void @drbg_kcapi_cleanup(ptr noundef %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drbg_kcapi_random(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #7 align 16 {
+define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #7 align 16 {
   %6 = alloca %struct.drbg_string, align 8
   %7 = alloca %struct.list_head, align 8
   %8 = alloca [32 x i8], align 16

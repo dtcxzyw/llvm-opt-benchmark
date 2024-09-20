@@ -1944,7 +1944,7 @@ return:                                           ; preds = %if.end.i59, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -3, -4) i64 @_Py_dict_lookup(ptr nocapture noundef readonly %mp, ptr noundef %key, i64 noundef %hash, ptr nocapture noundef writeonly %value_addr) local_unnamed_addr #0 {
+define hidden range(i64 -3, -9223372036854775808) i64 @_Py_dict_lookup(ptr nocapture noundef readonly %mp, ptr noundef %key, i64 noundef %hash, ptr nocapture noundef writeonly %value_addr) local_unnamed_addr #0 {
 entry:
   %ma_keys = getelementptr inbounds i8, ptr %mp, i64 32
   %0 = getelementptr i8, ptr %key, i64 8
@@ -3117,7 +3117,7 @@ return:                                           ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -3, -4) i64 @_PyDict_LookupIndex(ptr nocapture noundef readonly %mp, ptr noundef %key) local_unnamed_addr #0 {
+define hidden range(i64 -3, -9223372036854775808) i64 @_PyDict_LookupIndex(ptr nocapture noundef readonly %mp, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %0 = getelementptr i8, ptr %key, i64 24
@@ -13157,7 +13157,7 @@ declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dictkeys_contains(ptr nocapture noundef readonly %dv, ptr noundef %obj) #0 {
+define internal range(i32 -1, 2) i32 @dictkeys_contains(ptr nocapture noundef readonly %dv, ptr noundef %obj) #0 {
 entry:
   %value.i = alloca ptr, align 8
   %dv_dict = getelementptr inbounds i8, ptr %dv, i64 16
@@ -15655,7 +15655,7 @@ return:                                           ; preds = %validate_watcher_id
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyDict_AddWatcher(ptr noundef %callback) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 8) i32 @PyDict_AddWatcher(ptr noundef %callback) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

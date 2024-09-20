@@ -1434,7 +1434,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_report_err(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 1, 0) i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %reftag = alloca i64, align 8

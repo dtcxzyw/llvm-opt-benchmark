@@ -5604,7 +5604,7 @@ select.unfold.loopexit.i:                         ; preds = %.lr.ph6.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 0, 2130706433) i64 @_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE(i16 noundef %0) unnamed_addr #11 {
+define noundef range(i64 0, 32769) i64 @_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE(i16 noundef %0) unnamed_addr #11 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 
@@ -7854,7 +7854,7 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i16 118, 620) i16 @_ZN17cranelift_codegen2ir12instructions12ValueTypeSet7example17h93fca4a878ad4a9dE(i64 %0) unnamed_addr #2 {
+define noundef range(i16 118, 256) i16 @_ZN17cranelift_codegen2ir12instructions12ValueTypeSet7example17h93fca4a878ad4a9dE(i64 %0) unnamed_addr #2 {
   %.sroa.219.0.extract.shift = lshr i64 %0, 32
   %.sroa.219.0.extract.trunc = trunc i64 %.sroa.219.0.extract.shift to i8
   %.not = icmp ne i8 %.sroa.219.0.extract.trunc, 0
@@ -56181,7 +56181,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i32 @_ZN17cranelift_codegen3isa3x648settings5Flags3new17h0cd7a1c57b88b554E(ptr noalias nocapture noundef readonly align 1 dereferenceable(9) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @_ZN17cranelift_codegen3isa3x648settings5Flags3new17h0cd7a1c57b88b554E(ptr noalias nocapture noundef readonly align 1 dereferenceable(9) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca { ptr, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9197)

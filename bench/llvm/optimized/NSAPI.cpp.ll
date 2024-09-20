@@ -934,7 +934,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang5NSAPI18getNSSetMethodKi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb(ptr nocapture noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 1, 0) i64 @_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb(ptr nocapture noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %. = select i1 %2, i64 496, i64 376
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %5 = zext i32 %1 to i64

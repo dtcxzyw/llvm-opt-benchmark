@@ -705,7 +705,7 @@ _ZN4pkpy5Lexer7eatcharEv.exit:                    ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN4pkpy5Lexer7eatcharEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 11, 10) i8 @_ZN4pkpy5Lexer7eatcharEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1

@@ -177,7 +177,7 @@ init_ini_scanner.exit.thread:                     ; preds = %2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 56), align 8
   %3 = ptrtoint ptr %2 to i64
   %.promoted4067 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8

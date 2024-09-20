@@ -29,7 +29,7 @@ define dso_local noundef i32 @_Z13luaopen_debugP9lua_State(ptr noundef %0) local
 declare void @_Z13luaL_registerP9lua_StatePKcPK8luaL_Reg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL7db_infoP9lua_State(ptr noundef %0) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL7db_infoP9lua_State(ptr noundef %0) #0 {
   %2 = alloca %struct.lua_Debug, align 8
   %3 = alloca [26 x i8], align 16
   %4 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef 1)

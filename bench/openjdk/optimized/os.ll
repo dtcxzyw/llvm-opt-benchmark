@@ -5347,7 +5347,7 @@ define hidden noundef zeroext i1 @_ZNK2os9PageSizes8containsEm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK2os9PageSizes11next_largerEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #19 align 2 {
+define hidden noundef range(i64 0, -9223372036854775807) i64 @_ZNK2os9PageSizes11next_largerEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #19 align 2 {
   %3 = icmp eq i64 %1, -9223372036854775808
   br i1 %3, label %10, label %4
 
@@ -5369,7 +5369,7 @@ define hidden noundef i64 @_ZNK2os9PageSizes11next_largerEm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK2os9PageSizes8smallestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #19 align 2 {
+define hidden noundef range(i64 0, -1) i64 @_ZNK2os9PageSizes8smallestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #19 align 2 {
 _ZNK2os9PageSizes11next_largerEm.exit:
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, -2

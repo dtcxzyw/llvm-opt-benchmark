@@ -321,7 +321,7 @@ _ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit: ; preds = %66, %82, %
 declare ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 1024) i32 @_ZN4llvm26invertFPClassTestIfSimplerENS_11FPClassTestE(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 517) i32 @_ZN4llvm26invertFPClassTestIfSimplerENS_11FPClassTestE(i32 noundef %0) local_unnamed_addr #3 {
   %2 = and i32 %0, 1023
   %3 = xor i32 %2, 1023
   switch i32 %3, label %4 [

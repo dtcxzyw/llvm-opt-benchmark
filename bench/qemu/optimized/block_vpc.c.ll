@@ -569,7 +569,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vpc_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vpc_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
 entry:
   %footer = alloca %struct.vhd_footer, align 8
   %uuid = alloca %struct.QemuUUID, align 4
@@ -817,7 +817,7 @@ if.then3.i:                                       ; preds = %if.end.i36
   br label %out
 
 out:                                              ; preds = %if.then3.i, %if.end.i36, %if.else59, %calculate_rounded_image_size.exit, %if.end7, %if.then57, %if.then53, %if.then17
-  %ret.0 = phi i32 [ -27, %calculate_rounded_image_size.exit ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ %call54, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i36 ]
+  %ret.0 = phi i32 [ -27, %calculate_rounded_image_size.exit ], [ -22, %if.then17 ], [ %call54, %if.then57 ], [ 0, %if.then53 ], [ -1, %if.end7 ], [ %call1.i, %if.then3.i ], [ %call.i, %if.else59 ], [ 0, %if.end.i36 ]
   call void @blk_co_unref(ptr noundef %call8) #15
   call void @bdrv_co_unref(ptr noundef nonnull %call) #15
   br label %return
@@ -828,7 +828,7 @@ return:                                           ; preds = %sw.epilog, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vpc_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vpc_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -1517,7 +1517,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #11
 declare void @qemu_uuid_generate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @create_dynamic_disk(ptr noundef %blk, ptr noundef %footer, i64 noundef %total_sectors) #0 {
+define internal range(i32 -2147483648, 1) i32 @create_dynamic_disk(ptr noundef %blk, ptr noundef %footer, i64 noundef %total_sectors) #0 {
 entry:
   %dyndisk_header = alloca %struct.vhd_dyndisk_header, align 8
   %bat_sector = alloca [512 x i8], align 16

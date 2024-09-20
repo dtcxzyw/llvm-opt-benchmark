@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ethnl_linkstate_request_ops = dso_local local_unnamed_addr constant %struct.ethnl_request_ops { i8 6, i8 6, i16 1, i32 16, i32 48, i8 0, i8 0, ptr null, ptr @linkstate_prepare_data, ptr @linkstate_reply_size, ptr @linkstate_fill_reply, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @linkstate_prepare_data(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @linkstate_prepare_data(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @ethnl_ops_begin(ptr noundef %4) #4
   %6 = icmp slt i32 %5, 0

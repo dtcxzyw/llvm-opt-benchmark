@@ -1698,7 +1698,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @git_inflate_init_gzip_only(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_request(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @read_request(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %req_len, 0
   br i1 %cmp, label %if.then, label %if.else

@@ -9246,7 +9246,7 @@ declare void @trace2_data_json_fl(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare void @jw_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_graph_chunk_base_1(ptr noundef %f, ptr noundef %g) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @write_graph_chunk_base_1(ptr noundef %f, ptr noundef %g) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %g, null
   br i1 %tobool.not, label %common.ret4, label %if.end

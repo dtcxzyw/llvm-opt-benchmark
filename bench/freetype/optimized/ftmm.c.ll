@@ -417,7 +417,7 @@ ft_face_get_mm_service.exit.thread:               ; preds = %11, %.fold.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond = or i1 %4, %5
@@ -659,7 +659,7 @@ ft_face_get_mm_service.exit.thread:               ; preds = %9, %.fold.split.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond = or i1 %4, %5
@@ -831,7 +831,7 @@ ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1169,7 +1169,7 @@ define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.critedge, label %3
 

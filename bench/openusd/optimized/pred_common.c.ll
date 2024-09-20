@@ -114,7 +114,7 @@ get_ref_filter_type.exit29:                       ; preds = %52, %48, %get_ref_f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @av1_get_palette_cache(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   %5 = load i32, ptr %4, align 4
   %6 = sub nsw i32 0, %5

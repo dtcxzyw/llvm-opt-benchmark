@@ -9219,7 +9219,7 @@ define range(i32 0, 2) i32 @prefs_has_layout_pane_content(i32 noundef %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext i8 @string_to_name_resolve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = getelementptr inbounds i8, ptr %1, i64 8

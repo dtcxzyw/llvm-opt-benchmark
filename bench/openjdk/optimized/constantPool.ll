@@ -4391,7 +4391,7 @@ declare void @_ZN10Exceptions12_throw_causeEP10JavaThreadPKciP6Symbol6Handle(ptr
 declare noundef signext i8 @_ZNK11constantTag11error_valueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i8 @_ZN12ConstantPool15constant_tag_atEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden range(i8 18, 17) i8 @_ZN12ConstantPool15constant_tag_atEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.constantTag, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7185,7 +7185,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit129: ; preds = %266, %277
 declare void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantPoolHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 60
   %6 = load i32, ptr %5, align 4
@@ -7211,7 +7211,7 @@ define hidden noundef i32 @_ZN12ConstantPool19find_matching_entryEiRK18constantP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12ConstantPool21find_matching_operandEiRK18constantPoolHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN12ConstantPool21find_matching_operandEiRK18constantPoolHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

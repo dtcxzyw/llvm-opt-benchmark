@@ -791,7 +791,7 @@ cdf_read_sector.exit.thread:                      ; preds = %66, %46, %cdf_read_
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
+define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, %2

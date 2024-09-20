@@ -1639,7 +1639,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @aio_wait_kick() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_receive_request(ptr nocapture noundef %req, ptr nocapture noundef %request, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_request(ptr nocapture noundef %req, ptr nocapture noundef %request, ptr noundef %errp) #1 {
 entry:
   %_now.i.i110 = alloca %struct.timeval, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
@@ -2390,7 +2390,7 @@ declare ptr @error_get_pretty(ptr noundef) local_unnamed_addr #3
 declare void @error_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_handle_request(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_handle_request(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
 entry:
   %exp1 = getelementptr inbounds i8, ptr %client, i64 16
   %0 = load ptr, ptr %exp1, align 8
@@ -3703,7 +3703,7 @@ nbd_send_generic_reply.exit:                      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_do_cmd_read(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_do_cmd_read(ptr noundef %client, ptr nocapture noundef readonly %request, ptr noundef %data, ptr noundef %errp) #1 {
 entry:
   %exp1 = getelementptr inbounds i8, ptr %client, i64 16
   %0 = load ptr, ptr %exp1, align 8
@@ -4033,7 +4033,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @blk_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_send_sparse_read(ptr noundef %client, ptr nocapture noundef readonly %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, ptr noundef %errp) #1 {
+define internal range(i32 -2147483648, 1) i32 @nbd_co_send_sparse_read(ptr noundef %client, ptr nocapture noundef readonly %request, i64 noundef %offset, ptr noundef %data, i64 noundef %size, ptr noundef %errp) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8

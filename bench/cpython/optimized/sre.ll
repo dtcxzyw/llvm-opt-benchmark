@@ -6050,7 +6050,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sre_ucs1_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs1_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %state, i64 24
   %0 = load ptr, ptr %end1, align 8
@@ -10423,7 +10423,7 @@ indirectgoto:                                     ; preds = %indirectgoto.backed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sre_ucs2_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs2_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %state, i64 24
   %0 = load ptr, ptr %end1, align 8
@@ -14768,7 +14768,7 @@ indirectgoto:                                     ; preds = %indirectgoto.backed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sre_ucs4_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_ucs4_match(ptr noundef %state, ptr noundef %pattern, i32 noundef range(i32 0, 2) %toplevel) #0 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %state, i64 24
   %0 = load ptr, ptr %end1, align 8
@@ -21181,7 +21181,7 @@ sw.epilog:                                        ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sre_search(ptr noundef %state, ptr noundef %pattern) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr noundef %state, ptr noundef %pattern) unnamed_addr #0 {
 entry:
   %charsize = getelementptr inbounds i8, ptr %state, i64 140
   %0 = load i32, ptr %charsize, align 4
@@ -24733,7 +24733,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @match_getindex(ptr nocapture noundef readonly %self, ptr noundef %index) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9223372036854775807) i64 @match_getindex(ptr nocapture noundef readonly %self, ptr noundef %index) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %index, null
   br i1 %cmp, label %return, label %if.end

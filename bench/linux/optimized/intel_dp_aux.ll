@@ -277,7 +277,7 @@ define dso_local void @intel_dp_aux_init(ptr noundef %0) local_unnamed_addr #2 a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 409616, 0) i32 @xelpdp_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 1506833) i32 @xelpdp_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -392
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 3516
@@ -513,7 +513,7 @@ define internal i32 @skl_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 933904, 409617) i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 409616, 934673) i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %7 [
@@ -584,7 +584,7 @@ define internal noundef i32 @ilk_aux_data_reg(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1982480, 0) i32 @vlv_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 1982480, 1983488) i32 @vlv_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -644,7 +644,7 @@ define internal i32 @vlv_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 409616, 0) i32 @g4x_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 410624) i32 @g4x_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1

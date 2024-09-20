@@ -3897,7 +3897,7 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %.lr.ph [
@@ -9193,7 +9193,7 @@ unicode_byte_type.exit115:                        ; preds = %98, %98, %98, %98, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = getelementptr inbounds i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1
@@ -14706,7 +14706,7 @@ unicode_byte_type.exit115:                        ; preds = %102, %102, %102, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0

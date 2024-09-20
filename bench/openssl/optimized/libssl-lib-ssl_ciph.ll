@@ -4736,7 +4736,7 @@ return:                                           ; preds = %for.inc.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @ssl_get_md_idx(i32 noundef %md_nid) local_unnamed_addr #10 {
+define range(i32 -1, 14) i32 @ssl_get_md_idx(i32 noundef %md_nid) local_unnamed_addr #10 {
 entry:
   br label %for.body
 

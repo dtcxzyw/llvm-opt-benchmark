@@ -230,7 +230,7 @@ ompi_coll_tuned_free_msg_rules_in_com_rule.exit:  ; preds = %.lr.ph.split, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_tuned_free_all_rules(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -2147483647, 1) i32 @ompi_coll_tuned_free_all_rules(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 

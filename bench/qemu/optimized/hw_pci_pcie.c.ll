@@ -1721,7 +1721,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 4093) i16 @pcie_find_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 4089) i16 @pcie_find_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 168
   %dev.val = load ptr, ptr %0, align 8

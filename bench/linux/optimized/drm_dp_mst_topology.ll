@@ -1379,7 +1379,7 @@ define dso_local ptr @drm_atomic_get_mst_payload_state(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -71, 2147483648) i64 @drm_dp_mst_dpcd_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 -71, 256) i64 @drm_dp_mst_dpcd_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = alloca %struct.drm_printer, align 8
   %6 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %7 = getelementptr i8, ptr %0, i64 1320
@@ -1687,7 +1687,7 @@ define dso_local void @drm_dp_mst_connector_early_unregister(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, -2147483648) i32 @drm_dp_send_power_updown_phy(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #3 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_dp_send_power_updown_phy(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %0, ptr noundef %1)
@@ -2092,7 +2092,7 @@ select.unfold:                                    ; preds = %61, %79, %72
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, -2147483648) i32 @drm_dp_send_query_stream_enc_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_dp_send_query_stream_enc_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = alloca [7 x i8], align 1
@@ -2522,7 +2522,7 @@ define dso_local void @drm_dp_remove_payload_part2(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, -2147483648) i32 @drm_dp_add_payload_part2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_dp_add_payload_part2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
@@ -2589,7 +2589,7 @@ define dso_local range(i32 -22, -2147483648) i32 @drm_dp_add_payload_part2(ptr n
   br label %44
 
 44:                                               ; preds = %43, %40, %14
-  %45 = phi i32 [ -5, %14 ], [ %31, %43 ], [ %33, %40 ]
+  %45 = phi i32 [ -5, %14 ], [ 0, %43 ], [ %33, %40 ]
   ret i32 %45
 }
 
@@ -9224,7 +9224,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #5
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, -2147483648) i32 @drm_dp_payload_send_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @drm_dp_payload_send_msg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #3 align 16 {
   %5 = alloca %struct.drm_printer, align 8
   %6 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %7 = alloca [16 x i8], align 16

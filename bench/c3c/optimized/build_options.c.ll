@@ -3581,7 +3581,7 @@ declare i32 @cpus() local_unnamed_addr #3
 declare zeroext i1 @command_accepts_files(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @arch_os_target_from_string(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 25) i32 @arch_os_target_from_string(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %1, %7

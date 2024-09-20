@@ -120,7 +120,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZN10open_spiel20NextPlayerRoundRobinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef range(i32 -2147483647, 2147483647) i32 @_ZN10open_spiel20NextPlayerRoundRobinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = add nsw i32 %0, 1
   %4 = icmp slt i32 %3, %1
   %. = select i1 %4, i32 %3, i32 0
@@ -136,7 +136,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10open_spiel24Previous
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10open_spiel19RankActionMixedBaseERKSt6vectorIiSaIiEES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 2147483647) i64 @_ZN10open_spiel19RankActionMixedBaseERKSt6vectorIiSaIiEES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

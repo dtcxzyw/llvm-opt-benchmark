@@ -1545,7 +1545,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @ggml_n_dims(ptr nocapture noundef readonly %tensor) local_unnamed_addr #14 {
+define range(i32 1, -2147483648) i32 @ggml_n_dims(ptr nocapture noundef readonly %tensor) local_unnamed_addr #14 {
 entry:
   %ne = getelementptr inbounds i8, ptr %tensor, i64 16
   br label %for.body
@@ -26363,7 +26363,7 @@ return:                                           ; preds = %entry, %if.end81
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #33
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @gguf_find_key(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %key) local_unnamed_addr #26 {
+define range(i32 -1, 2147483647) i32 @gguf_find_key(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %key) local_unnamed_addr #26 {
 entry:
   %n_kv.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i64, ptr %n_kv.i, align 8
@@ -27335,7 +27335,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @gguf_find_tensor(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %name) local_unnamed_addr #26 {
+define range(i32 -2147483648, 2147483647) i32 @gguf_find_tensor(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %name) local_unnamed_addr #26 {
 entry:
   %n_tensors.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %n_tensors.i, align 8

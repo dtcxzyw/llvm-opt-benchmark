@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.f1f3f5d84a671774b0370d1d767f741e.2.llvm.6354751251689287729 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.f1f3f5d84a671774b0370d1d767f741e.1.llvm.6354751251689287729, [16 x i8] c"K\00\00\00\00\00\00\00\AD\06\00\00\1B\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h31c87f3a276ef94bE(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h31c87f3a276ef94bE(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

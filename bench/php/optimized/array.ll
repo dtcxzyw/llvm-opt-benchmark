@@ -25342,7 +25342,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_array_reverse_key_compare_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call i32 @php_array_key_compare_string_unstable(ptr noundef readonly %0, ptr noundef readonly %1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0

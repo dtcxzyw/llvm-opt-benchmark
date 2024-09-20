@@ -763,7 +763,7 @@ define ptr @H5Iobject_verify(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Iget_type(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @H5Iget_type(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5_libinit_g, align 1
   %3 = trunc i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1

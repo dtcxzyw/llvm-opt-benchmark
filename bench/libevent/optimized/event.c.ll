@@ -414,7 +414,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @event_debug_map_HT_REP_IS_BAD_(ptr nocapture noundef readonly %head) local_unnamed_addr #2 {
+define dso_local range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nocapture noundef readonly %head) local_unnamed_addr #2 {
 entry:
   %hth_table_length = getelementptr inbounds i8, ptr %head, i64 8
   %0 = load i32, ptr %hth_table_length, align 8

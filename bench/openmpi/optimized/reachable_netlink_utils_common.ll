@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @route_policy = internal global <{ [15 x %struct.nla_policy], [16 x %struct.nla_policy] }> <{ [15 x %struct.nla_policy] [%struct.nla_policy zeroinitializer, %struct.nla_policy zeroinitializer, %struct.nla_policy zeroinitializer, %struct.nla_policy { i16 5, i16 0, i16 16 }, %struct.nla_policy { i16 3, i16 0, i16 0 }, %struct.nla_policy zeroinitializer, %struct.nla_policy { i16 3, i16 0, i16 0 }, %struct.nla_policy zeroinitializer, %struct.nla_policy { i16 8, i16 0, i16 0 }, %struct.nla_policy { i16 8, i16 0, i16 0 }, %struct.nla_policy zeroinitializer, %struct.nla_policy { i16 3, i16 0, i16 0 }, %struct.nla_policy { i16 0, i16 32, i16 0 }, %struct.nla_policy zeroinitializer, %struct.nla_policy { i16 3, i16 0, i16 0 }], [16 x %struct.nla_policy] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_reachable_netlink_rt_lookup(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.rtmsg, align 4
   %7 = alloca %struct.prte_reachable_netlink_rt_cb_arg, align 8

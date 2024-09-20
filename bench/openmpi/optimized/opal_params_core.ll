@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_register_util_params() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @opal_register_util_params() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8

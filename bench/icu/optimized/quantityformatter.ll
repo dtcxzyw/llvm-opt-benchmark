@@ -788,7 +788,7 @@ lpad:                                             ; preds = %if.end10, %entry
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont
-  %idxprom = zext i32 %call to i64
+  %idxprom = zext nneg i32 %call to i64
   %arrayidx = getelementptr inbounds [8 x ptr], ptr %this, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %2, null
@@ -844,7 +844,7 @@ cleanup:                                          ; preds = %_ZN6icu_7517Quantit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7517QuantityFormatter12selectPluralERKNS_11FormattableERKNS_12NumberFormatERKNS_11PluralRulesERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %number, ptr noundef nonnull align 8 dereferenceable(356) %fmt, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 8 dereferenceable(64) %formattedNumber, ptr noundef nonnull align 8 dereferenceable(20) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7517QuantityFormatter12selectPluralERKNS_11FormattableERKNS_12NumberFormatERKNS_11PluralRulesERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %number, ptr noundef nonnull align 8 dereferenceable(356) %fmt, ptr noundef nonnull align 8 dereferenceable(28) %rules, ptr noundef nonnull align 8 dereferenceable(64) %formattedNumber, ptr noundef nonnull align 8 dereferenceable(20) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pluralKeyword = alloca %"class.icu_75::UnicodeString", align 8
   %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8

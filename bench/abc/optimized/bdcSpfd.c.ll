@@ -1662,7 +1662,7 @@ define i32 @Bdc_SpfdCheckOverlap(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @Bdc_SpfdHashValue(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @Bdc_SpfdHashValue(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   br label %4
@@ -2654,7 +2654,7 @@ define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Bdc_SpfdComputeCost(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
+define range(i32 -2147483641, -2147483648) i32 @Bdc_SpfdComputeCost(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
   %4 = and i64 %0, 6148914691236517205
   %5 = lshr i64 %0, 1
   %6 = and i64 %5, 6148914691236517205

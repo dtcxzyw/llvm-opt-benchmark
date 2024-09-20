@@ -124,7 +124,7 @@ php_statpage.exit:                                ; preds = %0, %7, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @php_getgid() local_unnamed_addr #0 {
+define hidden range(i64 0, -1) i64 @php_getgid() local_unnamed_addr #0 {
   %1 = tail call ptr @sapi_get_stat() #3
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
   %3 = icmp eq i64 %2, -1

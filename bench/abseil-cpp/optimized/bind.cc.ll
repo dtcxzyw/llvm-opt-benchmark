@@ -1415,7 +1415,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont3, %if.t
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl19str_format_internal7FprintFEP8_IO_FILENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %output, ptr %format.coerce0, i64 %format.coerce1, ptr nocapture readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN4absl19str_format_internal7FprintFEP8_IO_FILENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %output, ptr %format.coerce0, i64 %format.coerce1, ptr nocapture readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 {
 entry:
   %sink = alloca %"class.absl::str_format_internal::FILERawSink", align 8
   store ptr %output, ptr %sink, align 8

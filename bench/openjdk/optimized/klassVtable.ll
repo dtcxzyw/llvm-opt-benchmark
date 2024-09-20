@@ -4233,7 +4233,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
 declare void @_ZN6Method16set_itable_indexEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, -8) i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2147483640) i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8

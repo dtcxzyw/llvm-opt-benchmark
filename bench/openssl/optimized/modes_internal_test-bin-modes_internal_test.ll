@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end89, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 16, 33) i64 @last_blocks_correction(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
+define internal range(i64 17, 33) i64 @last_blocks_correction(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %len) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %len, i1 false)
   %rem = and i64 %len, 15

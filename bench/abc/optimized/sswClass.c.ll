@@ -2618,7 +2618,7 @@ Aig_ManObj.exit35:                                ; preds = %Aig_ManObj.exit35.l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ClassesRefineOneClass(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Ssw_ClassesRefineOneClass(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3027,7 +3027,7 @@ define i32 @Ssw_ClassesRefineGroup(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ssw_ClassesRefineConst1Group(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483646, -2147483648) i32 @Ssw_ClassesRefineConst1Group(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val52 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val52, 0
@@ -3239,7 +3239,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ssw_ClassesRefineConst1(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483646, -2147483648) i32 @Ssw_ClassesRefineConst1(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4

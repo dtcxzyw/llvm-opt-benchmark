@@ -8942,7 +8942,7 @@ ir_emit3.exit:                                    ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ir_CALL_2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 2147483647, 2147483646) i32 @_ir_CALL_2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
@@ -9018,7 +9018,7 @@ ir_emit_N.exit:                                   ; preds = %12, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ir_CALL_3(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 2147483647, 2147483646) i32 @_ir_CALL_3(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
@@ -9098,7 +9098,7 @@ ir_emit_N.exit:                                   ; preds = %13, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ir_CALL_4(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 2147483647, 2147483646) i32 @_ir_CALL_4(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
@@ -9182,7 +9182,7 @@ ir_emit_N.exit:                                   ; preds = %14, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ir_CALL_5(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 2147483647, 2147483646) i32 @_ir_CALL_5(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, 1

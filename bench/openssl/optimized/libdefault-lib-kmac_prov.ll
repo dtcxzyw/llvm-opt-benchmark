@@ -340,10 +340,10 @@ get_encode_size.exit.i:                           ; preds = %while.body.i.i
 
 for.body.preheader.i:                             ; preds = %if.end, %get_encode_size.exit.i, %cond.end
   %cond8 = phi i64 [ %mul, %get_encode_size.exit.i ], [ 0, %cond.end ], [ 0, %if.end ]
-  %conv19.i = phi i64 [ %conv.i, %get_encode_size.exit.i ], [ 1, %cond.end ], [ 1, %if.end ]
-  %spec.store.select.i18.i = phi i32 [ %inc.i.i, %get_encode_size.exit.i ], [ 1, %cond.end ], [ 1, %if.end ]
-  %cnt.0.lcssa.i17.i = phi i32 [ %inc.i.i, %get_encode_size.exit.i ], [ 0, %cond.end ], [ 0, %if.end ]
-  %4 = tail call i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i17.i, i32 1)
+  %conv18.i = phi i64 [ %conv.i, %get_encode_size.exit.i ], [ 1, %cond.end ], [ 1, %if.end ]
+  %spec.store.select.i17.i = phi i32 [ %inc.i.i, %get_encode_size.exit.i ], [ 1, %cond.end ], [ 1, %if.end ]
+  %cnt.0.lcssa.i16.i = phi i32 [ %inc.i.i, %get_encode_size.exit.i ], [ 0, %cond.end ], [ 0, %if.end ]
+  %4 = tail call i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i16.i, i32 1)
   %umax.i = zext nneg i32 %4 to i64
   br label %for.body.i
 
@@ -355,20 +355,20 @@ right_encode.exit.thread:                         ; preds = %get_encode_size.exi
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %umax.i, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %bits.addr.011.i = phi i64 [ %cond8, %for.body.preheader.i ], [ %shr.i, %for.body.i ]
+  %bits.addr.010.i = phi i64 [ %cond8, %for.body.preheader.i ], [ %shr.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %conv4.i = trunc i64 %bits.addr.011.i to i8
+  %conv4.i = trunc i64 %bits.addr.010.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %encoded_outlen, i64 %indvars.iv.next.i
   store i8 %conv4.i, ptr %arrayidx.i, align 1
-  %shr.i = lshr i64 %bits.addr.011.i, 8
+  %shr.i = lshr i64 %bits.addr.010.i, 8
   %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
   br i1 %cmp2.i, label %for.body.i, label %land.lhs.true, !llvm.loop !6
 
 land.lhs.true:                                    ; preds = %for.body.i
-  %conv5.i = trunc nuw i32 %spec.store.select.i18.i to i8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %encoded_outlen, i64 %conv19.i
+  %conv5.i = trunc nuw i32 %spec.store.select.i17.i to i8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %encoded_outlen, i64 %conv18.i
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
-  %add.i = add nuw nsw i32 %spec.store.select.i18.i, 1
+  %add.i = add nuw nsw i32 %spec.store.select.i17.i, 1
   %conv8.i = zext nneg i32 %add.i to i64
   %call6 = call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull %encoded_outlen, i64 noundef %conv8.i) #7
   %tobool7.not = icmp eq i32 %call6, 0
@@ -542,7 +542,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
 
 get_encode_size.exit.i:                           ; preds = %while.body.i.i, %if.else.i
   %cnt.0.lcssa.i.i = phi i32 [ 0, %if.else.i ], [ %inc.i.i, %while.body.i.i ]
-  %spec.store.select.i.i = call range(i32 1, 0) i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i.i, i32 1)
+  %spec.store.select.i.i = call range(i32 1, 9) i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i.i, i32 1)
   %conv.i = zext nneg i32 %spec.store.select.i.i to i64
   %add.i = add nuw nsw i64 %3, 1
   %add1.i = add nuw nsw i64 %add.i, %conv.i

@@ -13251,7 +13251,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_nat_external_port_range
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_nat_port_forward(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 9, 8) i32 @dissect_pfcp_enterprise_bbf_nat_port_forward(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

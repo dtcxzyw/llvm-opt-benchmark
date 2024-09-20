@@ -239,7 +239,7 @@ define void @php_pcre2_code_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_pcre2_jit_free_8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @_pcre2_check_escape_8(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define hidden range(i32 -2147483647, 32769) i32 @_pcre2_check_escape_8(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = ptrtoint ptr %1 to i64
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -4631,7 +4631,7 @@ thread-pre-split1140:                             ; preds = %.thread1137
   br label %.backedge1209
 
 754:                                              ; preds = %743
-  %755 = add nsw i32 %.1756, -2145910784
+  %755 = add nuw nsw i32 %.1756, -2145910784
   %756 = getelementptr inbounds i8, ptr %.2694, i64 4
   store i32 %755, ptr %.2694, align 4
   br label %.backedge1209
@@ -13810,7 +13810,7 @@ define internal fastcc range(i32 0, 2) i32 @check_posix_syntax(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_posix_name(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 15, 14) i32 @check_posix_name(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   br label %4
 
@@ -13859,7 +13859,7 @@ declare i32 @_pcre2_strcmp_c8_8(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_branchlength(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 65536) i32 @get_branchlength(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

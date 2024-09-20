@@ -4629,7 +4629,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %70, %67, %11
 declare noundef i32 @_ZN10open_spiel9FactorialEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10open_spiel11pathfinding16PathfindingState11PlayerAtPosERKSt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -3, 2147483647) i32 @_ZNK10open_spiel11pathfinding16PathfindingState11PlayerAtPosERKSt4pairIiiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
@@ -4783,7 +4783,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel11pathfinding16PathfindingState16PlayerPlaneIndexEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10open_spiel11pathfinding16PathfindingState16PlayerPlaneIndexEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = sub i32 %2, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4

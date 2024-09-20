@@ -7771,7 +7771,7 @@ define hidden void @proto_register_zbee_zcl_touchlink() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 3, 1) i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %201, label %6
 

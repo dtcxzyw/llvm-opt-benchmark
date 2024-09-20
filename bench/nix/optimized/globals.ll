@@ -18324,7 +18324,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3nix8Settings15getDefaultCoresEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12776) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i32 1, 0) i32 @_ZN3nix8Settings15getDefaultCoresEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12776) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #30
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %3 = tail call noundef i32 @_ZN3nix9getMaxCPUEv()

@@ -1272,7 +1272,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @usb_desc_string(ptr noundef %dev, i32 noundef %index, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 256) i32 @usb_desc_string(ptr noundef %dev, i32 noundef %index, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %len, 4
   br i1 %cmp, label %return, label %if.end

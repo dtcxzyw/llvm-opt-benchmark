@@ -4889,7 +4889,7 @@ declare i32 @bdrv_co_copy_range_to(ptr noundef, i64 noundef, ptr noundef, i64 no
 declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #15
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @handle_aiocb_copy_range(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -3, -4) i32 @handle_aiocb_copy_range(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %in_off = alloca i64, align 8
@@ -6076,7 +6076,7 @@ cleanup:                                          ; preds = %sw.default29.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_aiocb_zone_mgmt(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -3, -4) i32 @handle_aiocb_zone_mgmt(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %range = alloca %struct.blk_zone_range, align 8
   %aio_fildes = getelementptr inbounds i8, ptr %opaque, i64 12
@@ -6121,7 +6121,7 @@ declare i32 @pr_manager_execute(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @qemu_get_current_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_aiocb_ioctl(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -3, -4) i32 @handle_aiocb_ioctl(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %aio_fildes = getelementptr inbounds i8, ptr %opaque, i64 12
   %0 = getelementptr inbounds i8, ptr %opaque, i64 32

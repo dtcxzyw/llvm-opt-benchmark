@@ -277,7 +277,7 @@ define zeroext i8 @pg_tolower(i8 noundef zeroext %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i8 @pg_ascii_toupper(i8 noundef zeroext %0) local_unnamed_addr #4 {
+define zeroext range(i8 123, 97) i8 @pg_ascii_toupper(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = add i8 %0, -97
   %or.cond = icmp ult i8 %2, 26
   %3 = add nsw i8 %0, -32

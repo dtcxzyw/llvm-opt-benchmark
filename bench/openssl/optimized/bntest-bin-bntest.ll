@@ -1877,7 +1877,7 @@ err:                                              ; preds = %if.end72, %if.end67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_modexp_mont5() #1 {
+define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
 entry:
   %a = alloca ptr, align 8
   %p = alloca ptr, align 8

@@ -443,7 +443,7 @@ declare ptr @X509_NAME_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @OCSP_resp_find(ptr noundef readonly %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @OCSP_resp_find(ptr noundef readonly %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bs, null
   br i1 %cmp, label %return, label %if.end

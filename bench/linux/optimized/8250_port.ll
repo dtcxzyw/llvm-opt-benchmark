@@ -6277,7 +6277,7 @@ declare dso_local ptr @__request_region(ptr noundef, i64 noundef, i64 noundef, p
 declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @size_fifo(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 257) i32 @size_fifo(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0, i32 noundef 3) #14

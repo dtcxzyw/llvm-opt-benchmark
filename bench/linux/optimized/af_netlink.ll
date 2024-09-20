@@ -2436,7 +2436,7 @@ define internal void @netlink_data_ready(ptr nocapture readnone %0) #8 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netlink_insert(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -16, -17) i32 @netlink_insert(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.netlink_compare_arg, align 8
@@ -3211,7 +3211,7 @@ define dso_local noundef ptr @__nlmsg_put(ptr noundef %0, i32 noundef %1, i32 no
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__netlink_dump_start(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @__netlink_dump_start(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 212
   %6 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, i32 1, ptr elementtype(i32) %5) #23, !srcloc !26
   %7 = icmp eq i32 %6, 0

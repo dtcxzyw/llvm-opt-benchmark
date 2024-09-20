@@ -1223,7 +1223,7 @@ for.end123:                                       ; preds = %for.inc121, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ucm_findFallback(ptr nocapture noundef readonly %toUFallbacks, i32 noundef %countToUFallbacks, i32 noundef %offset) local_unnamed_addr #7 {
+define range(i32 -2147483648, 2147483647) i32 @ucm_findFallback(ptr nocapture noundef readonly %toUFallbacks, i32 noundef %countToUFallbacks, i32 noundef %offset) local_unnamed_addr #7 {
 entry:
   %cmp15 = icmp sgt i32 %countToUFallbacks, 0
   br i1 %cmp15, label %for.body.preheader, label %return

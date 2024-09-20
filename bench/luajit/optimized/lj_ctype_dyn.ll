@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [6 x i8] c"const\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ctype_new(ptr noundef %cts, ptr nocapture noundef writeonly %ctp) local_unnamed_addr #0 {
+define hidden range(i32 0, -1) i32 @lj_ctype_new(ptr noundef %cts, ptr nocapture noundef writeonly %ctp) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %cts, i64 8
   %0 = load i32, ptr %top, align 8
@@ -81,7 +81,7 @@ declare hidden void @lj_err_msg(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden ptr @lj_mem_grow(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ctype_intern(ptr noundef %cts, i32 noundef %info, i32 noundef %size) local_unnamed_addr #0 {
+define hidden range(i32 0, -1) i32 @lj_ctype_intern(ptr noundef %cts, i32 noundef %info, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %xor.i = xor i32 %size, %info
   %or.i = tail call i32 @llvm.fshl.i32(i32 %size, i32 %size, i32 14)

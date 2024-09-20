@@ -1460,7 +1460,7 @@ popular_quantifier_num.exit48.thread:             ; preds = %34, %33, %29, %28, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_parse_make_tree(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local range(i32 -2147483648, 1) i32 @onig_parse_make_tree(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.OnigToken, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr i8, ptr %3, i64 88

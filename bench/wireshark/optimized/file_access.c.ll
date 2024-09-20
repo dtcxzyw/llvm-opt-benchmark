@@ -1710,7 +1710,7 @@ wtap_name_to_file_type_subtype.exit.thread:       ; preds = %31, %17
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wtap_name_to_file_type_subtype(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_file_type_subtype(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @type_subtype_name_map, align 8
   %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #22
   %.not = icmp eq ptr %3, null

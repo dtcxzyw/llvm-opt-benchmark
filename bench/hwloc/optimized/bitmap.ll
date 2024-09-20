@@ -2569,7 +2569,7 @@ hwloc_bitmap_last.exit:                           ; preds = %8, %hwloc_flsl_manu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_last(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -4494,7 +4494,7 @@ define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_last_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0

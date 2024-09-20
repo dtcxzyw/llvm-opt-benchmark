@@ -1639,7 +1639,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i64 @sysfs_get_uname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local noundef range(i64 -22, 32) i64 @sysfs_get_uname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = add i64 %2, -32
   %5 = icmp ult i64 %4, -31
   br i1 %5, label %17, label %6
@@ -2537,7 +2537,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @current_clocksource_store(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 align 16 {
+define internal noundef range(i64 -22, 32) i64 @current_clocksource_store(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %5 = add i64 %3, -32
   %6 = icmp ult i64 %5, -31

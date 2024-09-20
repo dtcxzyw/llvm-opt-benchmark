@@ -2318,7 +2318,7 @@ Vec_WrdAlloc.exit:                                ; preds = %Vec_WrdStart.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Cec2_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, -1) i32 @Cec2_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = shl i32 %1, 1
   %5 = load i32, ptr %0, align 4
   %6 = and i32 %5, 1

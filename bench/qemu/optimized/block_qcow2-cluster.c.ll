@@ -3591,7 +3591,7 @@ fail:                                             ; preds = %discard_in_l2_slice
 declare void @qcow2_process_discards(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_subcluster_zeroize(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_subcluster_zeroize(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

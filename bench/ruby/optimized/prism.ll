@@ -9774,7 +9774,7 @@ char_is_identifier.exit.thread:                   ; preds = %19, %83, %68, %60, 
 declare zeroext i1 @pm_char_is_decimal_digit(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @lex_numeric(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 44, 62) i32 @lex_numeric(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -11264,7 +11264,7 @@ define internal fastcc i64 @char_is_identifier_start(ptr nocapture noundef reado
 declare zeroext i1 @pm_diagnostic_list_append_format(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 2, 1) i32 @lex_identifier(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define internal fastcc range(i32 29, 118) i32 @lex_identifier(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 312

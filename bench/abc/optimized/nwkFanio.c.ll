@@ -200,7 +200,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Nwk_ObjFindFanin(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -238,7 +238,7 @@ define i32 @Nwk_ObjFindFanin(ptr nocapture noundef readonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Nwk_ObjFindFanout(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

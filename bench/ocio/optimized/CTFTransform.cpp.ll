@@ -10751,7 +10751,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr nocapture noundef nonnull readonly %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr nocapture noundef nonnull readonly %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %mat = alloca %"class.std::shared_ptr.86", align 8
   %range = alloca %"class.std::shared_ptr.93", align 8
@@ -12755,7 +12755,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE(i32 noundef %bd, i32 noundef range(i32 9, 13) %type) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE(i32 noundef %bd, i32 noundef range(i32 9, 13) %type) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %typeName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [39 x i8] c"iso_scan_file: Can't write to file %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 23, 22) i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.iso9660_t, align 8
   %4 = icmp ult i64 %1, 32768
   br i1 %4, label %.thread, label %5

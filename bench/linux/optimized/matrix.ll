@@ -1701,7 +1701,7 @@ define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, -1) i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %92, label %6
@@ -2051,7 +2051,7 @@ define dso_local void @irq_matrix_remove_reserved(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_matrix_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, -1) i32 @irq_matrix_alloc(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %106, label %7

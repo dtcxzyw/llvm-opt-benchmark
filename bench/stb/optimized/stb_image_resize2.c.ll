@@ -509,7 +509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbir__edge_clamp_full(i32 noundef %n, i32 noundef %max) #1 {
+define range(i32 -2147483648, 2147483647) i32 @stbir__edge_clamp_full(i32 noundef %n, i32 noundef %max) #1 {
 entry:
   %cmp = icmp slt i32 %n, 0
   %cmp1.not = icmp slt i32 %n, %max
@@ -520,7 +520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stbir__edge_reflect_full(i32 noundef %n, i32 noundef %max) #1 {
+define range(i32 -2147483648, 2147483647) i32 @stbir__edge_reflect_full(i32 noundef %n, i32 noundef %max) #1 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end

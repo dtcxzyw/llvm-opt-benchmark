@@ -1028,7 +1028,7 @@ define noundef range(i64 0, -65535) i64 @FT_FloorFix(i64 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i64 @FT_Hypot(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Hypot(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.FT_Vector_, align 8
   store i64 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1038,7 +1038,7 @@ define hidden i64 @FT_Hypot(i64 noundef %0, i64 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @FT_Vector_Length(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Vector_Length(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -17060,7 +17060,7 @@ FT_DivFix.exit:                                   ; preds = %ft_trig_pseudo_rota
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @FT_Atan2(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i64 9223372036854775800, 9223372036854775793) i64 @FT_Atan2(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = or i64 %1, %0
   %or.cond = icmp eq i64 %3, 0
   br i1 %or.cond, label %ft_trig_pseudo_polarize.exit, label %4

@@ -22098,7 +22098,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %93, %99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @JVM_ConstantPoolGetTagAt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define signext range(i8 103, 101) i8 @JVM_ConstantPoolGetTagAt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960

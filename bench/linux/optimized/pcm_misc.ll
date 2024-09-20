@@ -508,7 +508,7 @@ define dso_local range(i32 0, -2147483647) i32 @snd_pcm_rate_mask_intersect(i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1) #5 align 16 {
+define dso_local range(i32 1, 0) i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1) #5 align 16 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %5

@@ -174,7 +174,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RegisterTimeout(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %0, 12
   br i1 %3, label %.preheader, label %.loopexit
 

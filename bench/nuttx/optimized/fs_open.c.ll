@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.file = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %4)
@@ -17,7 +17,7 @@ define i32 @file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @file_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.inode_search_s, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %96, label %8

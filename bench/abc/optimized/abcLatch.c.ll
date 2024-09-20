@@ -2831,7 +2831,7 @@ declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #2
 declare i32 @Abc_NtkCleanup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_NtkVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   tail call void @Abc_NtkCleanMarkC(ptr noundef %0) #11
   %3 = tail call ptr @Abc_AigConst1(ptr noundef %0) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 20

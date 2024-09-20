@@ -452,7 +452,7 @@ get_ifaddrs.exit:                                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 8589934592) i64 @ifaddr_ifindex(i64 noundef %0) #0 {
+define internal range(i64 2, 8589934592) i64 @ifaddr_ifindex(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ifaddr_type) #7
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %get_ifaddrs.exit

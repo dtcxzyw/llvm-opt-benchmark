@@ -151,7 +151,7 @@ if.end:                                           ; preds = %rc2_meth_to_magic.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rc2_get_asn1_type_and_iv(ptr noundef %c, ptr noundef %type) #1 {
+define internal range(i32 -1, 17) i32 @rc2_get_asn1_type_and_iv(ptr noundef %c, ptr noundef %type) #1 {
 entry:
   %num = alloca i64, align 8
   %iv = alloca [16 x i8], align 16

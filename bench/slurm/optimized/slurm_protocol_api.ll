@@ -347,7 +347,7 @@ define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_convert_unit_val(i32 noundef %0, i8 noundef signext %1) #2 {
+define range(i32 -2147483648, 2147482625) i32 @get_convert_unit_val(i32 noundef %0, i8 noundef signext %1) #2 {
   %3 = icmp eq i8 %1, 0
   br i1 %3, label %get_unit_type.exit.thread.sink.split, label %4
 
@@ -763,7 +763,7 @@ declare ptr @conf_get_opt_str(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define i32 @slurm_get_auth_ttl() local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @slurm_get_auth_ttl() local_unnamed_addr #7 {
   %1 = load i32, ptr @slurm_get_auth_ttl.ttl, align 4
   %2 = icmp sgt i32 %1, -1
   br i1 %2, label %11, label %3

@@ -418,7 +418,7 @@ define i32 @Abc_SclClassCellNum(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_SclLibClassNum(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @Abc_SclLibClassNum(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
 .critedge:
   %1 = getelementptr i8, ptr %0, i64 116
   %.val7 = load i32, ptr %1, align 4
@@ -523,7 +523,7 @@ define void @Abc_SclShortNames(ptr nocapture noundef %0) local_unnamed_addr #9 {
   %2 = alloca [10000 x i8], align 16
   %3 = getelementptr i8, ptr %0, i64 116
   %.val7.i = load i32, ptr %3, align 4
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.val7.i, i32 0)
+  %spec.select.i = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.val7.i, i32 0)
   %4 = icmp slt i32 %.val7.i, 2
   br i1 %4, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 

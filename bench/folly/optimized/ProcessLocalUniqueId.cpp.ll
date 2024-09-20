@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZN5folly20processLocalUniqueIdEvE4next = internal thread_local unnamed_addr global i64 0, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5folly20processLocalUniqueIdEv() local_unnamed_addr #0 {
+define noundef range(i64 1, 0) i64 @_ZN5folly20processLocalUniqueIdEv() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20processLocalUniqueIdEvE4next)
   %1 = load i64, ptr %0, align 8, !tbaa !7

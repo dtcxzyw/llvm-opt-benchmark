@@ -24068,7 +24068,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i: ; preds = %9, %_ZN3std
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h02e02721b6fd463bE(ptr noundef %0, i64 noundef %1) unnamed_addr #16 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h02e02721b6fd463bE(ptr noundef %0, i64 noundef %1) unnamed_addr #16 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae007fE(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae007fE(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = add nsw i32 %0, -4352
   %or.cond.i = icmp ult i32 %3, 19
   br i1 %or.cond.i, label %10, label %4

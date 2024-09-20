@@ -21758,7 +21758,7 @@ define { ptr, i64 } @_ZN17cranelift_codegen2ir9condcodes5IntCC3all17h0104bf69c4a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC13without_equal17he48bb545e890d3a2E(i8 noundef %0) unnamed_addr #15 {
+define noundef range(i8 10, 9) i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC13without_equal17he48bb545e890d3a2E(i8 noundef %0) unnamed_addr #15 {
   %switch.tableidx = add i8 %0, -2
   %2 = icmp ult i8 %switch.tableidx, 8
   %switch.cast = zext i8 %switch.tableidx to i64
@@ -21770,7 +21770,7 @@ define noundef i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC13without_equal17he4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC8unsigned17h759155deca1ad94fE(i8 noundef %0) unnamed_addr #15 {
+define noundef range(i8 6, 2) i8 @_ZN17cranelift_codegen2ir9condcodes5IntCC8unsigned17h759155deca1ad94fE(i8 noundef %0) unnamed_addr #15 {
   %switch.tableidx = add i8 %0, -2
   %2 = icmp ult i8 %switch.tableidx, 8
   %switch.cast = zext i8 %switch.tableidx to i64

@@ -161,7 +161,7 @@ sw.epilog:                                        ; preds = %while.end, %sw.bb37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @hllPatLen(ptr noundef readonly %ele, i64 noundef %elesize, ptr nocapture noundef writeonly %regp) local_unnamed_addr #1 {
+define dso_local range(i32 1, 0) i32 @hllPatLen(ptr noundef readonly %ele, i64 noundef %elesize, ptr nocapture noundef writeonly %regp) local_unnamed_addr #1 {
 entry:
   %conv = trunc i64 %elesize to i32
   %sext = shl i64 %elesize, 32

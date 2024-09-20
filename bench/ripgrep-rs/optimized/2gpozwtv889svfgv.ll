@@ -196,7 +196,7 @@ define noundef i64 @_ZN13grep_searcher5lines5count17hab877a03443f1fa7E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN13grep_searcher5lines9preceding17h1b06264c3937d2d9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i8 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9preceding17h1b06264c3937d2d9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i8 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E.exit, label %6

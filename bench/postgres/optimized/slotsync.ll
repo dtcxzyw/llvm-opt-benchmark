@@ -214,7 +214,7 @@ define dso_local noundef zeroext i1 @ValidateSlotSyncParams(i32 noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @StartSlotSyncWorker() local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @StartSlotSyncWorker() local_unnamed_addr #0 {
   %1 = tail call i32 @fork_process() #15
   switch i32 %1, label %7 [
     i32 0, label %2

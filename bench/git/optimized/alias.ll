@@ -279,7 +279,7 @@ for.end14:                                        ; preds = %strbuf_addch.exit72
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @split_cmdline(ptr noundef %cmdline, ptr nocapture noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %cmdline, ptr nocapture noundef %argv) local_unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @xmalloc(i64 noundef 128) #8
   store ptr %call1, ptr %argv, align 8

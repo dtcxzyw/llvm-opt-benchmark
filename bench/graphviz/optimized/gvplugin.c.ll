@@ -86,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @gvplugin_api(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 5) i32 @gvplugin_api(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %9

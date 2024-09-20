@@ -979,7 +979,7 @@ unreachable.i.i203.i:                             ; preds = %invoke.cont4.i.i202
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 855638016, -65535) i64 @_ZN5folly10MacAddress15createMulticastENS_11IPAddressV6E(ptr nocapture noundef readonly byval(%"class.folly::IPAddressV6") align 8 %v6addr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 858980352, -65535) i64 @_ZN5folly10MacAddress15createMulticastENS_11IPAddressV6E(ptr nocapture noundef readonly byval(%"class.folly::IPAddressV6") align 8 %v6addr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr2 = getelementptr inbounds i8, ptr %v6addr, i64 12
   %0 = load i32, ptr %add.ptr2, align 4

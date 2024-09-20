@@ -447,7 +447,7 @@ define dso_local i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %1, ptr 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_do_handle_exception(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_exception(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -726,7 +726,7 @@ define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_async_handle_exception(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_async_handle_exception(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call fastcc i32 @nfs4_do_handle_exception(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %7 = getelementptr inbounds i8, ptr %3, i64 34
@@ -1209,7 +1209,7 @@ define internal fastcc void @nfs4_update_changeattr_locked(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @update_open_stateid(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @update_open_stateid(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = alloca %struct.nfs4_stateid_struct, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1919,7 +1919,7 @@ define internal fastcc void @nfs4_opendata_put(ptr noundef %0) unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfs4_handle_delegation_recall_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_handle_delegation_recall_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
   switch i32 %4, label %6 [
     i32 0, label %27
     i32 -2, label %27
@@ -2524,7 +2524,7 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
 declare dso_local void @nfs4_server_set_init_caps(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_proc_get_rootfh(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1000, -2147483648) i32 @nfs4_proc_get_rootfh(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   br i1 %3, label %.thread, label %5
 
 5:                                                ; preds = %4
@@ -12927,7 +12927,7 @@ define internal zeroext i1 @nfs4_match_stateid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_find_root_sec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.rpc_auth_create_args, align 8
   %5 = alloca %struct.rpc_auth_create_args, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 228
@@ -13668,7 +13668,7 @@ define internal fastcc i32 @nfs4_open_recover(ptr noundef %0, ptr noundef %1) un
 declare dso_local i32 @__SCT__tp_func_nfs4_open_reclaim(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs40_open_expired(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -10007, -10008) i32 @nfs40_open_expired(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8

@@ -1572,7 +1572,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @HUFv06_readDTableX2(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define range(i64 1, 0) i64 @HUFv06_readDTableX2(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
 entry:
   %huffWeight = alloca [256 x i8], align 16
   %rankVal = alloca [17 x i32], align 16
@@ -1671,7 +1671,7 @@ return:                                           ; preds = %for.end39, %for.con
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUFv06_readStats(ptr noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #2 {
+define internal fastcc range(i64 1, 0) i64 @HUFv06_readStats(ptr noundef nonnull %huffWeight, ptr nocapture noundef nonnull %rankStats, ptr nocapture noundef nonnull writeonly %nbSymbolsPtr, ptr nocapture noundef nonnull writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #2 {
 entry:
   %counting.i = alloca [256 x i16], align 16
   %dt.i = alloca [4097 x i32], align 16
@@ -2506,7 +2506,7 @@ HUFv06_readDTableX2.exit:                         ; preds = %for.end39.i, %for.c
 if.end3:                                          ; preds = %HUFv06_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
   %sub = sub nuw i64 %cSrcSize, %call.i
-  %call5 = call i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
+  %call5 = call i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
 return:                                           ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit, %if.end3
@@ -3632,7 +3632,7 @@ HUFv06_readDTableX2.exit:                         ; preds = %for.end39.i, %for.c
 if.end3:                                          ; preds = %HUFv06_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
   %sub = sub nuw i64 %cSrcSize, %call.i
-  %call5 = call i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
+  %call5 = call i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
 return:                                           ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit, %if.end3
@@ -3641,7 +3641,7 @@ return:                                           ; preds = %HUFv06_readDTableX2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @HUFv06_readDTableX4(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define range(i64 1, 0) i64 @HUFv06_readDTableX4(ptr nocapture noundef %DTable, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
 entry:
   %rankVal.i.i = alloca [17 x i32], align 16
   %rankVal.i = alloca [17 x i32], align 16
@@ -4426,7 +4426,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
   %sub = sub nuw i64 %cSrcSize, %call
-  %call5 = call i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
+  %call5 = call i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -5430,7 +5430,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
   %sub = sub nuw i64 %cSrcSize, %call
-  %call5 = call i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
+  %call5 = call i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3

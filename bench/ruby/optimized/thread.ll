@@ -13912,7 +13912,7 @@ define internal range(i64 0, 21) i64 @thgroup_enclosed_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @thgroup_add(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @thgroup_add(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0

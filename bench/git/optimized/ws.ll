@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [14 x i8] c"tab-in-indent\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_whitespace_rule(ptr noundef %string) local_unnamed_addr #0 {
+define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %tobool.not27 = icmp eq ptr %string, null
   br i1 %tobool.not27, label %if.end44, label %while.body

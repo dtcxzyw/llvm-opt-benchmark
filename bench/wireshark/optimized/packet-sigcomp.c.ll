@@ -5115,7 +5115,7 @@ dissect_udvm_reference_operand_memory.exit2738:   ; preds = %1850
 2037:                                             ; preds = %2036, %2035
   %2038 = add i32 %.023933392, 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15)
-  %2039 = call fastcc range(i32 1, 0) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2038, ptr noundef %15)
+  %2039 = call fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2038, ptr noundef %15)
   %2040 = load i16, ptr %15, align 2
   %.tr.i = trunc i32 %.023933392 to i16
   %.narrow.i = add i16 %2040, %.tr.i
@@ -5320,7 +5320,7 @@ dissect_udvm_reference_operand_memory.exit2738:   ; preds = %1850
 2131:                                             ; preds = %2130, %2129
   %2132 = add i32 %.023933392, 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
-  %2133 = call fastcc range(i32 1, 0) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2132, ptr noundef %14)
+  %2133 = call fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2132, ptr noundef %14)
   %2134 = load i16, ptr %14, align 2
   %.tr.i2739 = trunc i32 %.023933392 to i16
   %.narrow.i2740 = add i16 %2134, %.tr.i2739
@@ -6025,7 +6025,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2240, %2251, %2262
   %.pre-phi3878 = phi i32 [ %.pre3877, %._crit_edge3731 ], [ %2516, %2513 ]
   %2523 = add i32 %2521, %.pre-phi3878
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
-  %2524 = call fastcc range(i32 1, 0) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2522, ptr noundef %13)
+  %2524 = call fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2522, ptr noundef %13)
   %2525 = load i16, ptr %13, align 2
   %.tr.i2747 = trunc i32 %.023933392 to i16
   %.narrow.i2748 = add i16 %2525, %.tr.i2747
@@ -6159,7 +6159,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2240, %2251, %2262
   %2596 = phi i32 [ %2588, %.thread3002..thread3003_crit_edge ], [ %2585, %2590 ]
   %2597 = add i32 %.pre-phi3882, %150
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  %2598 = call fastcc range(i32 1, 0) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2596, ptr noundef %12)
+  %2598 = call fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr noundef nonnull readonly %60, i32 noundef %2596, ptr noundef %12)
   %2599 = load i16, ptr %12, align 2
   %.tr.i2749 = trunc i32 %.023933392 to i16
   %.narrow.i2750 = add i16 %2599, %.tr.i2749
@@ -8625,7 +8625,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 1, 0) i32 @decode_udvm_multitype_operand(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   store i16 0, ptr %2, align 2
   %4 = icmp ugt i32 %1, 65535
   br i1 %4, label %127, label %5

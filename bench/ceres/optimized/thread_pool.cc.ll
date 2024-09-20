@@ -73,7 +73,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5ceres8internal10ThreadPoo
 @_ZN5ceres8internal10ThreadPoolD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal10ThreadPoolD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN5ceres8internal10ThreadPool22MaxNumThreadsAvailableEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN5ceres8internal10ThreadPool22MaxNumThreadsAvailableEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #15
   %2 = icmp eq i32 %1, 0
   %spec.select = select i1 %2, i32 2147483647, i32 %1

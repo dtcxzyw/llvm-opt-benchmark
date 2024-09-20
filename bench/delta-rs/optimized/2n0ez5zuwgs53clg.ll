@@ -30470,7 +30470,7 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$$RF$alloc..boxed..Box$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17h9491c37f713b2ec8E(ptr noundef %0, i64 noundef %1) unnamed_addr #17 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h9491c37f713b2ec8E(ptr noundef %0, i64 noundef %1) unnamed_addr #17 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

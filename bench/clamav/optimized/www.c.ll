@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [28 x i8] c"stats - Data received okay\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.addrinfo, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

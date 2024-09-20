@@ -381,7 +381,7 @@ if.end35:                                         ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_get_asn1_iv(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #0 {
+define range(i32 -1, 17) i32 @EVP_CIPHER_get_asn1_iv(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   %cmp.not = icmp eq ptr %type, null
@@ -700,7 +700,7 @@ declare i32 @ossl_asn1_type_get_octetstring_int(ptr noundef, ptr noundef, ptr no
 declare i32 @ossl_asn1_type_set_octetstring_int(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_get_type(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
+define range(i32 659, 656) i32 @EVP_CIPHER_get_type(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %cipher, align 8
   switch i32 %0, label %sw.default [

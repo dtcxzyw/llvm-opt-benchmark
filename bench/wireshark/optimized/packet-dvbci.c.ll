@@ -1833,7 +1833,7 @@ define internal void @dvbci_shutdown() #1 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dvbci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 65540) i32 @dissect_dvbci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %76, label %7

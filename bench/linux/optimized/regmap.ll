@@ -3802,7 +3802,7 @@ define internal void @dev_get_regmap_release(ptr nocapture readnone %0, ptr noca
 declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 

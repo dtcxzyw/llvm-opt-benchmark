@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef i32 @_ZN13LogDecorators11from_stringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %12

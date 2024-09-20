@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @validate_ref_record_addition(ptr %tab.coerce0, ptr %tab.coerce1, ptr noundef %recs, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @validate_ref_record_addition(ptr %tab.coerce0, ptr %tab.coerce1, ptr noundef %recs, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %mod = alloca %struct.modification, align 8
   store ptr %tab.coerce0, ptr %mod, align 8
@@ -87,7 +87,7 @@ declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #2
 declare i32 @reftable_ref_record_is_deletion(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @modification_validate(ptr noundef %mod) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @modification_validate(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %ref.i36 = alloca %struct.reftable_ref_record, align 8
   %arg.i37 = alloca %struct.find_arg, align 8

@@ -695,7 +695,7 @@ define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 n
 declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @GetNextLocalTransactionId() local_unnamed_addr #4 {
+define dso_local range(i32 1, 0) i32 @GetNextLocalTransactionId() local_unnamed_addr #4 {
   %.pr = load i32, ptr @nextLocalTransactionId, align 4
   br label %1
 

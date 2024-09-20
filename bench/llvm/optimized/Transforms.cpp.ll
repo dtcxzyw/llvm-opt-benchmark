@@ -791,7 +791,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl8isGlobalEv(ptr noundef nonn
 declare noundef zeroext i1 @_ZN5clang4ento5cocoa9isRefTypeENS_8QualTypeEN4llvm9StringRefES4_(i64, ptr, i64, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN5clang5arcmt5trans21findLocationAfterSemiENS_14SourceLocationERNS_10ASTContextEb(i32 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local range(i32 2, 1) i32 @_ZN5clang5arcmt5trans21findLocationAfterSemiENS_14SourceLocationERNS_10ASTContextEb(i32 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = tail call i32 @_ZN5clang5arcmt5trans21findSemiAfterLocationENS_14SourceLocationERNS_10ASTContextEb(i32 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i1 noundef zeroext %2)
   %5 = icmp eq i32 %4, 0
   %6 = add i32 %4, 1

@@ -301,7 +301,7 @@ while.end134:                                     ; preds = %while.end134.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @Shift(ptr nocapture noundef %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483648, 5) i32 @Shift(ptr nocapture noundef %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
 entry:
   %conv = zext i16 %parameter to i32
   %and = and i32 %conv, 32767

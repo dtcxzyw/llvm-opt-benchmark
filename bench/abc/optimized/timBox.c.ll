@@ -392,7 +392,7 @@ define void @Tim_ManBoxSetCopy(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Tim_ManBoxFindFromCiNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483646) i32 @Tim_ManBoxFindFromCiNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Tim_ManPiNum(ptr noundef %0) #8
   %4 = icmp slt i32 %1, %3
   br i1 %4, label %.critedge, label %.preheader

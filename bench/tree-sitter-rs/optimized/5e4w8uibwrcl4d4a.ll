@@ -8175,7 +8175,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.1408760718162522189.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv17ha9773cfe3677f110E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv17ha9773cfe3677f110E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca { ptr, ptr, ptr, { ptr, i8 } }, align 8
   %6 = alloca { ptr, ptr, ptr, { ptr, i8 } }, align 8

@@ -1866,7 +1866,7 @@ dissect_usbll_data.exit:                          ; preds = %273, %275, %280, %2
 597:                                              ; preds = %593
   %598 = getelementptr inbounds i8, ptr %.0.ph191, i64 8
   store ptr %595, ptr %598, align 8
-  %599 = add i32 %589, -24
+  %599 = add nsw i32 %589, -24
   %switch.and.i.i110 = and i32 %599, -17
   %switch.selectcmp.i.not.i111 = icmp eq i32 %switch.and.i.i110, 0
   br i1 %switch.selectcmp.i.not.i111, label %600, label %626
@@ -2648,7 +2648,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 112) i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
   %3 = icmp eq i32 %0, 104
   br i1 %3, label %4, label %14
 

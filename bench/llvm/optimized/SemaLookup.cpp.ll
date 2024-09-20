@@ -3620,7 +3620,7 @@ _ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit44: ; preds = %70, %79
   br i1 %.not37, label %423, label %108
 
 108:                                              ; preds = %100
-  %109 = add i64 %106, 4294967295
+  %109 = add nuw nsw i64 %106, 4294967295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -3661,7 +3661,7 @@ _ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit44: ; preds = %70, %79
 135:                                              ; preds = %.lr.ph123, %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit64
   %indvars.iv132 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next133, %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit64 ]
   %.0.i45120 = phi i1 [ false, %.lr.ph123 ], [ %.1.i, %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit64 ]
-  %136 = add i64 %109, %indvars.iv132
+  %136 = add nuw i64 %109, %indvars.iv132
   %137 = and i64 %136, 4294967295
   %138 = getelementptr inbounds [2759 x %struct.OpenCLBuiltinStruct], ptr @_ZL12BuiltinTable, i64 0, i64 %137
   %139 = load ptr, ptr %112, align 8
@@ -4513,7 +4513,7 @@ declare noundef ptr @_ZNK5clang10ASTContext21getMakeIntegerSeqDeclEv(ptr noundef
 declare noundef ptr @_ZNK5clang10ASTContext22getTypePackElementDeclEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @_ZL15isOpenCLBuiltinN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #7 {
+define internal fastcc range(i64 0, 1099511627776) i64 @_ZL15isOpenCLBuiltinN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #7 {
   switch i64 %1, label %2889 [
     i64 3, label %3
     i64 4, label %63

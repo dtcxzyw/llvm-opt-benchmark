@@ -2203,7 +2203,7 @@ select.unfold:                                    ; preds = %93, %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_smbus_read_i2c_block_data_or_emulated(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data_or_emulated(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) #1 align 16 {
   %5 = alloca %union.i2c_smbus_data, align 2
   %6 = alloca %union.i2c_smbus_data, align 2
   %7 = alloca %union.i2c_smbus_data, align 2

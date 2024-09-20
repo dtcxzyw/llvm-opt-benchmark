@@ -464,7 +464,7 @@ makeBoolAggState.exit:                            ; preds = %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bool_accum_inv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @bool_accum_inv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

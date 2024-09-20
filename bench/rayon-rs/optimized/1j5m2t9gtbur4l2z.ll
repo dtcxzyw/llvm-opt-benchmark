@@ -204,7 +204,7 @@ define void @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17hc60ed8ceebeb0075E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #2 {
+define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17hc60ed8ceebeb0075E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #2 {
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
@@ -314,7 +314,7 @@ define void @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_inclusive..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h487f8141d8bab108E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #2 {
+define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_inclusive..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h487f8141d8bab108E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #2 {
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8

@@ -3181,7 +3181,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIjLj1EEENS_12DenseMapInfoIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm6GCBase9IDTracker11getNumberIDEd(ptr noundef nonnull align 8 dereferenceable(192) %this, double noundef %num) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN6hermes2vm6GCBase9IDTracker11getNumberIDEd(ptr noundef nonnull align 8 dereferenceable(192) %this, double noundef %num) local_unnamed_addr #0 align 2 {
 entry:
   %num.addr = alloca double, align 8
   store double %num, ptr %num.addr, align 8
@@ -3279,7 +3279,7 @@ cleanup:                                          ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 2, 0) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_.i, align 8
@@ -3524,7 +3524,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 2, 0) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_, align 8
@@ -3542,7 +3542,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNativeIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, -2) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNativeIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_.i, align 8

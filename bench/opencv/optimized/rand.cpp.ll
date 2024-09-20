@@ -3895,7 +3895,7 @@ define noundef double @_ZN2cv11RNG_MT199377uniformEdd(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN2cv11RNG_MT19937clEj(ptr nocapture noundef nonnull align 4 dereferenceable(2500) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, -1) i32 @_ZN2cv11RNG_MT19937clEj(ptr nocapture noundef nonnull align 4 dereferenceable(2500) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = tail call noundef i32 @_ZN2cv11RNG_MT199374nextEv(ptr noundef nonnull align 4 dereferenceable(2500) %0)
   %4 = urem i32 %3, %1
   ret i32 %4

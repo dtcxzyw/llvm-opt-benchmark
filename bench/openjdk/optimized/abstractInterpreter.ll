@@ -190,7 +190,7 @@ define hidden void @_ZN28AbstractInterpreterGeneratorC2Ev(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -388, 65148) i32 @_ZN19AbstractInterpreter11method_kindERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -387, 65148) i32 @_ZN19AbstractInterpreter11method_kindERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 8

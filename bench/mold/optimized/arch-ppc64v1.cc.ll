@@ -3289,7 +3289,7 @@ _ZNSt6vectorIPN4mold3elf6SymbolINS1_7PPC64V1EEESaIS5_EE9push_backERKS5_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read)
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK4mold3elf15PPC64OpdSection15get_reldyn_sizeERNS0_7ContextINS0_7PPC64V1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx) unnamed_addr #9 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693951) i64 @_ZNK4mold3elf15PPC64OpdSection15get_reldyn_sizeERNS0_7ContextINS0_7PPC64V1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx) unnamed_addr #9 align 2 {
 entry:
   %pic = getelementptr inbounds i8, ptr %ctx, i64 115
   %0 = load i8, ptr %pic, align 1

@@ -73007,7 +73007,7 @@ define noundef zeroext i1 @"_ZN78_$LT$typst..text..Hyphenate$u20$as$u20$typst..f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 0, 21) i8 @_ZN5typst4text12StylisticSet3new17he7208e22d081dd41E(i8 noundef %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define noundef range(i8 1, 21) i8 @_ZN5typst4text12StylisticSet3new17he7208e22d081dd41E(i8 noundef %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = icmp eq i8 %0, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %0, i8 20)
   %.0.in.sroa.speculated.i = select i1 %2, i8 1, i8 %.0.in.sroa.speculate.load.4.sroa.speculated.i

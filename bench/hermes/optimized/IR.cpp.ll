@@ -7578,7 +7578,7 @@ return:                                           ; preds = %entry, %entry, %ent
 declare noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6hermes11Instruction18getChangedOperandsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #1 align 2 {
+define hidden range(i32 0, 32) i32 @_ZN6hermes11Instruction18getChangedOperandsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #1 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8

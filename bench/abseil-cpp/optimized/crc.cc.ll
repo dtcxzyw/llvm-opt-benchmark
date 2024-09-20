@@ -146,7 +146,7 @@ for.end64:                                        ; preds = %for.inc62, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %poly, ptr nocapture noundef writeonly %t) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 -2147483648, 257) i32 @_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j(i32 noundef %poly, ptr nocapture noundef writeonly %t) local_unnamed_addr #1 align 2 {
 entry:
   br label %for.body.i.preheader
 

@@ -1549,7 +1549,7 @@ define dso_local noundef range(i32 0, 6) i32 @ZSTD_nextInputType(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.blockProperties_t, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 29988
   %8 = load i32, ptr %7, align 4

@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @helper_rem_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @helper_rem_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %rem = srem i32 %arg1, %arg2
   ret i32 %rem
@@ -664,7 +664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @helper_remu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local range(i32 0, -1) i32 @helper_remu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %rem = urem i32 %arg1, %arg2
   ret i32 %rem
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_rem_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @helper_rem_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %rem = srem i64 %arg1, %arg2
   ret i64 %rem
@@ -692,7 +692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_remu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local range(i64 0, -1) i64 @helper_remu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %rem = urem i64 %arg1, %arg2
   ret i64 %rem

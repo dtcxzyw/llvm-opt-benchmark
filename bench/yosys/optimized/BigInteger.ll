@@ -482,7 +482,7 @@ _ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit: ; preds = %6, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK10BigInteger6toLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK10BigInteger6toLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit, label %4

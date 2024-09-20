@@ -677,7 +677,7 @@ declare dso_local void @__i915_gem_free_object_rcu(ptr noundef) #4
 declare dso_local void @__i915_gem_object_fini(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__i915_gem_ttm_object_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #1 align 16 {
+define dso_local noundef range(i32 -27, -28) i32 @__i915_gem_ttm_object_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #1 align 16 {
   %7 = alloca %struct.ttm_operation_ctx, align 8
   %8 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11

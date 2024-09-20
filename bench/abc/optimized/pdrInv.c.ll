@@ -482,7 +482,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Pdr_ManFindInvariantStart(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -2147483648, 2147483647) i32 @Pdr_ManFindInvariantStart(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

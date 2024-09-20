@@ -1121,7 +1121,7 @@ switch.lookup:                                    ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_state_num(ptr noundef %0) #1 {
+define range(i32 -2, 8388609) i32 @job_state_num(ptr noundef %0) #1 {
   br label %2
 
 2:                                                ; preds = %1, %4
@@ -12364,7 +12364,7 @@ define noundef zeroext i1 @cluster_in_federation(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_cluster_node_offset(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, -1) i32 @get_cluster_node_offset(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8

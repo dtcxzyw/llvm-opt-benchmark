@@ -2020,7 +2020,7 @@ declare i32 @wc_RsaPSS_VerifyInline(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @VerifyRsaSign(ptr nocapture readnone %ssl, ptr noundef %verifySig, i32 noundef %sigSz, ptr noundef %plain, i32 noundef %plainSz, i32 noundef %sigAlgo, i32 noundef %hashAlgo, ptr noundef %key, ptr nocapture readnone %keyBufInfo) local_unnamed_addr #4 {
+define range(i32 -2147483648, 1) i32 @VerifyRsaSign(ptr nocapture readnone %ssl, ptr noundef %verifySig, i32 noundef %sigSz, ptr noundef %plain, i32 noundef %plainSz, i32 noundef %sigAlgo, i32 noundef %hashAlgo, ptr noundef %key, ptr nocapture readnone %keyBufInfo) local_unnamed_addr #4 {
 entry:
   %out = alloca ptr, align 8
   store ptr null, ptr %out, align 8

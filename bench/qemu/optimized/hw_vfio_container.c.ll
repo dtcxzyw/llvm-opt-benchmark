@@ -1014,7 +1014,7 @@ return:                                           ; preds = %entry, %if.then1, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_attach_device(ptr noundef %name, ptr noundef %vbasedev, ptr noundef %as, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vfio_attach_device(ptr noundef %name, ptr noundef %vbasedev, ptr noundef %as, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %err.i.i.i = alloca ptr, align 8

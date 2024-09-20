@@ -6526,7 +6526,7 @@ declare void @clear_pattern_list(ptr noundef) local_unnamed_addr #3
 declare void @mem_pool_discard(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @should_validate_cache_entries() local_unnamed_addr #15 {
+define dso_local range(i32 0, 2) i32 @should_validate_cache_entries() local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
   %cmp = icmp slt i32 %0, 0

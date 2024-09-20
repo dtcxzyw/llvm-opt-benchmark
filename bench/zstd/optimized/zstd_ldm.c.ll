@@ -376,7 +376,7 @@ done:                                             ; preds = %if.then77, %if.then
 declare i64 @ZSTD_XXH64(ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %ldmState, ptr nocapture noundef %sequences, ptr nocapture noundef readonly %params, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #5 {
+define range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %ldmState, ptr nocapture noundef %sequences, ptr nocapture noundef readonly %params, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #5 {
 entry:
   %hashState.i = alloca %struct.ldmRollingHashState_t, align 8
   %numSplits.i = alloca i32, align 4

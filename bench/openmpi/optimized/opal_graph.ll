@@ -1251,7 +1251,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %0, %5

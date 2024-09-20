@@ -2390,7 +2390,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @lookup_string_in_conversion_struct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @lookup_string_in_conversion_struct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0

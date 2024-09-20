@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cdf_info_t, align 8
   %4 = alloca %struct.cdf_header_t, align 8
   %5 = alloca %struct.cdf_sat_t, align 8

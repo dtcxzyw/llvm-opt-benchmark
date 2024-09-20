@@ -486,7 +486,7 @@ _ZN5zxing3RefINS_6StringEED2Ev.exit14:            ; preds = %45, %_ZN5zxing3RefI
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN5zxing7StrUtil7indexOfEPKcc(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN5zxing7StrUtil7indexOfEPKcc(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #7 align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0

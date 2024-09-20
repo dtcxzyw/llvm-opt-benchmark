@@ -6596,7 +6596,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE28reserveForParamAndGe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 65536) i32 @_ZL5sFormRN4llvm12MachineInstrE(i16 %.68.val) unnamed_addr #7 {
+define internal fastcc noundef range(i32 302, 8174) i32 @_ZL5sFormRN4llvm12MachineInstrE(i16 %.68.val) unnamed_addr #7 {
   switch i16 %.68.val, label %17 [
     i16 302, label %1
     i16 1447, label %1
@@ -11228,7 +11228,7 @@ _ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_Z18scaledOffsetOpcodejRj(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 4380, 6797) i32 @_Z18scaledOffsetOpcodejRj(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 {
   switch i32 %0, label %3 [
     i32 4554, label %29
     i32 6810, label %4
@@ -11360,7 +11360,7 @@ define dso_local noundef i32 @_Z18scaledOffsetOpcodejRj(i32 noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_Z20unscaledOffsetOpcodej(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef range(i32 4549, 6814) i32 @_Z20unscaledOffsetOpcodej(i32 noundef %0) local_unnamed_addr #7 {
   switch i32 %0, label %2 [
     i32 4554, label %24
     i32 6810, label %24
@@ -11879,7 +11879,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit90: ; preds = %_ZN4llvm1
   %165 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
   %166 = load ptr, ptr %165, align 8
-  %167 = zext i32 %.079 to i64
+  %167 = zext nneg i32 %.079 to i64
   %168 = sub nsw i64 0, %167
   %169 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %166, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 44

@@ -1568,7 +1568,7 @@ declare i32 @H5AC_unsettle_ring(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @H5MF_aggr_vfd_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5MF_alloc_tmp(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i64 1, 0) i64 @H5MF_alloc_tmp(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef 0) #7
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %5, label %9

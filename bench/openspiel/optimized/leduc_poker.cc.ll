@@ -3106,7 +3106,7 @@ define void @_ZN10open_spiel11leduc_poker10LeducState10SetPrivateEil(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState10NextPlayerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2147483647) i32 @_ZNK10open_spiel11leduc_poker10LeducState10NextPlayerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

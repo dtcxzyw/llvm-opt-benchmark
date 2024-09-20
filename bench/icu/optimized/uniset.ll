@@ -7159,7 +7159,7 @@ declare signext i8 @uhash_compareUnicodeString_75(ptr, ptr) #6
 declare void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 125, 50) i32 @_ZN6icu_7510UnicodeSet12nextCapacityEi(i32 noundef %minCapacity) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483623, 1114114) i32 @_ZN6icu_7510UnicodeSet12nextCapacityEi(i32 noundef %minCapacity) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp slt i32 %minCapacity, 25
   br i1 %cmp, label %if.then, label %if.else

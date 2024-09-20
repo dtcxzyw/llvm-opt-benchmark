@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [5 x i8] c".log\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @SysLogger_Start() local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @SysLogger_Start() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = load i8, ptr @Logging_collector, align 1
   %3 = trunc i8 %2 to i1

@@ -64563,7 +64563,7 @@ define dso_local noundef i32 @_ZN4llvm15OpenMPIRBuilder19getFlagMemberOffsetEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i64 281474976710656, 1) i64 @_ZN4llvm15OpenMPIRBuilder15getMemberOfFlagEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3104) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define dso_local noundef range(i64 0, -281474976710655) i64 @_ZN4llvm15OpenMPIRBuilder15getMemberOfFlagEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3104) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = zext i32 %1 to i64
   %4 = shl i64 %3, 48
   %5 = add i64 %4, 281474976710656

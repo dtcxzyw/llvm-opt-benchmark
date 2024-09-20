@@ -25988,7 +25988,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema17BuiltinAddPointerENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 16, 1) i64 @_ZN5clang4Sema17BuiltinAddPointerENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = and i64 %1, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
@@ -26400,7 +26400,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_13SplitQualTypeE.exit: ; preds = %69
 declare i64 @_ZNK5clang10ASTContext14getDecayedTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema19BuiltinAddReferenceENS_8QualTypeENS_18UnaryTransformType7UTTKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 16, 1) i64 @_ZN5clang4Sema19BuiltinAddReferenceENS_8QualTypeENS_18UnaryTransformType7UTTKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = and i64 %1, -16
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 16
@@ -43737,7 +43737,7 @@ declare i64 @_ZN5clang10ASTContext20getPackExpansionTypeENS_8QualTypeESt8optiona
 declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096), i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL37getNullabilityCompletenessCheckFileIDRN5clang4SemaENS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, i32 %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @_ZL37getNullabilityCompletenessCheckFileIDRN5clang4SemaENS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, i32 %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %5 = load ptr, ptr %4, align 8

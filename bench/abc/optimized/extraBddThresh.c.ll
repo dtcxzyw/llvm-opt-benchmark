@@ -493,7 +493,7 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %5, align 4
@@ -629,7 +629,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us: ; preds = %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights4(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4
@@ -778,7 +778,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us: ; 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 1, ptr %5, align 4
@@ -940,7 +940,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = add i32 %1, 3
   %6 = getelementptr inbounds i8, ptr %2, i64 20
@@ -1208,7 +1208,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights7(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = add i32 %1, 6
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1500,7 +1500,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 10001) i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, 10001) i32 @Extra_ThreshSelectWeights8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = shl nuw i32 1, %1
   %5 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 1, ptr %5, align 4
@@ -1743,7 +1743,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Extra_ThreshSelectWeights(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshSelectWeights(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %10
 
@@ -2524,7 +2524,7 @@ define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1001) i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #7 {
+define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #7 {
   %9 = shl nsw i32 %3, 1
   %10 = sext i32 %6 to i64
   %11 = shl nsw i64 %10, 2
@@ -3000,7 +3000,7 @@ define void @Extra_ThreshPrintWeights(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Extra_ThreshCheck(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshCheck(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = alloca [16 x i32], align 16
   %5 = tail call fastcc i32 @Abc_TtIsUnate(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %5, 0
@@ -3538,7 +3538,7 @@ Abc_TtFlip.exit:                                  ; preds = %24, %._crit_edge.us
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   %6 = icmp slt i32 %1, 2

@@ -212,7 +212,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 67108864) i32 @_ZN6hermes6bigint20fromDoubleResultSizeEd(double noundef %src) local_unnamed_addr #4 {
+define hidden noundef range(i32 0, 18) i32 @_ZN6hermes6bigint20fromDoubleResultSizeEd(double noundef %src) local_unnamed_addr #4 {
 entry:
   %0 = bitcast double %src to i64
   %shr = lshr i64 %0, 52
@@ -360,7 +360,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZN6hermes6bigint13
 declare void @_ZN4llvh8APIntOps18RoundDoubleToAPIntEdj(ptr sret(%"class.llvh::APInt") align 8, double noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes6bigint8toDoubleERdNS0_18ImmutableBigIntRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst, ptr %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8toDoubleERdNS0_18ImmutableBigIntRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst, ptr %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
 entry:
   %tmpStorage = alloca %"class.hermes::bigint::TmpStorage", align 8
   %cmp = icmp eq i32 %src.coerce1, 0

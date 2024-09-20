@@ -5398,7 +5398,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstUtilityBinToEscConvertedLen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 

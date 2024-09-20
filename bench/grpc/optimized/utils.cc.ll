@@ -75,7 +75,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 -9223372036854775806, -9223372036854775807) i64 @_ZN17grpc_event_engine12experimental11ToTimestampEN9grpc_core9TimestampENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(i64 %now.coerce, i64 %delta.coerce) local_unnamed_addr #4 {
+define range(i64 -9223372036854775805, -9223372036854775807) i64 @_ZN17grpc_event_engine12experimental11ToTimestampEN9grpc_core9TimestampENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(i64 %now.coerce, i64 %delta.coerce) local_unnamed_addr #4 {
 entry:
   %div.i = sdiv i64 %delta.coerce, 1000000
   %rem.i = srem i64 %delta.coerce, 1000000

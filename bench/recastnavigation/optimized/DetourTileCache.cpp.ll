@@ -1449,7 +1449,7 @@ define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, float noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, float noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = alloca i32, align 4
@@ -1998,7 +1998,7 @@ define void @_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11dtTileCache16buildNavMeshTileEjP9dtNavMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileEjP9dtNavMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.NavMeshTileBuildContext, align 8
   %5 = alloca %struct.dtNavMeshCreateParams, align 8
   %6 = alloca ptr, align 8
@@ -2446,7 +2446,7 @@ _ZN23NavMeshTileBuildContextD2Ev.exit:            ; preds = %.noexc1.i, %27, %19
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11dtTileCache19buildNavMeshTilesAtEiiP9dtNavMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache19buildNavMeshTilesAtEiiP9dtNavMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [32 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4

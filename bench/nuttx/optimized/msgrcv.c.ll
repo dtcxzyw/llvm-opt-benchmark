@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %up_irq_restore.exit.thread, label %8

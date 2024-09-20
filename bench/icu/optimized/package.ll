@@ -2177,7 +2177,7 @@ if.end30:                                         ; preds = %if.end20, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_757Package12findNextItemEv(ptr nocapture noundef nonnull align 8 dereferenceable(201237) %this) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_757Package12findNextItemEv(ptr nocapture noundef nonnull align 8 dereferenceable(201237) %this) local_unnamed_addr #16 align 2 {
 entry:
   %findNextIndex = getelementptr inbounds i8, ptr %this, i64 201232
   %0 = load i32, ptr %findNextIndex, align 8

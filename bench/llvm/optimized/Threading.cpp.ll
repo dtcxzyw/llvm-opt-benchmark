@@ -70,7 +70,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @.str.17 = private unnamed_addr constant [28 x i8] c"pthread_attr_destroy failed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm18ThreadPoolStrategy20compute_thread_countEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 1, 0) i32 @_ZNK4llvm18ThreadPoolStrategy20compute_thread_countEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.cpu_set_t, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4

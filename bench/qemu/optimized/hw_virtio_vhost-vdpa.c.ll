@@ -1567,7 +1567,7 @@ trace_vhost_vdpa_reset_device.exit:               ; preds = %vhost_vdpa_call.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_vdpa_get_vq_index(ptr noundef %dev, i32 noundef returned %idx) #0 {
+define internal range(i32 0, -1) i32 @vhost_vdpa_get_vq_index(ptr noundef %dev, i32 noundef returned %idx) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444

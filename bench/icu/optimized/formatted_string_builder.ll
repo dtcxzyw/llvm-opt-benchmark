@@ -246,7 +246,7 @@ entry:
 declare i32 @u_countChar32_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
@@ -291,7 +291,7 @@ return:                                           ; preds = %if.then17, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder16getLastCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder16getLastCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
@@ -391,7 +391,7 @@ return:                                           ; preds = %if.then45, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -463,7 +463,7 @@ do.end:                                           ; preds = %entry, %if.else, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -56613888, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder15codePointBeforeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7522FormattedStringBuilder15codePointBeforeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1

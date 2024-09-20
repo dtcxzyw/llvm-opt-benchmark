@@ -1737,7 +1737,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @symtable_visit_stmt(ptr noundef nonnull %st, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_stmt(ptr noundef nonnull %st, ptr noundef %s) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds i8, ptr %st, i64 72
   %0 = load i32, ptr %recursion_depth, align 8

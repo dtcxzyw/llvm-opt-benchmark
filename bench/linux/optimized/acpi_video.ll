@@ -3414,7 +3414,7 @@ declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local ptr @backlight_device_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_video_get_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 2147483646) i32 @acpi_video_get_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   store i64 0, ptr %2, align 8, !annotation !10

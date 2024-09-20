@@ -21381,7 +21381,7 @@ define hidden noundef nonnull ptr @_ZNK10TypeAryPtr12cast_to_sizeEPK7TypeInt(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK10TypeAryPtr16stable_dimensionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10TypeAryPtr16stable_dimensionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40

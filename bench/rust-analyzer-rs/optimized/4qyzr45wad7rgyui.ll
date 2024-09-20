@@ -885,7 +885,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision4from17hb9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i32 1, 0) i32 @_ZN5salsa8revision8Revision4next17h0b22022c6aa3c044E(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 2, 0) i32 @_ZN5salsa8revision8Revision4next17h0b22022c6aa3c044E(i32 noundef %0) unnamed_addr #2 {
   %2 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %2)
   %3 = add i32 %0, 1
@@ -954,7 +954,7 @@ define void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision20fetch_then_increment17hc700835bfc29cb0bE(ptr nocapture noundef nonnull align 4 %0) unnamed_addr #2 {
+define noundef range(i32 1, -1) i32 @_ZN5salsa8revision14AtomicRevision20fetch_then_increment17hc700835bfc29cb0bE(ptr nocapture noundef nonnull align 4 %0) unnamed_addr #2 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = atomicrmw add ptr %0, i32 1 seq_cst, align 4
   switch i32 %3, label %_ZN5salsa8revision8Revision4from17hb93d0eb08db12490E.llvm.11287192499721329835.exit [

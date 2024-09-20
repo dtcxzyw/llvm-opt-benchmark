@@ -5896,7 +5896,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN13wasmtime_wasi4host7n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 0, 2147483648) i64 @_ZN13wasmtime_wasi4host7network4util25normalize_set_buffer_size17h857420d7ba4544bdE(i64 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define noundef range(i64 1, 2147483648) i64 @_ZN13wasmtime_wasi4host7network4util25normalize_set_buffer_size17h857420d7ba4544bdE(i64 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = icmp eq i64 %0, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 2147483647)
   %.0.in.sroa.speculated.i = select i1 %2, i64 1, i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i

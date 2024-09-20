@@ -2507,7 +2507,7 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr nocapture noundef read
 declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Saig_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   tail call void @Aig_ManCleanMarkB(ptr noundef %0) #9
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8

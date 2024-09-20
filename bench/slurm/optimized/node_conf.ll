@@ -1324,7 +1324,7 @@ declare i32 @bit_clear_count(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @state_str2int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 8195) i32 @state_str2int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %11

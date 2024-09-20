@@ -6321,7 +6321,7 @@ define hidden void @"_ZN10rayon_core4join4join4call28_$u7b$$u7b$closure$u7d$$u7d
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17h46e1a05238d2a38aE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 4294967296, 0) i64 @_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17h46e1a05238d2a38aE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   br label %2
 
 2:                                                ; preds = %6, %1

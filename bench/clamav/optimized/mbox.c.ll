@@ -330,7 +330,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.313 = private unnamed_addr constant [24 x i8] c"parseEmailFile: return\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_mbox(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_mbox(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1001 x i8], align 16
   %4 = alloca [1001 x i8], align 16
   %5 = alloca [1001 x i8], align 16
@@ -1592,7 +1592,7 @@ cli_parse_mbox.exit:                              ; preds = %15, %58, %71, %507
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i64 0, 4294967296) i64 @strstrip(ptr noundef %0) local_unnamed_addr #2 {
+define range(i64 0, 2147483648) i64 @strstrip(ptr noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %strip.exit, label %3
 

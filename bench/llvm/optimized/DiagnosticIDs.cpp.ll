@@ -119,7 +119,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @_ZN5clang13DiagnosticIDsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang13DiagnosticIDsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 64) i32 @_ZN5clang13DiagnosticIDs17getDefaultMappingEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 40) i32 @_ZN5clang13DiagnosticIDs17getDefaultMappingEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -768,7 +768,7 @@ _ZL7toLevelN5clang4diag8SeverityE.exit:           ; preds = %_ZL19getBuiltinDiag
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1304) %3) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1304) %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null

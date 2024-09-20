@@ -34422,7 +34422,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %163, %_ZN4llvm15Sca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm15ScalarEvolution28proveNoWrapViaConstantRangesEPKNS_14SCEVAddRecExprE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm15ScalarEvolution28proveNoWrapViaConstantRangesEPKNS_14SCEVAddRecExprE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8

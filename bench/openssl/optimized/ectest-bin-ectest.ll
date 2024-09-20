@@ -1427,7 +1427,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prime_field_tests() #0 {
+define internal range(i32 0, 2) i32 @prime_field_tests() #0 {
 entry:
   %p = alloca ptr, align 8
   %a = alloca ptr, align 8
@@ -5878,12 +5878,10 @@ lor.lhs.false101:                                 ; preds = %lor.lhs.false95
 
 if.end107:                                        ; preds = %lor.lhs.false101
   %call108 = tail call fastcc i32 @do_test_custom_explicit_fromdata(ptr noundef %call4, ptr noundef %call2, ptr noundef %call45, i32 noundef %add10)
-  %tobool109.not = icmp ne i32 %call108, 0
-  %spec.select = zext i1 %tobool109.not to i32
   br label %err
 
 err:                                              ; preds = %if.end107, %if.end8, %lor.lhs.false, %lor.lhs.false18, %lor.lhs.false24, %lor.lhs.false28, %lor.lhs.false32, %lor.lhs.false38, %lor.lhs.false43, %lor.lhs.false48, %lor.lhs.false54, %lor.lhs.false61, %lor.lhs.false69, %lor.lhs.false73, %lor.lhs.false79, %lor.lhs.false85, %lor.lhs.false90, %lor.lhs.false95, %lor.lhs.false101, %if.end
-  %ret.0 = phi i32 [ 0, %lor.lhs.false101 ], [ 0, %lor.lhs.false95 ], [ 0, %lor.lhs.false90 ], [ 0, %lor.lhs.false85 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false73 ], [ 0, %lor.lhs.false69 ], [ 0, %lor.lhs.false61 ], [ 0, %lor.lhs.false54 ], [ 0, %lor.lhs.false48 ], [ 0, %lor.lhs.false43 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false ], [ 0, %if.end8 ], [ 0, %if.end ], [ %spec.select, %if.end107 ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false101 ], [ 0, %lor.lhs.false95 ], [ 0, %lor.lhs.false90 ], [ 0, %lor.lhs.false85 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false73 ], [ 0, %lor.lhs.false69 ], [ 0, %lor.lhs.false61 ], [ 0, %lor.lhs.false54 ], [ 0, %lor.lhs.false48 ], [ 0, %lor.lhs.false43 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false ], [ 0, %if.end8 ], [ 0, %if.end ], [ %call108, %if.end107 ]
   %G2.0 = phi ptr [ %call25, %lor.lhs.false101 ], [ %call25, %lor.lhs.false95 ], [ %call25, %lor.lhs.false90 ], [ %call25, %lor.lhs.false85 ], [ %call25, %lor.lhs.false79 ], [ %call25, %lor.lhs.false73 ], [ %call25, %lor.lhs.false69 ], [ %call25, %lor.lhs.false61 ], [ %call25, %lor.lhs.false54 ], [ %call25, %lor.lhs.false48 ], [ %call25, %lor.lhs.false43 ], [ %call25, %lor.lhs.false38 ], [ %call25, %lor.lhs.false32 ], [ %call25, %lor.lhs.false28 ], [ %call25, %lor.lhs.false24 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ %call25, %if.end107 ]
   %Q1.0 = phi ptr [ %call29, %lor.lhs.false101 ], [ %call29, %lor.lhs.false95 ], [ %call29, %lor.lhs.false90 ], [ %call29, %lor.lhs.false85 ], [ %call29, %lor.lhs.false79 ], [ %call29, %lor.lhs.false73 ], [ %call29, %lor.lhs.false69 ], [ %call29, %lor.lhs.false61 ], [ %call29, %lor.lhs.false54 ], [ %call29, %lor.lhs.false48 ], [ %call29, %lor.lhs.false43 ], [ %call29, %lor.lhs.false38 ], [ %call29, %lor.lhs.false32 ], [ %call29, %lor.lhs.false28 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ %call29, %if.end107 ]
   %Q2.0 = phi ptr [ %call70, %lor.lhs.false101 ], [ %call70, %lor.lhs.false95 ], [ %call70, %lor.lhs.false90 ], [ %call70, %lor.lhs.false85 ], [ %call70, %lor.lhs.false79 ], [ %call70, %lor.lhs.false73 ], [ %call70, %lor.lhs.false69 ], [ null, %lor.lhs.false61 ], [ null, %lor.lhs.false54 ], [ null, %lor.lhs.false48 ], [ null, %lor.lhs.false43 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false32 ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ %call70, %if.end107 ]
@@ -7469,7 +7467,7 @@ declare i32 @EC_GROUP_order_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_clear_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_test_custom_explicit_fromdata(ptr noundef %group, ptr noundef %ctx, ptr noundef %gen, i32 noundef range(i32 -536870909, 536870912) %gen_size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_test_custom_explicit_fromdata(ptr noundef %group, ptr noundef %ctx, ptr noundef %gen, i32 noundef range(i32 -536870909, 536870912) %gen_size) unnamed_addr #0 {
 entry:
   %i_out = alloca i32, align 4
   %pkeyparam = alloca ptr, align 8

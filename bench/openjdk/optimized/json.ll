@@ -1980,7 +1980,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %23, %5, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8

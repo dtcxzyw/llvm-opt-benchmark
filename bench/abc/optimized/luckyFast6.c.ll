@@ -46,7 +46,7 @@ define void @resetPCanonPermArray(ptr nocapture noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @Abc_allFlip(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %.not = icmp sgt i64 %0, -1
   br i1 %.not, label %7, label %3
 

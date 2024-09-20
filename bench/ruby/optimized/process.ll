@@ -5389,7 +5389,7 @@ declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) local_unname
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i64 1, 8589934592) i64 @rb_proc__fork(i64 %0) #1 {
+define hidden range(i64 1, 4294967296) i64 @rb_proc__fork(i64 %0) #1 {
   %2 = tail call i32 @rb_fork_ruby(ptr noundef null)
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %proc_fork_pid.exit
@@ -6946,7 +6946,7 @@ define internal i64 @proc_rb_f_kill(i32 noundef %0, ptr noundef %1, i64 %2) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 4294967296) i64 @proc_m_wait(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal range(i64 2, 4294967296) i64 @proc_m_wait(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = tail call fastcc i64 @proc_wait(i32 noundef %0, ptr noundef %1)
   ret i64 %4
 }
@@ -12084,7 +12084,7 @@ declare { i64, i64 } @rb_time_interval(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_f_kill(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 4294967296) i64 @proc_wait(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i64 2, 4294967296) i64 @proc_wait(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = icmp ugt i32 %0, 2
   br i1 %3, label %4, label %rb_check_arity.exit
 

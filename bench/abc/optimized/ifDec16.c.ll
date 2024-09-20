@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.9 = private unnamed_addr constant [20 x i8] c"Permutation FAILED.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @If_CluPrimeCudd(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @If_CluPrimeCudd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   br label %.loopexit
 
@@ -1117,7 +1117,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge56, %._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @If_CluHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, -1) i32 @If_CluHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 4
   br i1 %4, label %.preheader, label %.preheader22
 
@@ -5020,7 +5020,7 @@ define void @If_CluCofactors(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @If_CluDetectSpecialCaseCofs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 5) i32 @If_CluDetectSpecialCaseCofs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [6 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = icmp slt i32 %1, 7

@@ -327,7 +327,7 @@ return:                                           ; preds = %entry, %connectionB
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @connectionIndexByType(ptr nocapture noundef readonly %typename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr nocapture noundef readonly %typename) local_unnamed_addr #0 {
 entry:
   br label %for.body
 

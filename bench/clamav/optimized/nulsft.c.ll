@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [36 x i8] c"NSIS: bzip2 %u - lzma %u - zlib %u\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca %struct.nsis_st, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10

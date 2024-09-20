@@ -2264,7 +2264,7 @@ internal_object_p.exit:                           ; preds = %1, %4, %4, %4, %4, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_undefine_finalizer(i64 noundef returned %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_undefine_finalizer(i64 noundef returned %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1304
@@ -7077,7 +7077,7 @@ RB_OBJ_PROMOTED.exit.thread:                      ; preds = %RB_OBJ_PROMOTED.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_obj_gc_flags(i64 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 7) i64 @rb_obj_gc_flags(i64 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr @rb_obj_gc_flags.ID_marked, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %12
@@ -15470,7 +15470,7 @@ should_be_callable.exit:                          ; preds = %.should_be_callable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @undefine_final(i64 %0, i64 noundef returned %1) #0 {
+define internal range(i64 1, -7) i64 @undefine_final(i64 %0, i64 noundef returned %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8

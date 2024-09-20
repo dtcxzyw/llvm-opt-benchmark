@@ -461,7 +461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 26) i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr = freeze i64 %op.coerce1
   %cmp.i9 = icmp eq i64 %op.coerce1.fr, 0

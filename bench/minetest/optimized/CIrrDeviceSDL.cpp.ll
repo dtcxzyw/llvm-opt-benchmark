@@ -272,7 +272,7 @@ return:                                           ; preds = %sw.default, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE(i32 noundef %assumedChar, i32 noundef %key) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -1073741824) i32 @_ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE(i32 noundef %assumedChar, i32 noundef %key) local_unnamed_addr #0 align 2 {
 entry:
   switch i32 %key, label %sw.epilog [
     i32 13, label %return

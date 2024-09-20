@@ -3159,7 +3159,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %1, %pmix_pointer_ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i16 @pmix20_v21_to_v20_datatype(i16 noundef zeroext %0) local_unnamed_addr #3 {
+define zeroext range(i16 35, 34) i16 @pmix20_v21_to_v20_datatype(i16 noundef zeroext %0) local_unnamed_addr #3 {
   %cond = icmp eq i16 %0, 34
   %. = select i1 %cond, i16 14, i16 %0
   ret i16 %.

@@ -2259,7 +2259,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_media_access_to_tree(i32 noundef range(i32 0, 256) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483646, 269) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @add_media_access_to_tree(i32 noundef range(i32 0, 256) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483646, 269) %3) unnamed_addr #0 {
   %trunc = trunc nuw i32 %0 to i8
   switch i8 %trunc, label %.loopexit [
     i8 0, label %5

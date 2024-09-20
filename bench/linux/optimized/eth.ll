@@ -178,7 +178,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local i32 @__skb_get_poff(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @eth_type_trans(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext range(i16 6, 0) i16 @eth_type_trans(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 16

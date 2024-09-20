@@ -2128,7 +2128,7 @@ _ZN4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE.exit: ; preds = %_ZN4n
 declare void @_ZN4node9StreamReq4DoneEiPKc(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 -37, -38) i32 @_ZN4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @_ZN4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %1 = load i64, ptr %count, align 8
@@ -2195,7 +2195,7 @@ return:                                           ; preds = %if.end, %entry, %en
 declare i32 @uv_try_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -37, -38) i32 @_ZThn88_N4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef readonly %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @_ZThn88_N4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef readonly %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %1 = load i64, ptr %count, align 8

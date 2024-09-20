@@ -172,7 +172,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @findPendingSignal(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val9 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val9, i64 4

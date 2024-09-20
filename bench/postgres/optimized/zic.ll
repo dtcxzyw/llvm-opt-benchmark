@@ -8784,7 +8784,7 @@ is_alpha.exit:                                    ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addtype(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @addtype(i64 noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i1 %2 to i8
   %7 = add i64 %0, 2147483648
   %or.cond = icmp ult i64 %7, 4294967296

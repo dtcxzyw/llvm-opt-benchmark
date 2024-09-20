@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [31 x i8] c"assertion \22not reached\22 failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @merge_string_to_idb_merge_mode(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @merge_string_to_idb_merge_mode(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %7

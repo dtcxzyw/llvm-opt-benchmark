@@ -1488,7 +1488,7 @@ append_filename_to_list.exit:                     ; preds = %17, %20
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_var_cache_files(i1 noundef zeroext %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mca_base_var_cache_files(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #22

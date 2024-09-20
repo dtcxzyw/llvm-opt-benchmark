@@ -319,7 +319,7 @@ Check_Type.exit:                                  ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @bug_str_s_cstr_unterm(i64 %0, i64 noundef returned %1, i64 noundef %2) #0 {
+define internal range(i64 1, -7) i64 @bug_str_s_cstr_unterm(i64 %0, i64 noundef returned %1, i64 noundef %2) #0 {
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0

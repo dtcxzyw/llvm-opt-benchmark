@@ -1054,7 +1054,7 @@ define hidden noundef i32 @zend_add_member_modifier(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_add_class_modifier(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, -32) i32 @zend_add_class_modifier(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = or i32 %1, %0
   %4 = and i32 %1, %0
   %5 = and i32 %4, 64
@@ -11043,7 +11043,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_add_literal(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @zend_add_literal(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 48), align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 168
   %4 = load i32, ptr %3, align 8

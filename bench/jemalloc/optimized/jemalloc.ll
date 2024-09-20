@@ -8583,7 +8583,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @nallocx(i64 noundef %size, i32 noundef %flags) local_unnamed_addr #8 {
+define dso_local range(i64 0, 8070450532247928833) i64 @nallocx(i64 noundef %size, i32 noundef %flags) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr @malloc_init_state, align 4
   %cmp.i95.not = icmp eq i32 %0, 0

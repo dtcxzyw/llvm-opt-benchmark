@@ -282,7 +282,7 @@ define dso_local noundef i32 @archive_write_disk_set_acls(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_write_disk_close(ptr noundef %0) #1 {
+define internal range(i32 -30, 1) i32 @_archive_write_disk_close(ptr noundef %0) #1 {
   %2 = alloca [2 x %struct.timespec], align 16
   %3 = alloca %struct.stat, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1073631035, i32 noundef 6, ptr noundef nonnull @.str.5) #19
@@ -594,7 +594,7 @@ la_verify_filetype.exit.thread:                   ; preds = %77, %80, %83, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_write_disk_free(ptr noundef %0) #1 {
+define internal range(i32 -30, 1) i32 @_archive_write_disk_free(ptr noundef %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %45, label %3
 
@@ -1723,7 +1723,7 @@ current_fixup.exit216.thread:                     ; preds = %428, %current_fixup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_write_disk_finish_entry(ptr noundef %0) #1 {
+define internal range(i32 -30, 1) i32 @_archive_write_disk_finish_entry(ptr noundef %0) #1 {
   %2 = alloca [2 x %struct.timespec], align 16
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -2583,7 +2583,7 @@ define internal i64 @_archive_write_disk_data(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @_archive_write_disk_data_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 {
+define internal range(i64 -9223372036854775808, 1) i64 @_archive_write_disk_data_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 {
   %5 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1073631035, i32 noundef 4, ptr noundef nonnull @.str.57) #19
   %6 = icmp eq i32 %5, -30
   br i1 %6, label %16, label %7

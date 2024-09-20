@@ -316,7 +316,7 @@ return:                                           ; preds = %entry, %for.end40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @CRYPTO_cts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 17, 1) i64 @CRYPTO_cts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.3, align 8
   %cmp = icmp ult i64 %len, 17
@@ -355,7 +355,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @CRYPTO_nistcts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
+define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %cbc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon.4, align 8
   %cmp = icmp ult i64 %len, 16

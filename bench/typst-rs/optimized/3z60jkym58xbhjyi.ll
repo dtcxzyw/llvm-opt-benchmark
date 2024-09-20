@@ -5019,7 +5019,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN9typst_pdf8gradient15single_gradient17hc8fa47d0f1be91d8E(ptr noalias noundef nonnull align 8 dereferenceable(856) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %2, i8 noundef range(i8 0, 8) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 1, 2147483647) i32 @_ZN9typst_pdf8gradient15single_gradient17hc8fa47d0f1be91d8E(ptr noalias noundef nonnull align 8 dereferenceable(856) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %2, i8 noundef range(i8 0, 8) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [4 x float], align 4
   %6 = alloca i8, align 1
   %7 = alloca [4 x float], align 4

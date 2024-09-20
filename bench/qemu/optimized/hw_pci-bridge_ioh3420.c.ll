@@ -104,7 +104,7 @@ return:                                           ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ioh3420_interrupts_init(ptr noundef %d, ptr noundef %errp) #0 {
+define internal range(i32 -95, -2147483648) i32 @ioh3420_interrupts_init(ptr noundef %d, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @msi_init(ptr noundef %d, i8 noundef zeroext 96, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %errp) #4
   %cmp = icmp sgt i32 %call, -1

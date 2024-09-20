@@ -11208,7 +11208,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %6, %50, %43, %
 declare noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isLdStPairSuppressedERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc noundef i32 @_ZL24getMatchingNonSExtOpcodejPb(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc noundef range(i32 -1, 6814) i32 @_ZL24getMatchingNonSExtOpcodejPb(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

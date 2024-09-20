@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [2 x i8] c"}\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @get_var_int(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @get_var_int(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load i64, ptr %len, align 8
@@ -3128,7 +3128,7 @@ return:                                           ; preds = %while.end.i, %put_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_index_record_decode(ptr noundef %rec, ptr noundef byval(%struct.strbuf) align 8 %key, i8 zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
+define internal range(i32 1, 0) i32 @reftable_index_record_decode(ptr noundef %rec, ptr noundef byval(%struct.strbuf) align 8 %key, i8 zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
 entry:
   %last_key = getelementptr inbounds i8, ptr %rec, i64 8
   %len2.i = getelementptr inbounds i8, ptr %rec, i64 16

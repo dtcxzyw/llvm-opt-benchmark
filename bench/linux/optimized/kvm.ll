@@ -910,7 +910,7 @@ __kvm_cpuid_base.exit:                            ; preds = %4, %7, %25
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @kvm_detect() #10 section ".init.text" align 16 {
+define internal range(i32 0, -1) i32 @kvm_detect() #10 section ".init.text" align 16 {
   %1 = load i32, ptr @kvm_cpuid_base.kvm_cpuid_base, align 4
   %2 = icmp eq i32 %1, -1
   br i1 %2, label %3, label %5
@@ -1642,7 +1642,7 @@ __kvm_cpuid_base.exit:                            ; preds = %4, %7, %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__kvm_cpuid_base() unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 1073807360) i32 @__kvm_cpuid_base() unnamed_addr #1 align 16 {
   %1 = alloca [3 x i32], align 4
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 36), align 4
   %3 = icmp slt i32 %2, 0

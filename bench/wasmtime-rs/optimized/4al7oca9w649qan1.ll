@@ -94,7 +94,7 @@ define hidden { i32, i32 } @"_ZN16cranelift_entity13packed_option21PackedOption$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17haf1a22f7f135d5a1E"(i32 noundef returned %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, -1) i32 @"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6expect17haf1a22f7f135d5a1E"(i32 noundef returned %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not = icmp eq i32 %0, -1
   br i1 %.not, label %4, label %5
 
@@ -107,7 +107,7 @@ define hidden noundef i32 @"_ZN16cranelift_entity13packed_option21PackedOption$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E"(i32 noundef returned %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, -1) i32 @"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E"(i32 noundef returned %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not = icmp eq i32 %0, -1
   br i1 %.not, label %2, label %3
 

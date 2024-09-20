@@ -1941,7 +1941,7 @@ entry:
 declare void @_ZN4node4quic7Session10EmitKeylogEPKc(ptr noundef nonnull align 8 dereferenceable(2616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node4quic10TLSContext7ReceiveE19ngtcp2_crypto_levelmPKhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %crypto_level, i64 noundef %offset, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -10000, -10002) i32 @_ZN4node4quic10TLSContext7ReceiveE19ngtcp2_crypto_levelmPKhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %crypto_level, i64 noundef %offset, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #4 align 2 {
 entry:
   %session_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %session_, align 8

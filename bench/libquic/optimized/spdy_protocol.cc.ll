@@ -178,7 +178,7 @@ $_ZTIN3net18SpdyFrameWithFinIRE = comdat any
 @_ZN3net12SpdyAltSvcIRD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net12SpdyAltSvcIRD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %priority) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 0, 8) i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %priority) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19 = alloca %"class.logging::LogMessage", align 8
   %conv = zext i8 %priority to i32

@@ -93532,7 +93532,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10ASTContext30typesAreBlockPointer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang10ASTContext25mergeTransparentUnionTypeENS_8QualTypeES1_bb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 16, 1) i64 @_ZN5clang10ASTContext25mergeTransparentUnionTypeENS_8QualTypeES1_bb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %7, align 16

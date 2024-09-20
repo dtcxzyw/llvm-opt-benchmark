@@ -443,7 +443,7 @@ define void @slurm_persist_conn_recv_thread_init(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
+define range(i32 -1, 100) i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @thread_count_lock) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %3

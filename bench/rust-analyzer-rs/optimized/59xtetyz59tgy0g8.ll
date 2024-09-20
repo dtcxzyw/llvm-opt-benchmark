@@ -604,7 +604,7 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17hf2ffe136dda02729E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #2 {
+define hidden noundef range(i64 0, 2147483648) i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17hf2ffe136dda02729E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #2 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 
@@ -632,7 +632,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, 536870913) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17he36a941d4a02a223E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 268435457) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17he36a941d4a02a223E.llvm.6424288313766077374(i32 noundef %0) unnamed_addr #0 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 

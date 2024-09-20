@@ -7269,7 +7269,7 @@ _ZN2cv13safe_int_castIjmEET_T0_PKc.exit:          ; preds = %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1650728960, 1668300800) i32 @_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %switch.tableidx = add i32 %2, -1
   %4 = icmp ult i32 %switch.tableidx, 3
   br i1 %4, label %switch.lookup, label %6

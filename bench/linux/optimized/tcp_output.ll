@@ -4909,7 +4909,7 @@ define dso_local void @tcp_push_one(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i32 @__tcp_select_window(ptr noundef %0) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 -65534, -2147450881) i32 @__tcp_select_window(ptr noundef %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1238

@@ -770,7 +770,7 @@ declare noundef ptr @_ZN13InstanceKlass17allocate_instanceEP10JavaThread(ptr nou
 declare void @_ZN20vector_VectorPayload11set_payloadEP7oopDescS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN13VectorSupport9vop2idealEi9BasicType(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 17, 442) i32 @_ZN13VectorSupport9vop2idealEi9BasicType(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %156 [
     i32 4, label %3
     i32 5, label %8

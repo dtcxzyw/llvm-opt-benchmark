@@ -2459,35 +2459,34 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm11VPIntrinsic21getStatic
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %12)
-  %14 = and i64 %13, 4294967296
-  %.not.i = icmp eq i64 %14, 0
+  %.not.i = icmp ult i64 %13, 4294967296
   br i1 %.not.i, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit:      ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 134217727
-  %18 = zext nneg i32 %17 to i64
-  %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %19
-  %21 = and i64 %13, 4294967295
-  %22 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %.not = icmp eq ptr %23, null
-  %spec.select = select i1 %.not, ptr %0, ptr %23
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, 134217727
+  %17 = zext nneg i32 %16 to i64
+  %18 = sub nsw i64 0, %17
+  %19 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %18
+  %20 = and i64 %13, 4294967295
+  %21 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  %spec.select = select i1 %.not, ptr %0, ptr %22
   br label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread: ; preds = %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit, %1
   %.sink14 = phi ptr [ %0, %1 ], [ %spec.select, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr i8, ptr %25, i64 8
-  %.val4 = load i32, ptr %26, align 8
-  %27 = getelementptr i8, ptr %25, i64 32
-  %.val5 = load i32, ptr %27, align 8
-  %28 = and i32 %.val4, 255
-  %29 = icmp eq i32 %28, 18
-  %.sroa.2.0.insert.shift.i.i.i6 = select i1 %29, i64 4294967296, i64 0
+  %23 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr i8, ptr %24, i64 8
+  %.val4 = load i32, ptr %25, align 8
+  %26 = getelementptr i8, ptr %24, i64 32
+  %.val5 = load i32, ptr %26, align 8
+  %27 = and i32 %.val4, 255
+  %28 = icmp eq i32 %27, 18
+  %.sroa.2.0.insert.shift.i.i.i6 = select i1 %28, i64 4294967296, i64 0
   %.sroa.0.0.insert.ext.i.i.i7 = zext i32 %.val5 to i64
   %.sroa.0.0.insert.insert.i.i.i8 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i6, %.sroa.0.0.insert.ext.i.i.i7
   ret i64 %.sroa.0.0.insert.insert.i.i.i8
@@ -2509,29 +2508,28 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic12getMaskParamEv(ptr nocaptu
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %12)
-  %14 = and i64 %13, 4294967296
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %25, label %15
+  %.not = icmp ult i64 %13, 4294967296
+  br i1 %.not, label %24, label %14
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 134217727
-  %19 = zext nneg i32 %18 to i64
-  %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %20
-  %22 = and i64 %13, 4294967295
-  %23 = getelementptr inbounds %"class.llvm::Use", ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  br label %25
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 134217727
+  %18 = zext nneg i32 %17 to i64
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %19
+  %21 = and i64 %13, 4294967295
+  %22 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  br label %24
 
-25:                                               ; preds = %1, %15
-  %.0 = phi ptr [ %24, %15 ], [ null, %1 ]
+24:                                               ; preds = %1, %14
+  %.0 = phi ptr [ %23, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %94 [
     i32 390, label %2
     i32 391, label %3
@@ -2997,29 +2995,28 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv(ptr
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %12)
-  %14 = and i64 %13, 4294967296
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %25, label %15
+  %.not = icmp ult i64 %13, 4294967296
+  br i1 %.not, label %24, label %14
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 134217727
-  %19 = zext nneg i32 %18 to i64
-  %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %20
-  %22 = and i64 %13, 4294967295
-  %23 = getelementptr inbounds %"class.llvm::Use", ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  br label %25
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 134217727
+  %18 = zext nneg i32 %17 to i64
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %19
+  %21 = and i64 %13, 4294967295
+  %22 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  br label %24
 
-25:                                               ; preds = %1, %15
-  %.0 = phi ptr [ %24, %15 ], [ null, %1 ]
+24:                                               ; preds = %1, %14
+  %.0 = phi ptr [ %23, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %96 [
     i32 390, label %2
     i32 391, label %3
@@ -4248,126 +4245,124 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11VPIntrinsic26canIgnoreVectorLeng
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = tail call i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %15)
-  %17 = and i64 %16, 4294967296
-  %.not.i.i = icmp eq i64 %17, 0
+  %.not.i.i = icmp ult i64 %16, 4294967296
   br i1 %.not.i.i, label %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit, label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i:    ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = and i32 %19, 134217727
-  %21 = zext nneg i32 %20 to i64
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %22
-  %24 = and i64 %16, 4294967295
-  %25 = getelementptr inbounds %"class.llvm::Use", ptr %23, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %26, null
-  %spec.select.i = select i1 %.not.i, ptr %0, ptr %26
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = and i32 %18, 134217727
+  %20 = zext nneg i32 %19 to i64
+  %21 = sub nsw i64 0, %20
+  %22 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %21
+  %23 = and i64 %16, 4294967295
+  %24 = getelementptr inbounds %"class.llvm::Use", ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %25, null
+  %spec.select.i = select i1 %.not.i, ptr %0, ptr %25
   br label %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit
 
 _ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit: ; preds = %1, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i
   %.sink14.i = phi ptr [ %0, %1 ], [ %spec.select.i, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i8, ptr %28, i64 8
-  %.val4.i = load i32, ptr %29, align 8
-  %30 = getelementptr i8, ptr %28, i64 32
-  %.val5.i = load i32, ptr %30, align 8
-  %31 = and i32 %.val4.i, 255
-  %32 = icmp eq i32 %31, 18
-  %33 = tail call i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %15)
-  %34 = and i64 %33, 4294967296
-  %.not.i12 = icmp eq i64 %34, 0
+  %26 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr i8, ptr %27, i64 8
+  %.val4.i = load i32, ptr %28, align 8
+  %29 = getelementptr i8, ptr %27, i64 32
+  %.val5.i = load i32, ptr %29, align 8
+  %30 = and i32 %.val4.i, 255
+  %31 = icmp eq i32 %30, 18
+  %32 = tail call i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %15)
+  %.not.i12 = icmp ult i64 %32, 4294967296
   br i1 %.not.i12, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit
 
 _ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit: ; preds = %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 134217727
-  %38 = zext nneg i32 %37 to i64
-  %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %39
-  %41 = and i64 %33, 4294967295
-  %42 = getelementptr inbounds %"class.llvm::Use", ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread, label %44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 134217727
+  %36 = zext nneg i32 %35 to i64
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %37
+  %39 = and i64 %32, 4294967295
+  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread, label %42
 
-44:                                               ; preds = %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit
-  br i1 %32, label %45, label %75
+42:                                               ; preds = %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit
+  br i1 %31, label %43, label %73
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %2, ptr %46, align 8
-  %47 = load i8, ptr %43, align 8
-  %48 = icmp eq i8 %47, 46
-  br i1 %48, label %49, label %71
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %2, ptr %44, align 8
+  %45 = load i8, ptr %41, align 8
+  %46 = icmp eq i8 %45, 46
+  br i1 %46, label %47, label %69
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %43, i64 -64
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %51)
-  br i1 %52, label %53, label %71
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %41, i64 -64
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %49)
+  br i1 %50, label %51, label %69
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %43, i64 -32
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i8, ptr %55, align 8
-  %.not.i.i.i.i = icmp eq i8 %56, 17
-  br i1 %.not.i.i.i.i, label %57, label %71
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %41, i64 -32
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i8, ptr %53, align 8
+  %.not.i.i.i.i = icmp eq i8 %54, 17
+  br i1 %.not.i.i.i.i, label %55, label %69
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp ult i32 %60, 65
-  br i1 %61, label %65, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp ult i32 %58, 65
+  br i1 %59, label %63, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
 
-_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %57
-  %62 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %58) #18
-  %63 = sub i32 %60, %62
-  %64 = icmp ugt i32 %63, 64
-  br i1 %64, label %71, label %65
+_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %55
+  %60 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %56) #18
+  %61 = sub i32 %58, %60
+  %62 = icmp ugt i32 %61, 64
+  br i1 %62, label %69, label %63
 
-65:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %57
-  %66 = load ptr, ptr %58, align 8
-  %.0.in.i.i.i.i.i.i = select i1 %61, ptr %58, ptr %66
+63:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %55
+  %64 = load ptr, ptr %56, align 8
+  %.0.in.i.i.i.i.i.i = select i1 %59, ptr %56, ptr %64
   %.0.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8
-  %67 = load ptr, ptr %46, align 8
-  store i64 %.0.i.i.i.i.i.i, ptr %67, align 8
-  %68 = load i64, ptr %2, align 8
-  %69 = zext i32 %.val5.i to i64
-  %70 = icmp uge i64 %68, %69
+  %65 = load ptr, ptr %44, align 8
+  store i64 %.0.i.i.i.i.i.i, ptr %65, align 8
+  %66 = load i64, ptr %2, align 8
+  %67 = zext i32 %.val5.i to i64
+  %68 = icmp uge i64 %66, %67
   br label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
 
-71:                                               ; preds = %45, %49, %53, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
-  %72 = icmp eq i32 %.val5.i, 1
-  br i1 %72, label %73, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
+69:                                               ; preds = %43, %47, %51, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
+  %70 = icmp eq i32 %.val5.i, 1
+  br i1 %70, label %71, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
 
-73:                                               ; preds = %71
-  %74 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %43)
+71:                                               ; preds = %69
+  %72 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %41)
   br label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
 
-75:                                               ; preds = %44
-  %76 = load i8, ptr %43, align 8
-  %.not20 = icmp eq i8 %76, 17
-  br i1 %.not20, label %77, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
+73:                                               ; preds = %42
+  %74 = load i8, ptr %41, align 8
+  %.not20 = icmp eq i8 %74, 17
+  br i1 %.not20, label %75, label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %79 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp ult i32 %80, 65
-  %82 = load ptr, ptr %78, align 8
-  %.0.in.i.i = select i1 %81, ptr %78, ptr %82
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp ult i32 %78, 65
+  %80 = load ptr, ptr %76, align 8
+  %.0.in.i.i = select i1 %79, ptr %76, ptr %80
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
-  %83 = zext i32 %.val5.i to i64
-  %.not11 = icmp uge i64 %.0.i.i, %83
+  %81 = zext i32 %.val5.i to i64
+  %.not11 = icmp uge i64 %.0.i.i, %81
   br label %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread
 
-_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread: ; preds = %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit, %77, %75, %71, %73, %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit, %65
-  %.0 = phi i1 [ %70, %65 ], [ true, %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit ], [ false, %71 ], [ %74, %73 ], [ false, %75 ], [ %.not11, %77 ], [ true, %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit ]
+_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit.thread: ; preds = %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit, %75, %73, %69, %71, %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit, %63
+  %.0 = phi i1 [ %68, %63 ], [ true, %_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit ], [ false, %69 ], [ %72, %71 ], [ false, %73 ], [ %.not11, %75 ], [ true, %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit ]
   ret i1 %.0
 }
 

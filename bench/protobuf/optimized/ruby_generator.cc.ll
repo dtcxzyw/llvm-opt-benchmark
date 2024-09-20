@@ -397,7 +397,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef signext i8 @_ZN6google8protobuf8compiler4ruby9UpperCharEc(i8 noundef signext %ch) local_unnamed_addr #5 {
+define hidden noundef signext range(i8 123, 97) i8 @_ZN6google8protobuf8compiler4ruby9UpperCharEc(i8 noundef signext %ch) local_unnamed_addr #5 {
 entry:
   %0 = add i8 %ch, -97
   %1 = icmp ult i8 %0, 26

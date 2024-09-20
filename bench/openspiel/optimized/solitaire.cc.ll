@@ -4701,7 +4701,7 @@ define void @_ZNK10open_spiel9solitaire4Move9GetSourceEv(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel9solitaire4Move8ActionIdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define noundef range(i64 -2147483596, 2147483648) i64 @_ZNK10open_spiel9solitaire4Move8ActionIdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4

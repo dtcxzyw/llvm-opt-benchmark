@@ -3712,7 +3712,7 @@ return:                                           ; preds = %if.end521, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @LZ4F_decodeHeader(ptr noundef writeonly %dctx, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #4 {
+define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeonly %dctx, ptr noundef %src, i64 noundef %srcSize) unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %srcSize, 7
   br i1 %cmp, label %return, label %do.end

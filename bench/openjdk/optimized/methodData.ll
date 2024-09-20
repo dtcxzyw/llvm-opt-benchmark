@@ -3922,7 +3922,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN10MethodData24c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10MethodData32compute_allocation_size_in_bytesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483632, -2147483648) i32 @_ZN10MethodData32compute_allocation_size_in_bytesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.BytecodeStream, align 8
   call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %3 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
@@ -4178,7 +4178,7 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes7code_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 8, 1) i32 @_ZN10MethodData15initialize_dataEP14BytecodeStreami(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10MethodData15initialize_dataEP14BytecodeStreami(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.Bytecode_invoke, align 8
   %5 = alloca %class.Bytecode_invoke, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 304
@@ -5022,7 +5022,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %1, %_ZN26GrowableAr
   %.05468 = phi i32 [ %.1, %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
   %.05567 = phi i1 [ %79, %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit ], [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
   %49 = call noundef i32 @_ZN10MethodData15initialize_dataEP14BytecodeStreami(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull %2, i32 noundef %.069)
-  %50 = add nsw i32 %49, %.069
+  %50 = add nuw nsw i32 %49, %.069
   %51 = icmp eq i32 %49, 0
   br i1 %51, label %52, label %58
 
@@ -5106,7 +5106,7 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge
-  %93 = sext i32 %.0.lcssa to i64
+  %93 = zext nneg i32 %.0.lcssa to i64
   %94 = getelementptr inbounds i8, ptr %22, i64 %93
   %95 = zext nneg i32 %90 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %94, i8 0, i64 %95, i1 false)
@@ -5131,7 +5131,7 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   %110 = zext i16 %104 to i64
   store i64 %110, ptr %106, align 8
   %111 = add nuw nsw i32 %107, 16
-  %112 = add i32 %.0.lcssa, 304
+  %112 = add nuw i32 %.0.lcssa, 304
   %113 = add i32 %112, %90
   %114 = add i32 %113, %111
   %115 = load ptr, ptr %16, align 8

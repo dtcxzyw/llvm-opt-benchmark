@@ -4363,7 +4363,7 @@ define internal noundef i64 @key_err_initialize(i32 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @key_err_receiver(i64 noundef %0) #0 {
+define internal range(i64 37, 36) i64 @key_err_receiver(i64 noundef %0) #0 {
   %2 = load i64, ptr @id_receiver, align 8
   %3 = tail call i64 @rb_ivar_lookup(i64 noundef %0, i64 noundef %2, i64 noundef 36) #29
   %4 = icmp eq i64 %3, 36
@@ -4379,7 +4379,7 @@ define internal i64 @key_err_receiver(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @key_err_key(i64 noundef %0) #0 {
+define internal range(i64 37, 36) i64 @key_err_key(i64 noundef %0) #0 {
   %2 = load i64, ptr @id_key, align 8
   %3 = tail call i64 @rb_ivar_lookup(i64 noundef %0, i64 noundef %2, i64 noundef 36) #29
   %4 = icmp eq i64 %3, 36
@@ -5072,7 +5072,7 @@ define internal noundef i64 @no_matching_pattern_key_err_initialize(i32 noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @no_matching_pattern_key_err_matchee(i64 noundef %0) #0 {
+define internal range(i64 37, 36) i64 @no_matching_pattern_key_err_matchee(i64 noundef %0) #0 {
   %2 = load i64, ptr @id_matchee, align 8
   %3 = tail call i64 @rb_ivar_lookup(i64 noundef %0, i64 noundef %2, i64 noundef 36) #29
   %4 = icmp eq i64 %3, 36
@@ -5088,7 +5088,7 @@ define internal i64 @no_matching_pattern_key_err_matchee(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @no_matching_pattern_key_err_key(i64 noundef %0) #0 {
+define internal range(i64 37, 36) i64 @no_matching_pattern_key_err_key(i64 noundef %0) #0 {
   %2 = load i64, ptr @id_key, align 8
   %3 = tail call i64 @rb_ivar_lookup(i64 noundef %0, i64 noundef %2, i64 noundef 36) #29
   %4 = icmp eq i64 %3, 36

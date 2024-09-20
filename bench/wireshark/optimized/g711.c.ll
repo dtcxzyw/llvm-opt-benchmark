@@ -58,7 +58,7 @@ search.exit.thread:                               ; preds = %7, %search.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2143289344, 2143289345) i32 @alaw2linear(i8 noundef zeroext %0) local_unnamed_addr #1 {
+define range(i32 -32704, 32705) i32 @alaw2linear(i8 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = xor i8 %0, 85
   %3 = zext i8 %2 to i32
   %4 = shl nuw nsw i32 %3, 4

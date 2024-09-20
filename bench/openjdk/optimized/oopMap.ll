@@ -3948,7 +3948,7 @@ define hidden noundef zeroext i1 @_ZNK6OopMap6equalsEPKS_(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK18ImmutableOopMapSet20find_slot_for_offsetEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOopMapSet20find_slot_for_offsetEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0

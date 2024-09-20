@@ -352,7 +352,7 @@ define internal i64 @ossl_ocspreq_alloc(i64 noundef %0) #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspreq_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ocspreq_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -976,7 +976,7 @@ define internal i64 @ossl_ocspres_alloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ocspres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -1251,7 +1251,7 @@ define internal i64 @ossl_ocspbres_alloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspbres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ocspbres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -2164,7 +2164,7 @@ define internal i64 @ossl_ocspsres_alloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspsres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ocspsres_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -2700,7 +2700,7 @@ define internal i64 @ossl_ocspcid_alloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspcid_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ocspcid_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0

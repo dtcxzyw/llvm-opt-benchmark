@@ -7664,7 +7664,7 @@ _ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd232E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2147483648) i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd232E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #0 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 
@@ -7692,7 +7692,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, 536870913) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17h1671bd257cfff523E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #2 {
+define hidden noundef range(i64 0, 268435457) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17h1671bd257cfff523E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #2 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 

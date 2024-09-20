@@ -4532,7 +4532,7 @@ define hidden noundef range(i32 8, 13) i32 @dissect_electronic_key_format(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_cip_segment_single(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #3 {
+define hidden range(i32 0, 513) i32 @dissect_cip_segment_single(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #3 {
   %13 = alloca i32, align 4
   %14 = alloca %struct.cip_connID_info, align 8
   %15 = alloca i32, align 4
@@ -13217,7 +13217,7 @@ define internal i32 @dissect_port_link_object(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_single_segment_padded_attr(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #3 {
+define internal noundef range(i32 0, 513) i32 @dissect_single_segment_padded_attr(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #3 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @ett_port_path, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.2735) #13
@@ -13239,7 +13239,7 @@ define internal noundef i32 @dissect_port_node_range(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_single_segment_packed_attr(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #3 {
+define internal noundef range(i32 0, 513) i32 @dissect_single_segment_packed_attr(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #3 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @ett_port_path, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.2735) #13

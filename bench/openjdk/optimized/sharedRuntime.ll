@@ -1694,7 +1694,7 @@ define hidden noundef i64 @_ZN13SharedRuntime4ldivEll(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN13SharedRuntime4lremEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN13SharedRuntime4lremEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq i64 %1, -9223372036854775808
   %4 = icmp eq i64 %0, -1
   %or.cond = and i1 %4, %3

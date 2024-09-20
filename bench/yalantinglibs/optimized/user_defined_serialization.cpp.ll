@@ -47,7 +47,7 @@ $_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2
 @.str.1 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN13my_name_space18sp_get_needed_sizeERKNS_7array2DE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ar) local_unnamed_addr #0 {
+define dso_local noundef range(i64 8, 5) i64 @_ZN13my_name_space18sp_get_needed_sizeERKNS_7array2DE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ar) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ar, align 8
   %conv = zext i32 %0 to i64

@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_from_string_gently(ptr noundef %str, i64 noundef %len, i32 noundef %gentle) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 5) i32 @type_from_string_gently(ptr noundef %str, i64 noundef %len, i32 noundef %gentle) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i64 %len, 0
   br i1 %cmp, label %if.then, label %if.end

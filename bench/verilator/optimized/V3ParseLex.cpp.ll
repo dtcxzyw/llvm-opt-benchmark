@@ -288,7 +288,7 @@ define dso_local noundef i32 @_ZN11V3LexerBase6yywrapEv(ptr nocapture nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11V3LexerBase5yylexEv(ptr noundef nonnull align 8 dereferenceable(732) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -128, 821) i32 @_ZN11V3LexerBase5yylexEv(ptr noundef nonnull align 8 dereferenceable(732) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.25", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

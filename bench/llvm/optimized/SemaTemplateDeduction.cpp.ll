@@ -73445,7 +73445,7 @@ _ZN5clang14TypeLocBuilderD2Ev.exit:               ; preds = %13, %63, %66, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformDependentNameTypeERNS_14TypeLocBuilderENS_20DependentNameTypeLocEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr nocapture readonly %2, ptr nocapture readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc range(i64 16, 1) i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE26TransformDependentNameTypeERNS_14TypeLocBuilderENS_20DependentNameTypeLocEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr nocapture readonly %2, ptr nocapture readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.clang::CXXScopeSpec", align 8
@@ -119012,7 +119012,7 @@ define internal void @_ZN4llvm12function_refIFvvEE11callback_fnIZL23DeduceTempla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL31FinishTemplateArgumentDeductionIN5clang38ClassTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang38ClassTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
   %7 = alloca %"struct.clang::MultiLevelTemplateArgumentList::ArgumentListLevel", align 8
   %8 = alloca %"class.(anonymous namespace)::PackDeductionScope", align 8
   %9 = alloca i8, align 1
@@ -120924,7 +120924,7 @@ define internal void @_ZN4llvm12function_refIFvvEE11callback_fnIZL23DeduceTempla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL31FinishTemplateArgumentDeductionIN5clang36VarTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 16) i32 @_ZL31FinishTemplateArgumentDeductionIN5clang36VarTemplatePartialSpecializationDeclEENSt9enable_ifIXsr23IsPartialSpecializationIT_EE5valueENS0_23TemplateDeductionResultEE4typeERNS0_4SemaEPS3_bN4llvm8ArrayRefINS0_16TemplateArgumentEEERNSA_15SmallVectorImplINS0_23DeducedTemplateArgumentEEERNS0_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(504) %5) unnamed_addr #0 {
   %7 = alloca %"struct.clang::MultiLevelTemplateArgumentList::ArgumentListLevel", align 8
   %8 = alloca %"class.(anonymous namespace)::PackDeductionScope", align 8
   %9 = alloca i8, align 1

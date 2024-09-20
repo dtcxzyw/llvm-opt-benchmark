@@ -731,7 +731,7 @@ define dso_local range(i32 0, -2147483648) i32 @dma_map_sg_attrs(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -121, -2147483648) i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -796,7 +796,7 @@ define internal fastcc i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @dma_map_sgtable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i32 -121, 1) i32 @dma_map_sgtable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4

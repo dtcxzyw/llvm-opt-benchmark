@@ -268,7 +268,7 @@ declare dso_local void @snd_info_free_entry(ptr noundef) local_unnamed_addr #1
 declare dso_local void @bus_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @alsa_seq_device_init() #2 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @alsa_seq_device_init() #2 section ".init.text" align 16 {
   %1 = tail call i32 @bus_register(ptr noundef nonnull @snd_seq_bus_type) #6
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %7, label %3

@@ -2734,7 +2734,7 @@ define dso_local void @_ZN4llvm10AArch64_MC27verifyInstructionPredicatesEjRKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm10AArch64_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1739) i32 @_ZN4llvm10AArch64_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #2 {
   switch i32 %0, label %3647 [
     i32 16, label %5
     i32 17, label %44

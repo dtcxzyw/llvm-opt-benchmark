@@ -257,7 +257,7 @@ define dso_local void @__handle_sysrq(i8 noundef zeroext %0, i1 noundef zeroext 
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = sext i32 %5 to i64
+  %8 = zext nneg i32 %5 to i64
   %9 = getelementptr [62 x ptr], ptr @sysrq_key_table, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -417,7 +417,7 @@ define dso_local range(i32 -1, 1) i32 @register_sysrq_key(i8 noundef zeroext %0,
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = sext i32 %3 to i64
+  %6 = zext nneg i32 %3 to i64
   %7 = getelementptr [62 x ptr], ptr @sysrq_key_table, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -447,7 +447,7 @@ define dso_local range(i32 -1, 1) i32 @unregister_sysrq_key(i8 noundef zeroext %
   br label %12
 
 7:                                                ; preds = %2
-  %8 = sext i32 %3 to i64
+  %8 = zext nneg i32 %3 to i64
   %9 = getelementptr [62 x ptr], ptr @sysrq_key_table, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, %1
@@ -508,7 +508,7 @@ declare dso_local void @emergency_restart() local_unnamed_addr #4
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc range(i32 -87, 227) i32 @sysrq_key_table_key2index(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 -1, 62) i32 @sysrq_key_table_key2index(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
   %2 = zext i8 %0 to i32
   switch i8 %0, label %9 [
     i8 48, label %3

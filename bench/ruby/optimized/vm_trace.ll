@@ -2283,7 +2283,7 @@ define dso_local i64 @rb_tracearg_self(ptr nocapture noundef nonnull readonly %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_return_value(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_return_value(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 592
   %.not = icmp eq i32 %3, 0
@@ -2312,7 +2312,7 @@ define dso_local i64 @rb_tracearg_return_value(ptr nocapture noundef nonnull rea
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_raised_exception(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_raised_exception(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 16512
   %.not = icmp eq i32 %3, 0
@@ -2469,7 +2469,7 @@ RARRAY_AREF.exit:                                 ; preds = %22, %24
 declare i64 @rb_iseqw_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_object(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_object(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3145728
   %.not = icmp eq i32 %3, 0
@@ -4694,7 +4694,7 @@ get_trace_arg.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_return_value(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @tracepoint_attr_return_value(ptr nocapture readnone %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -4733,7 +4733,7 @@ rb_tracearg_return_value.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_raised_exception(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @tracepoint_attr_raised_exception(ptr nocapture readnone %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -5218,7 +5218,7 @@ define hidden noundef i64 @rb_vm_memsize_postponed_job_queue() local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong uwtable
-define dso_local i32 @rb_postponed_job_preregister(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
+define dso_local range(i32 -1, 32) i32 @rb_postponed_job_preregister(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1184
   %6 = load ptr, ptr %5, align 8
@@ -5737,7 +5737,7 @@ declare void @llvm.assume(i1 noundef) #18
 declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #19 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #19 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge

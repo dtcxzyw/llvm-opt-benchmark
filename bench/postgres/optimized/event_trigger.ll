@@ -2239,7 +2239,7 @@ declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @pg_event_trigger_table_rewrite_oid(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 4294967296) i64 @pg_event_trigger_table_rewrite_oid(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @currentEventTriggerState, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3

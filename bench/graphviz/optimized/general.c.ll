@@ -19,7 +19,7 @@ define double @drand() local_unnamed_addr #0 {
 declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @irand(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @irand(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @rand() #18
   %3 = srem i32 %2, %0
   ret i32 %3

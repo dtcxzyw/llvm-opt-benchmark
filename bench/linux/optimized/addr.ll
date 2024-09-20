@@ -20,7 +20,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rpc_uaddr2so
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_rpc_ntop703, ptr @__UNIQUE_ID___addressable_rpc_pton704, ptr @__UNIQUE_ID___addressable_rpc_uaddr2sockaddr705], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 6442450943) i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483659) i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca [12 x i8], align 1
   %5 = load i16, ptr %0, align 2
   switch i16 %5, label %60 [

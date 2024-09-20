@@ -6979,7 +6979,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel8checkers12CheckersGame18NumDistinctActionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483641) i32 @_ZNK10open_spiel8checkers12CheckersGame18NumDistinctActionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 284

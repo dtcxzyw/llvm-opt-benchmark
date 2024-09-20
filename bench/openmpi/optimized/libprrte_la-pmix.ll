@@ -204,7 +204,7 @@ define range(i32 -334, 1) i32 @prte_pmix_convert_rc(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_pmix_convert_status(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -5, -7) i32 @prte_pmix_convert_status(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %31 [
     i32 -3, label %32
     i32 -334, label %2

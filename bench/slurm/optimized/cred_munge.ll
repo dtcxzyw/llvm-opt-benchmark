@@ -218,9 +218,9 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   store ptr null, ptr %3, align 8
   %18 = call fastcc i32 @_decode(ptr noundef %17, i1 noundef zeroext false, ptr noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %20, label %_verify_signature.exit.thread
+  br i1 %.not.i, label %20, label %.critedge
 
-_verify_signature.exit.thread:                    ; preds = %10
+.critedge:                                        ; preds = %10
   %19 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._verify_signature) #7
   br label %.sink.split
 
@@ -231,9 +231,9 @@ _verify_signature.exit.thread:                    ; preds = %10
   %.not9.i = icmp eq i32 %16, %23
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
-  br i1 %.not9.i, label %_verify_signature.exit, label %.critedge
+  br i1 %.not9.i, label %._crit_edge.i, label %.critedge12
 
-_verify_signature.exit:                           ; preds = %20
+._crit_edge.i:                                    ; preds = %20
   %26 = zext i32 %16 to i64
   %bcmp.i = tail call i32 @bcmp(ptr readonly %14, ptr %25, i64 %26)
   %.not10.i = icmp eq i32 %bcmp.i, 0
@@ -242,20 +242,20 @@ _verify_signature.exit:                           ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %.not10.i, label %28, label %27
 
-.critedge:                                        ; preds = %20
+.critedge12:                                      ; preds = %20
   tail call void @free(ptr noundef %25) #7
   call void @slurm_xfree(ptr noundef nonnull %3) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_verify_signature.exit.thread, %.critedge
+.sink.split:                                      ; preds = %.critedge, %.critedge12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %27
 
-27:                                               ; preds = %.sink.split, %_verify_signature.exit
+27:                                               ; preds = %.sink.split, %._crit_edge.i
   call void @slurm_cred_destroy(ptr noundef nonnull %4) #7
   br label %30
 
-28:                                               ; preds = %_verify_signature.exit
+28:                                               ; preds = %._crit_edge.i
   %29 = getelementptr inbounds i8, ptr %4, i64 104
   store i8 1, ptr %29, align 8
   br label %30
@@ -351,7 +351,7 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -548,9 +548,9 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   store ptr null, ptr %4, align 8
   %27 = call fastcc i32 @_decode(ptr noundef %26, i1 noundef zeroext false, ptr noundef %4, ptr noundef null)
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %29, label %_verify_signature.exit.thread
+  br i1 %.not.i, label %29, label %.critedge
 
-_verify_signature.exit.thread:                    ; preds = %19
+.critedge:                                        ; preds = %19
   %28 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._verify_signature) #7
   br label %.sink.split
 
@@ -561,9 +561,9 @@ _verify_signature.exit.thread:                    ; preds = %19
   %.not9.i = icmp eq i32 %24, %32
   %33 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
-  br i1 %.not9.i, label %_verify_signature.exit, label %.critedge
+  br i1 %.not9.i, label %._crit_edge.i, label %.critedge14
 
-_verify_signature.exit:                           ; preds = %29
+._crit_edge.i:                                    ; preds = %29
   %35 = zext i32 %24 to i64
   %bcmp.i = call i32 @bcmp(ptr readonly %23, ptr %34, i64 %35)
   %.not10.i = icmp eq i32 %bcmp.i, 0
@@ -572,20 +572,20 @@ _verify_signature.exit:                           ; preds = %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %.not10.i, label %37, label %36
 
-.critedge:                                        ; preds = %29
+.critedge14:                                      ; preds = %29
   call void @free(ptr noundef %34) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_verify_signature.exit.thread, %.critedge
+.sink.split:                                      ; preds = %.critedge, %.critedge14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %36
 
-36:                                               ; preds = %.sink.split, %_verify_signature.exit
+36:                                               ; preds = %.sink.split, %._crit_edge.i
   call void @delete_sbcast_cred(ptr noundef nonnull %8) #7
   br label %39
 
-37:                                               ; preds = %_verify_signature.exit
+37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds i8, ptr %8, i64 64
   store i8 1, ptr %38, align 8
   br label %39

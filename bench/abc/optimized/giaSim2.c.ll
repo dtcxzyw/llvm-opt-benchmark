@@ -400,7 +400,7 @@ define void @Gia_Sim2ClassCreate(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_Sim2ClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_Sim2ClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr i8, ptr %0, i64 16
@@ -845,7 +845,7 @@ Gia_Sim2ClassCreate.exit78:                       ; preds = %187, %Gia_Sim2Class
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Gia_Sim2HashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, -1) i32 @Gia_Sim2HashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %0, align 4
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0

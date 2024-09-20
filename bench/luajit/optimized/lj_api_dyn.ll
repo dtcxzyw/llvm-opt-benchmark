@@ -6872,7 +6872,7 @@ land.end:                                         ; preds = %land.rhs, %if.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_next(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define range(i32 0, -2147483648) i32 @lua_next(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i

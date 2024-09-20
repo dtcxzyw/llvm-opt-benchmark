@@ -2060,7 +2060,7 @@ cli_hashset_search.exit:                          ; preds = %cli_hashset_search.
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @cli_hashset_toarray(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 

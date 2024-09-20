@@ -5155,7 +5155,7 @@ declare i32 @H5check_version(i32 noundef, i32 noundef, i32 noundef) local_unname
 declare i64 @H5Fcreate(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @processConfigurationFile(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @processConfigurationFile(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
 OutputByteOrderStrToInt.exit:
   %2 = alloca [255 x i8], align 16
   %3 = alloca i64, align 8

@@ -185,7 +185,7 @@ define internal i32 @agp_amd64_mod_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

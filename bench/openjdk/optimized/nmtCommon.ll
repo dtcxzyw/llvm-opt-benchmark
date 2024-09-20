@@ -214,7 +214,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN7NMTUtil20parse_tracking_levelEPKc
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i8 @_ZN7NMTUtil14string_to_flagEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext range(i8 0, 28) i8 @_ZN7NMTUtil14string_to_flagEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %18

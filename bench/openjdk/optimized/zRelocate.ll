@@ -2029,7 +2029,7 @@ declare noundef ptr @_ZNK14ZRelocationSet10generationEv(ptr noundef nonnull alig
 declare noundef ptr @_ZN14ZRelocationSet19flip_promoted_pagesEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN9ZRelocate14compute_to_ageE8ZPageAge(i8 noundef zeroext %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext range(i8 17, 16) i8 @_ZN9ZRelocate14compute_to_ageE8ZPageAge(i8 noundef zeroext %0) local_unnamed_addr #1 align 2 {
   %2 = icmp eq i8 %0, 15
   br i1 %2, label %8, label %3
 

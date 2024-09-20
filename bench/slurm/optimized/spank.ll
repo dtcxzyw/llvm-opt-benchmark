@@ -2087,7 +2087,7 @@ switch.lookup:                                    ; preds = %3, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @spank_get_item(ptr noundef readonly %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %_check_spank_item_validity.exit.thread, label %5

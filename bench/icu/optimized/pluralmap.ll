@@ -492,7 +492,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7513PluralMapBase10toCategoryEPKc(ptr nocapture noundef readonly %pluralForm) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 6) i32 @_ZN6icu_7513PluralMapBase10toCategoryEPKc(ptr nocapture noundef readonly %pluralForm) local_unnamed_addr #7 align 2 {
 entry:
   br label %for.body
 

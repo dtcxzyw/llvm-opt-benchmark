@@ -748,7 +748,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zfp_field_metadata(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i64 -1, 4503621102206956) i64 @zfp_field_metadata(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -869,7 +869,7 @@ define void @zfp_field_set_pointer(ptr nocapture noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @zfp_field_set_type(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 5) i32 @zfp_field_set_type(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 4
   br i1 %switch, label %3, label %4
@@ -1294,7 +1294,7 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %19, %24, %15, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_stream_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4

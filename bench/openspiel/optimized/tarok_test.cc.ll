@@ -1400,7 +1400,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN10open_spiel5tarok20CardLongNameToActionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 54) i64 @_ZN10open_spiel5tarok20CardLongNameToActionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   br label %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit

@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [73 x i8] c"cli_stack_alloc: Unable to allocate memory for stack-chunk: bytes: %zu!\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 23, 22) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ptr_infos, align 8
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8

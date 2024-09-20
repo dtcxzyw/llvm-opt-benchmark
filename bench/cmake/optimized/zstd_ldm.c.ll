@@ -370,7 +370,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef nonnull %0,
 declare i64 @ZSTD_XXH64(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define dso_local range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.ldmRollingHashState_t, align 8
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %2, i64 20

@@ -449,7 +449,7 @@ return:                                           ; preds = %if.end128, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @ucbuf_getc32(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @ucbuf_getc32(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false

@@ -208,7 +208,7 @@ define internal i64 @ossl_x509crl_alloc(i64 noundef %0) #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509crl_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @ossl_x509crl_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -274,7 +274,7 @@ rb_check_frozen_inline.exit:                      ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509crl_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_x509crl_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0

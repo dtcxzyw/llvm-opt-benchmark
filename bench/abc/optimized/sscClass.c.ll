@@ -446,7 +446,7 @@ Ssc_GiaSimClassCreate.exit56:                     ; preds = %173, %Ssc_GiaSimCla
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssc_GiaSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @Ssc_GiaSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 864
   %4 = getelementptr inbounds i8, ptr %0, i64 872
   %5 = getelementptr i8, ptr %0, i64 200

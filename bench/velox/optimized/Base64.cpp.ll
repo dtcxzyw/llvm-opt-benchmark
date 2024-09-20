@@ -54,7 +54,7 @@ $_ZTVN8facebook5velox8encoding15Base64ExceptionE = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb(i64 noundef %size, i1 noundef zeroext %withPadding) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2, -3) i64 @_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb(i64 noundef %size, i1 noundef zeroext %withPadding) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i64 %size, 0
   br i1 %cmp, label %return, label %if.end
@@ -1442,7 +1442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE(i8 noundef signext %p, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 64) i8 @_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE(i8 noundef signext %p, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i8 %p to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %reverse_lookup, i64 0, i64 %conv

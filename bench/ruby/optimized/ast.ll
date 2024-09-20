@@ -132,7 +132,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -537,7 +537,7 @@ define internal range(i64 1, 0) i64 @ast_node_node_id(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ast_node_script_lines(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ast_node_script_lines(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_node_type) #10
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24

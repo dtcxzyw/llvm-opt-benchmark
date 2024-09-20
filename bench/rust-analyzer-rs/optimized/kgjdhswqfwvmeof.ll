@@ -8678,7 +8678,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17ha3a4bf747e0e84c4E.llvm.4163704
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i8 @"_ZN73_$LT$core..cmp..Ordering$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17h8c733b7335653e9bE.llvm.4163704288782389842"(i8 noundef returned %0) unnamed_addr #17 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN73_$LT$core..cmp..Ordering$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17h8c733b7335653e9bE.llvm.4163704288782389842"(i8 noundef returned %0) unnamed_addr #17 {
   %2 = add i8 %0, 1
   %3 = icmp ult i8 %2, 3
   tail call void @llvm.assume(i1 %3)
@@ -8686,7 +8686,7 @@ define hidden noundef i8 @"_ZN73_$LT$core..cmp..Ordering$u20$as$u20$core..option
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i8 @"_ZN73_$LT$core..cmp..Ordering$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17hdc788ad9d6bb61edE.llvm.4163704288782389842"(i8 noundef returned %0) unnamed_addr #17 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN73_$LT$core..cmp..Ordering$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17hdc788ad9d6bb61edE.llvm.4163704288782389842"(i8 noundef returned %0) unnamed_addr #17 {
   %2 = add i8 %0, 1
   %3 = icmp ult i8 %2, 3
   tail call void @llvm.assume(i1 %3)

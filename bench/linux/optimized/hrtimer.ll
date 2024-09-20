@@ -131,7 +131,7 @@ define internal i64 @ktime_get_clocktai() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i64 @ktime_add_safe(i64 noundef %0, i64 noundef %1) #2 align 16 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @ktime_add_safe(i64 noundef %0, i64 noundef %1) #2 align 16 {
   %3 = add i64 %1, %0
   %4 = icmp slt i64 %3, 0
   %5 = icmp slt i64 %3, %0

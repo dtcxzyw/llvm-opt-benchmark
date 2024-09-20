@@ -1507,7 +1507,7 @@ declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnam
 declare void @_ZN7Compile15grow_node_notesEP13GrowableArrayIP10Node_NotesEi(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN17PhaseRenumberLive19update_embedded_idsEP4Node(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 4) i32 @_ZN17PhaseRenumberLive19update_embedded_idsEP4Node(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 15

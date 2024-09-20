@@ -566,7 +566,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lex_scan(ptr noundef %ls, ptr noundef %tv) unnamed_addr #0 {
+define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef %ls, ptr noundef %tv) unnamed_addr #0 {
 entry:
   %sz.i440 = alloca i64, align 8
   %sz.i416 = alloca i64, align 8
@@ -3205,7 +3205,7 @@ return:                                           ; preds = %if.end27, %lex_next
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_lex_lookahead(ptr noundef %ls) local_unnamed_addr #0 {
+define hidden range(i32 13, 11) i32 @lj_lex_lookahead(ptr noundef %ls) local_unnamed_addr #0 {
 entry:
   %lookaheadval = getelementptr inbounds i8, ptr %ls, i64 24
   %call = tail call fastcc i32 @lex_scan(ptr noundef %ls, ptr noundef nonnull %lookaheadval)

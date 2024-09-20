@@ -3954,7 +3954,7 @@ return:                                           ; preds = %if.end23.thread36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @property_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -2147483648, 1) i32 @property_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %prop_doc25.i = alloca ptr, align 8
   %argsbuf = alloca [4 x ptr], align 16

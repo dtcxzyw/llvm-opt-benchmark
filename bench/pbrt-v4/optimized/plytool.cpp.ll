@@ -348,7 +348,7 @@ $_ZTIZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_ = comdat any
 @str.4 = private unnamed_addr constant [378 x i8] c"plytool provides a number of operations on PLY meshes.\0A\0Ausage: plytool <command> [options]\0A\0Awhere <command> is:\0A\0Acat: Print a text representation of the mesh.\0A\0Adisplace: Apply displacement mapping to a mesh.\0A\0Ainfo: Print general information about the mesh.\0A\0Asplit: Split the mesh into multiple PLY files.\0A\0A\22plytool help <command>\22 provides detailed information about <command>.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z4helpSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE(ptr nocapture noundef readonly %args) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z4helpSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE(ptr nocapture noundef readonly %args) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmd = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %args, align 8
@@ -5461,7 +5461,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.pbrt::PBRTOptions", align 8
   %args = alloca %"class.std::vector", align 8

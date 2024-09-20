@@ -87,7 +87,7 @@ define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef 10, ptr noundef nonnull %4) #8
   %6 = icmp eq ptr %5, null

@@ -1195,7 +1195,7 @@ define dso_local noundef ptr @_ZN4llvm9Attribute22getWithVScaleRangeArgsERNS_11L
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 94) i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #3 align 2 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_9Attribute8AttrKindES2_E4CaseENS_13StringLiteralES2_.exit738.thread3555 [
     i64 10, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -7796,7 +7796,7 @@ _ZNK4llvm16AttributeSetNode17findEnumAttributeENS_9Attribute8AttrKindE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @_ZNK4llvm12AttributeSet17getVScaleRangeMaxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define dso_local range(i64 0, 1099511627776) i64 @_ZNK4llvm12AttributeSet17getVScaleRangeMaxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca %"struct.std::pair", align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -7888,7 +7888,7 @@ _ZNK4llvm16AttributeSetNode17getVScaleRangeMaxEv.exit: ; preds = %.loopexit.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @_ZNK4llvm16AttributeSetNode17getVScaleRangeMaxEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
+define dso_local range(i64 0, 1099511627776) i64 @_ZNK4llvm16AttributeSetNode17getVScaleRangeMaxEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca %"struct.std::pair", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 23
   %4 = load i8, ptr %3, align 1

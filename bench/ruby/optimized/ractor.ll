@@ -3081,7 +3081,7 @@ define internal noundef i32 @mark_shareable(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_ractor_make_shareable_copy(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_ractor_make_shareable_copy(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.obj_traverse_data, align 8
   %3 = alloca %struct.rb_obj_traverse_final_data, align 8
   %4 = alloca %struct.obj_traverse_replace_data, align 8
@@ -4082,7 +4082,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %81, %rb_ec_ractor_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_431(ptr noundef %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @builtin_inline_class_431(ptr noundef %0, i64 %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -4112,7 +4112,7 @@ ractor_receive.exit:                              ; preds = %.lr.ph.i, %rb_ec_ra
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_442(ptr noundef %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @builtin_inline_class_442(ptr noundef %0, i64 %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -4142,7 +4142,7 @@ ractor_receive.exit:                              ; preds = %.lr.ph.i, %rb_ec_ra
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ractor_receive_if(ptr noundef %0, i64 %1, i64 noundef %2) #0 {
+define internal range(i64 37, 36) i64 @ractor_receive_if(ptr noundef %0, i64 %1, i64 noundef %2) #0 {
   %4 = alloca %struct.receive_block_data, align 8
   %5 = and i64 %2, -5
   %.not42 = icmp eq i64 %5, 0
@@ -4406,7 +4406,7 @@ ractor_yield.exit:                                ; preds = %ractor_wait_yield.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_711(ptr noundef %0, i64 noundef %1) #0 {
+define internal range(i64 37, 36) i64 @builtin_inline_class_711(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.rb_vm_tag, align 8
   %5 = alloca %struct.take_wait_take_cleanup_data, align 8
@@ -4814,7 +4814,7 @@ rb_ractor_shareable_p.exit.thread:                ; preds = %15, %2, %rb_ractor_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @builtin_inline_class_827(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @builtin_inline_class_827(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -7244,7 +7244,7 @@ define internal fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %0) unnamed_addr #0 
 declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #26 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #26 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge

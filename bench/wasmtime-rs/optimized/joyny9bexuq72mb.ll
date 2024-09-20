@@ -29844,7 +29844,7 @@ define noundef zeroext i1 @"_ZN89_$LT$wasmtime..runtime..gc..enabled..rooting..P
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN8wasmtime7runtime2gc7enabled7rooting11PackedIndex8new_lifo17h9b61968fc9b011c5E.llvm.5246528701130514578(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN8wasmtime7runtime2gc7enabled7rooting11PackedIndex8new_lifo17h9b61968fc9b011c5E.llvm.5246528701130514578(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i32, align 4

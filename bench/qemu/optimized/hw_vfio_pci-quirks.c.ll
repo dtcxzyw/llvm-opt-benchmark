@@ -1928,7 +1928,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_add_virt_caps(ptr noundef %vdev, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vfio_add_virt_caps(ptr noundef %vdev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %membar_phys.i = alloca [16 x i8], align 16
   %tmp.i = alloca i8, align 1

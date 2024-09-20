@@ -4326,7 +4326,7 @@ return:                                           ; preds = %rdbLoadType.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbSaveStreamPEL(ptr noundef %rdb, ptr noundef %pel, i32 noundef %nacks) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775800, -9223372036854775808) i64 @rdbSaveStreamPEL(ptr noundef %rdb, ptr noundef %pel, i32 noundef %nacks) local_unnamed_addr #0 {
 entry:
   %t64.i = alloca i64, align 8
   %ri = alloca %struct.raxIterator, align 8

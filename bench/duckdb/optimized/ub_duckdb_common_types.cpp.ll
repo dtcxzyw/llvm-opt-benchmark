@@ -39010,7 +39010,7 @@ return:                                           ; preds = %_ZN6duckdb8Interval
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb9Timestamp12FromDatetimeENS_6date_tENS_7dtime_tE(i32 %date.coerce, i64 %time.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZN6duckdb9Timestamp12FromDatetimeENS_6date_tENS_7dtime_tE(i32 %date.coerce, i64 %time.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.duckdb::timestamp_t", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -735,7 +735,7 @@ _make_time_str_internal.exit:                     ; preds = %7, %10, %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @time_str2mins(ptr noundef %0) #0 {
+define range(i32 -35791393, 35791395) i32 @time_str2mins(ptr noundef %0) #0 {
   %2 = tail call i32 @time_str2secs(ptr noundef %0)
   %or.cond = icmp ult i32 %2, -2
   br i1 %or.cond, label %3, label %6

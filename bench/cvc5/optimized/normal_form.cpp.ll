@@ -23400,7 +23400,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 1024) i32 @_ZN4cvc58internal6theory5arith6linear10Comparison14comparisonKindENS0_12NodeTemplateILb0EEE(ptr nocapture noundef readonly %literal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 74) i32 @_ZN4cvc58internal6theory5arith6linear10Comparison14comparisonKindENS0_12NodeTemplateILb0EEE(ptr nocapture noundef readonly %literal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %literal, align 8
   %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8

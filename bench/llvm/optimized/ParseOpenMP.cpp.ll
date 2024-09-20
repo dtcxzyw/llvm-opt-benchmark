@@ -18850,7 +18850,7 @@ define dso_local ptr @_ZN5clang6Parser42ParseOpenMPDeclarativeDirectiveWithExtDe
   %61 = load ptr, ptr %54, align 8
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %61, ptr noundef nonnull align 8 dereferenceable(20) %48) #17
   %62 = tail call fastcc i32 @_ZL24parseOpenMPDirectiveKindRN5clang6ParserE(ptr noundef nonnull align 8 dereferenceable(2936) %0)
-  %63 = and i32 %62, -2
+  %63 = and i32 %62, 126
   %or.cond.not = icmp eq i32 %63, 12
   br i1 %or.cond.not, label %64, label %_ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit.thread
 
@@ -20422,7 +20422,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit214: ; preds = %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL24parseOpenMPDirectiveKindRN5clang6ParserE(ptr noundef nonnull align 8 dereferenceable(2936) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 113) i32 @_ZL24parseOpenMPDirectiveKindRN5clang6ParserE(ptr noundef nonnull align 8 dereferenceable(2936) %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::Token", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -650,7 +650,7 @@ return:                                           ; preds = %if.else, %if.then9,
 declare i32 @udbg_enumCount(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udbg_enumByString(i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %string) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @udbg_enumByString(i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(64) %string) local_unnamed_addr #1 {
 entry:
   %or.cond = icmp ugt i32 %type, 5
   br i1 %or.cond, label %return, label %if.end

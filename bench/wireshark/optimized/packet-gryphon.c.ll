@@ -5038,7 +5038,7 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 80, 0) i32 @resp_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_gryphon_config_device_name, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 16, i32 noundef 20, i32 noundef 0) #4
   %5 = load i32, ptr @hf_gryphon_config_device_version, align 4
@@ -5323,7 +5323,7 @@ define internal fastcc void @resp_blm_stat(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resp_ldf_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 112, 21) i32 @resp_ldf_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %4 = zext i8 %3 to i32
   %5 = load i32, ptr @hf_gryphon_ldf_number, align 4

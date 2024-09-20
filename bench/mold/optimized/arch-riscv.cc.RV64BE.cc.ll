@@ -3744,7 +3744,7 @@ if.end:                                           ; preds = %entry, %_ZN4mold5Er
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @"_ZZN4mold3elf12InputSectionINS0_6RV64BEEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_3clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
+define internal fastcc noundef range(i64 0, -1) i64 @"_ZZN4mold3elf12InputSectionINS0_6RV64BEEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_3clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.mold::Fatal", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40

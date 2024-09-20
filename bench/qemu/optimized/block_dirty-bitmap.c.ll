@@ -1312,7 +1312,7 @@ entry:
 declare i64 @hbitmap_serialization_align(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -9223372034707292160, 9223372030412324866) i64 @bdrv_dirty_bitmap_serialization_coverage(i32 noundef %serialized_chunk_size, ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
+define dso_local range(i64 -4611686018427387904, 4611686016279904257) i64 @bdrv_dirty_bitmap_serialization_coverage(i32 noundef %serialized_chunk_size, ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %bitmap1.i = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1.i, align 8

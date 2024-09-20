@@ -537,7 +537,7 @@ rand_start.exit:                                  ; preds = %random_seed.exit.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, -7) i64 @obj_random_bytes(i64 noundef %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = add i64 %2, 4611686018427387904
   %or.cond.i = icmp sgt i64 %5, -1
@@ -2021,7 +2021,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @random_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
   %4 = tail call fastcc ptr @try_get_rnd(i64 noundef %2)
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2101,7 +2101,7 @@ rb_check_frozen_inline.exit:                      ; preds = %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @random_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i64 5, 4) i64 @random_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = tail call fastcc ptr @try_get_rnd(i64 noundef %2)
   %5 = tail call fastcc i64 @rand_random(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %4)
   switch i64 %5, label %check_random_number.exit [
@@ -2470,7 +2470,7 @@ define internal i64 @rand_mt_equal(i64 noundef %0, i64 noundef %1) #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @random_s_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i64 5, 4) i64 @random_s_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = alloca [5 x i32], align 16
   %5 = load ptr, ptr @default_rand_key, align 8
   %6 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %5) #22

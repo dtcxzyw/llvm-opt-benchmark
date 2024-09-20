@@ -4190,7 +4190,7 @@ define range(i32 0, 2) i32 @Gia_ManBmcCheckOutputs(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ManBmcFindFirst(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_ManBmcFindFirst(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val11 = load i32, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 72

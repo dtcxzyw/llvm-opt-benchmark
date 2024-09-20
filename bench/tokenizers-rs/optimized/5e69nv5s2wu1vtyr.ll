@@ -7380,7 +7380,7 @@ define { ptr, ptr } @"_ZN98_$LT$tokenizers..normalizers..strip..StripAccents$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h9bdaf4318b745b85E.llvm.12244614425474959946"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i32 noundef %1) unnamed_addr #11 {
+define hidden noundef range(i32 8208, 8203) i32 @"_ZN10tokenizers11normalizers7unicode6do_nmt28_$u7b$$u7b$closure$u7d$$u7d$17h9bdaf4318b745b85E.llvm.12244614425474959946"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i32 noundef %1) unnamed_addr #11 {
   switch i32 %1, label %3 [
     i32 9, label %5
     i32 10, label %5

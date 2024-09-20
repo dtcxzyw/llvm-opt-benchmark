@@ -25260,7 +25260,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN17crossbeam_channel5waker17current
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h519b8c94ab9a05d7E.llvm.2498697912442943783"(ptr noalias nocapture noundef align 8 dereferenceable_or_null(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 1, 0) i64 @"_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h519b8c94ab9a05d7E.llvm.2498697912442943783"(ptr noalias nocapture noundef align 8 dereferenceable_or_null(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3

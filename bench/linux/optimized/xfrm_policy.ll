@@ -12165,7 +12165,7 @@ declare dso_local ptr @ipv4_dst_check(ptr noundef, i32 noundef) #4
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_net_init(ptr noundef %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3392
   store i32 0, ptr %2, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 3404

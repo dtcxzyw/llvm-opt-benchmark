@@ -328,7 +328,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit33

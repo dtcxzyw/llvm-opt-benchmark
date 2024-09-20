@@ -19255,7 +19255,7 @@ while.end:                                        ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb6Prefix8TraverseERNS_3ARTERSt17reference_wrapperIKNS_4NodeEERKNS_6ARTKeyERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %art, ptr nocapture noundef nonnull align 8 dereferenceable(8) %prefix_node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %depth) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1, 255) i64 @_ZN6duckdb6Prefix8TraverseERNS_3ARTERSt17reference_wrapperIKNS_4NodeEERKNS_6ARTKeyERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %art, ptr nocapture noundef nonnull align 8 dereferenceable(8) %prefix_node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %depth) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %prefix_node, align 8, !tbaa !297
   %1 = load i64, ptr %0, align 8
@@ -19398,7 +19398,7 @@ return:                                           ; preds = %cleanup13, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb6Prefix15TraverseMutableERNS_3ARTERSt17reference_wrapperINS_4NodeEERKNS_6ARTKeyERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %art, ptr nocapture noundef nonnull align 8 dereferenceable(8) %prefix_node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %depth) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1, 255) i64 @_ZN6duckdb6Prefix15TraverseMutableERNS_3ARTERSt17reference_wrapperINS_4NodeEERKNS_6ARTKeyERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %art, ptr nocapture noundef nonnull align 8 dereferenceable(8) %prefix_node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %depth) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %prefix_node, align 8, !tbaa !177
   %1 = load i64, ptr %0, align 8

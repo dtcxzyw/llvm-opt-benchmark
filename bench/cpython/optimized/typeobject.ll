@@ -2118,7 +2118,7 @@ for.cond.preheader:                               ; preds = %Py_XDECREF.exit.us.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyType_AddWatcher(ptr noundef %callback) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 8) i32 @PyType_AddWatcher(ptr noundef %callback) local_unnamed_addr #3 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

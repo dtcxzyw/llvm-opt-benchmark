@@ -260,7 +260,7 @@ define dso_local void @logfc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_parse_fs_param(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -518, -519) i32 @vfs_parse_fs_param(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8

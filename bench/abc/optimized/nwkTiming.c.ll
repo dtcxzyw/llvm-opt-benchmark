@@ -163,7 +163,7 @@ define void @Nwk_ManDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Nwk_ManWhereIsPin(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @Nwk_ManWhereIsPin(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 60
   %.val = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val, 0

@@ -7719,7 +7719,7 @@ define hidden void @_ZN17PSParallelCompact25initialize_shadow_regionsEj(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN17PSParallelCompact8space_idEPP12HeapWordImpl(ptr noundef readnone %0) local_unnamed_addr #11 align 2 {
+define hidden noundef range(i32 0, 5) i32 @_ZN17PSParallelCompact8space_idEPP12HeapWordImpl(ptr noundef readnone %0) local_unnamed_addr #11 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %11

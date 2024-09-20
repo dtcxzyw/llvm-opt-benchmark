@@ -849,7 +849,7 @@ declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_
 declare void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL9parseArchN4llvh9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 51) i32 @_ZL9parseArchN4llvh9StringRefE(ptr %ArchName.coerce0, i64 %ArchName.coerce1) unnamed_addr #4 {
 land.lhs.true.i.i1399:
   switch i64 %ArchName.coerce1, label %_ZN4llvh12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit272 [
     i64 4, label %if.end.i2780

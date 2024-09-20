@@ -1769,7 +1769,7 @@ return:                                           ; preds = %land.lhs.true72, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7518CollationFastLatin14getSecondariesEjj(i32 noundef %variableTop, i32 noundef %pair) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 67109889) i32 @_ZN6icu_7518CollationFastLatin14getSecondariesEjj(i32 noundef %variableTop, i32 noundef %pair) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp ult i32 %pair, 65536
   br i1 %cmp, label %if.then, label %if.else10

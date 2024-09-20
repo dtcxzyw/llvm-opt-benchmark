@@ -43,7 +43,7 @@ define internal noundef i32 @ompi_comm_rbcast_null(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @ompi_comm_rbcast_register_cb_type(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -2, 7) i32 @ompi_comm_rbcast_register_cb_type(ptr noundef %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %1, %9

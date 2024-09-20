@@ -32876,7 +32876,7 @@ default.unreachable300:                           ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17h96bcfcc435eff258E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(304) %0) unnamed_addr #0 {
+define hidden range(i64 1, 0) i64 @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$object..read..traits..Object$GT$5flags17h96bcfcc435eff258E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(304) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   switch i64 %2, label %default.unreachable29 [
     i64 0, label %3

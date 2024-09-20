@@ -583,7 +583,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %1, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_ffc(ptr nocapture noundef readonly %0) #4 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr nocapture noundef readonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -2779,7 +2779,7 @@ define void @bit_copybits(ptr nocapture noundef writeonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_get_bit_num(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_get_bit_num(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16

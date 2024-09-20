@@ -34416,7 +34416,7 @@ _ZN4core3ops8function6FnOnce9call_once17h11f40a4694d776eaE.exit.i: ; preds = %45
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 6, 5) i8 @_ZN14ide_completion7context8analysis15is_in_breakable17hd5ed6ffcf50e1d64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 7, 5) i8 @_ZN14ide_completion7context8analysis15is_in_breakable17hd5ed6ffcf50e1d64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, ptr, ptr }, ptr }, align 8
   %3 = alloca { ptr, i8, {}, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

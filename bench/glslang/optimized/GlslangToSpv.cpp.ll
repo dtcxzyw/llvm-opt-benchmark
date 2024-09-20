@@ -6593,7 +6593,7 @@ _ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.
 _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13getForcedTypeEN7glslang16TBuiltInVariableERKNS1_5TTypeE.exit: ; preds = %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread, %86, %91, %96
   %.sroa.0.0.i = phi i32 [ %99, %96 ], [ %94, %91 ], [ 0, %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread ], [ 0, %86 ]
   %.sroa.4.0.i = phi i32 [ %101, %96 ], [ %95, %91 ], [ 0, %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread ], [ 0, %86 ]
-  %102 = and i32 %72, -2
+  %102 = and i32 %72, 2147483646
   %103 = icmp eq i32 %102, 5330
   br i1 %103, label %104, label %.critedge
 
@@ -21886,7 +21886,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26TranslateBuiltInDecorationEN7glslang16TBuiltInVariableEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef range(i32 0, 512) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser26TranslateBuiltInDecorationEN7glslang16TBuiltInVariableEb(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef range(i32 0, 512) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   switch i32 %1, label %250 [
     i32 31, label %4
     i32 30, label %251

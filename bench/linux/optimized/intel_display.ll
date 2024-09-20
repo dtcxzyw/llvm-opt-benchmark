@@ -16131,7 +16131,7 @@ define dso_local void @intel_init_display_hooks(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_initial_commit(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -34, -35) i32 @intel_initial_commit(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.drm_modeset_acquire_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #25
   %3 = tail call ptr @drm_atomic_state_alloc(ptr noundef %0) #25

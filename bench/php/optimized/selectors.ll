@@ -275,7 +275,7 @@ lxb_selectors_descendant_next.exit:               ; preds = %54, %52, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 20, 19) i32 @lxb_selectors_find_reverse(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
@@ -438,7 +438,7 @@ lxb_selectors_find_by_reverse.exit.thread16:      ; preds = %50, %.lr.ph, %14, %
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lxb_selectors_find_by(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef range(i32 20, 19) i32 @lxb_selectors_find_by(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   br label %lxb_selectors_descendant_next.exit
 
 lxb_selectors_descendant_next.exit:               ; preds = %lxb_selectors_descendant_next.exit.backedge, %7

@@ -117,7 +117,7 @@ return:                                           ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef range(i64 -1575147300684, 1575147154584) i64 @_ZN8facebook5velox4util32lastDayOfMonthSinceEpochFromDateERK2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %dateTime) local_unnamed_addr #1 {
+define noundef range(i64 -1575147300684, 1575146278002) i64 @_ZN8facebook5velox4util32lastDayOfMonthSinceEpochFromDateERK2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %dateTime) local_unnamed_addr #1 {
 entry:
   %tm_year = getelementptr inbounds i8, ptr %dateTime, i64 20
   %0 = load i32, ptr %tm_year, align 4
@@ -198,7 +198,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef range(i64 -1575147300684, 1575147154584) i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year, i32 noundef %month, i32 noundef %day) local_unnamed_addr #2 {
+define noundef range(i64 -1575147300684, 1575146278002) i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year, i32 noundef %month, i32 noundef %day) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %month, -13
   %or.cond.i = icmp ult i32 %0, -12
@@ -343,7 +343,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef range(i64 -1572999817040, 1581589605530) i64 @_ZN8facebook5velox4util26daysSinceEpochFromWeekDateEiii(i32 noundef %weekYear, i32 noundef %weekOfYear, i32 noundef %dayOfWeek) local_unnamed_addr #2 {
+define noundef range(i64 -1572999817039, 1572998794722) i64 @_ZN8facebook5velox4util26daysSinceEpochFromWeekDateEiii(i32 noundef %weekYear, i32 noundef %weekOfYear, i32 noundef %dayOfWeek) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %dayOfWeek, -1
   %or.cond.i = icmp ult i32 %0, 7
@@ -507,7 +507,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef range(i64 -1572999817036, 1577294638233) i64 @_ZN8facebook5velox4util27daysSinceEpochFromDayOfYearEii(i32 noundef %year, i32 noundef %dayOfYear) local_unnamed_addr #2 {
+define noundef range(i64 -1572999817036, 1572998794721) i64 @_ZN8facebook5velox4util27daysSinceEpochFromDayOfYearEii(i32 noundef %year, i32 noundef %dayOfYear) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %year, -292278995
   %or.cond.i = icmp ult i32 %0, -584554050

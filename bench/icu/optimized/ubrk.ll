@@ -591,7 +591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubrk_getBinaryRules_75(ptr noundef %bi, ptr noundef writeonly %binaryRules, i32 noundef %rulesCapacity, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ubrk_getBinaryRules_75(ptr noundef %bi, ptr noundef writeonly %binaryRules, i32 noundef %rulesCapacity, ptr nocapture noundef %status) local_unnamed_addr #0 {
 entry:
   %rulesLength = alloca i32, align 4
   %0 = load i32, ptr %status, align 4

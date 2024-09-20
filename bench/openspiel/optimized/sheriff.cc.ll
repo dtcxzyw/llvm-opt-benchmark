@@ -4491,7 +4491,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel7sheriff11SheriffGame30DeserializeItemPlacementActionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2) i32 @_ZNK10open_spiel7sheriff11SheriffGame30DeserializeItemPlacementActionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

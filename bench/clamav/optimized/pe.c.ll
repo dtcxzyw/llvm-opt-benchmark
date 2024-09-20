@@ -5689,7 +5689,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
 2266:                                             ; preds = %2260
   %2267 = zext i32 %2238 to i64
   %2268 = call fastcc i64 @fmap_readn(ptr noundef %43, ptr noundef nonnull %2259, i64 noundef %2267, i64 noundef %2250)
-  %2269 = trunc i64 %2268 to i32
+  %2269 = trunc nsw i64 %2268 to i32
   %2270 = load ptr, ptr %13, align 8
   %2271 = getelementptr inbounds %struct.cli_exe_section, ptr %2270, i64 %indvars.iv3137, i32 8
   %2272 = load i32, ptr %2271, align 4
@@ -9408,7 +9408,7 @@ declare void @cli_exe_info_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %2, %6

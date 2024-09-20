@@ -967,7 +967,7 @@ define hidden noalias noundef ptr @_ZN10CodeBuffer17code_section_nameEi(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
@@ -2513,14 +2513,14 @@ define hidden noundef i32 @_ZNK10CodeBuffer31total_skipped_instructions_sizeEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef null, i32 poison, i1 noundef zeroext false)
-  %3 = add i32 %2, 7
+  %2 = tail call noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef null, i32 poison, i1 noundef zeroext false)
+  %3 = add nuw i32 %2, 7
   %4 = and i32 %3, -8
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 
@@ -2538,7 +2538,7 @@ define hidden noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef writeonly %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef writeonly %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.not71 = icmp eq ptr %1, null
   %6 = icmp ne ptr %1, null

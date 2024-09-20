@@ -1284,7 +1284,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %.sroa.15 = alloca i8, align 1
   %2 = alloca %struct.ata_taskfile, align 8
   %3 = alloca ptr, align 8

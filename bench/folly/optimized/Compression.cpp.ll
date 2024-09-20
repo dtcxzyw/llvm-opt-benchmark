@@ -8261,7 +8261,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare i64 @lzma_stream_buffer_bound(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_116lzmaThrowOnErrorE8lzma_ret(i32 noundef returned %rc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 11) i32 @_ZN5folly2io12_GLOBAL__N_116lzmaThrowOnErrorE8lzma_ret(i32 noundef returned %rc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %rc.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10858,7 +10858,7 @@ declare i32 @BZ2_bzCompressEnd(ptr noundef) local_unnamed_addr #5
 declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_17bzCheckEi(i32 noundef returned %rc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -2, 5) i32 @_ZN5folly2io12_GLOBAL__N_17bzCheckEi(i32 noundef returned %rc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %rc.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

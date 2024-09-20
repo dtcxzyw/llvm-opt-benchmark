@@ -4418,7 +4418,7 @@ define noundef range(i32 0, 67) i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 34) i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4554,7 +4554,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %90 unwind label %225
 
 90:                                               ; preds = %88
-  %91 = add nsw i32 %87, %89
+  %91 = add nuw nsw i32 %87, %89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -4566,7 +4566,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %94 unwind label %229
 
 94:                                               ; preds = %92
-  %95 = add nsw i32 %91, %93
+  %95 = add nuw nsw i32 %91, %93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -4578,7 +4578,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %98 unwind label %233
 
 98:                                               ; preds = %96
-  %99 = add nsw i32 %95, %97
+  %99 = add nuw nsw i32 %95, %97
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -4590,7 +4590,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %102 unwind label %237
 
 102:                                              ; preds = %100
-  %103 = add nsw i32 %99, %101
+  %103 = add nuw nsw i32 %99, %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -4602,7 +4602,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %106 unwind label %241
 
 106:                                              ; preds = %104
-  %107 = add nsw i32 %103, %105
+  %107 = add nuw nsw i32 %103, %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -4614,7 +4614,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %110 unwind label %245
 
 110:                                              ; preds = %108
-  %111 = add nsw i32 %107, %109
+  %111 = add nuw nsw i32 %107, %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -4626,7 +4626,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %114 unwind label %249
 
 114:                                              ; preds = %112
-  %115 = add nsw i32 %111, %113
+  %115 = add nuw nsw i32 %111, %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -4638,7 +4638,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %118 unwind label %253
 
 118:                                              ; preds = %116
-  %119 = add nsw i32 %115, %117
+  %119 = add nuw nsw i32 %115, %117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -4650,7 +4650,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %122 unwind label %257
 
 122:                                              ; preds = %120
-  %123 = add nsw i32 %119, %121
+  %123 = add nuw nsw i32 %119, %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -4662,7 +4662,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %126 unwind label %261
 
 126:                                              ; preds = %124
-  %127 = add nsw i32 %123, %125
+  %127 = add nuw nsw i32 %123, %125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -4674,7 +4674,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %130 unwind label %265
 
 130:                                              ; preds = %128
-  %131 = add nsw i32 %127, %129
+  %131 = add nuw nsw i32 %127, %129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -4686,7 +4686,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %134 unwind label %269
 
 134:                                              ; preds = %132
-  %135 = add nsw i32 %131, %133
+  %135 = add nuw nsw i32 %131, %133
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -4698,7 +4698,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %138 unwind label %273
 
 138:                                              ; preds = %136
-  %139 = add nsw i32 %135, %137
+  %139 = add nuw nsw i32 %135, %137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -4710,7 +4710,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %142 unwind label %277
 
 142:                                              ; preds = %140
-  %143 = add nsw i32 %139, %141
+  %143 = add nuw nsw i32 %139, %141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -4722,7 +4722,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %146 unwind label %281
 
 146:                                              ; preds = %144
-  %147 = add nsw i32 %143, %145
+  %147 = add nuw nsw i32 %143, %145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -4734,7 +4734,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %150 unwind label %285
 
 150:                                              ; preds = %148
-  %151 = add nsw i32 %147, %149
+  %151 = add nuw nsw i32 %147, %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -4746,7 +4746,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %154 unwind label %289
 
 154:                                              ; preds = %152
-  %155 = add nsw i32 %151, %153
+  %155 = add nuw nsw i32 %151, %153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -4758,7 +4758,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %158 unwind label %293
 
 158:                                              ; preds = %156
-  %159 = add nsw i32 %155, %157
+  %159 = add nuw nsw i32 %155, %157
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -4770,7 +4770,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %162 unwind label %297
 
 162:                                              ; preds = %160
-  %163 = add nsw i32 %159, %161
+  %163 = add nuw nsw i32 %159, %161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -4782,7 +4782,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %166 unwind label %301
 
 166:                                              ; preds = %164
-  %167 = add nsw i32 %163, %165
+  %167 = add nuw nsw i32 %163, %165
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -4794,7 +4794,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %170 unwind label %305
 
 170:                                              ; preds = %168
-  %171 = add nsw i32 %167, %169
+  %171 = add nuw nsw i32 %167, %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -4806,7 +4806,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %174 unwind label %309
 
 174:                                              ; preds = %172
-  %175 = add nsw i32 %171, %173
+  %175 = add nuw nsw i32 %171, %173
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -4818,7 +4818,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %178 unwind label %313
 
 178:                                              ; preds = %176
-  %179 = add nsw i32 %175, %177
+  %179 = add nuw nsw i32 %175, %177
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -4830,7 +4830,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %182 unwind label %317
 
 182:                                              ; preds = %180
-  %183 = add nsw i32 %179, %181
+  %183 = add nuw nsw i32 %179, %181
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -4842,7 +4842,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %186 unwind label %321
 
 186:                                              ; preds = %184
-  %187 = add nsw i32 %183, %185
+  %187 = add nuw nsw i32 %183, %185
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -4854,7 +4854,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %190 unwind label %325
 
 190:                                              ; preds = %188
-  %191 = add nsw i32 %187, %189
+  %191 = add nuw nsw i32 %187, %189
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -4866,7 +4866,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %194 unwind label %329
 
 194:                                              ; preds = %192
-  %195 = add nsw i32 %191, %193
+  %195 = add nuw nsw i32 %191, %193
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -4878,7 +4878,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
           to label %198 unwind label %333
 
 198:                                              ; preds = %196
-  %199 = add nsw i32 %195, %197
+  %199 = add nuw nsw i32 %195, %197
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   %200 = icmp eq i32 %199, 0
@@ -5270,7 +5270,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 30) i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5350,7 +5350,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %66 unwind label %185
 
 66:                                               ; preds = %64
-  %67 = add nsw i32 %65, %62
+  %67 = add nuw nsw i32 %65, %62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
@@ -5362,7 +5362,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %70 unwind label %189
 
 70:                                               ; preds = %68
-  %71 = add nsw i32 %67, %69
+  %71 = add nuw nsw i32 %67, %69
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
@@ -5374,7 +5374,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %74 unwind label %193
 
 74:                                               ; preds = %72
-  %75 = add nsw i32 %71, %73
+  %75 = add nuw nsw i32 %71, %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
@@ -5386,7 +5386,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %78 unwind label %197
 
 78:                                               ; preds = %76
-  %79 = add nsw i32 %75, %77
+  %79 = add nuw nsw i32 %75, %77
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
@@ -5398,7 +5398,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %82 unwind label %201
 
 82:                                               ; preds = %80
-  %83 = add nsw i32 %79, %81
+  %83 = add nuw nsw i32 %79, %81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -5410,7 +5410,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %86 unwind label %205
 
 86:                                               ; preds = %84
-  %87 = add nsw i32 %83, %85
+  %87 = add nuw nsw i32 %83, %85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -5422,7 +5422,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %90 unwind label %209
 
 90:                                               ; preds = %88
-  %91 = add nsw i32 %87, %89
+  %91 = add nuw nsw i32 %87, %89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -5434,7 +5434,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %94 unwind label %213
 
 94:                                               ; preds = %92
-  %95 = add nsw i32 %91, %93
+  %95 = add nuw nsw i32 %91, %93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -5446,7 +5446,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %98 unwind label %217
 
 98:                                               ; preds = %96
-  %99 = add nsw i32 %95, %97
+  %99 = add nuw nsw i32 %95, %97
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -5458,7 +5458,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %102 unwind label %221
 
 102:                                              ; preds = %100
-  %103 = add nsw i32 %99, %101
+  %103 = add nuw nsw i32 %99, %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -5470,7 +5470,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %106 unwind label %225
 
 106:                                              ; preds = %104
-  %107 = add nsw i32 %103, %105
+  %107 = add nuw nsw i32 %103, %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -5482,7 +5482,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %110 unwind label %229
 
 110:                                              ; preds = %108
-  %111 = add nsw i32 %107, %109
+  %111 = add nuw nsw i32 %107, %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -5494,7 +5494,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %114 unwind label %233
 
 114:                                              ; preds = %112
-  %115 = add nsw i32 %111, %113
+  %115 = add nuw nsw i32 %111, %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -5506,7 +5506,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %118 unwind label %237
 
 118:                                              ; preds = %116
-  %119 = add nsw i32 %115, %117
+  %119 = add nuw nsw i32 %115, %117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -5518,7 +5518,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %122 unwind label %241
 
 122:                                              ; preds = %120
-  %123 = add nsw i32 %119, %121
+  %123 = add nuw nsw i32 %119, %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -5530,7 +5530,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %126 unwind label %245
 
 126:                                              ; preds = %124
-  %127 = add nsw i32 %123, %125
+  %127 = add nuw nsw i32 %123, %125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -5542,7 +5542,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %130 unwind label %249
 
 130:                                              ; preds = %128
-  %131 = add nsw i32 %127, %129
+  %131 = add nuw nsw i32 %127, %129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -5554,7 +5554,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %134 unwind label %253
 
 134:                                              ; preds = %132
-  %135 = add nsw i32 %131, %133
+  %135 = add nuw nsw i32 %131, %133
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -5566,7 +5566,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %138 unwind label %257
 
 138:                                              ; preds = %136
-  %139 = add nsw i32 %135, %137
+  %139 = add nuw nsw i32 %135, %137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -5578,7 +5578,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %142 unwind label %261
 
 142:                                              ; preds = %140
-  %143 = add nsw i32 %139, %141
+  %143 = add nuw nsw i32 %139, %141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -5590,7 +5590,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %146 unwind label %265
 
 146:                                              ; preds = %144
-  %147 = add nsw i32 %143, %145
+  %147 = add nuw nsw i32 %143, %145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -5602,7 +5602,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %150 unwind label %269
 
 150:                                              ; preds = %148
-  %151 = add nsw i32 %147, %149
+  %151 = add nuw nsw i32 %147, %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -5614,7 +5614,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %154 unwind label %273
 
 154:                                              ; preds = %152
-  %155 = add nsw i32 %151, %153
+  %155 = add nuw nsw i32 %151, %153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -5626,7 +5626,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %158 unwind label %277
 
 158:                                              ; preds = %156
-  %159 = add nsw i32 %155, %157
+  %159 = add nuw nsw i32 %155, %157
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -5638,7 +5638,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %162 unwind label %281
 
 162:                                              ; preds = %160
-  %163 = add nsw i32 %159, %161
+  %163 = add nuw nsw i32 %159, %161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -5650,7 +5650,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %166 unwind label %285
 
 166:                                              ; preds = %164
-  %167 = add nsw i32 %163, %165
+  %167 = add nuw nsw i32 %163, %165
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -5662,7 +5662,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %170 unwind label %289
 
 170:                                              ; preds = %168
-  %171 = add nsw i32 %167, %169
+  %171 = add nuw nsw i32 %167, %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -5674,7 +5674,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
           to label %174 unwind label %293
 
 174:                                              ; preds = %172
-  %175 = add nsw i32 %171, %173
+  %175 = add nuw nsw i32 %171, %173
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   %176 = icmp eq i32 %175, 0
@@ -6022,7 +6022,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 47) i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6136,7 +6136,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %100 unwind label %287
 
 100:                                              ; preds = %98
-  %101 = add nsw i32 %99, %96
+  %101 = add nuw nsw i32 %99, %96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
@@ -6148,7 +6148,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %104 unwind label %291
 
 104:                                              ; preds = %102
-  %105 = add nsw i32 %101, %103
+  %105 = add nuw nsw i32 %101, %103
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
@@ -6160,7 +6160,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %108 unwind label %295
 
 108:                                              ; preds = %106
-  %109 = add nsw i32 %105, %107
+  %109 = add nuw nsw i32 %105, %107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
@@ -6172,7 +6172,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %112 unwind label %299
 
 112:                                              ; preds = %110
-  %113 = add nsw i32 %109, %111
+  %113 = add nuw nsw i32 %109, %111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
@@ -6184,7 +6184,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %116 unwind label %303
 
 116:                                              ; preds = %114
-  %117 = add nsw i32 %113, %115
+  %117 = add nuw nsw i32 %113, %115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -6196,7 +6196,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %120 unwind label %307
 
 120:                                              ; preds = %118
-  %121 = add nsw i32 %117, %119
+  %121 = add nuw nsw i32 %117, %119
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -6208,7 +6208,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %124 unwind label %311
 
 124:                                              ; preds = %122
-  %125 = add nsw i32 %121, %123
+  %125 = add nuw nsw i32 %121, %123
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -6220,7 +6220,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %128 unwind label %315
 
 128:                                              ; preds = %126
-  %129 = add nsw i32 %125, %127
+  %129 = add nuw nsw i32 %125, %127
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -6232,7 +6232,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %132 unwind label %319
 
 132:                                              ; preds = %130
-  %133 = add nsw i32 %129, %131
+  %133 = add nuw nsw i32 %129, %131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -6244,7 +6244,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %136 unwind label %323
 
 136:                                              ; preds = %134
-  %137 = add nsw i32 %133, %135
+  %137 = add nuw nsw i32 %133, %135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -6256,7 +6256,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %140 unwind label %327
 
 140:                                              ; preds = %138
-  %141 = add nsw i32 %137, %139
+  %141 = add nuw nsw i32 %137, %139
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -6268,7 +6268,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %144 unwind label %331
 
 144:                                              ; preds = %142
-  %145 = add nsw i32 %141, %143
+  %145 = add nuw nsw i32 %141, %143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -6280,7 +6280,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %148 unwind label %335
 
 148:                                              ; preds = %146
-  %149 = add nsw i32 %145, %147
+  %149 = add nuw nsw i32 %145, %147
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -6292,7 +6292,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %152 unwind label %339
 
 152:                                              ; preds = %150
-  %153 = add nsw i32 %149, %151
+  %153 = add nuw nsw i32 %149, %151
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -6304,7 +6304,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %156 unwind label %343
 
 156:                                              ; preds = %154
-  %157 = add nsw i32 %153, %155
+  %157 = add nuw nsw i32 %153, %155
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -6316,7 +6316,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %160 unwind label %347
 
 160:                                              ; preds = %158
-  %161 = add nsw i32 %157, %159
+  %161 = add nuw nsw i32 %157, %159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -6328,7 +6328,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %164 unwind label %351
 
 164:                                              ; preds = %162
-  %165 = add nsw i32 %161, %163
+  %165 = add nuw nsw i32 %161, %163
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -6340,7 +6340,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %168 unwind label %355
 
 168:                                              ; preds = %166
-  %169 = add nsw i32 %165, %167
+  %169 = add nuw nsw i32 %165, %167
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -6352,7 +6352,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %172 unwind label %359
 
 172:                                              ; preds = %170
-  %173 = add nsw i32 %169, %171
+  %173 = add nuw nsw i32 %169, %171
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -6364,7 +6364,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %176 unwind label %363
 
 176:                                              ; preds = %174
-  %177 = add nsw i32 %173, %175
+  %177 = add nuw nsw i32 %173, %175
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -6376,7 +6376,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %180 unwind label %367
 
 180:                                              ; preds = %178
-  %181 = add nsw i32 %177, %179
+  %181 = add nuw nsw i32 %177, %179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -6388,7 +6388,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %184 unwind label %371
 
 184:                                              ; preds = %182
-  %185 = add nsw i32 %181, %183
+  %185 = add nuw nsw i32 %181, %183
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -6400,7 +6400,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %188 unwind label %375
 
 188:                                              ; preds = %186
-  %189 = add nsw i32 %185, %187
+  %189 = add nuw nsw i32 %185, %187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -6412,7 +6412,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %192 unwind label %379
 
 192:                                              ; preds = %190
-  %193 = add nsw i32 %189, %191
+  %193 = add nuw nsw i32 %189, %191
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -6424,7 +6424,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %196 unwind label %383
 
 196:                                              ; preds = %194
-  %197 = add nsw i32 %193, %195
+  %197 = add nuw nsw i32 %193, %195
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -6436,7 +6436,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %200 unwind label %387
 
 200:                                              ; preds = %198
-  %201 = add nsw i32 %197, %199
+  %201 = add nuw nsw i32 %197, %199
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -6448,7 +6448,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %204 unwind label %391
 
 204:                                              ; preds = %202
-  %205 = add nsw i32 %201, %203
+  %205 = add nuw nsw i32 %201, %203
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -6460,7 +6460,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %208 unwind label %395
 
 208:                                              ; preds = %206
-  %209 = add nsw i32 %205, %207
+  %209 = add nuw nsw i32 %205, %207
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -6472,7 +6472,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %212 unwind label %399
 
 212:                                              ; preds = %210
-  %213 = add nsw i32 %209, %211
+  %213 = add nuw nsw i32 %209, %211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -6484,7 +6484,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %216 unwind label %403
 
 216:                                              ; preds = %214
-  %217 = add nsw i32 %213, %215
+  %217 = add nuw nsw i32 %213, %215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -6496,7 +6496,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %220 unwind label %407
 
 220:                                              ; preds = %218
-  %221 = add nsw i32 %217, %219
+  %221 = add nuw nsw i32 %217, %219
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -6508,7 +6508,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %224 unwind label %411
 
 224:                                              ; preds = %222
-  %225 = add nsw i32 %221, %223
+  %225 = add nuw nsw i32 %221, %223
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
@@ -6520,7 +6520,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %228 unwind label %415
 
 228:                                              ; preds = %226
-  %229 = add nsw i32 %225, %227
+  %229 = add nuw nsw i32 %225, %227
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
@@ -6532,7 +6532,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %232 unwind label %419
 
 232:                                              ; preds = %230
-  %233 = add nsw i32 %229, %231
+  %233 = add nuw nsw i32 %229, %231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
@@ -6544,7 +6544,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %236 unwind label %423
 
 236:                                              ; preds = %234
-  %237 = add nsw i32 %233, %235
+  %237 = add nuw nsw i32 %233, %235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
@@ -6556,7 +6556,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %240 unwind label %427
 
 240:                                              ; preds = %238
-  %241 = add nsw i32 %237, %239
+  %241 = add nuw nsw i32 %237, %239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
@@ -6568,7 +6568,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %244 unwind label %431
 
 244:                                              ; preds = %242
-  %245 = add nsw i32 %241, %243
+  %245 = add nuw nsw i32 %241, %243
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
@@ -6580,7 +6580,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %248 unwind label %435
 
 248:                                              ; preds = %246
-  %249 = add nsw i32 %245, %247
+  %249 = add nuw nsw i32 %245, %247
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
@@ -6592,7 +6592,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %252 unwind label %439
 
 252:                                              ; preds = %250
-  %253 = add nsw i32 %249, %251
+  %253 = add nuw nsw i32 %249, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
@@ -6604,7 +6604,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %256 unwind label %443
 
 256:                                              ; preds = %254
-  %257 = add nsw i32 %253, %255
+  %257 = add nuw nsw i32 %253, %255
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
@@ -6616,7 +6616,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %260 unwind label %447
 
 260:                                              ; preds = %258
-  %261 = add nsw i32 %257, %259
+  %261 = add nuw nsw i32 %257, %259
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
@@ -6628,7 +6628,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %264 unwind label %451
 
 264:                                              ; preds = %262
-  %265 = add nsw i32 %261, %263
+  %265 = add nuw nsw i32 %261, %263
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
@@ -6640,7 +6640,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %268 unwind label %455
 
 268:                                              ; preds = %266
-  %269 = add nsw i32 %265, %267
+  %269 = add nuw nsw i32 %265, %267
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
@@ -6652,7 +6652,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %272 unwind label %459
 
 272:                                              ; preds = %270
-  %273 = add nsw i32 %269, %271
+  %273 = add nuw nsw i32 %269, %271
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
@@ -6664,7 +6664,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
           to label %276 unwind label %463
 
 276:                                              ; preds = %274
-  %277 = add nsw i32 %273, %275
+  %277 = add nuw nsw i32 %273, %275
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
   %278 = icmp eq i32 %277, 0
@@ -7199,7 +7199,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 24) i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, double *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, double *>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -7297,7 +7297,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %76 unwind label %201
 
 76:                                               ; preds = %74
-  %77 = add nsw i32 %73, %75
+  %77 = add nuw nsw i32 %73, %75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
@@ -7309,7 +7309,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %80 unwind label %205
 
 80:                                               ; preds = %78
-  %81 = add nsw i32 %77, %79
+  %81 = add nuw nsw i32 %77, %79
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #25
@@ -7321,7 +7321,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %84 unwind label %209
 
 84:                                               ; preds = %82
-  %85 = add nsw i32 %81, %83
+  %85 = add nuw nsw i32 %81, %83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #25
@@ -7333,7 +7333,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %88 unwind label %213
 
 88:                                               ; preds = %86
-  %89 = add nsw i32 %85, %87
+  %89 = add nuw nsw i32 %85, %87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #25
@@ -7345,7 +7345,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %92 unwind label %217
 
 92:                                               ; preds = %90
-  %93 = add nsw i32 %89, %91
+  %93 = add nuw nsw i32 %89, %91
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #25
@@ -7357,7 +7357,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %96 unwind label %221
 
 96:                                               ; preds = %94
-  %97 = add nsw i32 %93, %95
+  %97 = add nuw nsw i32 %93, %95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #25
@@ -7369,7 +7369,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %100 unwind label %225
 
 100:                                              ; preds = %98
-  %101 = add nsw i32 %97, %99
+  %101 = add nuw nsw i32 %97, %99
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #25
@@ -7381,7 +7381,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %104 unwind label %229
 
 104:                                              ; preds = %102
-  %105 = add nsw i32 %101, %103
+  %105 = add nuw nsw i32 %101, %103
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #25
@@ -7393,7 +7393,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %108 unwind label %233
 
 108:                                              ; preds = %106
-  %109 = add nsw i32 %105, %107
+  %109 = add nuw nsw i32 %105, %107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #25
@@ -7405,7 +7405,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %112 unwind label %237
 
 112:                                              ; preds = %110
-  %113 = add nsw i32 %109, %111
+  %113 = add nuw nsw i32 %109, %111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #25
@@ -7417,7 +7417,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %116 unwind label %241
 
 116:                                              ; preds = %114
-  %117 = add nsw i32 %113, %115
+  %117 = add nuw nsw i32 %113, %115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #25
@@ -7429,7 +7429,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %120 unwind label %245
 
 120:                                              ; preds = %118
-  %121 = add nsw i32 %117, %119
+  %121 = add nuw nsw i32 %117, %119
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #25
@@ -7441,7 +7441,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %124 unwind label %249
 
 124:                                              ; preds = %122
-  %125 = add nsw i32 %121, %123
+  %125 = add nuw nsw i32 %121, %123
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #25
@@ -7453,7 +7453,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %128 unwind label %253
 
 128:                                              ; preds = %126
-  %129 = add nsw i32 %125, %127
+  %129 = add nuw nsw i32 %125, %127
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #25
@@ -7465,7 +7465,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %132 unwind label %257
 
 132:                                              ; preds = %130
-  %133 = add nsw i32 %129, %131
+  %133 = add nuw nsw i32 %129, %131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #25
@@ -7477,7 +7477,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %136 unwind label %261
 
 136:                                              ; preds = %134
-  %137 = add nsw i32 %133, %135
+  %137 = add nuw nsw i32 %133, %135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #25
@@ -7489,7 +7489,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %140 unwind label %265
 
 140:                                              ; preds = %138
-  %141 = add nsw i32 %137, %139
+  %141 = add nuw nsw i32 %137, %139
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #25
@@ -7501,7 +7501,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %144 unwind label %269
 
 144:                                              ; preds = %142
-  %145 = add nsw i32 %141, %143
+  %145 = add nuw nsw i32 %141, %143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #25
@@ -7513,7 +7513,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %148 unwind label %273
 
 148:                                              ; preds = %146
-  %149 = add nsw i32 %145, %147
+  %149 = add nuw nsw i32 %145, %147
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #25
@@ -7525,7 +7525,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %152 unwind label %277
 
 152:                                              ; preds = %150
-  %153 = add nsw i32 %149, %151
+  %153 = add nuw nsw i32 %149, %151
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #25
   invoke void @_ZN2mu6ParserC1Ev(ptr noundef nonnull align 8 dereferenceable(596) %47)
@@ -7664,249 +7664,249 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 191:                                              ; preds = %1
   %192 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 193:                                              ; preds = %67
   %194 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
-  br label %389
+  br label %388
 
 195:                                              ; preds = %69
   %196 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 197:                                              ; preds = %70
   %198 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  br label %389
+  br label %388
 
 199:                                              ; preds = %72
   %200 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 201:                                              ; preds = %74
   %202 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  br label %389
+  br label %388
 
 203:                                              ; preds = %76
   %204 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 205:                                              ; preds = %78
   %206 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br label %389
+  br label %388
 
 207:                                              ; preds = %80
   %208 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 209:                                              ; preds = %82
   %210 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
-  br label %389
+  br label %388
 
 211:                                              ; preds = %84
   %212 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 213:                                              ; preds = %86
   %214 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
-  br label %389
+  br label %388
 
 215:                                              ; preds = %88
   %216 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 217:                                              ; preds = %90
   %218 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25
-  br label %389
+  br label %388
 
 219:                                              ; preds = %92
   %220 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 221:                                              ; preds = %94
   %222 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #25
-  br label %389
+  br label %388
 
 223:                                              ; preds = %96
   %224 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 225:                                              ; preds = %98
   %226 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #25
-  br label %389
+  br label %388
 
 227:                                              ; preds = %100
   %228 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 229:                                              ; preds = %102
   %230 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #25
-  br label %389
+  br label %388
 
 231:                                              ; preds = %104
   %232 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 233:                                              ; preds = %106
   %234 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #25
-  br label %389
+  br label %388
 
 235:                                              ; preds = %108
   %236 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 237:                                              ; preds = %110
   %238 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #25
-  br label %389
+  br label %388
 
 239:                                              ; preds = %112
   %240 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 241:                                              ; preds = %114
   %242 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #25
-  br label %389
+  br label %388
 
 243:                                              ; preds = %116
   %244 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 245:                                              ; preds = %118
   %246 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #25
-  br label %389
+  br label %388
 
 247:                                              ; preds = %120
   %248 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 249:                                              ; preds = %122
   %250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
-  br label %389
+  br label %388
 
 251:                                              ; preds = %124
   %252 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 253:                                              ; preds = %126
   %254 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #25
-  br label %389
+  br label %388
 
 255:                                              ; preds = %128
   %256 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 257:                                              ; preds = %130
   %258 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #25
-  br label %389
+  br label %388
 
 259:                                              ; preds = %132
   %260 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 261:                                              ; preds = %134
   %262 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #25
-  br label %389
+  br label %388
 
 263:                                              ; preds = %136
   %264 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 265:                                              ; preds = %138
   %266 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25
-  br label %389
+  br label %388
 
 267:                                              ; preds = %140
   %268 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 269:                                              ; preds = %142
   %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #25
-  br label %389
+  br label %388
 
 271:                                              ; preds = %144
   %272 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 273:                                              ; preds = %146
   %274 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #25
-  br label %389
+  br label %388
 
 275:                                              ; preds = %148
   %276 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  br label %388
 
 277:                                              ; preds = %150
   %278 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #25
-  br label %389
+  br label %388
 
 279:                                              ; preds = %152
   %280 = landingpad { ptr, i32 }
           catch ptr null
-  br label %376
+  br label %.thread
 
 281:                                              ; preds = %154
   %282 = landingpad { ptr, i32 }
@@ -8185,7 +8185,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 ._crit_edge158:                                   ; preds = %368, %362
   %370 = load ptr, ptr %174, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef %370)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit unwind label %371
+          to label %378 unwind label %371
 
 371:                                              ; preds = %._crit_edge158
   %372 = landingpad { ptr, i32 }
@@ -8193,10 +8193,6 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   %373 = extractvalue { ptr, i32 } %372, 0
   call void @__clang_call_terminate(ptr %373) #27
   unreachable
-
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit: ; preds = %._crit_edge158
-  call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %47) #25
-  br label %379
 
 374:                                              ; preds = %361, %338, %313
   %.pn119 = phi { ptr, i32 } [ %314, %313 ], [ %.pn114, %361 ], [ %.pn111, %338 ]
@@ -8206,45 +8202,47 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 375:                                              ; preds = %374, %311, %310, %305, %300, %295, %290, %285
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %374 ], [ %312, %311 ], [ %.pn109, %310 ], [ %.pn108, %305 ], [ %.pn107, %300 ], [ %.pn106, %295 ], [ %.pn105, %290 ], [ %.pn104, %285 ]
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %47) #25
-  br label %376
+  br label %.thread
 
-376:                                              ; preds = %375, %279
+.thread:                                          ; preds = %279, %375
   %.pn119.pn.pn = phi { ptr, i32 } [ %.pn119.pn, %375 ], [ %280, %279 ]
   %.23 = extractvalue { ptr, i32 } %.pn119.pn.pn, 0
-  %377 = call ptr @__cxa_begin_catch(ptr %.23) #25
-  %378 = add nsw i32 %153, 1
+  %376 = call ptr @__cxa_begin_catch(ptr %.23) #25
+  %377 = add nuw nsw i32 %153, 1
   call void @__cxa_end_catch()
-  br label %379
+  br label %382
 
-379:                                              ; preds = %376, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit
-  %.059 = phi i32 [ %378, %376 ], [ %153, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit ]
-  %380 = icmp eq i32 %.059, 0
-  br i1 %380, label %381, label %383
+378:                                              ; preds = %._crit_edge158
+  call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %47) #25
+  %379 = icmp eq i32 %153, 0
+  br i1 %379, label %380, label %382
 
-381:                                              ; preds = %379
-  %382 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.9)
-  br label %387
+380:                                              ; preds = %378
+  %381 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.9)
+  br label %386
 
-383:                                              ; preds = %379
-  %384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10)
-  %385 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %384, i32 noundef %.059)
-  %386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef nonnull @.str.11)
-  br label %387
+382:                                              ; preds = %.thread, %378
+  %.059166 = phi i32 [ %377, %.thread ], [ %153, %378 ]
+  %383 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10)
+  %384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %383, i32 noundef %.059166)
+  %385 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %384, ptr noundef nonnull @.str.11)
+  br label %386
 
-387:                                              ; preds = %383, %381
-  %.sink = phi ptr [ %386, %383 ], [ %382, %381 ]
-  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  ret i32 %.059
+386:                                              ; preds = %382, %380
+  %.sink = phi ptr [ %385, %382 ], [ %381, %380 ]
+  %.059165 = phi i32 [ %.059166, %382 ], [ 0, %380 ]
+  %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  ret i32 %.059165
 
-389:                                              ; preds = %275, %277, %271, %273, %267, %269, %263, %265, %259, %261, %255, %257, %251, %253, %247, %249, %243, %245, %239, %241, %235, %237, %231, %233, %227, %229, %223, %225, %219, %221, %215, %217, %211, %213, %207, %209, %203, %205, %199, %201, %195, %197, %191, %193
-  %.sink164 = phi ptr [ %4, %193 ], [ %4, %191 ], [ %6, %197 ], [ %6, %195 ], [ %8, %201 ], [ %8, %199 ], [ %10, %205 ], [ %10, %203 ], [ %12, %209 ], [ %12, %207 ], [ %14, %213 ], [ %14, %211 ], [ %16, %217 ], [ %16, %215 ], [ %18, %221 ], [ %18, %219 ], [ %20, %225 ], [ %20, %223 ], [ %22, %229 ], [ %22, %227 ], [ %24, %233 ], [ %24, %231 ], [ %26, %237 ], [ %26, %235 ], [ %28, %241 ], [ %28, %239 ], [ %30, %245 ], [ %30, %243 ], [ %32, %249 ], [ %32, %247 ], [ %34, %253 ], [ %34, %251 ], [ %36, %257 ], [ %36, %255 ], [ %38, %261 ], [ %38, %259 ], [ %40, %265 ], [ %40, %263 ], [ %42, %269 ], [ %42, %267 ], [ %44, %273 ], [ %44, %271 ], [ %46, %277 ], [ %46, %275 ]
+388:                                              ; preds = %275, %277, %271, %273, %267, %269, %263, %265, %259, %261, %255, %257, %251, %253, %247, %249, %243, %245, %239, %241, %235, %237, %231, %233, %227, %229, %223, %225, %219, %221, %215, %217, %211, %213, %207, %209, %203, %205, %199, %201, %195, %197, %191, %193
+  %.sink167 = phi ptr [ %4, %193 ], [ %4, %191 ], [ %6, %197 ], [ %6, %195 ], [ %8, %201 ], [ %8, %199 ], [ %10, %205 ], [ %10, %203 ], [ %12, %209 ], [ %12, %207 ], [ %14, %213 ], [ %14, %211 ], [ %16, %217 ], [ %16, %215 ], [ %18, %221 ], [ %18, %219 ], [ %20, %225 ], [ %20, %223 ], [ %22, %229 ], [ %22, %227 ], [ %24, %233 ], [ %24, %231 ], [ %26, %237 ], [ %26, %235 ], [ %28, %241 ], [ %28, %239 ], [ %30, %245 ], [ %30, %243 ], [ %32, %249 ], [ %32, %247 ], [ %34, %253 ], [ %34, %251 ], [ %36, %257 ], [ %36, %255 ], [ %38, %261 ], [ %38, %259 ], [ %40, %265 ], [ %40, %263 ], [ %42, %269 ], [ %42, %267 ], [ %44, %273 ], [ %44, %271 ], [ %46, %277 ], [ %46, %275 ]
   %.pn101.pn = phi { ptr, i32 } [ %194, %193 ], [ %192, %191 ], [ %198, %197 ], [ %196, %195 ], [ %202, %201 ], [ %200, %199 ], [ %206, %205 ], [ %204, %203 ], [ %210, %209 ], [ %208, %207 ], [ %214, %213 ], [ %212, %211 ], [ %218, %217 ], [ %216, %215 ], [ %222, %221 ], [ %220, %219 ], [ %226, %225 ], [ %224, %223 ], [ %230, %229 ], [ %228, %227 ], [ %234, %233 ], [ %232, %231 ], [ %238, %237 ], [ %236, %235 ], [ %242, %241 ], [ %240, %239 ], [ %246, %245 ], [ %244, %243 ], [ %250, %249 ], [ %248, %247 ], [ %254, %253 ], [ %252, %251 ], [ %258, %257 ], [ %256, %255 ], [ %262, %261 ], [ %260, %259 ], [ %266, %265 ], [ %264, %263 ], [ %270, %269 ], [ %268, %267 ], [ %274, %273 ], [ %272, %271 ], [ %278, %277 ], [ %276, %275 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink164) #25
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink167) #25
   resume { ptr, i32 } %.pn101.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 83) i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8454,7 +8452,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %180 unwind label %511
 
 180:                                              ; preds = %178
-  %181 = add nsw i32 %177, %179
+  %181 = add nuw nsw i32 %177, %179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
@@ -8466,7 +8464,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %184 unwind label %515
 
 184:                                              ; preds = %182
-  %185 = add nsw i32 %181, %183
+  %185 = add nuw nsw i32 %181, %183
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
@@ -8478,7 +8476,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %188 unwind label %519
 
 188:                                              ; preds = %186
-  %189 = add nsw i32 %185, %187
+  %189 = add nuw nsw i32 %185, %187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -8490,7 +8488,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %192 unwind label %523
 
 192:                                              ; preds = %190
-  %193 = add nsw i32 %189, %191
+  %193 = add nuw nsw i32 %189, %191
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -8502,7 +8500,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %196 unwind label %527
 
 196:                                              ; preds = %194
-  %197 = add nsw i32 %193, %195
+  %197 = add nuw nsw i32 %193, %195
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -8514,7 +8512,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %200 unwind label %531
 
 200:                                              ; preds = %198
-  %201 = add nsw i32 %197, %199
+  %201 = add nuw nsw i32 %197, %199
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -8526,7 +8524,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %204 unwind label %535
 
 204:                                              ; preds = %202
-  %205 = add nsw i32 %201, %203
+  %205 = add nuw nsw i32 %201, %203
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -8538,7 +8536,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %208 unwind label %539
 
 208:                                              ; preds = %206
-  %209 = add nsw i32 %205, %207
+  %209 = add nuw nsw i32 %205, %207
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -8550,7 +8548,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %212 unwind label %543
 
 212:                                              ; preds = %210
-  %213 = add nsw i32 %209, %211
+  %213 = add nuw nsw i32 %209, %211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -8562,7 +8560,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %216 unwind label %547
 
 216:                                              ; preds = %214
-  %217 = add nsw i32 %213, %215
+  %217 = add nuw nsw i32 %213, %215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -8574,7 +8572,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %220 unwind label %551
 
 220:                                              ; preds = %218
-  %221 = add nsw i32 %217, %219
+  %221 = add nuw nsw i32 %217, %219
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -8586,7 +8584,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %224 unwind label %555
 
 224:                                              ; preds = %222
-  %225 = add nsw i32 %221, %223
+  %225 = add nuw nsw i32 %221, %223
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -8598,7 +8596,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %228 unwind label %559
 
 228:                                              ; preds = %226
-  %229 = add nsw i32 %225, %227
+  %229 = add nuw nsw i32 %225, %227
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -8610,7 +8608,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %232 unwind label %563
 
 232:                                              ; preds = %230
-  %233 = add nsw i32 %229, %231
+  %233 = add nuw nsw i32 %229, %231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -8622,7 +8620,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %236 unwind label %567
 
 236:                                              ; preds = %234
-  %237 = add nsw i32 %233, %235
+  %237 = add nuw nsw i32 %233, %235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -8634,7 +8632,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %240 unwind label %571
 
 240:                                              ; preds = %238
-  %241 = add nsw i32 %237, %239
+  %241 = add nuw nsw i32 %237, %239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -8646,7 +8644,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %244 unwind label %575
 
 244:                                              ; preds = %242
-  %245 = add nsw i32 %241, %243
+  %245 = add nuw nsw i32 %241, %243
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -8658,7 +8656,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %248 unwind label %579
 
 248:                                              ; preds = %246
-  %249 = add nsw i32 %245, %247
+  %249 = add nuw nsw i32 %245, %247
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -8670,7 +8668,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %252 unwind label %583
 
 252:                                              ; preds = %250
-  %253 = add nsw i32 %249, %251
+  %253 = add nuw nsw i32 %249, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -8682,7 +8680,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %256 unwind label %587
 
 256:                                              ; preds = %254
-  %257 = add nsw i32 %253, %255
+  %257 = add nuw nsw i32 %253, %255
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -8694,7 +8692,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %260 unwind label %591
 
 260:                                              ; preds = %258
-  %261 = add nsw i32 %257, %259
+  %261 = add nuw nsw i32 %257, %259
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -8706,7 +8704,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %264 unwind label %595
 
 264:                                              ; preds = %262
-  %265 = add nsw i32 %261, %263
+  %265 = add nuw nsw i32 %261, %263
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -8718,7 +8716,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %268 unwind label %599
 
 268:                                              ; preds = %266
-  %269 = add nsw i32 %265, %267
+  %269 = add nuw nsw i32 %265, %267
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -8730,7 +8728,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %272 unwind label %603
 
 272:                                              ; preds = %270
-  %273 = add nsw i32 %269, %271
+  %273 = add nuw nsw i32 %269, %271
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -8742,7 +8740,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %276 unwind label %607
 
 276:                                              ; preds = %274
-  %277 = add nsw i32 %273, %275
+  %277 = add nuw nsw i32 %273, %275
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -8754,7 +8752,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %280 unwind label %611
 
 280:                                              ; preds = %278
-  %281 = add nsw i32 %277, %279
+  %281 = add nuw nsw i32 %277, %279
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -8766,7 +8764,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %284 unwind label %615
 
 284:                                              ; preds = %282
-  %285 = add nsw i32 %281, %283
+  %285 = add nuw nsw i32 %281, %283
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -8778,7 +8776,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %288 unwind label %619
 
 288:                                              ; preds = %286
-  %289 = add nsw i32 %285, %287
+  %289 = add nuw nsw i32 %285, %287
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -8790,7 +8788,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %292 unwind label %623
 
 292:                                              ; preds = %290
-  %293 = add nsw i32 %289, %291
+  %293 = add nuw nsw i32 %289, %291
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -8802,7 +8800,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %296 unwind label %627
 
 296:                                              ; preds = %294
-  %297 = add nsw i32 %293, %295
+  %297 = add nuw nsw i32 %293, %295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
@@ -8814,7 +8812,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %300 unwind label %631
 
 300:                                              ; preds = %298
-  %301 = add nsw i32 %297, %299
+  %301 = add nuw nsw i32 %297, %299
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
@@ -8826,7 +8824,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %304 unwind label %635
 
 304:                                              ; preds = %302
-  %305 = add nsw i32 %301, %303
+  %305 = add nuw nsw i32 %301, %303
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
@@ -8838,7 +8836,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %308 unwind label %639
 
 308:                                              ; preds = %306
-  %309 = add nsw i32 %305, %307
+  %309 = add nuw nsw i32 %305, %307
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
@@ -8850,7 +8848,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %312 unwind label %643
 
 312:                                              ; preds = %310
-  %313 = add nsw i32 %309, %311
+  %313 = add nuw nsw i32 %309, %311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
@@ -8862,7 +8860,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %316 unwind label %647
 
 316:                                              ; preds = %314
-  %317 = add nsw i32 %313, %315
+  %317 = add nuw nsw i32 %313, %315
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
@@ -8874,7 +8872,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %320 unwind label %651
 
 320:                                              ; preds = %318
-  %321 = add nsw i32 %317, %319
+  %321 = add nuw nsw i32 %317, %319
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
@@ -8886,7 +8884,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %324 unwind label %655
 
 324:                                              ; preds = %322
-  %325 = add nsw i32 %321, %323
+  %325 = add nuw nsw i32 %321, %323
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
@@ -8898,7 +8896,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %328 unwind label %659
 
 328:                                              ; preds = %326
-  %329 = add nsw i32 %325, %327
+  %329 = add nuw nsw i32 %325, %327
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
@@ -8910,7 +8908,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %332 unwind label %663
 
 332:                                              ; preds = %330
-  %333 = add nsw i32 %329, %331
+  %333 = add nuw nsw i32 %329, %331
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
@@ -8922,7 +8920,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %336 unwind label %667
 
 336:                                              ; preds = %334
-  %337 = add nsw i32 %333, %335
+  %337 = add nuw nsw i32 %333, %335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
@@ -8934,7 +8932,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %340 unwind label %671
 
 340:                                              ; preds = %338
-  %341 = add nsw i32 %337, %339
+  %341 = add nuw nsw i32 %337, %339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
@@ -8946,7 +8944,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %344 unwind label %675
 
 344:                                              ; preds = %342
-  %345 = add nsw i32 %341, %343
+  %345 = add nuw nsw i32 %341, %343
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
@@ -8958,7 +8956,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %348 unwind label %679
 
 348:                                              ; preds = %346
-  %349 = add nsw i32 %345, %347
+  %349 = add nuw nsw i32 %345, %347
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
@@ -8970,7 +8968,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %352 unwind label %683
 
 352:                                              ; preds = %350
-  %353 = add nsw i32 %349, %351
+  %353 = add nuw nsw i32 %349, %351
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
@@ -8982,7 +8980,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %356 unwind label %687
 
 356:                                              ; preds = %354
-  %357 = add nsw i32 %353, %355
+  %357 = add nuw nsw i32 %353, %355
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
@@ -8994,7 +8992,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %360 unwind label %691
 
 360:                                              ; preds = %358
-  %361 = add nsw i32 %357, %359
+  %361 = add nuw nsw i32 %357, %359
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
@@ -9006,7 +9004,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %364 unwind label %695
 
 364:                                              ; preds = %362
-  %365 = add nsw i32 %361, %363
+  %365 = add nuw nsw i32 %361, %363
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
@@ -9018,7 +9016,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %368 unwind label %699
 
 368:                                              ; preds = %366
-  %369 = add nsw i32 %365, %367
+  %369 = add nuw nsw i32 %365, %367
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
@@ -9030,7 +9028,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %372 unwind label %703
 
 372:                                              ; preds = %370
-  %373 = add nsw i32 %369, %371
+  %373 = add nuw nsw i32 %369, %371
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
@@ -9042,7 +9040,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %376 unwind label %707
 
 376:                                              ; preds = %374
-  %377 = add nsw i32 %373, %375
+  %377 = add nuw nsw i32 %373, %375
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
@@ -9054,7 +9052,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %380 unwind label %711
 
 380:                                              ; preds = %378
-  %381 = add nsw i32 %377, %379
+  %381 = add nuw nsw i32 %377, %379
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
@@ -9066,7 +9064,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %384 unwind label %715
 
 384:                                              ; preds = %382
-  %385 = add nsw i32 %381, %383
+  %385 = add nuw nsw i32 %381, %383
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
@@ -9078,7 +9076,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %388 unwind label %719
 
 388:                                              ; preds = %386
-  %389 = add nsw i32 %385, %387
+  %389 = add nuw nsw i32 %385, %387
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
@@ -9090,7 +9088,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %392 unwind label %723
 
 392:                                              ; preds = %390
-  %393 = add nsw i32 %389, %391
+  %393 = add nuw nsw i32 %389, %391
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
@@ -9102,7 +9100,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %396 unwind label %727
 
 396:                                              ; preds = %394
-  %397 = add nsw i32 %393, %395
+  %397 = add nuw nsw i32 %393, %395
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
@@ -9114,7 +9112,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %400 unwind label %731
 
 400:                                              ; preds = %398
-  %401 = add nsw i32 %397, %399
+  %401 = add nuw nsw i32 %397, %399
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
@@ -9126,7 +9124,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %404 unwind label %735
 
 404:                                              ; preds = %402
-  %405 = add nsw i32 %401, %403
+  %405 = add nuw nsw i32 %401, %403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
@@ -9138,7 +9136,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %408 unwind label %739
 
 408:                                              ; preds = %406
-  %409 = add nsw i32 %405, %407
+  %409 = add nuw nsw i32 %405, %407
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
@@ -9150,7 +9148,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %412 unwind label %743
 
 412:                                              ; preds = %410
-  %413 = add nsw i32 %409, %411
+  %413 = add nuw nsw i32 %409, %411
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
@@ -9162,7 +9160,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %416 unwind label %747
 
 416:                                              ; preds = %414
-  %417 = add nsw i32 %413, %415
+  %417 = add nuw nsw i32 %413, %415
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
@@ -9174,7 +9172,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %420 unwind label %751
 
 420:                                              ; preds = %418
-  %421 = add nsw i32 %417, %419
+  %421 = add nuw nsw i32 %417, %419
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
@@ -9186,7 +9184,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %424 unwind label %755
 
 424:                                              ; preds = %422
-  %425 = add nsw i32 %421, %423
+  %425 = add nuw nsw i32 %421, %423
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
@@ -9198,7 +9196,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %428 unwind label %759
 
 428:                                              ; preds = %426
-  %429 = add nsw i32 %425, %427
+  %429 = add nuw nsw i32 %425, %427
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
@@ -9210,7 +9208,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %432 unwind label %763
 
 432:                                              ; preds = %430
-  %433 = add nsw i32 %429, %431
+  %433 = add nuw nsw i32 %429, %431
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
@@ -9222,7 +9220,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %436 unwind label %767
 
 436:                                              ; preds = %434
-  %437 = add nsw i32 %433, %435
+  %437 = add nuw nsw i32 %433, %435
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
@@ -9234,7 +9232,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %440 unwind label %771
 
 440:                                              ; preds = %438
-  %441 = add nsw i32 %437, %439
+  %441 = add nuw nsw i32 %437, %439
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
@@ -9246,7 +9244,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %444 unwind label %775
 
 444:                                              ; preds = %442
-  %445 = add nsw i32 %441, %443
+  %445 = add nuw nsw i32 %441, %443
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
@@ -9258,7 +9256,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %448 unwind label %779
 
 448:                                              ; preds = %446
-  %449 = add nsw i32 %445, %447
+  %449 = add nuw nsw i32 %445, %447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
@@ -9270,7 +9268,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %452 unwind label %783
 
 452:                                              ; preds = %450
-  %453 = add nsw i32 %449, %451
+  %453 = add nuw nsw i32 %449, %451
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
@@ -9282,7 +9280,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %456 unwind label %787
 
 456:                                              ; preds = %454
-  %457 = add nsw i32 %453, %455
+  %457 = add nuw nsw i32 %453, %455
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
@@ -9294,7 +9292,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %460 unwind label %791
 
 460:                                              ; preds = %458
-  %461 = add nsw i32 %457, %459
+  %461 = add nuw nsw i32 %457, %459
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
@@ -9306,7 +9304,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %464 unwind label %795
 
 464:                                              ; preds = %462
-  %465 = add nsw i32 %461, %463
+  %465 = add nuw nsw i32 %461, %463
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
@@ -9318,7 +9316,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %468 unwind label %799
 
 468:                                              ; preds = %466
-  %469 = add nsw i32 %465, %467
+  %469 = add nuw nsw i32 %465, %467
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
@@ -9330,7 +9328,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %472 unwind label %803
 
 472:                                              ; preds = %470
-  %473 = add nsw i32 %469, %471
+  %473 = add nuw nsw i32 %469, %471
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
@@ -9342,7 +9340,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %476 unwind label %807
 
 476:                                              ; preds = %474
-  %477 = add nsw i32 %473, %475
+  %477 = add nuw nsw i32 %473, %475
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
@@ -9354,7 +9352,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %480 unwind label %811
 
 480:                                              ; preds = %478
-  %481 = add nsw i32 %477, %479
+  %481 = add nuw nsw i32 %477, %479
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
@@ -9366,7 +9364,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %484 unwind label %815
 
 484:                                              ; preds = %482
-  %485 = add nsw i32 %481, %483
+  %485 = add nuw nsw i32 %481, %483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
@@ -9378,7 +9376,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %488 unwind label %819
 
 488:                                              ; preds = %486
-  %489 = add nsw i32 %485, %487
+  %489 = add nuw nsw i32 %485, %487
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
@@ -9390,7 +9388,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
           to label %492 unwind label %823
 
 492:                                              ; preds = %490
-  %493 = add nsw i32 %489, %491
+  %493 = add nuw nsw i32 %489, %491
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
   %494 = icmp eq i32 %493, 0
@@ -10321,7 +10319,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 46) i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10433,7 +10431,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %98 unwind label %281
 
 98:                                               ; preds = %96
-  %99 = add nsw i32 %97, %94
+  %99 = add nuw nsw i32 %97, %94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
@@ -10445,7 +10443,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %102 unwind label %285
 
 102:                                              ; preds = %100
-  %103 = add nsw i32 %99, %101
+  %103 = add nuw nsw i32 %99, %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
@@ -10457,7 +10455,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %106 unwind label %289
 
 106:                                              ; preds = %104
-  %107 = add nsw i32 %103, %105
+  %107 = add nuw nsw i32 %103, %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
@@ -10469,7 +10467,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %110 unwind label %293
 
 110:                                              ; preds = %108
-  %111 = add nsw i32 %107, %109
+  %111 = add nuw nsw i32 %107, %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
@@ -10481,7 +10479,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %114 unwind label %297
 
 114:                                              ; preds = %112
-  %115 = add nsw i32 %111, %113
+  %115 = add nuw nsw i32 %111, %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -10493,7 +10491,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %118 unwind label %301
 
 118:                                              ; preds = %116
-  %119 = add nsw i32 %115, %117
+  %119 = add nuw nsw i32 %115, %117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -10505,7 +10503,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %122 unwind label %305
 
 122:                                              ; preds = %120
-  %123 = add nsw i32 %119, %121
+  %123 = add nuw nsw i32 %119, %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -10517,7 +10515,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %126 unwind label %309
 
 126:                                              ; preds = %124
-  %127 = add nsw i32 %123, %125
+  %127 = add nuw nsw i32 %123, %125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -10529,7 +10527,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %130 unwind label %313
 
 130:                                              ; preds = %128
-  %131 = add nsw i32 %127, %129
+  %131 = add nuw nsw i32 %127, %129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -10541,7 +10539,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %134 unwind label %317
 
 134:                                              ; preds = %132
-  %135 = add nsw i32 %131, %133
+  %135 = add nuw nsw i32 %131, %133
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -10553,7 +10551,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %138 unwind label %321
 
 138:                                              ; preds = %136
-  %139 = add nsw i32 %135, %137
+  %139 = add nuw nsw i32 %135, %137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -10565,7 +10563,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %142 unwind label %325
 
 142:                                              ; preds = %140
-  %143 = add nsw i32 %139, %141
+  %143 = add nuw nsw i32 %139, %141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -10577,7 +10575,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %146 unwind label %329
 
 146:                                              ; preds = %144
-  %147 = add nsw i32 %143, %145
+  %147 = add nuw nsw i32 %143, %145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -10589,7 +10587,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %150 unwind label %333
 
 150:                                              ; preds = %148
-  %151 = add nsw i32 %147, %149
+  %151 = add nuw nsw i32 %147, %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -10601,7 +10599,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %154 unwind label %337
 
 154:                                              ; preds = %152
-  %155 = add nsw i32 %151, %153
+  %155 = add nuw nsw i32 %151, %153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -10613,7 +10611,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %158 unwind label %341
 
 158:                                              ; preds = %156
-  %159 = add nsw i32 %155, %157
+  %159 = add nuw nsw i32 %155, %157
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -10625,7 +10623,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %162 unwind label %345
 
 162:                                              ; preds = %160
-  %163 = add nsw i32 %159, %161
+  %163 = add nuw nsw i32 %159, %161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -10637,7 +10635,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %166 unwind label %349
 
 166:                                              ; preds = %164
-  %167 = add nsw i32 %163, %165
+  %167 = add nuw nsw i32 %163, %165
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -10649,7 +10647,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %170 unwind label %353
 
 170:                                              ; preds = %168
-  %171 = add nsw i32 %167, %169
+  %171 = add nuw nsw i32 %167, %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -10661,7 +10659,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %174 unwind label %357
 
 174:                                              ; preds = %172
-  %175 = add nsw i32 %171, %173
+  %175 = add nuw nsw i32 %171, %173
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -10673,7 +10671,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %178 unwind label %361
 
 178:                                              ; preds = %176
-  %179 = add nsw i32 %175, %177
+  %179 = add nuw nsw i32 %175, %177
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -10685,7 +10683,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %182 unwind label %365
 
 182:                                              ; preds = %180
-  %183 = add nsw i32 %179, %181
+  %183 = add nuw nsw i32 %179, %181
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -10697,7 +10695,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %186 unwind label %369
 
 186:                                              ; preds = %184
-  %187 = add nsw i32 %183, %185
+  %187 = add nuw nsw i32 %183, %185
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -10709,7 +10707,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %190 unwind label %373
 
 190:                                              ; preds = %188
-  %191 = add nsw i32 %187, %189
+  %191 = add nuw nsw i32 %187, %189
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -10721,7 +10719,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %194 unwind label %377
 
 194:                                              ; preds = %192
-  %195 = add nsw i32 %191, %193
+  %195 = add nuw nsw i32 %191, %193
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -10733,7 +10731,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %198 unwind label %381
 
 198:                                              ; preds = %196
-  %199 = add nsw i32 %195, %197
+  %199 = add nuw nsw i32 %195, %197
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -10745,7 +10743,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %202 unwind label %385
 
 202:                                              ; preds = %200
-  %203 = add nsw i32 %199, %201
+  %203 = add nuw nsw i32 %199, %201
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -10757,7 +10755,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %206 unwind label %389
 
 206:                                              ; preds = %204
-  %207 = add nsw i32 %203, %205
+  %207 = add nuw nsw i32 %203, %205
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -10769,7 +10767,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %210 unwind label %393
 
 210:                                              ; preds = %208
-  %211 = add nsw i32 %207, %209
+  %211 = add nuw nsw i32 %207, %209
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -10781,7 +10779,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %214 unwind label %397
 
 214:                                              ; preds = %212
-  %215 = add nsw i32 %211, %213
+  %215 = add nuw nsw i32 %211, %213
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -10793,7 +10791,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %218 unwind label %401
 
 218:                                              ; preds = %216
-  %219 = add nsw i32 %215, %217
+  %219 = add nuw nsw i32 %215, %217
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -10805,7 +10803,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %222 unwind label %405
 
 222:                                              ; preds = %220
-  %223 = add nsw i32 %219, %221
+  %223 = add nuw nsw i32 %219, %221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
@@ -10817,7 +10815,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %226 unwind label %409
 
 226:                                              ; preds = %224
-  %227 = add nsw i32 %223, %225
+  %227 = add nuw nsw i32 %223, %225
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
@@ -10829,7 +10827,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %230 unwind label %413
 
 230:                                              ; preds = %228
-  %231 = add nsw i32 %227, %229
+  %231 = add nuw nsw i32 %227, %229
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
@@ -10841,7 +10839,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %234 unwind label %417
 
 234:                                              ; preds = %232
-  %235 = add nsw i32 %231, %233
+  %235 = add nuw nsw i32 %231, %233
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
@@ -10853,7 +10851,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %238 unwind label %421
 
 238:                                              ; preds = %236
-  %239 = add nsw i32 %235, %237
+  %239 = add nuw nsw i32 %235, %237
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
@@ -10865,7 +10863,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %242 unwind label %425
 
 242:                                              ; preds = %240
-  %243 = add nsw i32 %239, %241
+  %243 = add nuw nsw i32 %239, %241
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
@@ -10877,7 +10875,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %246 unwind label %429
 
 246:                                              ; preds = %244
-  %247 = add nsw i32 %243, %245
+  %247 = add nuw nsw i32 %243, %245
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
@@ -10889,7 +10887,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %250 unwind label %433
 
 250:                                              ; preds = %248
-  %251 = add nsw i32 %247, %249
+  %251 = add nuw nsw i32 %247, %249
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
@@ -10901,7 +10899,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %254 unwind label %437
 
 254:                                              ; preds = %252
-  %255 = add nsw i32 %251, %253
+  %255 = add nuw nsw i32 %251, %253
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
@@ -10913,7 +10911,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %258 unwind label %441
 
 258:                                              ; preds = %256
-  %259 = add nsw i32 %255, %257
+  %259 = add nuw nsw i32 %255, %257
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
@@ -10925,7 +10923,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %262 unwind label %445
 
 262:                                              ; preds = %260
-  %263 = add nsw i32 %259, %261
+  %263 = add nuw nsw i32 %259, %261
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
@@ -10937,7 +10935,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %266 unwind label %449
 
 266:                                              ; preds = %264
-  %267 = add nsw i32 %263, %265
+  %267 = add nuw nsw i32 %263, %265
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
@@ -10949,7 +10947,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
           to label %270 unwind label %453
 
 270:                                              ; preds = %268
-  %271 = add nsw i32 %267, %269
+  %271 = add nuw nsw i32 %267, %269
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
   %272 = icmp eq i32 %271, 0
@@ -11473,7 +11471,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11987,7 +11985,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %300 unwind label %687
 
 300:                                              ; preds = %298
-  %301 = add nsw i32 %297, %299
+  %301 = add nuw nsw i32 %297, %299
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -11999,7 +11997,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %304 unwind label %691
 
 304:                                              ; preds = %302
-  %305 = add nsw i32 %301, %303
+  %305 = add nuw nsw i32 %301, %303
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -12011,7 +12009,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %308 unwind label %695
 
 308:                                              ; preds = %306
-  %309 = add nsw i32 %305, %307
+  %309 = add nuw nsw i32 %305, %307
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -12023,7 +12021,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %312 unwind label %699
 
 312:                                              ; preds = %310
-  %313 = add nsw i32 %309, %311
+  %313 = add nuw nsw i32 %309, %311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -12035,7 +12033,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %316 unwind label %703
 
 316:                                              ; preds = %314
-  %317 = add nsw i32 %313, %315
+  %317 = add nuw nsw i32 %313, %315
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -12047,7 +12045,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %320 unwind label %707
 
 320:                                              ; preds = %318
-  %321 = add nsw i32 %317, %319
+  %321 = add nuw nsw i32 %317, %319
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -12059,7 +12057,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %324 unwind label %711
 
 324:                                              ; preds = %322
-  %325 = add nsw i32 %321, %323
+  %325 = add nuw nsw i32 %321, %323
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
@@ -12071,7 +12069,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %328 unwind label %715
 
 328:                                              ; preds = %326
-  %329 = add nsw i32 %325, %327
+  %329 = add nuw nsw i32 %325, %327
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
@@ -12083,7 +12081,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %332 unwind label %719
 
 332:                                              ; preds = %330
-  %333 = add nsw i32 %329, %331
+  %333 = add nuw nsw i32 %329, %331
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
@@ -12095,7 +12093,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %336 unwind label %723
 
 336:                                              ; preds = %334
-  %337 = add nsw i32 %333, %335
+  %337 = add nuw nsw i32 %333, %335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
@@ -12107,7 +12105,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %340 unwind label %727
 
 340:                                              ; preds = %338
-  %341 = add nsw i32 %337, %339
+  %341 = add nuw nsw i32 %337, %339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
@@ -12119,7 +12117,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %344 unwind label %731
 
 344:                                              ; preds = %342
-  %345 = add nsw i32 %341, %343
+  %345 = add nuw nsw i32 %341, %343
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
@@ -12131,7 +12129,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %348 unwind label %735
 
 348:                                              ; preds = %346
-  %349 = add nsw i32 %345, %347
+  %349 = add nuw nsw i32 %345, %347
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
@@ -12143,7 +12141,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %352 unwind label %739
 
 352:                                              ; preds = %350
-  %353 = add nsw i32 %349, %351
+  %353 = add nuw nsw i32 %349, %351
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
@@ -12155,7 +12153,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %356 unwind label %743
 
 356:                                              ; preds = %354
-  %357 = add nsw i32 %353, %355
+  %357 = add nuw nsw i32 %353, %355
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
@@ -12167,7 +12165,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %360 unwind label %747
 
 360:                                              ; preds = %358
-  %361 = add nsw i32 %357, %359
+  %361 = add nuw nsw i32 %357, %359
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
@@ -12179,7 +12177,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %364 unwind label %751
 
 364:                                              ; preds = %362
-  %365 = add nsw i32 %361, %363
+  %365 = add nuw nsw i32 %361, %363
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
@@ -12191,7 +12189,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %368 unwind label %755
 
 368:                                              ; preds = %366
-  %369 = add nsw i32 %365, %367
+  %369 = add nuw nsw i32 %365, %367
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
@@ -12203,7 +12201,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %372 unwind label %759
 
 372:                                              ; preds = %370
-  %373 = add nsw i32 %369, %371
+  %373 = add nuw nsw i32 %369, %371
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
@@ -12215,7 +12213,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %376 unwind label %763
 
 376:                                              ; preds = %374
-  %377 = add nsw i32 %373, %375
+  %377 = add nuw nsw i32 %373, %375
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
@@ -12227,7 +12225,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %380 unwind label %767
 
 380:                                              ; preds = %378
-  %381 = add nsw i32 %377, %379
+  %381 = add nuw nsw i32 %377, %379
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
@@ -12239,7 +12237,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %384 unwind label %771
 
 384:                                              ; preds = %382
-  %385 = add nsw i32 %381, %383
+  %385 = add nuw nsw i32 %381, %383
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
@@ -12251,7 +12249,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %388 unwind label %775
 
 388:                                              ; preds = %386
-  %389 = add nsw i32 %385, %387
+  %389 = add nuw nsw i32 %385, %387
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
@@ -12263,7 +12261,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %392 unwind label %779
 
 392:                                              ; preds = %390
-  %393 = add nsw i32 %389, %391
+  %393 = add nuw nsw i32 %389, %391
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
@@ -12275,7 +12273,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %396 unwind label %783
 
 396:                                              ; preds = %394
-  %397 = add nsw i32 %393, %395
+  %397 = add nuw nsw i32 %393, %395
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
@@ -12287,7 +12285,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %400 unwind label %787
 
 400:                                              ; preds = %398
-  %401 = add nsw i32 %397, %399
+  %401 = add nuw nsw i32 %397, %399
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
@@ -12299,7 +12297,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %404 unwind label %791
 
 404:                                              ; preds = %402
-  %405 = add nsw i32 %401, %403
+  %405 = add nuw nsw i32 %401, %403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
@@ -12311,7 +12309,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %408 unwind label %795
 
 408:                                              ; preds = %406
-  %409 = add nsw i32 %405, %407
+  %409 = add nuw nsw i32 %405, %407
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
@@ -12323,7 +12321,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %412 unwind label %799
 
 412:                                              ; preds = %410
-  %413 = add nsw i32 %409, %411
+  %413 = add nuw nsw i32 %409, %411
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
@@ -12335,7 +12333,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %416 unwind label %803
 
 416:                                              ; preds = %414
-  %417 = add nsw i32 %413, %415
+  %417 = add nuw nsw i32 %413, %415
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
@@ -12347,7 +12345,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %420 unwind label %807
 
 420:                                              ; preds = %418
-  %421 = add nsw i32 %417, %419
+  %421 = add nuw nsw i32 %417, %419
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
@@ -12359,7 +12357,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %424 unwind label %811
 
 424:                                              ; preds = %422
-  %425 = add nsw i32 %421, %423
+  %425 = add nuw nsw i32 %421, %423
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
@@ -12371,7 +12369,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %428 unwind label %815
 
 428:                                              ; preds = %426
-  %429 = add nsw i32 %425, %427
+  %429 = add nuw nsw i32 %425, %427
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
@@ -12383,7 +12381,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %432 unwind label %819
 
 432:                                              ; preds = %430
-  %433 = add nsw i32 %429, %431
+  %433 = add nuw nsw i32 %429, %431
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
@@ -12395,7 +12393,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %436 unwind label %823
 
 436:                                              ; preds = %434
-  %437 = add nsw i32 %433, %435
+  %437 = add nuw nsw i32 %433, %435
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
@@ -12407,7 +12405,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %440 unwind label %827
 
 440:                                              ; preds = %438
-  %441 = add nsw i32 %437, %439
+  %441 = add nuw nsw i32 %437, %439
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
@@ -12419,7 +12417,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %444 unwind label %831
 
 444:                                              ; preds = %442
-  %445 = add nsw i32 %441, %443
+  %445 = add nuw nsw i32 %441, %443
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
@@ -12431,7 +12429,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %448 unwind label %835
 
 448:                                              ; preds = %446
-  %449 = add nsw i32 %445, %447
+  %449 = add nuw nsw i32 %445, %447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
@@ -12443,7 +12441,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %452 unwind label %839
 
 452:                                              ; preds = %450
-  %453 = add nsw i32 %449, %451
+  %453 = add nuw nsw i32 %449, %451
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
@@ -12455,7 +12453,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %456 unwind label %843
 
 456:                                              ; preds = %454
-  %457 = add nsw i32 %453, %455
+  %457 = add nuw nsw i32 %453, %455
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
@@ -12467,7 +12465,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %460 unwind label %847
 
 460:                                              ; preds = %458
-  %461 = add nsw i32 %457, %459
+  %461 = add nuw nsw i32 %457, %459
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
@@ -12479,7 +12477,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %464 unwind label %851
 
 464:                                              ; preds = %462
-  %465 = add nsw i32 %461, %463
+  %465 = add nuw nsw i32 %461, %463
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
@@ -12491,7 +12489,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %468 unwind label %855
 
 468:                                              ; preds = %466
-  %469 = add nsw i32 %465, %467
+  %469 = add nuw nsw i32 %465, %467
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
@@ -12503,7 +12501,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %472 unwind label %859
 
 472:                                              ; preds = %470
-  %473 = add nsw i32 %469, %471
+  %473 = add nuw nsw i32 %469, %471
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
@@ -12515,7 +12513,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %476 unwind label %863
 
 476:                                              ; preds = %474
-  %477 = add nsw i32 %473, %475
+  %477 = add nuw nsw i32 %473, %475
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
@@ -12527,7 +12525,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %480 unwind label %867
 
 480:                                              ; preds = %478
-  %481 = add nsw i32 %477, %479
+  %481 = add nuw nsw i32 %477, %479
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
@@ -12539,7 +12537,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %484 unwind label %871
 
 484:                                              ; preds = %482
-  %485 = add nsw i32 %481, %483
+  %485 = add nuw nsw i32 %481, %483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
@@ -12551,7 +12549,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %488 unwind label %875
 
 488:                                              ; preds = %486
-  %489 = add nsw i32 %485, %487
+  %489 = add nuw nsw i32 %485, %487
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
@@ -12563,7 +12561,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %492 unwind label %879
 
 492:                                              ; preds = %490
-  %493 = add nsw i32 %489, %491
+  %493 = add nuw nsw i32 %489, %491
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
@@ -12575,7 +12573,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %496 unwind label %883
 
 496:                                              ; preds = %494
-  %497 = add nsw i32 %493, %495
+  %497 = add nuw nsw i32 %493, %495
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
@@ -12587,7 +12585,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %500 unwind label %887
 
 500:                                              ; preds = %498
-  %501 = add nsw i32 %497, %499
+  %501 = add nuw nsw i32 %497, %499
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
@@ -12599,7 +12597,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %504 unwind label %891
 
 504:                                              ; preds = %502
-  %505 = add nsw i32 %501, %503
+  %505 = add nuw nsw i32 %501, %503
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
@@ -12611,7 +12609,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %508 unwind label %895
 
 508:                                              ; preds = %506
-  %509 = add nsw i32 %505, %507
+  %509 = add nuw nsw i32 %505, %507
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
@@ -12623,7 +12621,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %512 unwind label %899
 
 512:                                              ; preds = %510
-  %513 = add nsw i32 %509, %511
+  %513 = add nuw nsw i32 %509, %511
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
@@ -12635,7 +12633,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %516 unwind label %903
 
 516:                                              ; preds = %514
-  %517 = add nsw i32 %513, %515
+  %517 = add nuw nsw i32 %513, %515
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
@@ -12647,7 +12645,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %520 unwind label %907
 
 520:                                              ; preds = %518
-  %521 = add nsw i32 %517, %519
+  %521 = add nuw nsw i32 %517, %519
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %167) #25
@@ -12659,7 +12657,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %524 unwind label %911
 
 524:                                              ; preds = %522
-  %525 = add nsw i32 %521, %523
+  %525 = add nuw nsw i32 %521, %523
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %166) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %167) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %169) #25
@@ -12671,7 +12669,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %528 unwind label %915
 
 528:                                              ; preds = %526
-  %529 = add nsw i32 %525, %527
+  %529 = add nuw nsw i32 %525, %527
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %168) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %169) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %171) #25
@@ -12683,7 +12681,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %532 unwind label %919
 
 532:                                              ; preds = %530
-  %533 = add nsw i32 %529, %531
+  %533 = add nuw nsw i32 %529, %531
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %170) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %171) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %173) #25
@@ -12695,7 +12693,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %536 unwind label %923
 
 536:                                              ; preds = %534
-  %537 = add nsw i32 %533, %535
+  %537 = add nuw nsw i32 %533, %535
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %172) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %173) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %175) #25
@@ -12707,7 +12705,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %540 unwind label %927
 
 540:                                              ; preds = %538
-  %541 = add nsw i32 %537, %539
+  %541 = add nuw nsw i32 %537, %539
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %174) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %175) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %177) #25
@@ -12719,7 +12717,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %544 unwind label %931
 
 544:                                              ; preds = %542
-  %545 = add nsw i32 %541, %543
+  %545 = add nuw nsw i32 %541, %543
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %177) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %179) #25
@@ -12731,7 +12729,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %548 unwind label %935
 
 548:                                              ; preds = %546
-  %549 = add nsw i32 %545, %547
+  %549 = add nuw nsw i32 %545, %547
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %178) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %179) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %181) #25
@@ -12743,7 +12741,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %552 unwind label %939
 
 552:                                              ; preds = %550
-  %553 = add nsw i32 %549, %551
+  %553 = add nuw nsw i32 %549, %551
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %180) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %181) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %183) #25
@@ -12755,7 +12753,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %556 unwind label %943
 
 556:                                              ; preds = %554
-  %557 = add nsw i32 %553, %555
+  %557 = add nuw nsw i32 %553, %555
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %183) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %185) #25
@@ -12767,7 +12765,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %560 unwind label %947
 
 560:                                              ; preds = %558
-  %561 = add nsw i32 %557, %559
+  %561 = add nuw nsw i32 %557, %559
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %184) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %185) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %187) #25
@@ -12779,7 +12777,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %564 unwind label %951
 
 564:                                              ; preds = %562
-  %565 = add nsw i32 %561, %563
+  %565 = add nuw nsw i32 %561, %563
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %186) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %187) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %189) #25
@@ -12791,7 +12789,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %568 unwind label %955
 
 568:                                              ; preds = %566
-  %569 = add nsw i32 %565, %567
+  %569 = add nuw nsw i32 %565, %567
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %189) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %191) #25
@@ -12803,7 +12801,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %572 unwind label %959
 
 572:                                              ; preds = %570
-  %573 = add nsw i32 %569, %571
+  %573 = add nuw nsw i32 %569, %571
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %190) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %191) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %193) #25
@@ -12815,7 +12813,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture no
           to label %576 unwind label %963
 
 576:                                              ; preds = %574
-  %577 = add nsw i32 %573, %575
+  %577 = add nuw nsw i32 %573, %575
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %193) #25
   %578 = icmp eq i32 %577, 0
@@ -14127,7 +14125,7 @@ define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14341,7 +14339,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %200 unwind label %587
 
 200:                                              ; preds = %198
-  %201 = add nsw i32 %199, %196
+  %201 = add nuw nsw i32 %199, %196
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
@@ -14353,7 +14351,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %204 unwind label %591
 
 204:                                              ; preds = %202
-  %205 = add nsw i32 %201, %203
+  %205 = add nuw nsw i32 %201, %203
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
@@ -14365,7 +14363,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %208 unwind label %595
 
 208:                                              ; preds = %206
-  %209 = add nsw i32 %205, %207
+  %209 = add nuw nsw i32 %205, %207
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
@@ -14377,7 +14375,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %212 unwind label %599
 
 212:                                              ; preds = %210
-  %213 = add nsw i32 %209, %211
+  %213 = add nuw nsw i32 %209, %211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
@@ -14389,7 +14387,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %216 unwind label %603
 
 216:                                              ; preds = %214
-  %217 = add nsw i32 %213, %215
+  %217 = add nuw nsw i32 %213, %215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
@@ -14401,7 +14399,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %220 unwind label %607
 
 220:                                              ; preds = %218
-  %221 = add nsw i32 %217, %219
+  %221 = add nuw nsw i32 %217, %219
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
@@ -14413,7 +14411,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %224 unwind label %611
 
 224:                                              ; preds = %222
-  %225 = add nsw i32 %221, %223
+  %225 = add nuw nsw i32 %221, %223
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
@@ -14425,7 +14423,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %228 unwind label %615
 
 228:                                              ; preds = %226
-  %229 = add nsw i32 %225, %227
+  %229 = add nuw nsw i32 %225, %227
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
@@ -14437,7 +14435,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %232 unwind label %619
 
 232:                                              ; preds = %230
-  %233 = add nsw i32 %229, %231
+  %233 = add nuw nsw i32 %229, %231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
@@ -14449,7 +14447,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %236 unwind label %623
 
 236:                                              ; preds = %234
-  %237 = add nsw i32 %233, %235
+  %237 = add nuw nsw i32 %233, %235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
@@ -14461,7 +14459,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %240 unwind label %627
 
 240:                                              ; preds = %238
-  %241 = add nsw i32 %237, %239
+  %241 = add nuw nsw i32 %237, %239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
@@ -14473,7 +14471,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %244 unwind label %631
 
 244:                                              ; preds = %242
-  %245 = add nsw i32 %241, %243
+  %245 = add nuw nsw i32 %241, %243
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -14485,7 +14483,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %248 unwind label %635
 
 248:                                              ; preds = %246
-  %249 = add nsw i32 %245, %247
+  %249 = add nuw nsw i32 %245, %247
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -14497,7 +14495,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %252 unwind label %639
 
 252:                                              ; preds = %250
-  %253 = add nsw i32 %249, %251
+  %253 = add nuw nsw i32 %249, %251
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -14509,7 +14507,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %256 unwind label %643
 
 256:                                              ; preds = %254
-  %257 = add nsw i32 %253, %255
+  %257 = add nuw nsw i32 %253, %255
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -14521,7 +14519,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %260 unwind label %647
 
 260:                                              ; preds = %258
-  %261 = add nsw i32 %257, %259
+  %261 = add nuw nsw i32 %257, %259
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -14533,7 +14531,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %264 unwind label %651
 
 264:                                              ; preds = %262
-  %265 = add nsw i32 %261, %263
+  %265 = add nuw nsw i32 %261, %263
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -14545,7 +14543,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %268 unwind label %655
 
 268:                                              ; preds = %266
-  %269 = add nsw i32 %265, %267
+  %269 = add nuw nsw i32 %265, %267
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -14557,7 +14555,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %272 unwind label %659
 
 272:                                              ; preds = %270
-  %273 = add nsw i32 %269, %271
+  %273 = add nuw nsw i32 %269, %271
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -14569,7 +14567,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %276 unwind label %663
 
 276:                                              ; preds = %274
-  %277 = add nsw i32 %273, %275
+  %277 = add nuw nsw i32 %273, %275
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -14581,7 +14579,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %280 unwind label %667
 
 280:                                              ; preds = %278
-  %281 = add nsw i32 %277, %279
+  %281 = add nuw nsw i32 %277, %279
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -14593,7 +14591,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %284 unwind label %671
 
 284:                                              ; preds = %282
-  %285 = add nsw i32 %281, %283
+  %285 = add nuw nsw i32 %281, %283
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -14605,7 +14603,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %288 unwind label %675
 
 288:                                              ; preds = %286
-  %289 = add nsw i32 %285, %287
+  %289 = add nuw nsw i32 %285, %287
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -14617,7 +14615,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %292 unwind label %679
 
 292:                                              ; preds = %290
-  %293 = add nsw i32 %289, %291
+  %293 = add nuw nsw i32 %289, %291
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
@@ -14629,7 +14627,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %296 unwind label %683
 
 296:                                              ; preds = %294
-  %297 = add nsw i32 %293, %295
+  %297 = add nuw nsw i32 %293, %295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
@@ -14641,7 +14639,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %300 unwind label %687
 
 300:                                              ; preds = %298
-  %301 = add nsw i32 %297, %299
+  %301 = add nuw nsw i32 %297, %299
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
@@ -14653,7 +14651,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %304 unwind label %691
 
 304:                                              ; preds = %302
-  %305 = add nsw i32 %301, %303
+  %305 = add nuw nsw i32 %301, %303
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
@@ -14665,7 +14663,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %308 unwind label %695
 
 308:                                              ; preds = %306
-  %309 = add nsw i32 %305, %307
+  %309 = add nuw nsw i32 %305, %307
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
@@ -14677,7 +14675,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %312 unwind label %699
 
 312:                                              ; preds = %310
-  %313 = add nsw i32 %309, %311
+  %313 = add nuw nsw i32 %309, %311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
@@ -14689,7 +14687,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %316 unwind label %703
 
 316:                                              ; preds = %314
-  %317 = add nsw i32 %313, %315
+  %317 = add nuw nsw i32 %313, %315
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
@@ -14701,7 +14699,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %320 unwind label %707
 
 320:                                              ; preds = %318
-  %321 = add nsw i32 %317, %319
+  %321 = add nuw nsw i32 %317, %319
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
@@ -14713,7 +14711,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %324 unwind label %711
 
 324:                                              ; preds = %322
-  %325 = add nsw i32 %321, %323
+  %325 = add nuw nsw i32 %321, %323
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
@@ -14725,7 +14723,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %328 unwind label %715
 
 328:                                              ; preds = %326
-  %329 = add nsw i32 %325, %327
+  %329 = add nuw nsw i32 %325, %327
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
@@ -14737,7 +14735,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %332 unwind label %719
 
 332:                                              ; preds = %330
-  %333 = add nsw i32 %329, %331
+  %333 = add nuw nsw i32 %329, %331
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
@@ -14749,7 +14747,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %336 unwind label %723
 
 336:                                              ; preds = %334
-  %337 = add nsw i32 %333, %335
+  %337 = add nuw nsw i32 %333, %335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
@@ -14761,7 +14759,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %340 unwind label %727
 
 340:                                              ; preds = %338
-  %341 = add nsw i32 %337, %339
+  %341 = add nuw nsw i32 %337, %339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
@@ -14773,7 +14771,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %344 unwind label %731
 
 344:                                              ; preds = %342
-  %345 = add nsw i32 %341, %343
+  %345 = add nuw nsw i32 %341, %343
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
@@ -14785,7 +14783,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %348 unwind label %735
 
 348:                                              ; preds = %346
-  %349 = add nsw i32 %345, %347
+  %349 = add nuw nsw i32 %345, %347
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
@@ -14797,7 +14795,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %352 unwind label %739
 
 352:                                              ; preds = %350
-  %353 = add nsw i32 %349, %351
+  %353 = add nuw nsw i32 %349, %351
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
@@ -14809,7 +14807,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %356 unwind label %743
 
 356:                                              ; preds = %354
-  %357 = add nsw i32 %353, %355
+  %357 = add nuw nsw i32 %353, %355
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
@@ -14821,7 +14819,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %360 unwind label %747
 
 360:                                              ; preds = %358
-  %361 = add nsw i32 %357, %359
+  %361 = add nuw nsw i32 %357, %359
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
@@ -14833,7 +14831,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %364 unwind label %751
 
 364:                                              ; preds = %362
-  %365 = add nsw i32 %361, %363
+  %365 = add nuw nsw i32 %361, %363
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
@@ -14845,7 +14843,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %368 unwind label %755
 
 368:                                              ; preds = %366
-  %369 = add nsw i32 %365, %367
+  %369 = add nuw nsw i32 %365, %367
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
@@ -14857,7 +14855,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %372 unwind label %759
 
 372:                                              ; preds = %370
-  %373 = add nsw i32 %369, %371
+  %373 = add nuw nsw i32 %369, %371
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
@@ -14869,7 +14867,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %376 unwind label %763
 
 376:                                              ; preds = %374
-  %377 = add nsw i32 %373, %375
+  %377 = add nuw nsw i32 %373, %375
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
@@ -14881,7 +14879,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %380 unwind label %767
 
 380:                                              ; preds = %378
-  %381 = add nsw i32 %377, %379
+  %381 = add nuw nsw i32 %377, %379
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
@@ -14893,7 +14891,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %384 unwind label %771
 
 384:                                              ; preds = %382
-  %385 = add nsw i32 %381, %383
+  %385 = add nuw nsw i32 %381, %383
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
@@ -14905,7 +14903,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %388 unwind label %775
 
 388:                                              ; preds = %386
-  %389 = add nsw i32 %385, %387
+  %389 = add nuw nsw i32 %385, %387
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
@@ -14917,7 +14915,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %392 unwind label %779
 
 392:                                              ; preds = %390
-  %393 = add nsw i32 %389, %391
+  %393 = add nuw nsw i32 %389, %391
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
@@ -14929,7 +14927,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %396 unwind label %783
 
 396:                                              ; preds = %394
-  %397 = add nsw i32 %393, %395
+  %397 = add nuw nsw i32 %393, %395
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
@@ -14941,7 +14939,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %400 unwind label %787
 
 400:                                              ; preds = %398
-  %401 = add nsw i32 %397, %399
+  %401 = add nuw nsw i32 %397, %399
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
@@ -14953,7 +14951,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %404 unwind label %791
 
 404:                                              ; preds = %402
-  %405 = add nsw i32 %401, %403
+  %405 = add nuw nsw i32 %401, %403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
@@ -14965,7 +14963,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %408 unwind label %795
 
 408:                                              ; preds = %406
-  %409 = add nsw i32 %405, %407
+  %409 = add nuw nsw i32 %405, %407
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
@@ -14977,7 +14975,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %412 unwind label %799
 
 412:                                              ; preds = %410
-  %413 = add nsw i32 %409, %411
+  %413 = add nuw nsw i32 %409, %411
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
@@ -14989,7 +14987,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %416 unwind label %803
 
 416:                                              ; preds = %414
-  %417 = add nsw i32 %413, %415
+  %417 = add nuw nsw i32 %413, %415
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
@@ -15001,7 +14999,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %420 unwind label %807
 
 420:                                              ; preds = %418
-  %421 = add nsw i32 %417, %419
+  %421 = add nuw nsw i32 %417, %419
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
@@ -15013,7 +15011,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %424 unwind label %811
 
 424:                                              ; preds = %422
-  %425 = add nsw i32 %421, %423
+  %425 = add nuw nsw i32 %421, %423
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
@@ -15025,7 +15023,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %428 unwind label %815
 
 428:                                              ; preds = %426
-  %429 = add nsw i32 %425, %427
+  %429 = add nuw nsw i32 %425, %427
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
@@ -15037,7 +15035,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %432 unwind label %819
 
 432:                                              ; preds = %430
-  %433 = add nsw i32 %429, %431
+  %433 = add nuw nsw i32 %429, %431
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
@@ -15049,7 +15047,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %436 unwind label %823
 
 436:                                              ; preds = %434
-  %437 = add nsw i32 %433, %435
+  %437 = add nuw nsw i32 %433, %435
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
@@ -15061,7 +15059,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %440 unwind label %827
 
 440:                                              ; preds = %438
-  %441 = add nsw i32 %437, %439
+  %441 = add nuw nsw i32 %437, %439
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
@@ -15073,7 +15071,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %444 unwind label %831
 
 444:                                              ; preds = %442
-  %445 = add nsw i32 %441, %443
+  %445 = add nuw nsw i32 %441, %443
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
@@ -15085,7 +15083,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %448 unwind label %835
 
 448:                                              ; preds = %446
-  %449 = add nsw i32 %445, %447
+  %449 = add nuw nsw i32 %445, %447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
@@ -15097,7 +15095,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %452 unwind label %839
 
 452:                                              ; preds = %450
-  %453 = add nsw i32 %449, %451
+  %453 = add nuw nsw i32 %449, %451
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
@@ -15109,7 +15107,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %456 unwind label %843
 
 456:                                              ; preds = %454
-  %457 = add nsw i32 %453, %455
+  %457 = add nuw nsw i32 %453, %455
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
@@ -15121,7 +15119,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %460 unwind label %847
 
 460:                                              ; preds = %458
-  %461 = add nsw i32 %457, %459
+  %461 = add nuw nsw i32 %457, %459
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %134) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
@@ -15133,7 +15131,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %464 unwind label %851
 
 464:                                              ; preds = %462
-  %465 = add nsw i32 %461, %463
+  %465 = add nuw nsw i32 %461, %463
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
@@ -15145,7 +15143,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %468 unwind label %855
 
 468:                                              ; preds = %466
-  %469 = add nsw i32 %465, %467
+  %469 = add nuw nsw i32 %465, %467
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
@@ -15157,7 +15155,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %472 unwind label %859
 
 472:                                              ; preds = %470
-  %473 = add nsw i32 %469, %471
+  %473 = add nuw nsw i32 %469, %471
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
@@ -15169,7 +15167,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %476 unwind label %863
 
 476:                                              ; preds = %474
-  %477 = add nsw i32 %473, %475
+  %477 = add nuw nsw i32 %473, %475
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
@@ -15181,7 +15179,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %480 unwind label %867
 
 480:                                              ; preds = %478
-  %481 = add nsw i32 %477, %479
+  %481 = add nuw nsw i32 %477, %479
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
@@ -15193,7 +15191,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %484 unwind label %871
 
 484:                                              ; preds = %482
-  %485 = add nsw i32 %481, %483
+  %485 = add nuw nsw i32 %481, %483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
@@ -15205,7 +15203,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %488 unwind label %875
 
 488:                                              ; preds = %486
-  %489 = add nsw i32 %485, %487
+  %489 = add nuw nsw i32 %485, %487
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
@@ -15217,7 +15215,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %492 unwind label %879
 
 492:                                              ; preds = %490
-  %493 = add nsw i32 %489, %491
+  %493 = add nuw nsw i32 %489, %491
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
@@ -15229,7 +15227,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %496 unwind label %883
 
 496:                                              ; preds = %494
-  %497 = add nsw i32 %493, %495
+  %497 = add nuw nsw i32 %493, %495
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
@@ -15241,7 +15239,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %500 unwind label %887
 
 500:                                              ; preds = %498
-  %501 = add nsw i32 %497, %499
+  %501 = add nuw nsw i32 %497, %499
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
@@ -15253,7 +15251,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %504 unwind label %891
 
 504:                                              ; preds = %502
-  %505 = add nsw i32 %501, %503
+  %505 = add nuw nsw i32 %501, %503
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
@@ -15265,7 +15263,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %508 unwind label %895
 
 508:                                              ; preds = %506
-  %509 = add nsw i32 %505, %507
+  %509 = add nuw nsw i32 %505, %507
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
@@ -15277,7 +15275,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %512 unwind label %899
 
 512:                                              ; preds = %510
-  %513 = add nsw i32 %509, %511
+  %513 = add nuw nsw i32 %509, %511
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
@@ -15289,7 +15287,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %516 unwind label %903
 
 516:                                              ; preds = %514
-  %517 = add nsw i32 %513, %515
+  %517 = add nuw nsw i32 %513, %515
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
@@ -15301,7 +15299,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %520 unwind label %907
 
 520:                                              ; preds = %518
-  %521 = add nsw i32 %517, %519
+  %521 = add nuw nsw i32 %517, %519
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %167) #25
@@ -15313,7 +15311,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %524 unwind label %911
 
 524:                                              ; preds = %522
-  %525 = add nsw i32 %521, %523
+  %525 = add nuw nsw i32 %521, %523
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %166) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %167) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %169) #25
@@ -15325,7 +15323,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %528 unwind label %915
 
 528:                                              ; preds = %526
-  %529 = add nsw i32 %525, %527
+  %529 = add nuw nsw i32 %525, %527
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %168) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %169) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %171) #25
@@ -15337,7 +15335,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %532 unwind label %919
 
 532:                                              ; preds = %530
-  %533 = add nsw i32 %529, %531
+  %533 = add nuw nsw i32 %529, %531
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %170) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %171) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %173) #25
@@ -15349,7 +15347,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %536 unwind label %923
 
 536:                                              ; preds = %534
-  %537 = add nsw i32 %533, %535
+  %537 = add nuw nsw i32 %533, %535
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %172) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %173) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %175) #25
@@ -15361,7 +15359,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %540 unwind label %927
 
 540:                                              ; preds = %538
-  %541 = add nsw i32 %537, %539
+  %541 = add nuw nsw i32 %537, %539
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %174) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %175) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %177) #25
@@ -15373,7 +15371,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %544 unwind label %931
 
 544:                                              ; preds = %542
-  %545 = add nsw i32 %541, %543
+  %545 = add nuw nsw i32 %541, %543
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %177) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %179) #25
@@ -15385,7 +15383,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %548 unwind label %935
 
 548:                                              ; preds = %546
-  %549 = add nsw i32 %545, %547
+  %549 = add nuw nsw i32 %545, %547
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %178) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %179) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %181) #25
@@ -15397,7 +15395,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %552 unwind label %939
 
 552:                                              ; preds = %550
-  %553 = add nsw i32 %549, %551
+  %553 = add nuw nsw i32 %549, %551
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %180) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %181) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %183) #25
@@ -15409,7 +15407,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %556 unwind label %943
 
 556:                                              ; preds = %554
-  %557 = add nsw i32 %553, %555
+  %557 = add nuw nsw i32 %553, %555
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %183) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %185) #25
@@ -15421,7 +15419,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %560 unwind label %947
 
 560:                                              ; preds = %558
-  %561 = add nsw i32 %557, %559
+  %561 = add nuw nsw i32 %557, %559
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %184) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %185) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %187) #25
@@ -15433,7 +15431,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %564 unwind label %951
 
 564:                                              ; preds = %562
-  %565 = add nsw i32 %561, %563
+  %565 = add nuw nsw i32 %561, %563
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %186) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %187) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %189) #25
@@ -15445,7 +15443,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %568 unwind label %955
 
 568:                                              ; preds = %566
-  %569 = add nsw i32 %565, %567
+  %569 = add nuw nsw i32 %565, %567
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %189) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %191) #25
@@ -15457,7 +15455,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %572 unwind label %959
 
 572:                                              ; preds = %570
-  %573 = add nsw i32 %569, %571
+  %573 = add nuw nsw i32 %569, %571
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %190) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %191) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %193) #25
@@ -15469,7 +15467,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture nound
           to label %576 unwind label %963
 
 576:                                              ; preds = %574
-  %577 = add nsw i32 %573, %575
+  %577 = add nuw nsw i32 %573, %575
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %193) #25
   %578 = icmp eq i32 %577, 0
@@ -17806,7 +17804,7 @@ define noundef range(i32 0, 50) i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 26) i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18010,7 +18008,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %102 unwind label %205
 
 102:                                              ; preds = %100
-  %103 = add nsw i32 %99, %101
+  %103 = add nuw nsw i32 %99, %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
@@ -18022,7 +18020,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %106 unwind label %209
 
 106:                                              ; preds = %104
-  %107 = add nsw i32 %103, %105
+  %107 = add nuw nsw i32 %103, %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
@@ -18034,7 +18032,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %110 unwind label %213
 
 110:                                              ; preds = %108
-  %111 = add nsw i32 %107, %109
+  %111 = add nuw nsw i32 %107, %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
@@ -18046,7 +18044,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %114 unwind label %217
 
 114:                                              ; preds = %112
-  %115 = add nsw i32 %111, %113
+  %115 = add nuw nsw i32 %111, %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
@@ -18058,7 +18056,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %118 unwind label %221
 
 118:                                              ; preds = %116
-  %119 = add nsw i32 %115, %117
+  %119 = add nuw nsw i32 %115, %117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
@@ -18070,7 +18068,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %122 unwind label %225
 
 122:                                              ; preds = %120
-  %123 = add nsw i32 %119, %121
+  %123 = add nuw nsw i32 %119, %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
@@ -18082,7 +18080,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %126 unwind label %229
 
 126:                                              ; preds = %124
-  %127 = add nsw i32 %123, %125
+  %127 = add nuw nsw i32 %123, %125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
@@ -18094,7 +18092,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %130 unwind label %233
 
 130:                                              ; preds = %128
-  %131 = add nsw i32 %127, %129
+  %131 = add nuw nsw i32 %127, %129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
@@ -18106,7 +18104,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %134 unwind label %237
 
 134:                                              ; preds = %132
-  %135 = add nsw i32 %131, %133
+  %135 = add nuw nsw i32 %131, %133
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
@@ -18118,7 +18116,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %138 unwind label %241
 
 138:                                              ; preds = %136
-  %139 = add nsw i32 %135, %137
+  %139 = add nuw nsw i32 %135, %137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
@@ -18130,7 +18128,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %142 unwind label %245
 
 142:                                              ; preds = %140
-  %143 = add nsw i32 %139, %141
+  %143 = add nuw nsw i32 %139, %141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
@@ -18142,7 +18140,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %146 unwind label %249
 
 146:                                              ; preds = %144
-  %147 = add nsw i32 %143, %145
+  %147 = add nuw nsw i32 %143, %145
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #25
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
@@ -18154,7 +18152,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture nounde
           to label %150 unwind label %253
 
 150:                                              ; preds = %148
-  %151 = add nsw i32 %147, %149
+  %151 = add nuw nsw i32 %147, %149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   %152 = icmp eq i32 %151, 0
@@ -19922,7 +19920,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2mu4Test12ParserTester7EqnTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester7EqnTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.mu::ParserCallback", align 8
   %6 = alloca %"class.mu::ParserCallback", align 8
   %7 = alloca %"class.mu::ParserCallback", align 8

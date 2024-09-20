@@ -12150,7 +12150,7 @@ define range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @zend_array_element_type(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define range(i32 2, 1) i32 @zend_array_element_type(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = and i32 %0, 256
   %.not = icmp eq i32 %5, 0
   %.not37 = icmp eq i32 %2, 0
@@ -12321,7 +12321,7 @@ define internal fastcc range(i32 -1073741824, 1073741824) i32 @zend_convert_type
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_update_type_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1

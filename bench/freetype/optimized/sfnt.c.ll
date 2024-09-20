@@ -1617,7 +1617,7 @@ define internal i32 @tt_cmap8_char_index(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @tt_cmap8_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
+define internal range(i32 0, -1) i32 @tt_cmap8_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, -1
@@ -13179,7 +13179,7 @@ get_deltas_for_var_index_base.exit:               ; preds = %67, %get_deltas_for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8 %2, ptr noundef %3) #0 {
+define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint(ptr noundef %0, ptr %1, i8 %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [6 x i32], align 16
@@ -23861,7 +23861,7 @@ define internal range(i32 0, 36) i32 @sfnt_get_glyph_name(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sfnt_get_name_index(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, -1) i32 @sfnt_get_name_index(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8

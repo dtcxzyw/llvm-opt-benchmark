@@ -16060,7 +16060,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit742:              ; preds = %1220, %1222
   %1228 = or disjoint i64 %.neg.i, 1
   %1229 = icmp slt i64 %1226, 0
   %.0.i743 = select i1 %1229, i64 %1228, i64 %1227
-  %1230 = tail call fastcc noundef i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i743, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %1230 = tail call fastcc noundef range(i32 1, 0) i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i743, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %1231 = add i32 %1230, 1
   %1232 = load ptr, ptr %1214, align 8
   %1233 = load ptr, ptr %1212, align 8
@@ -16134,7 +16134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit752:              ; preds = %1264, %1266
   %1272 = or disjoint i64 %.neg.i753, 1
   %1273 = icmp slt i64 %1270, 0
   %.0.i754 = select i1 %1273, i64 %1272, i64 %1271
-  %1274 = tail call fastcc noundef i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i754, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %1274 = tail call fastcc noundef range(i32 1, 0) i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i754, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %1275 = add i32 %1274, 1
   %1276 = load ptr, ptr %1241, align 8
   %1277 = load ptr, ptr %1239, align 8
@@ -16828,7 +16828,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit827:              ; preds = %1567, %1569
   %1653 = or disjoint i64 %.neg.i845, 1
   %1654 = icmp slt i64 %1626, 0
   %.0.i846 = select i1 %1654, i64 %1653, i64 %1652
-  %1655 = call fastcc noundef i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i846, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %1655 = call fastcc noundef range(i32 1, 0) i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %.0.i846, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %1656 = add i32 %1655, %.0506
   %1657 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %1658 = load ptr, ptr %1657, align 8
@@ -18429,7 +18429,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6i
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(23)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZL12EmitVBRValuemRN4llvm11raw_ostreamE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = icmp ult i64 %0, 128
   br i1 %3, label %4, label %.preheader
 

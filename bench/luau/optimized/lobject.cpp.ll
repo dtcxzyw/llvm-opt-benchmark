@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [3 x i8] c"\22]\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z9luaO_log2j(i32 noundef %0) local_unnamed_addr #0 {
+define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z9luaO_log2j(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 255
   br i1 %2, label %.lr.ph, label %._crit_edge
 

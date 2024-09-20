@@ -61,7 +61,7 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 declare i32 @LocalToUtf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @conv_18030_to_utf8(i32 noundef %0) #0 {
+define internal range(i32 -260013952, 15728640) i32 @conv_18030_to_utf8(i32 noundef %0) #0 {
   %2 = add i32 %0, 2127506640
   %or.cond = icmp ult i32 %2, 381442
   br i1 %or.cond, label %3, label %46
@@ -435,7 +435,7 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_gb18030(ptr nocapture nou
 declare i32 @UtfToLocal(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -2130706432, 1) i32 @conv_utf8_to_18030(i32 noundef %0) #0 {
+define internal range(i32 -2127560656, 1) i32 @conv_utf8_to_18030(i32 noundef %0) #0 {
   %2 = icmp ult i32 %0, 128
   br i1 %2, label %utf8word_to_unicode.exit, label %3
 
@@ -820,7 +820,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @unicode_to_utf8word(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -260013952, 15728640) i32 @unicode_to_utf8word(i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ult i32 %0, 128
   br i1 %2, label %34, label %3
 

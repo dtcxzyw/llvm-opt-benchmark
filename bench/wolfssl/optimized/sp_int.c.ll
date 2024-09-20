@@ -7274,7 +7274,7 @@ if.end27:                                         ; preds = %if.end11, %land.lhs
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_exptmod_ex(ptr noundef %b, ptr noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
+define range(i32 -3, 1) i32 @sp_exptmod_ex(ptr noundef %b, ptr noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp.not.i114 = icmp eq ptr %e, null
   br i1 %cmp.not.i114, label %sp_count_bits.exit143.thread, label %land.lhs.true.i115
@@ -8555,7 +8555,7 @@ do.end166:                                        ; preds = %_sp_copy.exit83, %d
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_exptmod(ptr noundef %b, ptr noundef %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
+define range(i32 -3, 1) i32 @sp_exptmod(ptr noundef %b, ptr noundef %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp = icmp ne ptr %b, null
   %cmp1 = icmp ne ptr %e, null
@@ -12950,7 +12950,7 @@ if.end55:                                         ; preds = %if.else, %entry, %s
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_prime_is_prime(ptr noundef %a, i32 noundef %trials, ptr noundef %result) local_unnamed_addr #10 {
+define range(i32 -3, 1) i32 @sp_prime_is_prime(ptr noundef %a, i32 noundef %trials, ptr noundef %result) local_unnamed_addr #10 {
 entry:
   %d.i = alloca i64, align 8
   %cmp = icmp eq ptr %a, null
@@ -13102,7 +13102,7 @@ do.end49:                                         ; preds = %if.end40.thread, %i
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %add = add i32 %0, 1
@@ -15207,7 +15207,7 @@ declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #15
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
 entry:
   store i32 0, ptr %result, align 4
   %cmp.i = icmp eq ptr %b, null

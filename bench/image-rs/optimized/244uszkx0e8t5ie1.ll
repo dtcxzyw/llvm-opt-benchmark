@@ -13602,7 +13602,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; pred
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @_ZN5image6codecs4webp3vp810BoolReader23read_magnitude_and_sign17hfd84966fc03c3873E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, i8 noundef %1) unnamed_addr #13 personality ptr @rust_eh_personality {
+define noundef range(i32 -255, 256) i32 @_ZN5image6codecs4webp3vp810BoolReader23read_magnitude_and_sign17hfd84966fc03c3873E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, i8 noundef %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1605)
   %3 = icmp eq i8 %1, 0
   br i1 %3, label %._ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit_crit_edge, label %.lr.ph.i
@@ -15515,7 +15515,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   %244 = sext i8 %243 to i32
   %245 = select i1 %241, i32 %234, i32 0
   %.015 = add nsw i32 %245, %244
-  %246 = add i32 %.015, %.0
+  %246 = add nsw i32 %.015, %.0
   %247 = icmp slt i32 %246, 0
   %248 = tail call i32 @llvm.umin.i32(i32 %246, i32 127)
   %.0.in.sroa.speculated.i.i = select i1 %247, i32 0, i32 %248
@@ -15531,7 +15531,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   %256 = load i16, ptr %255, align 2, !noundef !7
   %257 = getelementptr inbounds i8, ptr %238, i64 2
   store i16 %256, ptr %257, align 2
-  %258 = add i32 %.015, %.011
+  %258 = add nsw i32 %.015, %.011
   %259 = icmp slt i32 %258, 0
   %260 = tail call i32 @llvm.umin.i32(i32 %258, i32 127)
   %.0.in.sroa.speculated.i.i62 = select i1 %259, i32 0, i32 %260
@@ -15541,7 +15541,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   %264 = getelementptr inbounds i8, ptr %238, i64 4
   %265 = shl i16 %263, 1
   store i16 %265, ptr %264, align 4
-  %266 = add i32 %.015, %.012
+  %266 = add nsw i32 %.015, %.012
   %267 = icmp slt i32 %266, 0
   %268 = tail call i32 @llvm.umin.i32(i32 %266, i32 127)
   %.0.in.sroa.speculated.i.i63 = select i1 %267, i32 0, i32 %268
@@ -15554,7 +15554,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   %275 = getelementptr inbounds i8, ptr %238, i64 6
   %276 = trunc i32 %274 to i16
   store i16 %276, ptr %275, align 2
-  %277 = add i32 %.015, %.013
+  %277 = add nsw i32 %.015, %.013
   %278 = icmp slt i32 %277, 0
   %279 = tail call i32 @llvm.umin.i32(i32 %277, i32 127)
   %.0.in.sroa.speculated.i.i64 = select i1 %278, i32 0, i32 %279
@@ -15563,7 +15563,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit60: ; pr
   %282 = load i16, ptr %281, align 2, !noundef !7
   %283 = getelementptr inbounds i8, ptr %238, i64 8
   store i16 %282, ptr %283, align 8
-  %284 = add i32 %.015, %.014
+  %284 = add nsw i32 %.015, %.014
   %285 = icmp slt i32 %284, 0
   %286 = tail call i32 @llvm.umin.i32(i32 %284, i32 127)
   %.0.in.sroa.speculated.i.i65 = select i1 %285, i32 0, i32 %286

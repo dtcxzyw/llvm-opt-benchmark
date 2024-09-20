@@ -4987,7 +4987,7 @@ str_transcode.exit:                               ; preds = %3, %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @str_encode_bang(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @str_encode_bang(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

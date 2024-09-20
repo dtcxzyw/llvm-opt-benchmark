@@ -788,7 +788,7 @@ define internal range(i32 -1, 34) i32 @attlist1(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @attlist2(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+define internal range(i32 -1, 34) i32 @attlist2(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
   switch i32 %1, label %21 [
     i32 15, label %22
     i32 18, label %.preheader

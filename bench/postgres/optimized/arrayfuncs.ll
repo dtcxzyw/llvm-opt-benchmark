@@ -3214,7 +3214,7 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2147483648) i64 @array_ndims(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 7) i64 @array_ndims(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17

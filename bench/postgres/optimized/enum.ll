@@ -483,7 +483,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @enum_cmp(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @enum_first(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 4294967296) i64 @enum_first(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %2, i32 noundef 0) #7
   %4 = icmp eq i32 %3, 0
@@ -551,7 +551,7 @@ define internal fastcc i32 @enum_endpoint(i32 noundef range(i32 1, 0) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @enum_last(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 4294967296) i64 @enum_last(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %2, i32 noundef 0) #7
   %4 = icmp eq i32 %3, 0

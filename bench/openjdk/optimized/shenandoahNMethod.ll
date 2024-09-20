@@ -1289,7 +1289,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

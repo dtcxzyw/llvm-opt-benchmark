@@ -31037,7 +31037,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 1, 0) i64 @_kmul_resultsize(i64 noundef range(i64 2, 1) %la, i64 noundef range(i64 257, -9223372036854775808) %lb) unnamed_addr #19 {
+define internal fastcc range(i64 3, 0) i64 @_kmul_resultsize(i64 noundef range(i64 2, 1) %la, i64 noundef range(i64 257, -9223372036854775808) %lb) unnamed_addr #19 {
 entry:
   %sub.i = xor i64 %lb, -1
   %cmp.i = icmp ugt i64 %la, %sub.i

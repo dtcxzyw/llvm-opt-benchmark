@@ -6653,7 +6653,7 @@ dissect_hid_field.exit:                           ; preds = %135, %492, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_hid_class_descriptors(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 3, 1) i32 @dissect_usb_hid_class_descriptors(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
   %.not = icmp eq i8 %6, 33

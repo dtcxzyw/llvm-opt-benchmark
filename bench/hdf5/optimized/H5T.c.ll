@@ -649,7 +649,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.H5T__create = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SHORT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_INT_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_SCHAR_g, ptr @H5T_NATIVE_LONG_g], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5T_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T_init() local_unnamed_addr #0 {
   %1 = alloca [1 x i64], align 8
   store i64 1, ptr %1, align 8
   %2 = tail call i32 @H5I_register_type(ptr noundef nonnull @H5I_DATATYPE_CLS) #17

@@ -1895,7 +1895,7 @@ return:                                           ; preds = %do.end, %if.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qcow2_alloc_bytes(ptr noundef %bs, i32 noundef %size) #0 {
+define dso_local range(i64 1, 0) i64 @qcow2_alloc_bytes(ptr noundef %bs, i32 noundef %size) #0 {
 entry:
   %refcount_block.i = alloca ptr, align 8
   %refcount = alloca i64, align 8

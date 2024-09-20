@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [34 x i8] c"Miter is trivially unsatisfiable.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Raig_ManFindPo(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Raig_ManFindPo(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 112
   %.val = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val, 0

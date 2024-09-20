@@ -531,7 +531,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4llvm6Triple22getArchTypeForLLVMNameENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 0, 60) i32 @_ZN4llvm6Triple22getArchTypeForLLVMNameENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = tail call fastcc noundef i32 @_ZL12parseBPFArchN4llvm9StringRefE(ptr %0, i64 %1)
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit68 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i

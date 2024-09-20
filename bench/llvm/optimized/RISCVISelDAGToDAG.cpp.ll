@@ -10199,7 +10199,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectE
 declare noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"struct.llvm::EVT") align 8, ptr noundef byval(%"struct.llvm::EVT") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL12getSegInstNFj(i32 noundef %0) unnamed_addr #8 {
+define internal fastcc noundef range(i32 2, 9) i32 @_ZL12getSegInstNFj(i32 noundef %0) unnamed_addr #8 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -10578
   %1 = sext i32 %switch.tableidx to i64

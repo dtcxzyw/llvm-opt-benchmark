@@ -3135,7 +3135,7 @@ declare dso_local i32 @platform_device_add(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @bus_register_notifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
+define internal range(i64 -9223372036854775806, -9223372036854775808) i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   %2 = icmp eq i32 %0, 0
   %3 = select i1 %2, i8 0, i8 5
   br label %4

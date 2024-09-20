@@ -1104,7 +1104,7 @@ unreadc.exit:                                     ; preds = %11, %8, %20, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i8 noundef signext range(i8 91, 124) %2, i8 noundef signext range(i8 93, 126) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i8 noundef signext range(i8 91, 124) %2, i8 noundef signext range(i8 93, 126) %3) unnamed_addr #0 {
   %5 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
   %6 = icmp slt i32 %5, 0
   %7 = zext nneg i8 %3 to i32

@@ -305,14 +305,14 @@ define dso_local i64 @FSE_readNCount(ptr nocapture noundef writeonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define dso_local range(i64 1, 0) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [219 x i32], align 16
   %9 = call i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %8, i64 noundef 876, i32 poison)
   ret i64 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 %9) local_unnamed_addr #1 {
+define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 %9) local_unnamed_addr #1 {
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %HUF_readStats_body_default.exit, label %11
 

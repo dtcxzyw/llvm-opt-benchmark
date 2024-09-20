@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.Vec_PtrAllocTruthTables.Masks = private unnamed_addr constant [5 x i32] [i32 -1431655766, i32 -858993460, i32 -252645136, i32 -16711936, i32 -65536], align 16
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Hop_ManConvertAigToTruth_rec1(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Hop_ManConvertAigToTruth_rec1(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 22

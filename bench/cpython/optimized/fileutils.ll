@@ -976,7 +976,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_Py_GetForceASCII() local_unnamed_addr #0 {
+define hidden range(i32 0, -1) i32 @_Py_GetForceASCII() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
   %cmp = icmp eq i32 %0, -1

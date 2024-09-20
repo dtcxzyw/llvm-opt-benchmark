@@ -5514,7 +5514,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_driver(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_scaling_available_governors(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 9223372034707292161, 2147487726) i64 @show_scaling_available_governors(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr @cpufreq_driver, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8

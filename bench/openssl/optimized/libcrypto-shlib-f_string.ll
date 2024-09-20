@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.a2i_ASN1_STRING = private unnamed_addr constant [16 x i8] c"a2i_ASN1_STRING\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2a_ASN1_STRING(ptr noundef %bp, ptr noundef readonly %a, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %bp, ptr noundef readonly %a, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i8], align 1
   %cmp = icmp eq ptr %a, null

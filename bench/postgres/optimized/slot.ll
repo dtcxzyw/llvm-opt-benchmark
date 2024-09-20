@@ -3040,7 +3040,7 @@ declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @GetSlotInvalidationCause(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 4) i32 @GetSlotInvalidationCause(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %1, %7

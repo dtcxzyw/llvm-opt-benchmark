@@ -8472,7 +8472,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %55, %_ZNK4llvm8Func
   %409 = getelementptr inbounds i8, ptr %0, i64 8
   %410 = tail call fastcc noundef i32 @_ZL24getCommutedVPERMV3Opcodej(i32 noundef %10)
   %411 = load ptr, ptr %409, align 8
-  %412 = zext i32 %410 to i64
+  %412 = zext nneg i32 %410 to i64
   %413 = sub nsw i64 0, %412
   %414 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %411, i64 %413
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %408, ptr noundef nonnull align 8 dereferenceable(32) %414) #29
@@ -8526,7 +8526,7 @@ declare void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 
 declare void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm3X8618getSwappedVPCMPImmEj(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCMPImmEj(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCMPImmEj, i64 0, i64 %1
@@ -8535,7 +8535,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm3X8618getSwappedVPCOMImmEj(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCOMImmEj(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj, i64 0, i64 %1
@@ -8770,7 +8770,7 @@ define internal fastcc noundef zeroext i1 @_ZL30isCommutableVPERMV3Instructionj(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL24getCommutedVPERMV3Opcodej(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef range(i32 16084, 16608) i32 @_ZL24getCommutedVPERMV3Opcodej(i32 noundef %0) unnamed_addr #3 {
   switch i32 %0, label %193 [
     i32 16087, label %194
     i32 16089, label %2

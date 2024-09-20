@@ -1394,7 +1394,7 @@ define dso_local noundef i32 @snd_pcm_stop_xrun(ptr noundef %0) #0 align 16 {
 declare dso_local void @__snd_pcm_xrun(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -15, -16) i32 @snd_pcm_suspend_all(ptr noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_suspend_all(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit10, label %3
 
@@ -2474,7 +2474,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @snd_pcm
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_hw_params(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_hw_params(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread22, label %4
 
@@ -9716,7 +9716,7 @@ define internal fastcc i32 @snd_pcm_xfern_frames_ioctl(ptr noundef nonnull %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_rewind_ioctl(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_rewind_ioctl(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
   %4 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 8, i64 %3) #18, !srcloc !88
   %5 = extractvalue { ptr, i64, i64 } %4, 0
@@ -9753,7 +9753,7 @@ define internal fastcc i32 @snd_pcm_rewind_ioctl(ptr noundef nonnull %0, ptr nou
 
 28:                                               ; preds = %19
   %29 = tail call i64 @llvm.smin.i64(i64 %20, i64 0)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %28, %19, %11, %2
@@ -10125,7 +10125,7 @@ define internal void @snd_pcm_post_resume(ptr noundef %0, i32 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @snd_pcm_rewind(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @snd_pcm_rewind(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %99, label %4
 
@@ -10478,7 +10478,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_ioctl_sync_ptr_bug
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_ioctl_hw_params_compat(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_ioctl_hw_params_compat(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -10566,7 +10566,7 @@ define internal fastcc i32 @snd_pcm_ioctl_hw_params_compat(ptr noundef nonnull %
   br label %.thread
 
 .thread:                                          ; preds = %43, %56, %53, %29, %26, %23, %16, %11
-  %58 = phi i32 [ %17, %16 ], [ %24, %23 ], [ -14, %11 ], [ %42, %29 ], [ -14, %26 ], [ %24, %56 ], [ %24, %53 ], [ %24, %43 ]
+  %58 = phi i32 [ %17, %16 ], [ %24, %23 ], [ -14, %11 ], [ %42, %29 ], [ -14, %26 ], [ %24, %56 ], [ %24, %53 ], [ 0, %43 ]
   tail call void @kfree(ptr noundef nonnull %9) #18
   br label %59
 

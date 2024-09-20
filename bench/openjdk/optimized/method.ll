@@ -1969,7 +1969,7 @@ define hidden noundef i32 @_ZNK6Method8bci_fromEPh(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6Method12validate_bciEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 -2147483648, 65535) i32 @_ZNK6Method12validate_bciEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %11, label %4
 

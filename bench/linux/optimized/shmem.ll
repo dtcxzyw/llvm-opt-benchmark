@@ -1480,7 +1480,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare dso_local void @wake_up_var(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @shmem_get_folio(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -16, -17) i32 @shmem_get_folio(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 64
@@ -1490,7 +1490,7 @@ define dso_local i32 @shmem_get_folio(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @shmem_get_folio_gfp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -16, -17) i32 @shmem_get_folio_gfp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %8 = icmp ugt i64 %1, 2251799813685247
@@ -2443,7 +2443,7 @@ define internal i32 @shmem_writepage(ptr noundef %0, ptr noundef %1) #1 align 16
 declare dso_local zeroext i1 @noop_dirty_folio(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @shmem_write_begin(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #1 align 16 {
+define internal range(i32 -16, -17) i32 @shmem_write_begin(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #1 align 16 {
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = ashr i64 %2, 12

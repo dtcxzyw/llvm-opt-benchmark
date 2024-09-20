@@ -2531,7 +2531,7 @@ declare hidden void @luaK_patchtohere(ptr noundef, i32 noundef) local_unnamed_ad
 declare hidden void @luaK_goiftrue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef range(i32 0, 256) %limit) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef range(i32 0, 256) %limit) unnamed_addr #0 {
 entry:
   %v2 = alloca %struct.expdesc, align 8
   %L.i = getelementptr inbounds i8, ptr %ls, i64 56

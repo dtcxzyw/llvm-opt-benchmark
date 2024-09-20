@@ -3488,7 +3488,7 @@ define internal noundef zeroext i8 @_ZL7TOLOWERh(i8 noundef zeroext %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i8 @_ZL7TOUPPERh(i8 noundef zeroext %0) #1 {
+define internal noundef zeroext range(i8 123, 97) i8 @_ZL7TOUPPERh(i8 noundef zeroext %0) #1 {
   %2 = add i8 %0, -97
   %or.cond = icmp ult i8 %2, 26
   %3 = add nsw i8 %0, -32

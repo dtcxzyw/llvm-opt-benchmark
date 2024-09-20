@@ -216,7 +216,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @oneBitPosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @oneBitPosition(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 

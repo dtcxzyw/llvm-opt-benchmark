@@ -25555,7 +25555,7 @@ define hidden { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef range(i64 0, 8795265167261696) i64 @_ZN4time4time4Time6as_u6417hdde0b0dc57460be1E.llvm.11057974413330164255(i64 %0) unnamed_addr #36 {
+define hidden noundef range(i64 0, 6755399441055744) i64 @_ZN4time4time4Time6as_u6417hdde0b0dc57460be1E.llvm.11057974413330164255(i64 %0) unnamed_addr #36 {
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.42.0.extract.shift = lshr i64 %0, 32
   %.sroa.42.0.extract.trunc = trunc i64 %.sroa.42.0.extract.shift to i8
@@ -115996,7 +115996,7 @@ define void @"_ZN5typst6layout5align1_49_$LT$impl$u20$typst..layout..align..Alig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout5align1_49_$LT$impl$u20$typst..layout..align..AlignElem$GT$9alignment17hf22bb49e5af533eeE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout5align1_49_$LT$impl$u20$typst..layout..align..AlignElem$GT$9alignment17hf22bb49e5af533eeE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %5 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -116061,7 +116061,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout5align1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout5align1_49_$LT$impl$u20$typst..layout..align..AlignElem$GT$12alignment_in17ha5926ef1ec9b4266E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout5align1_49_$LT$impl$u20$typst..layout..align..AlignElem$GT$12alignment_in17ha5926ef1ec9b4266E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %4 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -119821,7 +119821,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3029af85b28195f6E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout9transform1_54_$LT$impl$u20$typst..layout..transform..RotateElem$GT$6origin17ha77e67e9f678364fE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout9transform1_54_$LT$impl$u20$typst..layout..transform..RotateElem$GT$6origin17ha77e67e9f678364fE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %5 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -119996,7 +119996,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3029af85b28195f6E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout9transform1_54_$LT$impl$u20$typst..layout..transform..RotateElem$GT$9origin_in17hf568b1f7dca8bc2cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout9transform1_54_$LT$impl$u20$typst..layout..transform..RotateElem$GT$9origin_in17hf568b1f7dca8bc2cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %4 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -122454,7 +122454,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hae585d26e54cce10E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout9transform1_53_$LT$impl$u20$typst..layout..transform..ScaleElem$GT$6origin17h5aa183e9ec5a661cE"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout9transform1_53_$LT$impl$u20$typst..layout..transform..ScaleElem$GT$6origin17h5aa183e9ec5a661cE"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %5 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8
@@ -122681,7 +122681,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hfa9f550b36893668E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i16 @"_ZN5typst6layout9transform1_53_$LT$impl$u20$typst..layout..transform..ScaleElem$GT$9origin_in17h9cdc1b802124918fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i16 6, 5) i16 @"_ZN5typst6layout9transform1_53_$LT$impl$u20$typst..layout..transform..ScaleElem$GT$9origin_in17h9cdc1b802124918fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, ptr }, align 8
   %4 = alloca { { { i64, [1 x i64] }, { ptr, [8 x i64] } } }, align 8

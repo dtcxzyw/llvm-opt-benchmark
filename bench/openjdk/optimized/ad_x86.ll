@@ -7829,7 +7829,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit: ; preds = %5
   %15 = select i1 %14, i32 4, i32 2
   %16 = icmp eq i8 %2, 7
   %spec.store.select.i.i = select i1 %16, i32 1, i32 %15
-  %17 = tail call noundef range(i32 -2147483648, 5) i32 @llvm.smin.i32(i32 %spec.store.select.i.i, i32 %13)
+  %17 = tail call noundef range(i32 -2147483647, 5) i32 @llvm.smin.i32(i32 %spec.store.select.i.i, i32 %13)
   %.not219 = icmp sgt i32 %17, %1
   br i1 %.not219, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %18
 
@@ -9208,7 +9208,7 @@ _ZN4TypenwEm.exit:                                ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @UseSSE, align 4
   %3 = icmp slt i32 %2, 2
   br i1 %3, label %37, label %4
@@ -9296,7 +9296,7 @@ define hidden noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN7Matcher15max_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN7Matcher15max_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %3 = zext i8 %0 to i64
   %4 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %3
@@ -9306,7 +9306,7 @@ define hidden noundef i32 @_ZN7Matcher15max_vector_sizeE9BasicType(i8 noundef ze
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483648, 5) i32 @_ZN7Matcher15min_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483647, 5) i32 @_ZN7Matcher15min_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %3 = zext i8 %0 to i64
   %4 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %3
@@ -9321,7 +9321,7 @@ define hidden noundef range(i32 -2147483648, 5) i32 @_ZN7Matcher15min_vector_siz
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN7Matcher34max_vector_size_auto_vectorizationE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN7Matcher34max_vector_size_auto_vectorizationE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN10VM_Version29is_default_intel_cascade_lakeEv() #23
   %3 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %4 = zext i8 %0 to i64
@@ -118883,7 +118883,7 @@ define hidden noundef i32 @_ZN7Matcher24stack_alignment_in_bytesEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK7Matcher11return_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1008) %0) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -2147483032, -2147483648) i32 @_ZNK7Matcher11return_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1008) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = tail call noundef i32 @_ZN13SharedRuntime23in_preserve_stack_slotsEv() #23
   %4 = load ptr, ptr %2, align 8

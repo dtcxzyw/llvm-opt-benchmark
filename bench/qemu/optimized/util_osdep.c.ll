@@ -269,7 +269,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_lock_fd(i32 noundef %fd, i64 noundef %start, i64 noundef %len, i1 noundef zeroext %exclusive) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @qemu_lock_fd(i32 noundef %fd, i64 noundef %start, i64 noundef %len, i1 noundef zeroext %exclusive) local_unnamed_addr #0 {
 entry:
   %fl.i = alloca %struct.flock, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fl.i)
@@ -309,7 +309,7 @@ qemu_lock_fcntl.exit:                             ; preds = %do.body.i, %cond.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_unlock_fd(i32 noundef %fd, i64 noundef %start, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @qemu_unlock_fd(i32 noundef %fd, i64 noundef %start, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %fl.i = alloca %struct.flock, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fl.i)

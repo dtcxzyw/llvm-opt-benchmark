@@ -994,7 +994,7 @@ define range(i32 -1, 1) i32 @H5Rdestroy(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @H5R__destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 5) i32 @H5Rget_type(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 5) i32 @H5Rget_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5_libinit_g, align 1
   %3 = trunc i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1

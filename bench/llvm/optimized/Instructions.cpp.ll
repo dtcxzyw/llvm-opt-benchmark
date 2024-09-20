@@ -19104,7 +19104,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 32, 42) i32 @_ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
   %1 = sext i32 %switch.tableidx to i64
@@ -19114,7 +19114,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 32, 38) i32 @_ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
   %1 = sext i32 %switch.tableidx to i64
@@ -19124,7 +19124,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, 42) i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE, i64 0, i64 %1

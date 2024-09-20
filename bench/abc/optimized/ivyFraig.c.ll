@@ -4941,7 +4941,7 @@ Ivy_FraigAddClass.exit:                           ; preds = %102, %103
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Ivy_FraigRefineClass_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr i8, ptr %1, i64 48
   %.047105133 = load ptr, ptr %3, align 8
   %cond106134 = icmp eq ptr %.047105133, null

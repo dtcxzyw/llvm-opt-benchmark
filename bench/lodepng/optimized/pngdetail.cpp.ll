@@ -1545,7 +1545,7 @@ if.end28:                                         ; preds = %if.else18, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_Z11RGBtoLetterhhhhjjbb(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, i8 noundef zeroext %a, i32 noundef %x, i32 noundef %y, i1 noundef zeroext %dither, i1 noundef zeroext %inverted) local_unnamed_addr #6 {
+define noundef signext range(i8 32, -128) i8 @_Z11RGBtoLetterhhhhjjbb(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, i8 noundef zeroext %a, i32 noundef %x, i32 noundef %y, i1 noundef zeroext %dither, i1 noundef zeroext %inverted) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq i8 %a, -1
   br i1 %cmp.not, label %if.end, label %if.then

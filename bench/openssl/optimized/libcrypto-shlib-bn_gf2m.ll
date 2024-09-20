@@ -957,7 +957,7 @@ declare void @bn_GF2m_mul_2x2(ptr noundef, i64 noundef, i64 noundef, i64 noundef
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1
@@ -1079,7 +1079,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_sqr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %err, %if.then
 declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_solve_quad(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1

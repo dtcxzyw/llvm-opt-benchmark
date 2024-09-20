@@ -199,7 +199,7 @@ define dso_local noundef range(i32 -12, 1) i32 @radix_tree_maybe_preload(i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 2) i32 @radix_tree_insert(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = ptrtoint ptr %2 to i64
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 2

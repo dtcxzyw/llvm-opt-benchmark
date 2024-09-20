@@ -1323,7 +1323,7 @@ _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 78, 175) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %2 = load i32, ptr %1, align 4
@@ -1335,7 +1335,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 435) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = load i8, ptr %0, align 8
   %switch.tableidx = xor i8 %1, -128
@@ -1379,7 +1379,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %_ZNK5clang7TypeLoc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 502, 598) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 4
@@ -1390,7 +1390,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(35) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 599, 1016) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(35) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i16, ptr %1, align 8

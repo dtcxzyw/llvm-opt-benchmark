@@ -1090,7 +1090,7 @@ define internal i32 @H5G__iterate_cb(ptr noundef %0, ptr nocapture noundef reado
 declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5G_visit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5G_visit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_iter_visit_ud_t, align 8
   %8 = alloca %struct.H5O_linfo_t, align 8
   %9 = alloca %struct.H5G_loc_t, align 8

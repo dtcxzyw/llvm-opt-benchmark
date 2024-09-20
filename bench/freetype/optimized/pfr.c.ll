@@ -124,7 +124,7 @@ define internal i32 @pfr_cmap_char_index(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @pfr_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 2, 1) i32 @pfr_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 1

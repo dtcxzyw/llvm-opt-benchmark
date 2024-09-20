@@ -2465,7 +2465,7 @@ define internal void @svcauth_gss_domain_release(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @svcauth_gss_set_client(ptr noundef %0) #2 align 16 {
+define internal range(i32 5, 9) i32 @svcauth_gss_set_client(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11320
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40

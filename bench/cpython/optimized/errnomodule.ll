@@ -160,7 +160,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @errno_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @errno_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call ptr @PyModule_GetDict(ptr noundef %module) #2
   %cmp = icmp eq ptr %call, null

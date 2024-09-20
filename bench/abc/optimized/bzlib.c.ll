@@ -4075,7 +4075,7 @@ BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.bz_stream, align 8
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null

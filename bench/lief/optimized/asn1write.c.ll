@@ -306,7 +306,7 @@ mbedtls_asn1_write_len.exit.thread:               ; preds = %2, %mbedtls_asn1_wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_oid(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_oid(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp ult ptr %5, %1
   %7 = ptrtoint ptr %5 to i64
@@ -637,7 +637,7 @@ asn1_write_tagged_int.exit:                       ; preds = %5, %19, %26, %29, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_tagged_string(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_tagged_string(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = icmp ult ptr %6, %1
   %8 = ptrtoint ptr %6 to i64
@@ -684,7 +684,7 @@ mbedtls_asn1_write_raw_buffer.exit.thread:        ; preds = %20, %5, %16, %mbedt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_utf8_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_utf8_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp ult ptr %5, %1
   %7 = ptrtoint ptr %5 to i64
@@ -730,7 +730,7 @@ mbedtls_asn1_write_tagged_string.exit:            ; preds = %4, %mbedtls_asn1_wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_printable_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_printable_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp ult ptr %5, %1
   %7 = ptrtoint ptr %5 to i64
@@ -776,7 +776,7 @@ mbedtls_asn1_write_tagged_string.exit:            ; preds = %4, %mbedtls_asn1_wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_ia5_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_ia5_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp ult ptr %5, %1
   %7 = ptrtoint ptr %5 to i64
@@ -1013,7 +1013,7 @@ mbedtls_asn1_write_tag.exit.thread:               ; preds = %34, %28, %4, %11, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_asn1_write_octet_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_octet_string(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp ult ptr %5, %1
   %7 = ptrtoint ptr %5 to i64

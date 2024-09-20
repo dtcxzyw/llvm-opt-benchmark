@@ -96,7 +96,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76

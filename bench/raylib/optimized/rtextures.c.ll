@@ -9765,7 +9765,7 @@ stbir__free_internal_mem.exit:                    ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @stbir_build_samplers_with_splits(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -536870912, -2147483648) i32 @stbir_build_samplers_with_splits(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.stbir__contributors, align 8
   %4 = alloca %struct.stbir__sampler, align 8
   %5 = alloca %struct.stbir__sampler, align 8
@@ -9936,7 +9936,7 @@ stbir__perform_build.exit:                        ; preds = %18, %23, %28, %45, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @stbir_build_samplers(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -536870912, -2147483648) i32 @stbir_build_samplers(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = tail call i32 @stbir_build_samplers_with_splits(ptr noundef %0, i32 noundef 1)
   ret i32 %2
 }
@@ -9979,7 +9979,7 @@ stbir__free_internal_mem.exit:                    ; preds = %10, %15
 16:                                               ; preds = %.thread, %stbir__free_internal_mem.exit
   %17 = phi i32 [ %6, %.thread ], [ %12, %stbir__free_internal_mem.exit ]
   %18 = phi ptr [ %5, %.thread ], [ %11, %stbir__free_internal_mem.exit ]
-  %19 = tail call noundef i32 @stbir_build_samplers_with_splits(ptr noundef nonnull %0, i32 noundef 1)
+  %19 = tail call range(i32 -536870912, -2147483648) i32 @stbir_build_samplers_with_splits(ptr noundef nonnull %0, i32 noundef 1)
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %36, label %20
 
@@ -38148,7 +38148,7 @@ stbir__insert_coeff.exit268:                      ; preds = %.preheader, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @stbir__edge_clamp_full(i32 noundef %0, i32 noundef %1) #6 {
+define internal range(i32 -2147483648, 2147483647) i32 @stbir__edge_clamp_full(i32 noundef %0, i32 noundef %1) #6 {
   %3 = icmp slt i32 %0, 0
   %.not = icmp slt i32 %0, %1
   %4 = add nsw i32 %1, -1
@@ -38158,7 +38158,7 @@ define internal i32 @stbir__edge_clamp_full(i32 noundef %0, i32 noundef %1) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @stbir__edge_reflect_full(i32 noundef %0, i32 noundef %1) #6 {
+define internal range(i32 -2147483648, 2147483647) i32 @stbir__edge_reflect_full(i32 noundef %0, i32 noundef %1) #6 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %11
 

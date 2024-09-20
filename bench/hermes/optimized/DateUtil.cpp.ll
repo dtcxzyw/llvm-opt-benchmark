@@ -379,7 +379,7 @@ _ZN6hermes2vm10daysInYearEd.exit:                 ; preds = %entry, %_ZN6hermes2
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define hidden noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 12) i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t) local_unnamed_addr #5 {
 entry:
   %div.i = fdiv double %t, 8.640000e+07
   %0 = tail call noundef double @llvm.floor.f64(double %div.i)
@@ -476,7 +476,7 @@ _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
 _ZN6hermes2vm10inLeapYearEd.exit.thread:          ; preds = %entry, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %0
   %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %0 ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %entry ]
   %call46 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
-  %idxprom.i7 = zext i32 %call46 to i64
+  %idxprom.i7 = zext nneg i32 %call46 to i64
   %arrayidx2.i9 = getelementptr inbounds [13 x i16], ptr %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink, i64 0, i64 %idxprom.i7
   %div.i = fdiv double %t, 8.640000e+07
   %1 = tail call noundef double @llvm.floor.f64(double %div.i)
@@ -1013,7 +1013,7 @@ entry:
   %call = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %conv = fptosi double %call to i32
   %call1 = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
-  %add = add i32 %call1, 1
+  %add = add nuw nsw i32 %call1, 1
   %call2 = call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t)
   %conv3 = fptosi double %call2 to i32
   %or.cond = icmp ugt i32 %conv, 9999
@@ -1160,7 +1160,7 @@ entry:
   %call.i.i = call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t)
   %conv.i.i = fptosi double %call.i.i to i32
   %call1.i.i = call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
-  %add.i.i = add i32 %call1.i.i, 1
+  %add.i.i = add nuw nsw i32 %call1.i.i, 1
   %call2.i.i = call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t)
   %conv3.i.i = fptosi double %call2.i.i to i32
   %or.cond.i.i = icmp ugt i32 %conv.i.i, 9999
@@ -1261,7 +1261,7 @@ entry:
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
-  %idxprom5 = sext i32 %call1 to i64
+  %idxprom5 = zext nneg i32 %call1 to i64
   %arrayidx6 = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -1417,7 +1417,7 @@ entry:
   %conv.i.i = fptosi double %cond.i.i.i to i32
   %idxprom.i = sext i32 %conv.i.i to i64
   %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom.i
-  %idxprom5.i = sext i32 %call1.i to i64
+  %idxprom5.i = zext nneg i32 %call1.i to i64
   %arrayidx6.i = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -1574,7 +1574,7 @@ entry:
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
-  %idxprom5 = sext i32 %call1 to i64
+  %idxprom5 = zext nneg i32 %call1 to i64
   %arrayidx6 = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8

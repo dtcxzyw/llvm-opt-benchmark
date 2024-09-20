@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end.i, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7516LocalizationInfo14indexForLocaleEPKDs(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %locale) unnamed_addr #3 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7516LocalizationInfo14indexForLocaleEPKDs(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %locale) unnamed_addr #3 align 2 {
 entry:
   %vtable9 = load ptr, ptr %this, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 40
@@ -365,7 +365,7 @@ return:                                           ; preds = %_ZN6icu_75L5streqEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7516LocalizationInfo15indexForRuleSetEPKDs(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %ruleset) unnamed_addr #3 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7516LocalizationInfo15indexForRuleSetEPKDs(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %ruleset) unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %ruleset, null
   br i1 %tobool.not, label %return, label %for.cond.preheader

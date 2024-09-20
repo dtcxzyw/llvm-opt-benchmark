@@ -2541,7 +2541,7 @@ declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) lo
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN11FileMapInfo28get_module_shared_path_indexEP6Symbol(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483647, 2147483647) i32 @_ZN11FileMapInfo28get_module_shared_path_indexEP6Symbol(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = icmp ult i16 %3, 4

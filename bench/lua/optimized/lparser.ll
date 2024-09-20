@@ -5023,7 +5023,7 @@ if.end21:                                         ; preds = %if.then2.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @explist(ptr noundef nonnull %ls, ptr noundef nonnull %v) unnamed_addr #1 {
+define internal fastcc range(i32 1, 0) i32 @explist(ptr noundef nonnull %ls, ptr noundef nonnull %v) unnamed_addr #1 {
 entry:
   %call.i = tail call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v, i32 noundef 0)
   %t.i = getelementptr inbounds i8, ptr %ls, i64 16

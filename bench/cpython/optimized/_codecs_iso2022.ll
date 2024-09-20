@@ -1856,7 +1856,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @ksx1001_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2085,7 +2085,7 @@ return:                                           ; preds = %land.lhs.true32, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @jisx0208_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536
@@ -2378,7 +2378,7 @@ return:                                           ; preds = %land.lhs.true22, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @gb2312_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
+define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr nocapture noundef readonly %codec, ptr nocapture noundef readonly %data, ptr nocapture readnone %length) #8 {
 entry:
   %0 = load i32, ptr %data, align 4
   %cmp = icmp ult i32 %0, 65536

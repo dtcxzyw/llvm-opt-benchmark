@@ -4998,7 +4998,7 @@ define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_choose_state(ptr noundef %0, i32 %1) #5 align 16 {
+define dso_local range(i32 0, -1) i32 @pci_choose_state(ptr noundef %0, i32 %1) #5 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %36, label %4
 
@@ -6425,7 +6425,7 @@ define dso_local range(i32 0, 1048576) i32 @pci_rebar_get_possible_sizes(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pci_rebar_find_pos(ptr noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 1, 0) i32 @pci_rebar_find_pos(ptr noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
@@ -6510,7 +6510,7 @@ define internal fastcc i32 @pci_rebar_find_pos(ptr noundef %0, i32 noundef %1) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_rebar_get_current_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -2147483648, 32) i32 @pci_rebar_get_current_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   %4 = tail call fastcc i32 @pci_rebar_find_pos(ptr noundef %0, i32 noundef %1)
@@ -6533,7 +6533,7 @@ define dso_local i32 @pci_rebar_get_current_size(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_rebar_set_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_rebar_set_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   %5 = tail call fastcc i32 @pci_rebar_find_pos(ptr noundef %0, i32 noundef %1)

@@ -13142,7 +13142,7 @@ ata_id_xfermask.exit88:                           ; preds = %984, %989
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_wait_ready(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ata_wait_ready(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -13568,7 +13568,7 @@ define dso_local void @ata_msleep(ptr noundef %0, i32 noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6

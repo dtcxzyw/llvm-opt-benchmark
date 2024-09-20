@@ -1293,7 +1293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7testing8internal6Random8GenerateEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %range) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, -1) i32 @_ZN7testing8internal6Random8GenerateEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %range) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp12 = alloca %"class.testing::internal::GTestLog", align 4

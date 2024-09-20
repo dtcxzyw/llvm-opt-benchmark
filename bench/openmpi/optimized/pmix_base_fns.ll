@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [12 x i8] c"opal_nptr_t\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pmix_base_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, -7) i32 @opal_pmix_base_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x %struct.pmix_info], align 16
   %6 = alloca i8, align 1
@@ -107,7 +107,7 @@ declare i32 @PMIx_Publish(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @opal_pmix_convert_status(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 -5, -7) i32 @opal_pmix_convert_status(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %29 [
     i32 -3, label %30
     i32 -334, label %2
@@ -990,7 +990,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @opal_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 -53, -56) i32 @opal_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %26 [
     i32 -54, label %27
     i32 -55, label %2

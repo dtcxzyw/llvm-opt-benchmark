@@ -571,7 +571,7 @@ if.end7:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @EVP_EncodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %dlen) local_unnamed_addr #7 {
+define range(i32 4, 1) i32 @EVP_EncodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %dlen) local_unnamed_addr #7 {
 entry:
   %cmp233.i = icmp sgt i32 %dlen, 0
   br i1 %cmp233.i, label %for.body.i, label %evp_encodeblock_int.exit
@@ -869,7 +869,7 @@ end:                                              ; preds = %for.body, %if.then7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) unnamed_addr #7 {
+define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.else, label %land.lhs.true
@@ -1050,7 +1050,7 @@ return:                                           ; preds = %conv_ascii2bin.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) local_unnamed_addr #8 {
+define range(i32 3, 1) i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %call = tail call fastcc i32 @evp_decodeblock_int(ptr noundef null, ptr noundef %t, ptr noundef %f, i32 noundef %n)
   ret i32 %call

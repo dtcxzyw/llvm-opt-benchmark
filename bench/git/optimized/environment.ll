@@ -845,7 +845,7 @@ entry:
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @print_sha1_ellipsis() local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @print_sha1_ellipsis() local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr @print_sha1_ellipsis.cached_result, align 4
   %cmp = icmp slt i32 %0, 0

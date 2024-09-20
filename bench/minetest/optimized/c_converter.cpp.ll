@@ -6985,7 +6985,7 @@ entry:
 declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_Z23write_array_slice_floatP9lua_StateiPfN3irr4core8vector3dItEES5_S5_(ptr noundef %L, i32 noundef %table_index, ptr nocapture noundef readonly %data, i48 %data_size.coerce, i48 %slice_offset.coerce, i48 %slice_size.coerce) local_unnamed_addr #5 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_Z23write_array_slice_floatP9lua_StateiPfN3irr4core8vector3dItEES5_S5_(ptr noundef %L, i32 noundef %table_index, ptr nocapture noundef readonly %data, i48 %data_size.coerce, i48 %slice_offset.coerce, i48 %slice_size.coerce) local_unnamed_addr #5 {
 entry:
   %data_size.sroa.0.0.extract.trunc = trunc i48 %data_size.coerce to i32
   %data_size.sroa.6.0.extract.shift = lshr i48 %data_size.coerce, 16

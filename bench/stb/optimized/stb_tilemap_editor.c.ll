@@ -5599,7 +5599,7 @@ return:                                           ; preds = %land.lhs.true216, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define i32 @stbte__find_tile(ptr nocapture noundef readonly %tm, i32 noundef %tile_id) local_unnamed_addr #22 {
+define range(i32 -2147483648, 2147483647) i32 @stbte__find_tile(ptr nocapture noundef readonly %tm, i32 noundef %tile_id) local_unnamed_addr #22 {
 entry:
   %num_tiles = getelementptr inbounds i8, ptr %tm, i64 800864
   %0 = load i32, ptr %num_tiles, align 8

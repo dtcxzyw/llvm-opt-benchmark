@@ -4226,7 +4226,7 @@ sw.epilog:                                        ; preds = %for.end.i42, %if.th
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @scsi_disk_emulate_inquiry(ptr nocapture noundef readonly %req, ptr noundef %outbuf) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 260) i32 @scsi_disk_emulate_inquiry(ptr nocapture noundef readonly %req, ptr noundef %outbuf) unnamed_addr #0 {
 entry:
   %_now.i.i177.i = alloca %struct.timeval, align 8
   %_now.i.i163.i = alloca %struct.timeval, align 8

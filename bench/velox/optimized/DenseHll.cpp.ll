@@ -545,7 +545,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_115getOverflowImplEiiPKtPKa.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -2147483648, 32767) i32 @_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %overflows_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_, align 8
@@ -2442,7 +2442,7 @@ cond.end23:                                       ; preds = %cond.end.split, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %index, i32 noundef %overflowEntry, i8 noundef signext %delta) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 -128, 16) i8 @_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %index, i32 noundef %overflowEntry, i8 noundef signext %delta) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp sgt i8 %delta, 15
   %cmp2.not = icmp eq i32 %overflowEntry, -1

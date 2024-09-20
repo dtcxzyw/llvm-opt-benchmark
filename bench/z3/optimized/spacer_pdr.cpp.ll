@@ -428,7 +428,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK6spacer10model_node15index_in_parentEv(ptr noundef nonnull readonly align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK6spacer10model_node15index_in_parentEv(ptr noundef nonnull readonly align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_parent = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_parent, align 8

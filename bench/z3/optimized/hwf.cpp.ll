@@ -2023,7 +2023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -972, 3124) i32 @_ZN11hwf_manager17prev_power_of_twoERK3hwf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, 1076) i32 @_ZN11hwf_manager17prev_power_of_twoERK3hwf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
 entry:
   %n.0.copyload.i.i.i = load i64, ptr %a, align 8
   %cmp.i.i = icmp slt i64 %n.0.copyload.i.i.i, 0

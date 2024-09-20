@@ -5421,7 +5421,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN9typst_pdf5color11ColorSpaces5okla
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN9typst_pdf5color11ColorSpaces5oklab28_$u7b$$u7b$closure$u7d$$u7d$17hb0d4440e8cf56fb5E.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
+define hidden noundef range(i32 1, 2147483647) i32 @"_ZN9typst_pdf5color11ColorSpaces5oklab28_$u7b$$u7b$closure$u7d$$u7d$17hb0d4440e8cf56fb5E.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i32, ptr %0, align 4, !range !646, !noundef !4
   %4 = icmp ugt i32 %3, 2147483646
@@ -5489,7 +5489,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN9typst_pdf5color11ColorSpaces4srgb
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN9typst_pdf5color11ColorSpaces4srgb28_$u7b$$u7b$closure$u7d$$u7d$17ha892c23f7c1c817fE.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
+define hidden noundef range(i32 1, 2147483647) i32 @"_ZN9typst_pdf5color11ColorSpaces4srgb28_$u7b$$u7b$closure$u7d$$u7d$17ha892c23f7c1c817fE.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i32, ptr %0, align 4, !range !646, !noundef !4
   %4 = icmp ugt i32 %3, 2147483646
@@ -5557,7 +5557,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN9typst_pdf5color11ColorSpaces8d65_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN9typst_pdf5color11ColorSpaces8d65_gray28_$u7b$$u7b$closure$u7d$$u7d$17h069079df7e02dc5aE.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
+define hidden noundef range(i32 1, 2147483647) i32 @"_ZN9typst_pdf5color11ColorSpaces8d65_gray28_$u7b$$u7b$closure$u7d$$u7d$17h069079df7e02dc5aE.llvm.15772558698018558306"(ptr noalias nocapture noundef align 4 dereferenceable(4) %0) unnamed_addr #4 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i32, ptr %0, align 4, !range !646, !noundef !4
   %4 = icmp ugt i32 %3, 2147483646

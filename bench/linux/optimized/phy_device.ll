@@ -1047,7 +1047,7 @@ define dso_local ptr @get_phy_device(ptr noundef %0, i32 noundef %1, i1 noundef 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_phy_c45_ids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   br label %4
 
 4:                                                ; preds = %28, %3
@@ -1213,7 +1213,7 @@ define dso_local i32 @phy_device_register(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @mdiobus_register_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @phy_fixup_lock) #18
   %2 = load ptr, ptr @phy_fixup_list, align 8
   %3 = icmp eq ptr %2, @phy_fixup_list
@@ -2823,7 +2823,7 @@ define dso_local i32 @phy_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @genphy_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 2147483644) i32 @genphy_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   br i1 %1, label %3, label %46
 
 3:                                                ; preds = %2

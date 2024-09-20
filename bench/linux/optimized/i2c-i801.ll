@@ -1319,7 +1319,7 @@ declare dso_local void @pm_runtime_allow(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6) #3 align 16 {
+define internal range(i32 -110, 1) i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6) #3 align 16 {
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8

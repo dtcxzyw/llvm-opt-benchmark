@@ -578,7 +578,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLFuncs_InitPlatformFuncs() local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i8 @OGLFuncs_InitBaseFuncs() local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLFuncs_InitBaseFuncs() local_unnamed_addr #0 {
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.37) #4
   %1 = load ptr, ptr @pLibGL, align 8
   %2 = icmp eq ptr %1, null

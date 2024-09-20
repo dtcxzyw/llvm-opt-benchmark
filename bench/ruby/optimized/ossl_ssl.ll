@@ -1206,7 +1206,7 @@ define internal noundef i64 @ossl_sslctx_enable_fallback_scsv(i64 noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_sslctx_add_certificate(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @ossl_sslctx_add_certificate(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2496,7 +2496,7 @@ rb_ulong2num_inline.exit:                         ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_sslctx_set_options(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_sslctx_set_options(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0

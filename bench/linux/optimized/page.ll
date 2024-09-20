@@ -49,7 +49,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_proc_page_init425, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched151, ptr @rcu_read_unlock_sched.__UNIQUE_ID___addressable___SCK__preempt_schedule92], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %367, label %3
 

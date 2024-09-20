@@ -1196,7 +1196,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

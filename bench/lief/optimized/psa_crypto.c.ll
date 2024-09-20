@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.psa_key_policy_algorithm_intersection.26 = private unnamed_addr constant [16 x i32] [i32 16, i32 20, i32 20, i32 16, i32 16, i32 28, i32 32, i32 48, i32 64, i32 28, i32 32, i32 16, i32 16, i32 28, i32 32, i32 48], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_to_psa_error(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sub nsw i32 0, %0
   %3 = and i32 %2, 127
   %4 = sub nsw i32 0, %3
@@ -828,7 +828,7 @@ define hidden i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef %1) local_
 
 38:                                               ; preds = %.split15.i, %.split.i
   %.sink.i = phi i32 [ 0, %.split.i ], [ %.0.ph.i, %.split15.i ]
-  %39 = call noundef i32 @mbedtls_to_psa_error(i32 noundef %.sink.i)
+  %39 = call range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %.sink.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %40 = load ptr, ptr %5, align 8
   call void @mbedtls_rsa_free(ptr noundef %40) #15
@@ -3194,7 +3194,7 @@ psa_cipher_abort.exit:                            ; preds = %36, %.thread, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = load i8, ptr @global_data, align 8
   %4 = and i8 %3, 1
   %5 = icmp eq i8 %4, 0
@@ -7407,7 +7407,7 @@ mbedtls_psa_random_init.exit:                     ; preds = %8, %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 4281168, ptr %1, align 4
   %16 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef nonnull @mbedtls_entropy_func, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 24), ptr noundef nonnull %1, i64 noundef 3) #15
-  %17 = call noundef i32 @mbedtls_to_psa_error(i32 noundef %16)
+  %17 = call range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %18, label %28

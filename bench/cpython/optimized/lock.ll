@@ -538,7 +538,7 @@ return:                                           ; preds = %for.cond, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyOnceFlag_CallOnceSlow(ptr noundef %flag, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyOnceFlag_CallOnceSlow(ptr noundef %flag, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %v = alloca i8, align 1
   %0 = load atomic i8, ptr %flag seq_cst, align 1

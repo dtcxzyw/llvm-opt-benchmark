@@ -433,7 +433,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @riscv_gdb_get_vector(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 8, 1) i32 @riscv_gdb_get_vector(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %cmp = icmp slt i32 %n, 32

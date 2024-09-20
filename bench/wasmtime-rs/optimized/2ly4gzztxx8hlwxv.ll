@@ -6364,7 +6364,7 @@ define hidden void @"_ZN81_$LT$cranelift_codegen..alias_analysis..MemoryLoc$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef range(i64 -1, 255) i64 @_ZN17cranelift_codegen4opts14generated_code25constructor_ty_shift_mask17h48ffb9225cf41d6eE(i16 noundef %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 -1, 128) i64 @_ZN17cranelift_codegen4opts14generated_code25constructor_ty_shift_mask17h48ffb9225cf41d6eE(i16 noundef %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp ult i16 %0, 128
   %3 = and i16 %0, 15
   %4 = or disjoint i16 %3, 112
@@ -61471,7 +61471,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef range(i64 0, 2130706433) i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E"(i16 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef range(i64 0, 32769) i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E"(i16 noundef %0) unnamed_addr #3 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 

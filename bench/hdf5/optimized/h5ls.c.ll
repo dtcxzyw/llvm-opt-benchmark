@@ -3219,7 +3219,7 @@ declare i32 @H5Pget_external_count(i64 noundef) local_unnamed_addr #2
 declare i32 @H5Pget_external(i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_string(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #3 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @print_string(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #3 {
   %.not58 = icmp eq ptr %1, null
   br i1 %.not58, label %.critedge, label %.lr.ph
 

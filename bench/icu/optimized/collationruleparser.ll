@@ -5081,7 +5081,7 @@ land.end:                                         ; preds = %switch.early.test, 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7519CollationRuleParser9readWordsEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(64) %raw) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -1) i32 @_ZNK6icu_7519CollationRuleParser9readWordsEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(64) %raw) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i78 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
@@ -6179,7 +6179,7 @@ declare void @_ZN6icu_7517CollationSettings15resetReorderingEv(ptr noundef nonnu
 declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7519CollationRuleParser14getReorderCodeEPKc(ptr noundef %word) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7519CollationRuleParser14getReorderCodeEPKc(ptr noundef %word) local_unnamed_addr #1 align 2 {
 entry:
   br label %for.body
 

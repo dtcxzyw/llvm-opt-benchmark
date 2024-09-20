@@ -1991,7 +1991,7 @@ define dso_local i64 @rb_check_hash_type(i64 noundef %0) local_unnamed_addr #0 {
 declare i64 @rb_check_convert_type_with_id(i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_hash_rehash(i64 noundef returned %0) #0 {
+define hidden range(i64 1, -7) i64 @rb_hash_rehash(i64 noundef returned %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4261412864
@@ -2813,7 +2813,7 @@ rb_hash_modify.exit:                              ; preds = %11, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_hash_clear(i64 noundef returned %0) #0 {
+define dso_local range(i64 1, -7) i64 @rb_hash_clear(i64 noundef returned %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -3203,7 +3203,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_hash_set_pair(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i64 1, -7) i64 @rb_hash_set_pair(i64 noundef returned %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_check_array_type(i64 noundef %1) #24
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %8
@@ -3544,7 +3544,7 @@ define hidden range(i64 0, 21) i64 @rb_hash_has_key(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_hash_update_by(i64 noundef returned %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_hash_update_by(i64 noundef returned %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.update_func_arg, align 8
   %5 = and i64 %0, 7
   %6 = icmp ne i64 %5, 0
@@ -5122,7 +5122,7 @@ define internal i64 @rb_hash_s_try_convert(i64 %0, i64 noundef %1) #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_hash_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @rb_hash_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = and i64 %2, 7
@@ -5245,7 +5245,7 @@ set_proc_default.exit:                            ; preds = %.thread, %53, %46, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_hash_replace(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @rb_hash_replace(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0
@@ -7937,7 +7937,7 @@ compact_after_delete.exit:                        ; preds = %RHASH_EMPTY_P.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_hash_compact_bang(i64 noundef %0) #0 {
+define internal range(i64 1, -7) i64 @rb_hash_compact_bang(i64 noundef %0) #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0

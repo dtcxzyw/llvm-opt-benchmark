@@ -3822,7 +3822,7 @@ declare dso_local i32 @ata_std_prereset(ptr noundef, i64 noundef) local_unnamed_
 declare dso_local zeroext i1 @ata_link_offline(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_sff_dev_classify(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @ata_sff_dev_classify(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2) #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = load ptr, ptr %0, align 64
   %6 = load ptr, ptr %5, align 64

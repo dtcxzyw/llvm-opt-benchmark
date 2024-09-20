@@ -71,7 +71,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i16 0, -32768) i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = uitofp i32 %ui to float
   %0 = load ptr, ptr @imath_half_to_float_table, align 8

@@ -85309,7 +85309,7 @@ _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %_ZNK7AstNode5widthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 268435453) i32 @_ZNK13AstBasicDType15widthTotalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 1, 268435453) i32 @_ZNK13AstBasicDType15widthTotalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 9
@@ -85422,7 +85422,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI13AstBas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 268435453) i32 @_ZNK21AstNodeUOrStructDType15widthTotalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 1, 268435453) i32 @_ZNK21AstNodeUOrStructDType15widthTotalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 9

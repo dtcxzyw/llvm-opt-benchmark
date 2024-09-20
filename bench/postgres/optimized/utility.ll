@@ -1034,7 +1034,7 @@ declare void @check_stack_depth() local_unnamed_addr #2
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @CreateCommandTag(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 193) i32 @CreateCommandTag(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -3146,7 +3146,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetCommandLogLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 4) i32 @GetCommandLogLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1

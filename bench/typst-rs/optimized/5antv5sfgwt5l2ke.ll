@@ -3005,7 +3005,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN12typst_syntax9highlight9highlight17h8c08fd589b900bd9E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define noundef range(i8 0, 22) i8 @_ZN12typst_syntax9highlight9highlight17h8c08fd589b900bd9E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !578, !nonnull !4, !align !208, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !583)
   %3 = getelementptr inbounds i8, ptr %2, i64 24

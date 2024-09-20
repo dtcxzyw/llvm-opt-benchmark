@@ -4566,7 +4566,7 @@ declare i32 @tm2timestamp(ptr noundef, i32 noundef, ptr noundef, ptr noundef) lo
 declare zeroext i1 @AdjustTimestampForTypmod(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2145032103) i64 @to_date(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2451545, 2145031949) i64 @to_date(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pg_tm, align 8
   %3 = alloca %struct.fmt_tz, align 4
   %4 = alloca i32, align 4

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.MACHINE_GET_CLASS = private unnamed_addr constant [18 x i8] c"MACHINE_GET_CLASS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @riscv_socket_count(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @riscv_socket_count(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8

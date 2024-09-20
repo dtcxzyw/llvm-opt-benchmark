@@ -1507,7 +1507,7 @@ define dso_local void @_ZN4llvm6X86_MC27verifyInstructionPredicatesEjRKNS_13Feat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2514) i32 @_ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %0, label %.fold.split [
     i32 668, label %5
     i32 687, label %15
@@ -8930,7 +8930,7 @@ declare noundef ptr @_ZN4llvm22createX86_32AsmBackendERKNS_6TargetERKNS_15MCSubt
 declare noundef ptr @_ZN4llvm22createX86_64AsmBackendERKNS_6TargetERKNS_15MCSubtargetInfoERKNS_14MCRegisterInfoERKNS_15MCTargetOptionsE(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(201)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 372) i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = add i32 %1, -8
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
   switch i32 %5, label %6 [

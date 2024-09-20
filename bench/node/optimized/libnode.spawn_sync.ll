@@ -1690,7 +1690,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @uv_loop_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node17SyncProcessRunner12ParseOptionsEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %js_value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 -9223372036854775807, 2) i64 @_ZN4node17SyncProcessRunner12ParseOptionsEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %js_value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %env_.i = getelementptr inbounds i8, ptr %this, i64 512

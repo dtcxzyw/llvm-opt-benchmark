@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.126 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 3) i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %untrusted = alloca ptr, align 8
   %trusted = alloca ptr, align 8

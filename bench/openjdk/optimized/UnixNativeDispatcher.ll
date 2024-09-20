@@ -2253,7 +2253,7 @@ throwUnixException.exit:                          ; preds = %12, %8, %17, %24
 declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define range(i32 5, 4) i32 @Java_sun_nio_fs_UnixNativeDispatcher_access0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = inttoptr i64 %2 to ptr
   br label %6
 

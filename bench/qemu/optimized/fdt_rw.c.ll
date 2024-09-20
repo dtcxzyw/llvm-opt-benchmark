@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.fdt_reserve_entry = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_add_mem_rsv(ptr noundef %fdt, i64 noundef %address, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_add_mem_rsv(ptr noundef %fdt, i64 noundef %address, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call1.i = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp.i = icmp slt i32 %call1.i, 0
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.end16.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_del_mem_rsv(ptr noundef %fdt, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_del_mem_rsv(ptr noundef %fdt, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap.i.i, align 1
@@ -962,7 +962,7 @@ return:                                           ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %prop = alloca ptr, align 8
   %oldlen = alloca i32, align 4

@@ -4827,7 +4827,7 @@ _validate_tres_limits_for_qos.exit242:            ; preds = %542
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_get_tres_state_reason(i32 noundef %0, i32 noundef range(i32 78, 176) %1) unnamed_addr #0 {
+define internal fastcc range(i32 40, 198) i32 @_get_tres_state_reason(i32 noundef %0, i32 noundef range(i32 78, 176) %1) unnamed_addr #0 {
   switch i32 %0, label %81 [
     i32 0, label %3
     i32 1, label %19
@@ -7931,7 +7931,7 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @acct_policy_get_prio_thresh(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @acct_policy_get_prio_thresh(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_get_prio_thresh.locks, i64 28, i1 false)
   %4 = load i16, ptr @accounting_enforce, align 2

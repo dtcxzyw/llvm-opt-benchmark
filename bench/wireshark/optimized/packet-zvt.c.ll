@@ -425,7 +425,7 @@ define internal noundef i32 @dissect_zvt(ptr noundef %0, ptr noundef %1, ptr nou
 22:                                               ; preds = %19, %16, %13
   %23 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %24 = icmp ugt i32 %23, 2
-  br i1 %24, label %25, label %66
+  br i1 %24, label %25, label %65
 
 25:                                               ; preds = %22
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
@@ -442,7 +442,7 @@ valid_ctrl_field.exit:                            ; preds = %28
   %32 = zext i16 %31 to i32
   %33 = tail call ptr @try_val_to_str_ext(i32 noundef %32, ptr noundef nonnull @ctrl_field_ext) #5
   %.not.i.not = icmp eq ptr %33, null
-  br i1 %.not.i.not, label %66, label %valid_ctrl_field.exit.thread
+  br i1 %.not.i.not, label %65, label %valid_ctrl_field.exit.thread
 
 valid_ctrl_field.exit.thread:                     ; preds = %25, %28, %valid_ctrl_field.exit, %19, %7, %10
   %.not28 = phi i1 [ false, %10 ], [ false, %7 ], [ false, %19 ], [ true, %valid_ctrl_field.exit ], [ true, %28 ], [ true, %25 ]
@@ -456,55 +456,51 @@ valid_ctrl_field.exit.thread:                     ; preds = %25, %28, %valid_ctr
   %38 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.178, ptr noundef nonnull %spec.select) #5
   %39 = load i32, ptr @ett_zvt, align 4
   %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #5
-  br i1 %.not28, label %62, label %41
+  br i1 %.not28, label %dissect_zvt_serial.exit, label %41
 
 41:                                               ; preds = %valid_ctrl_field.exit.thread
   %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %43 = icmp eq i32 %42, 1
   %44 = load i32, ptr @hf_zvt_serial_char, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br i1 %43, label %dissect_zvt_serial.exit.thread33, label %46
+  br i1 %43, label %dissect_zvt_serial.exit.thread, label %46
 
 46:                                               ; preds = %41
   %47 = load i32, ptr @hf_zvt_serial_char, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %47, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
   %49 = tail call fastcc i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %1, ptr noundef %40)
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %dissect_zvt_serial.exit.thread, label %51
+  br i1 %50, label %dissect_zvt_serial.exit.thread33, label %51
 
 51:                                               ; preds = %46
-  %52 = add nuw i32 %49, 2
+  %52 = add nuw nsw i32 %49, 2
   %53 = load i32, ptr @hf_zvt_serial_char, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0) #5
-  %55 = add nuw i32 %49, 3
+  %55 = add nuw nsw i32 %49, 3
   %56 = load i32, ptr @hf_zvt_serial_char, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #5
-  %58 = add nuw i32 %49, 4
+  %58 = add nuw nsw i32 %49, 4
   %59 = load i32, ptr @hf_zvt_crc, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef -2147483648) #5
-  %61 = add nuw i32 %49, 6
-  br label %dissect_zvt_serial.exit
+  %61 = add nuw nsw i32 %49, 6
+  br label %dissect_zvt_serial.exit.thread
 
-62:                                               ; preds = %valid_ctrl_field.exit.thread
-  %63 = tail call fastcc i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %40)
-  br label %dissect_zvt_serial.exit
+dissect_zvt_serial.exit:                          ; preds = %valid_ctrl_field.exit.thread
+  %62 = tail call fastcc i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %40)
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %dissect_zvt_serial.exit.thread33, label %dissect_zvt_serial.exit.thread
 
-dissect_zvt_serial.exit:                          ; preds = %51, %62
-  %.027 = phi i32 [ %63, %62 ], [ %61, %51 ]
-  %64 = icmp slt i32 %.027, 0
-  br i1 %64, label %dissect_zvt_serial.exit.thread, label %dissect_zvt_serial.exit.thread33
+dissect_zvt_serial.exit.thread33:                 ; preds = %46, %dissect_zvt_serial.exit
+  %64 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %dissect_zvt_serial.exit.thread
 
-dissect_zvt_serial.exit.thread:                   ; preds = %46, %dissect_zvt_serial.exit
-  %65 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %dissect_zvt_serial.exit.thread33
-
-dissect_zvt_serial.exit.thread33:                 ; preds = %41, %dissect_zvt_serial.exit.thread, %dissect_zvt_serial.exit
-  %.1 = phi i32 [ %65, %dissect_zvt_serial.exit.thread ], [ %.027, %dissect_zvt_serial.exit ], [ 1, %41 ]
+dissect_zvt_serial.exit.thread:                   ; preds = %41, %51, %dissect_zvt_serial.exit.thread33, %dissect_zvt_serial.exit
+  %.1 = phi i32 [ %64, %dissect_zvt_serial.exit.thread33 ], [ %62, %dissect_zvt_serial.exit ], [ 1, %41 ], [ %61, %51 ]
   tail call void @proto_item_set_len(ptr noundef %38, i32 noundef %.1) #5
-  br label %66
+  br label %65
 
-66:                                               ; preds = %22, %valid_ctrl_field.exit, %dissect_zvt_serial.exit.thread33
-  %.026 = phi i32 [ %.1, %dissect_zvt_serial.exit.thread33 ], [ 0, %valid_ctrl_field.exit ], [ 0, %22 ]
+65:                                               ; preds = %22, %valid_ctrl_field.exit, %dissect_zvt_serial.exit.thread
+  %.026 = phi i32 [ %.1, %dissect_zvt_serial.exit.thread ], [ 0, %valid_ctrl_field.exit ], [ 0, %22 ]
   ret i32 %.026
 }
 
@@ -1195,7 +1191,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65543) i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %7 = icmp slt i32 %6, 3

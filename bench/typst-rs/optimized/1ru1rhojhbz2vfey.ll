@@ -66092,7 +66092,7 @@ define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden i16 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17h9c7a91f3f56fbd77E"(i16 %0) unnamed_addr #2 {
+define hidden range(i16 6, 5) i16 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17h9c7a91f3f56fbd77E"(i16 %0) unnamed_addr #2 {
   %2 = and i16 %0, 255
   %3 = icmp eq i16 %2, 5
   %spec.select = select i1 %3, i16 515, i16 %0

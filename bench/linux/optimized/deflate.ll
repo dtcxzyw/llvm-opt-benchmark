@@ -863,7 +863,7 @@ define dso_local noundef range(i32 -3, 1) i32 @zlib_deflateEnd(ptr noundef %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 6476, -2147483648) i32 @zlib_deflate_workspacesize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 9032, 268105) i32 @zlib_deflate_workspacesize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %4 = add i32 %1, -9
   %5 = icmp ult i32 %4, -8

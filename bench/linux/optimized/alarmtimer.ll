@@ -830,7 +830,7 @@ define dso_local i32 @alarm_try_to_cancel(ptr noundef %0) #1 align 16 {
 declare dso_local i32 @hrtimer_try_to_cancel(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @alarm_cancel(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @alarm_cancel(ptr noundef %0) #1 align 16 {
   %2 = tail call i32 @alarm_try_to_cancel(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

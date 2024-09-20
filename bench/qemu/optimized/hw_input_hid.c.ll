@@ -162,7 +162,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_input_handler_activate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @hid_pointer_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 7) i32 @hid_pointer_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1

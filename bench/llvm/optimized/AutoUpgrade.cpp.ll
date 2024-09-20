@@ -6992,7 +6992,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL31shouldUpgradeNVPTXBF16IntrinsicN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 8358) i32 @_ZL31shouldUpgradeNVPTXBF16IntrinsicN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #6 {
   %.not.i.i = icmp ult i64 %1, 4
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit400.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 

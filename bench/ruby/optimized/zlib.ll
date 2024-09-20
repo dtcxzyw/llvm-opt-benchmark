@@ -4851,7 +4851,7 @@ RSTRING_PTR.exit:                                 ; preds = %9, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_gzreader_readchar(i64 noundef %0) #0 {
+define internal range(i64 5, 4) i64 @rb_gzreader_readchar(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_gzreader_getc(i64 noundef %0)
   %3 = icmp eq i64 %2, 4
   br i1 %3, label %4, label %6
@@ -5174,7 +5174,7 @@ define internal i64 @rb_gzreader_gets(i32 noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_gzreader_readline(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 5, 4) i64 @rb_gzreader_readline(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @gzreader_gets(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -7432,7 +7432,7 @@ zstream_run.exit:                                 ; preds = %RSTRING_PTR.exit, %
 declare i64 @rb_rescue2(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @gzfile_read_raw_partial(i64 noundef %0) #0 {
+define internal range(i64 1, -7) i64 @gzfile_read_raw_partial(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
@@ -7464,7 +7464,7 @@ Check_Type.exit:                                  ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @gzfile_read_raw_rescue(i64 noundef %0, i64 %1) #0 {
+define internal range(i64 1, -7) i64 @gzfile_read_raw_rescue(i64 noundef %0, i64 %1) #0 {
   %3 = tail call i64 @rb_errinfo() #17
   %4 = load i64, ptr @rb_eNoMethodError, align 8
   %5 = tail call i64 @rb_obj_is_kind_of(i64 noundef %3, i64 noundef %4) #17

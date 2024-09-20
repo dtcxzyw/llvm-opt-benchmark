@@ -448,7 +448,7 @@ define void @ADIOI_Verify_fr(i32 noundef %0, ptr nocapture noundef readnone %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @ADIOI_Agg_idx(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -2147483648, 2147483647) i32 @ADIOI_Agg_idx(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 20

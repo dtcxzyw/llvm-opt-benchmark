@@ -98,7 +98,7 @@ define double @Extra_Power2(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @Extra_Power3(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @Extra_Power3(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp sgt i32 %0, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
 

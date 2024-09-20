@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7524CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7524CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFoldChars, align 8
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7524CaseFoldingUCharIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7524CaseFoldingUCharIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fFoldChars, align 8

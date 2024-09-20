@@ -16938,7 +16938,7 @@ define { ptr, ptr } @"_ZN95_$LT$tokenizers..normalizers..prepend..Prepend$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN10tokenizers14pre_tokenizers15unicode_scripts7scripts10get_script17h84fe3d29b8cc1684E(i32 noundef %0) unnamed_addr #9 {
+define hidden noundef range(i8 0, -118) i8 @_ZN10tokenizers14pre_tokenizers15unicode_scripts7scripts10get_script17h84fe3d29b8cc1684E(i32 noundef %0) unnamed_addr #9 {
   %2 = icmp ult i32 %0, 32
   br i1 %2, label %switch.lookup, label %3
 

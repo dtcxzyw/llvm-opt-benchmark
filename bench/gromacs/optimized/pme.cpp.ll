@@ -1933,7 +1933,7 @@ _ZNSt12_Vector_baseI15AtomToThreadMapSaIS0_EE13_M_deallocateEPS0_m.exit37: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2, -3) i32 @_Z18minimalPmeGridSizei(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 4, -2147483648) i32 @_Z18minimalPmeGridSizei(i32 noundef %0) local_unnamed_addr #0 {
   %2 = shl i32 %0, 1
   %3 = add i32 %2, -2
   %4 = icmp sgt i32 %0, 2

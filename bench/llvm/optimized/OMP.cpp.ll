@@ -285,7 +285,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @switch.table._ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE = private unnamed_addr constant [113 x i32] [i32 0, i32 1, i32 2, i32 2, i32 1, i32 1, i32 2, i32 0, i32 0, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 5, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 3, i32 5, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 1, i32 4, i32 4, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 5, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4llvm3omp22getOpenMPDirectiveKindENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 113) i32 @_ZN4llvm3omp22getOpenMPDirectiveKindENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3omp9DirectiveES2_E4CaseENS_13StringLiteralES2_.exit898.thread4675 [
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 10, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -921,7 +921,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4llvm3omp19getOpenMPClauseKindENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 111) i32 @_ZN4llvm3omp19getOpenMPClauseKindENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3omp6ClauseES2_E4CaseENS_13StringLiteralES2_.exit882 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -8479,7 +8479,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp27isAllowedClauseForDirectiveEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [113 x i32], ptr @switch.table._ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE, i64 0, i64 %1
@@ -8488,7 +8488,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [113 x i32], ptr @switch.table._ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE, i64 0, i64 %1

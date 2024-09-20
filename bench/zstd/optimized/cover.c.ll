@@ -2455,7 +2455,7 @@ declare i64 @clock() local_unnamed_addr #8
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_strict_cmp8(ptr noundef readonly %lp, ptr noundef readonly %rp) #15 {
+define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %lp, ptr noundef readonly %rp) #15 {
 entry:
   %0 = load ptr, ptr @g_coverCtx, align 8
   %d.i = getelementptr inbounds i8, ptr %0, i64 80

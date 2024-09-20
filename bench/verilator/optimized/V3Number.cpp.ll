@@ -4529,7 +4529,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8filelineEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN8V3Number5log2bEj(i32 noundef %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, -2147483648) i32 @_ZN8V3Number5log2bEj(i32 noundef %0) local_unnamed_addr #10 align 2 {
   %2 = zext i32 %0 to i64
   br label %3
 

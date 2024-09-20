@@ -563,7 +563,7 @@ IteratorCubePairNext.exit:                        ; preds = %208
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GetQuequeStats(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @GetQuequeStats(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds [3 x %struct.que], ptr @s_Que, i64 0, i64 %2
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -698,7 +698,7 @@ define noundef ptr @CubeExtract(ptr noundef returned %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
   store i32 %3, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
@@ -2323,7 +2323,7 @@ define ptr @IterCubeSetNext() local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GetPosDiff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @GetPosDiff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sub i32 %1, %0
   %4 = load i32, ptr @s_nPosAlloc, align 4
   %5 = add nsw i32 %3, %4

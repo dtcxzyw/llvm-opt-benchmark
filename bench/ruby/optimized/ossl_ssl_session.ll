@@ -175,7 +175,7 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ssl_session_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ossl_ssl_session_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0

@@ -15022,7 +15022,7 @@ define noundef i64 @_ZN15rustfmt_nightly5utils14count_newlines17h93d96b28d398642
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -9223372036854775808) i64 @_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE(i32 noundef %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define range(i64 0, 281474976710656) i64 @_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE(i32 noundef %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr, ptr, ptr } }, align 8
   %5 = alloca i32, align 4
@@ -15105,7 +15105,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span3new.llvm.151319642713
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -9223372036854775808) i64 @_ZN15rustfmt_nightly5utils17mk_sp_lo_plus_one17h4d1791e181655d79E(i32 noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 281474976710656) i64 @_ZN15rustfmt_nightly5utils17mk_sp_lo_plus_one17h4d1791e181655d79E(i32 noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { { ptr, ptr, ptr, ptr } }, align 8
   %4 = alloca i32, align 4

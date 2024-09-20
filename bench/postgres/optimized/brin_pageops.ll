@@ -924,7 +924,7 @@ declare void @RecordPageWithFreeSpace(ptr noundef, i32 noundef, i64 noundef) loc
 declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @brin_doinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca %struct.xl_brin_insert, align 4
   %10 = icmp ugt i64 %6, 8152

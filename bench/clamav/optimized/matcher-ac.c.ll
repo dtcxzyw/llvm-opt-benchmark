@@ -6184,7 +6184,7 @@ define internal range(i32 -1, 2) i32 @sort_heads_by_partno_fn(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ac_forward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 65537) %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @ac_forward_match_branch(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 65537) %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = trunc i32 %6 to i16
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load i16, ptr %12, align 8

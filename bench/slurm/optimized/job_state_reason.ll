@@ -229,7 +229,7 @@ define ptr @job_state_reason_string(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_state_reason_num(ptr noundef %0) #1 {
+define range(i32 -2, 201) i32 @job_state_reason_num(ptr noundef %0) #1 {
   br label %2
 
 2:                                                ; preds = %1, %6

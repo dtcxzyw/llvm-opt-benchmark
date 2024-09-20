@@ -124,7 +124,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %3, %_ZN6Square15Fac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 2
   switch i32 %0, label %.thread16 [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit

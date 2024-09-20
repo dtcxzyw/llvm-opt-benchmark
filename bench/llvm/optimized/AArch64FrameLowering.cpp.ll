@@ -12794,7 +12794,7 @@ _ZNK4llvm20AArch64FrameLowering13canUseRedZoneERKNS_15MachineFunctionE.exit.thre
 declare i32 @_ZNK4llvm19AArch64RegisterInfo16getFrameRegisterERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(1041)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_Z20findFreePredicateRegRN4llvm9BitVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 142) i32 @_Z20findFreePredicateRegRN4llvm9BitVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   br label %3
 

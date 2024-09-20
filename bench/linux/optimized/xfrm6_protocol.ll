@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm6_protoc
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_xfrm6_protocol_deregister850, ptr @__UNIQUE_ID___addressable_xfrm6_protocol_register849, ptr @__UNIQUE_ID___addressable_xfrm6_rcv_encap821], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm6_rcv_encap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.flowi6, align 8
   %6 = trunc i32 %1 to i8
   switch i8 %6, label %9 [

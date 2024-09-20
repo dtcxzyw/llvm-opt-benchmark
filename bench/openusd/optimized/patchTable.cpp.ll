@@ -3682,7 +3682,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14findPatchArrayENS1_15PatchDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14findPatchArrayENS1_15PatchDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8

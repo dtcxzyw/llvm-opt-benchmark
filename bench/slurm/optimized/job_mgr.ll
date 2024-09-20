@@ -21115,7 +21115,7 @@ define dso_local ptr @get_job_script(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @create_mmap_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i16 @job_get_sockets_per_node(ptr nocapture noundef readonly %0) local_unnamed_addr #19 {
+define dso_local zeroext range(i16 -1, -2) i16 @job_get_sockets_per_node(ptr nocapture noundef readonly %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

@@ -1324,7 +1324,7 @@ return:                                           ; preds = %if.then.i11, %_ZNK4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4absl15status_internal14MapToLocalCodeEi(i32 noundef %value) local_unnamed_addr #8 {
+define dso_local noundef range(i32 0, 17) i32 @_ZN4absl15status_internal14MapToLocalCodeEi(i32 noundef %value) local_unnamed_addr #8 {
 entry:
   %switch = icmp ult i32 %value, 17
   %value. = select i1 %switch, i32 %value, i32 2

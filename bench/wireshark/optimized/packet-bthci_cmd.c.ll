@@ -9282,7 +9282,7 @@ declare void @save_local_device_name_from_eir_ad(ptr noundef, i32 noundef, ptr n
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_antenna_switching_pattern(ptr noundef %0, i32 noundef range(i32 6, 10) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 1, 0) i32 @dissect_antenna_switching_pattern(ptr noundef %0, i32 noundef range(i32 6, 10) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_cmd_antenna_switching_pattern_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #7

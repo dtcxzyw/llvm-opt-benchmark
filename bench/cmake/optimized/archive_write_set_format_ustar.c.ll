@@ -129,7 +129,7 @@ define internal range(i32 -30, 1) i32 @archive_write_ustar_options(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2147483648, 1) i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca %struct.archive_string, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 248

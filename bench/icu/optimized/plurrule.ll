@@ -7239,7 +7239,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN6icu_7513Unicode
 declare i32 @uprv_itou_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_759RuleChain11getKeywordsEiPNS_13UnicodeStringERi(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %capacityOfKeywords, ptr noundef %keywords, ptr nocapture noundef nonnull align 4 dereferenceable(4) %arraySize) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_759RuleChain11getKeywordsEiPNS_13UnicodeStringERi(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %capacityOfKeywords, ptr noundef %keywords, ptr nocapture noundef nonnull align 4 dereferenceable(4) %arraySize) local_unnamed_addr #1 align 2 {
 entry:
   %sub = add nsw i32 %capacityOfKeywords, -1
   br label %tailrecurse

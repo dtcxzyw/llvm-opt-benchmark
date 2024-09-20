@@ -1039,7 +1039,7 @@ return:                                           ; preds = %if.end.i, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7514DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7514DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7514DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this, i32 noundef %dayPeriod, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

@@ -263,7 +263,7 @@ define dso_local range(i32 -214748364, 214748365) i32 @intel_dp_link_symbol_cloc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_dp_max_lane_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 1, 5) i32 @intel_dp_max_lane_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %4 [
@@ -9658,7 +9658,7 @@ declare dso_local i32 @drm_dsc_compute_rc_parameters(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_dp_output_format(ptr nocapture readonly %.1976.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @intel_dp_output_format(ptr nocapture readonly %.1976.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %.1976.val, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [

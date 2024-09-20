@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [37 x i8] c"arch/x86/include/asm/text-patching.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 256) i32 @arch_jump_entry_size(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 2, 6) i32 @arch_jump_entry_size(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.insn, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)

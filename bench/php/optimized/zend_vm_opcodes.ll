@@ -241,7 +241,7 @@ define i32 @zend_get_opcode_flags(i8 noundef zeroext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @zend_get_opcode_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define zeroext range(i8 0, -46) i8 @zend_get_opcode_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %2, %9

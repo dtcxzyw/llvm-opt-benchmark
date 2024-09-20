@@ -419,7 +419,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %108 = zext i8 %107 to i32
   %109 = add i32 %.0302, 12
   %110 = add nsw i32 %.0263, -6
-  %111 = call fastcc range(i32 -8, 33) i32 @network_prefix(i32 noundef %108, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %109, ptr noundef null, i32 noundef %110, ptr noundef %13)
+  %111 = call fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef %108, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %109, ptr noundef null, i32 noundef %110, ptr noundef %13)
   %112 = load i32, ptr @hf_babel_message_rxcost, align 4
   %113 = add i32 %.0302, 8
   %114 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef 0) #7
@@ -477,7 +477,7 @@ format_address.exit:                              ; preds = %105, %.sink.split.i
   %142 = zext i8 %141 to i32
   %143 = add i32 %.0302, 8
   %144 = add nsw i32 %.0263, -2
-  %145 = call fastcc range(i32 -8, 33) i32 @network_prefix(i32 noundef %142, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %143, ptr noundef null, i32 noundef %144, ptr noundef %14)
+  %145 = call fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef %142, i32 noundef -1, i32 noundef 0, ptr noundef %0, i32 noundef %143, ptr noundef null, i32 noundef %144, ptr noundef %14)
   %146 = load i32, ptr @ett_subtree, align 4
   %147 = load ptr, ptr %20, align 8
   %148 = icmp slt i32 %145, 0
@@ -854,7 +854,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -8, 33) i32 @network_prefix(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 -1, 256) %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 -14, 254) %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 -1, 256) %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 -14, 254) %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = add nuw nsw i32 %1, 7
   %11 = lshr i32 %10, 3

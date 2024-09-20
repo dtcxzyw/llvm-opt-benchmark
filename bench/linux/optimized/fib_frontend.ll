@@ -2000,7 +2000,7 @@ declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_valid_fib_dump_req(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ip_valid_fib_dump_req(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca [31 x ptr], align 16
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8

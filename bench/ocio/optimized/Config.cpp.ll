@@ -22940,7 +22940,7 @@ _ZNK19OpenColorIO_v2_4dev6Config4Impl17getNamedTransformEPKc.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config21getIndexForColorSpaceEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK19OpenColorIO_v2_4dev6Config21getIndexForColorSpaceEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cs = alloca %"class.std::shared_ptr.79", align 8
   %0 = load ptr, ptr %this, align 8, !noalias !196
@@ -27795,7 +27795,7 @@ _ZNK19OpenColorIO_v2_4dev6Config28getNamedTransformNameByIndexENS_24NamedTransfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config25getIndexForNamedTransformEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK19OpenColorIO_v2_4dev6Config25getIndexForNamedTransformEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !noalias !242
   %call.i.i = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev6Config4Impl22getNamedTransformIndexEPKc(ptr noundef nonnull align 8 dereferenceable(1120) %0, ptr noundef %name) #29, !noalias !245

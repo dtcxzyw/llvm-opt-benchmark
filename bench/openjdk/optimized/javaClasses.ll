@@ -14235,7 +14235,7 @@ _ZN23java_lang_boxing_object23initialize_and_allocateE9BasicTypeP10JavaThread.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN23java_lang_boxing_object10basic_typeEP7oopDesc(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext range(i8 13, 12) i8 @_ZN23java_lang_boxing_object10basic_typeEP7oopDesc(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %3
 

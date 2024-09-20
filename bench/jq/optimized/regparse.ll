@@ -2962,7 +2962,7 @@ new_code_range.exit.thread:                       ; preds = %6, %bbuf_init.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onig_parse_tree(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @onig_parse_tree(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.st_str_end_key, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.PToken, align 8

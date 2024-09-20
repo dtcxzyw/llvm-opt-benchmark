@@ -556,7 +556,7 @@ return:                                           ; preds = %if.else4.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData18getGroupForPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7513CollationData18getGroupForPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %shr = lshr i32 %p, 16
   %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112

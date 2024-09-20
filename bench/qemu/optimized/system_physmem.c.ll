@@ -3996,7 +3996,7 @@ return:                                           ; preds = %if.end19, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef nonnull writeonly %created) unnamed_addr #0 {
+define internal fastcc range(i32 -3, -4) i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef nonnull writeonly %created) unnamed_addr #0 {
 entry:
   %file_stat = alloca %struct.stat, align 8
   store i8 0, ptr %created, align 1
@@ -4588,7 +4588,7 @@ ramblock_ptr.exit:                                ; preds = %offset_in_ramblock.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_ram_block_host_offset(ptr nocapture noundef readonly %rb, ptr noundef %host) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @qemu_ram_block_host_offset(ptr nocapture noundef readonly %rb, ptr noundef %host) local_unnamed_addr #0 {
 entry:
   %host1 = getelementptr inbounds i8, ptr %rb, i64 24
   %0 = load ptr, ptr %host1, align 8

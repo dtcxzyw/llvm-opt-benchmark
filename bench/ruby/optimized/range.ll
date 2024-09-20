@@ -666,7 +666,7 @@ RANGE_END.exit:                                   ; preds = %RANGE_EXCL.exit, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @range_loader(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @range_loader(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
@@ -826,7 +826,7 @@ range_modify.exit:                                ; preds = %RANGE_EXCL.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @range_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @range_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %0, 0

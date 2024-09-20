@@ -3024,7 +3024,7 @@ _ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1000, %1011, %101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 8

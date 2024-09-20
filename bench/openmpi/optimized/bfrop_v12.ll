@@ -2842,7 +2842,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %1, %pmix_pointer_ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 65537) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0) local_unnamed_addr #5 {
+define range(i32 0, 65536) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i16 %0 to i32
   switch i16 %0, label %7 [
     i16 20, label %8

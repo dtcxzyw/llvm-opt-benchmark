@@ -6780,7 +6780,7 @@ define dso_local ptr @io_file_get_normal(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_poll_issue(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -528, -529) i32 @io_poll_issue(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i8, ptr %1, align 1, !range !77, !noundef !78
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %9
@@ -6799,7 +6799,7 @@ define dso_local i32 @io_poll_issue(ptr noundef %0, ptr nocapture noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_issue_sqe(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -528, -529) i32 @io_issue_sqe(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i64

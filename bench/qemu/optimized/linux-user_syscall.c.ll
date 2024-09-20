@@ -14253,7 +14253,7 @@ if.end23:                                         ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_setsockopt(i32 noundef %sockfd, i32 noundef %level, i32 noundef %optname, i64 noundef %optval_addr, i32 noundef %optlen) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_setsockopt(i32 noundef %sockfd, i32 noundef %level, i32 noundef %optname, i64 noundef %optval_addr, i32 noundef %optlen) unnamed_addr #2 {
 entry:
   %val = alloca i32, align 4
   %pki = alloca %struct.in6_pktinfo, align 4

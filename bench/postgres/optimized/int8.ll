@@ -722,7 +722,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @int8abs(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8mod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @int8mod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   switch i64 %3, label %8 [
@@ -897,7 +897,7 @@ int8gcd_internal.exit:                            ; preds = %21, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @int8inc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 1)
@@ -918,7 +918,7 @@ define dso_local i64 @int8inc(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8dec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @int8dec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 -1)
@@ -939,7 +939,7 @@ define dso_local i64 @int8dec(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8inc_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @int8inc_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 1)
@@ -960,7 +960,7 @@ int8inc.exit:                                     ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8inc_float8_float8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @int8inc_float8_float8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 1)
@@ -981,7 +981,7 @@ int8inc.exit:                                     ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @int8dec_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @int8dec_any(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 -1)

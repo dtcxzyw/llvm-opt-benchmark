@@ -48,7 +48,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_load_nls_def
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable___register_nls307, ptr @__UNIQUE_ID___addressable_load_nls310, ptr @__UNIQUE_ID___addressable_load_nls_default311, ptr @__UNIQUE_ID___addressable_unload_nls309, ptr @__UNIQUE_ID___addressable_unregister_nls308, ptr @__UNIQUE_ID___addressable_utf16s_to_utf8s306, ptr @__UNIQUE_ID___addressable_utf32_to_utf8304, ptr @__UNIQUE_ID___addressable_utf8_to_utf32303, ptr @__UNIQUE_ID___addressable_utf8s_to_utf16s305, ptr @__UNIQUE_ID_file312, ptr @__UNIQUE_ID_license313], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @utf8_to_utf32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @utf8_to_utf32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = zext i8 %4 to i64

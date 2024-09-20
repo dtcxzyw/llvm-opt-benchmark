@@ -3141,7 +3141,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$tokio..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset17hc91f6ea5564da15fE.llvm.17069743828446960565(ptr noundef %0, i64 noundef %1) unnamed_addr #13 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17hc91f6ea5564da15fE.llvm.17069743828446960565(ptr noundef %0, i64 noundef %1) unnamed_addr #13 {
   %3 = add i64 %1, -1
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %3, %4

@@ -361,7 +361,7 @@ declare i64 @g_get_monotonic_time() local_unnamed_addr #1
 declare i64 @qtest_clock_step(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @qvirtio_wait_status_byte_no_isr(ptr noundef %qts, ptr noundef %d, ptr noundef %vq, i64 noundef %addr, i64 noundef %timeout_us) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, -1) i8 @qvirtio_wait_status_byte_no_isr(ptr noundef %qts, ptr noundef %d, ptr noundef %vq, i64 noundef %addr, i64 noundef %timeout_us) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @g_get_monotonic_time() #6
   br label %while.cond

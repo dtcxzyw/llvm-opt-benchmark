@@ -555,7 +555,7 @@ declare dso_local i32 @net_ratelimit() local_unnamed_addr #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i16 @skb_protocol(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = alloca %struct.vlan_hdr, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8

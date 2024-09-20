@@ -175,7 +175,7 @@ define noundef range(i32 21845, 53264) i32 @cli_bcapi_test2(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1245,7 +1245,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_get_pe_section(ptr nocapture noundef read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_fill_buffer(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %1, null
   %8 = add i32 %2, -1073741825
   %9 = icmp ult i32 %8, -1073741824
@@ -5192,7 +5192,7 @@ define noundef i32 @cli_bcapi_engine_dconf_level(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
+define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64

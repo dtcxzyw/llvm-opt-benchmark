@@ -129,7 +129,7 @@ define dso_local void @reuseport_update_incoming_cpu(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 720
   %4 = load ptr, ptr %3, align 8
@@ -212,7 +212,7 @@ define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @reuseport_resurrect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %55
 
@@ -449,7 +449,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef nonn
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 720
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1375,7 +1375,7 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reuseport_attach_prog(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @reuseport_attach_prog(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -3307,7 +3307,7 @@ if.end84:                                         ; preds = %for.body76, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z33b3ExtractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z33b3ExtractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end
@@ -4947,7 +4947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z31extractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z31extractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end
@@ -6224,7 +6224,7 @@ return:                                           ; preds = %for.inc110, %entry,
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end

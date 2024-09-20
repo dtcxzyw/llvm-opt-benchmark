@@ -1546,7 +1546,7 @@ declare dso_local i32 @acpi_dma_configure_id(ptr noundef, i32 noundef, ptr nound
 declare dso_local void @iommu_device_unuse_default_domain(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_pm_prepare(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 2) i32 @pci_pm_prepare(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -184
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8

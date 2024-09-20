@@ -258,7 +258,7 @@ return:                                           ; preds = %if.then.i50, %do.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_next32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_next32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_previous32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_previous32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -796,7 +796,7 @@ return:                                           ; preds = %if.end11, %if.end34
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_current32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_current32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -893,7 +893,7 @@ return:                                           ; preds = %if.end31, %if.end3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_char32At_75(ptr noundef %ut, i64 noundef %nativeIndex) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_char32At_75(ptr noundef %ut, i64 noundef %nativeIndex) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %if.end40.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_next32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_next32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %if.end34.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -56613888, 10559488) i32 @utext_previous32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @utext_previous32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -5995,7 +5995,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19charIterTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL19charIterTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

@@ -3056,7 +3056,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7515RBBIRuleScanner10nextCharLLEv(ptr nocapture noundef nonnull align 8 dereferenceable(3192) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 57344, 55296) i32 @_ZN6icu_7515RBBIRuleScanner10nextCharLLEv(ptr nocapture noundef nonnull align 8 dereferenceable(3192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fNextIndex = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %fNextIndex, align 4

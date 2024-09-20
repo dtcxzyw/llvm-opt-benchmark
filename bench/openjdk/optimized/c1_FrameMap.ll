@@ -1033,7 +1033,7 @@ define hidden noundef i32 @_ZNK8FrameMap26sp_offset_for_monitor_lockEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK8FrameMap28sp_offset_for_monitor_objectEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483640, -2147483648) i32 @_ZNK8FrameMap28sp_offset_for_monitor_objectEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 7
