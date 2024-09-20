@@ -5879,6 +5879,7 @@ define void @"_ZN82_$LT$rustls..crypto..tls12..PrfUsingHmac$u20$as$u20$rustls..c
 40:                                               ; preds = %32
   %.fca.0.extract = extractvalue { ptr, ptr } %39, 0
   %.fca.1.extract = extractvalue { ptr, ptr } %39, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   invoke fastcc void @_ZN6rustls6crypto5tls123prf17he003f0eb50b4c681E(ptr noalias noundef nonnull align 1 %2, i64 noundef 48, ptr noundef nonnull align 1 %.fca.0.extract, ptr noalias noundef readonly align 8 dereferenceable(24) %.fca.1.extract, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %10)
           to label %44 unwind label %41
 
@@ -5986,6 +5987,7 @@ define void @"_ZN82_$LT$rustls..crypto..tls12..PrfUsingHmac$u20$as$u20$rustls..c
   %15 = tail call { ptr, ptr } %14(ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   %.fca.0.extract = extractvalue { ptr, ptr } %15, 0
   %.fca.1.extract = extractvalue { ptr, ptr } %15, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   invoke fastcc void @_ZN6rustls6crypto5tls123prf17he003f0eb50b4c681E(ptr noalias noundef nonnull align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %.fca.0.extract, ptr noalias noundef readonly align 8 dereferenceable(24) %.fca.1.extract, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8)
           to label %19 unwind label %16
 
@@ -6506,6 +6508,7 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
   %19 = call { ptr, ptr } %18(ptr noundef nonnull align 1 %.pre, ptr noalias noundef nonnull readonly align 1 %.sroa.07.0, i64 noundef %.sroa.38.0)
   %.fca.0.extract = extractvalue { ptr, ptr } %19, 0
   %.fca.1.extract = extractvalue { ptr, ptr } %19, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %10, i64 32
   %21 = load ptr, ptr %20, align 8, !invariant.load !15, !nonnull !15
@@ -6724,6 +6727,7 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
   %21 = call { ptr, ptr } %20(ptr noundef nonnull align 1 %.pre, ptr noalias noundef nonnull readonly align 1 %.sroa.07.0, i64 noundef %.sroa.38.0)
   %.fca.0.extract = extractvalue { ptr, ptr } %21, 0
   %.fca.1.extract = extractvalue { ptr, ptr } %21, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %3, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6980,6 +6984,7 @@ define void @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$rustls..
   %16 = tail call { ptr, ptr } %15(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %11)
   %.fca.0.extract = extractvalue { ptr, ptr } %16, 0
   %.fca.1.extract = extractvalue { ptr, ptr } %16, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract, i64 8) ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
@@ -9725,6 +9730,7 @@ define hidden void @_ZN6rustls6client5tls1318fill_in_psk_binder17heb59bd83c2c3ef
   %.fca.1.extract.i = extractvalue { ptr, ptr } %23, 1
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !2099
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !2094, !noalias !2103, !nonnull !15, !noundef !15
   %26 = getelementptr inbounds i8, ptr %2, i64 16
@@ -10144,6 +10150,7 @@ _ZN6rustls6client5tls1313emit_fake_ccs17h6700d8066eeb8abfE.exit: ; preds = %8, %
   %.fca.1.extract.i = extractvalue { ptr, ptr } %28, 1
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !2205
+  call void @llvm.assume(i1 true) [ "align"(ptr %.fca.1.extract.i, i64 8) ]
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !2200, !noalias !2209, !nonnull !15, !noundef !15
   %31 = getelementptr inbounds i8, ptr %6, i64 16
@@ -15438,6 +15445,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i207: ; 
   br i1 %.not.i.i235, label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit, label %424
 
 424:                                              ; preds = %419
+  call void @llvm.assume(i1 true) [ "align"(ptr %423, i64 8) ]
   invoke void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0dc319bf79a5d5eE.llvm.12428379203013389814(ptr noalias noundef nonnull align 8 dereferenceable(776) %134, ptr noalias noundef nonnull align 8 dereferenceable(48) %423)
           to label %_ZN6rustls12common_state11CommonState13start_traffic17h228a7d3f5fdec1b3E.exit unwind label %425
 

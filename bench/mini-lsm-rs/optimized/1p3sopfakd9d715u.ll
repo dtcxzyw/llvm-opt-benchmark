@@ -680,6 +680,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hb2999d9084253cd
   store i8 %.sroa.3.0.i.i.i, ptr %.033.sroa.gep.i.i, align 8, !noalias !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81), !noalias !37
   store ptr %82, ptr %81, align 8, !noalias !37
+  call void @llvm.assume(i1 true) [ "align"(ptr %82, i64 8) ]
   %225 = getelementptr inbounds i8, ptr %.val58.i.i, i64 16
   %.val60.i.i = load i64, ptr %179, align 8, !alias.scope !61, !noalias !64, !noundef !9
   %.val61.i.i = load i64, ptr %180, align 8, !alias.scope !61, !noalias !64, !noundef !9
@@ -1383,6 +1384,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %480 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 480:                                              ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %469, i64 8) ]
   %481 = getelementptr inbounds i8, ptr %0, i64 536
   %482 = load ptr, ptr %481, align 8, !noundef !9
   %.not25 = icmp eq ptr %482, null
@@ -1969,6 +1971,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br i1 %.not1.i, label %897, label %709
 
 705:                                              ; preds = %"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$17evict_lru_entries17ha6ad137ba3ec34d0E.exit"
+  call void @llvm.assume(i1 true) [ "align"(ptr %701, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %702, i64 24, i1 false), !noalias !339
   invoke void @"_ZN4moka12notification8notifier28RemovalNotifier$LT$K$C$V$GT$12batch_notify17h99c9bf0ad27353c5E"(ptr noundef nonnull align 8 %701, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %55)
           to label %.noexc81 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2794,6 +2797,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i" unwind label %.loopexit245
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i": ; preds = %981, %.noexc173
+  call void @llvm.assume(i1 true) [ "align"(ptr %978, i64 8) ]
   %983 = getelementptr inbounds i8, ptr %977, i64 32
   %984 = load ptr, ptr %983, align 8, !noalias !517, !noundef !9
   %985 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %978, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -3087,6 +3091,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i201" unwind label %.loopexit240
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i201": ; preds = %1088, %.noexc214
+  call void @llvm.assume(i1 true) [ "align"(ptr %1085, i64 8) ]
   %1090 = getelementptr inbounds i8, ptr %1084, i64 32
   %1091 = load ptr, ptr %1090, align 8, !noalias !580, !noundef !9
   %1092 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %1085, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -4833,6 +4838,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i182" unwind label %.loopexit240
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i182": ; preds = %1660, %.noexc187
+  call void @llvm.assume(i1 true) [ "align"(ptr %1657, i64 8) ]
   %1662 = getelementptr inbounds i8, ptr %1656, i64 40
   %1663 = load ptr, ptr %1662, align 8, !noalias !943, !noundef !9
   %1664 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %1657, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -4992,6 +4998,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
           to label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit.i.i": ; preds = %1719, %.noexc163
+  call void @llvm.assume(i1 true) [ "align"(ptr %114, i64 8) ]
   invoke void @_ZN4moka6common16frequency_sketch15FrequencySketch15ensure_capacity17h86aaacb204c1f3e2E(ptr noalias noundef nonnull align 8 dereferenceable(32) %118, i32 noundef %1716)
           to label %1725 unwind label %1721
 
@@ -8850,6 +8857,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i" unwind label %9
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i": ; preds = %22, %.noexc1
+  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 8) ]
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %19, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -10072,6 +10080,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i" unwind label %12
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i": ; preds = %25, %.noexc1
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 8) ]
   %27 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4108cb4686f8015dE.llvm.5937325364934216154(ptr noundef nonnull %22, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -10141,6 +10150,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
           to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i" unwind label %12
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.5937325364934216154.exit.i.i": ; preds = %57, %.noexc7
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 8) ]
   %59 = getelementptr inbounds i8, ptr %53, i64 32
   %60 = load ptr, ptr %59, align 8, !noalias !2487, !noundef !9
   store ptr null, ptr %59, align 8, !noalias !2487
@@ -10217,6 +10227,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %19
 
 19:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE.exit
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
   %20 = getelementptr inbounds i8, ptr %0, i64 624
   %21 = load i64, ptr %20, align 8, !range !342, !noundef !9
   %22 = icmp eq i64 %21, 3
@@ -10793,6 +10804,7 @@ common.resume:                                    ; preds = %23
   br label %.critedge
 
 33:                                               ; preds = %14
+  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 8) ]
   %34 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %.0.val, i64 8
