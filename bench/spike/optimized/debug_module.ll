@@ -614,8 +614,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr @_ZL13debug_rom_raw, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 -2048
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %10, i64 %2, i1 false)
-  br label %57
+  br label %.sink.split
 
 11:                                               ; preds = %4
   %12 = icmp ugt i64 %1, 767
@@ -627,8 +626,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = getelementptr inbounds i8, ptr %15, i64 %1
   %17 = getelementptr inbounds i8, ptr %16, i64 -768
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %17, i64 %2, i1 false)
-  br label %57
+  br label %.sink.split
 
 18:                                               ; preds = %11
   %19 = icmp ugt i64 %1, 1023
@@ -640,8 +638,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %22 = getelementptr inbounds i8, ptr %0, i64 152
   %23 = getelementptr inbounds i8, ptr %22, i64 %1
   %24 = getelementptr inbounds i8, ptr %23, i64 -1024
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %24, i64 %2, i1 false)
-  br label %57
+  br label %.sink.split
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %0, i64 40
@@ -658,8 +655,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %32 = getelementptr inbounds i8, ptr %31, i64 %1
   %33 = sub nsw i64 0, %28
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %34, i64 %2, i1 false)
-  br label %57
+  br label %.sink.split
 
 35:                                               ; preds = %25
   %36 = icmp ugt i64 %1, 895
@@ -671,8 +667,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %39 = getelementptr inbounds i8, ptr %0, i64 120
   %40 = getelementptr inbounds i8, ptr %39, i64 %1
   %41 = getelementptr inbounds i8, ptr %40, i64 -896
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %41, i64 %2, i1 false)
-  br label %57
+  br label %.sink.split
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %0, i64 36
@@ -695,11 +690,15 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   %54 = getelementptr inbounds i8, ptr %53, i64 %1
   %55 = sub nsw i64 0, %45
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %56, i64 %2, i1 false)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %8, %14, %21, %30, %38, %51
+  %.sink = phi ptr [ %56, %51 ], [ %41, %38 ], [ %34, %30 ], [ %24, %21 ], [ %17, %14 ], [ %10, %8 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %.sink, i64 %2, i1 false)
   br label %57
 
-57:                                               ; preds = %42, %46, %51, %38, %30, %21, %14, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %14 ], [ true, %21 ], [ true, %30 ], [ true, %38 ], [ true, %51 ], [ false, %46 ], [ false, %42 ]
+57:                                               ; preds = %.sink.split, %42, %46
+  %.0 = phi i1 [ false, %46 ], [ false, %42 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

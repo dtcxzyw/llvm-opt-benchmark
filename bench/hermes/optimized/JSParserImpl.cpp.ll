@@ -27244,24 +27244,19 @@ if.then218:                                       ; preds = %land.lhs.true215
   %191 = load i8, ptr %hasNewLine, align 8
   %tobool223 = trunc i8 %191 to i1
   %tobool225.not = icmp eq ptr %typeParams.addr.0, null
-  br i1 %tobool225.not, label %cond.false229.split, label %cond.true226
+  br i1 %tobool225.not, label %cond.end230, label %cond.true226
 
 cond.true226:                                     ; preds = %if.then218
   %sourceRange_.i510 = getelementptr inbounds i8, ptr %typeParams.addr.0, i64 24
   %retval.sroa.0.0.copyload.i511 = load ptr, ptr %sourceRange_.i510, align 8
-  %coerce.val.pi34 = ptrtoint ptr %retval.sroa.0.0.copyload.i511 to i64
-  %call23435 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28parseArrowFunctionExpressionENS1_5ParamEPNS_6ESTree4NodeEbS6_S6_S6_N4llvh5SMLocENS2_23AllowTypedArrowFunctionEb(ptr noundef nonnull align 8 dereferenceable(2752) %0, i32 %param.coerce, ptr noundef %190, i1 noundef zeroext %tobool223, ptr noundef nonnull %typeParams.addr.0, ptr noundef %returnType.2, ptr noundef %predicate.0, i64 %coerce.val.pi34, i32 noundef %allowTypedArrowFunction, i1 noundef zeroext %forceAsync.0.shrunk)
   br label %cond.end230
 
-cond.false229.split:                              ; preds = %if.then218
-  %coerce.val.pi37 = ptrtoint ptr %retval.sroa.0.0.copyload.i42595 to i64
-  %call23438 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28parseArrowFunctionExpressionENS1_5ParamEPNS_6ESTree4NodeEbS6_S6_S6_N4llvh5SMLocENS2_23AllowTypedArrowFunctionEb(ptr noundef nonnull align 8 dereferenceable(2752) %0, i32 %param.coerce, ptr noundef %190, i1 noundef zeroext %tobool223, ptr noundef null, ptr noundef %returnType.2, ptr noundef %predicate.0, i64 %coerce.val.pi37, i32 noundef %allowTypedArrowFunction, i1 noundef zeroext %forceAsync.0.shrunk)
-  br label %cond.end230
-
-cond.end230:                                      ; preds = %cond.false229.split, %cond.true226
-  %phi.call = phi { i64, i8 } [ %call23435, %cond.true226 ], [ %call23438, %cond.false229.split ]
-  %192 = extractvalue { i64, i8 } %phi.call, 0
-  %193 = extractvalue { i64, i8 } %phi.call, 1
+cond.end230:                                      ; preds = %if.then218, %cond.true226
+  %retval.sroa.0.0.copyload.i42595.sink = phi ptr [ %retval.sroa.0.0.copyload.i511, %cond.true226 ], [ %retval.sroa.0.0.copyload.i42595, %if.then218 ]
+  %coerce.val.pi37 = ptrtoint ptr %retval.sroa.0.0.copyload.i42595.sink to i64
+  %call23438 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28parseArrowFunctionExpressionENS1_5ParamEPNS_6ESTree4NodeEbS6_S6_S6_N4llvh5SMLocENS2_23AllowTypedArrowFunctionEb(ptr noundef nonnull align 8 dereferenceable(2752) %0, i32 %param.coerce, ptr noundef %190, i1 noundef zeroext %tobool223, ptr noundef %typeParams.addr.0, ptr noundef %returnType.2, ptr noundef %predicate.0, i64 %coerce.val.pi37, i32 noundef %allowTypedArrowFunction, i1 noundef zeroext %forceAsync.0.shrunk)
+  %192 = extractvalue { i64, i8 } %call23438, 0
+  %193 = extractvalue { i64, i8 } %call23438, 1
   br label %return
 
 if.end236:                                        ; preds = %land.lhs.true215, %if.end213

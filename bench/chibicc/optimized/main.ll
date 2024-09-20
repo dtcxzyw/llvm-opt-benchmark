@@ -1051,11 +1051,7 @@ open_file.exit.i.i:                               ; preds = %if.end.i.i.i, %if.t
   %retval.0.i.i.i = phi ptr [ %97, %if.then.i29.i.i ], [ %call1.i28.i.i, %if.end.i.i.i ]
   %99 = load ptr, ptr @opt_MT, align 8
   %tobool11.not.i.i = icmp eq ptr %99, null
-  br i1 %tobool11.not.i.i, label %if.else14.i.i, label %if.then12.i.i
-
-if.then12.i.i:                                    ; preds = %open_file.exit.i.i
-  %call13.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %retval.0.i.i.i, ptr noundef nonnull @.str.70, ptr noundef nonnull %99)
-  br label %if.end18.i.i
+  br i1 %tobool11.not.i.i, label %if.else14.i.i, label %if.end18.i.i
 
 if.else14.i.i:                                    ; preds = %open_file.exit.i.i
   %100 = load ptr, ptr @base_file, align 8
@@ -1072,10 +1068,11 @@ if.then.i34.i.i:                                  ; preds = %if.else14.i.i
 replace_extn.exit37.i.i:                          ; preds = %if.then.i34.i.i, %if.else14.i.i
   %call3.i36.i.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i31.i.i, ptr noundef nonnull @.str.5) #19
   %call16.i.i = call fastcc ptr @quote_makefile(ptr noundef %call3.i36.i.i)
-  %call17.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %retval.0.i.i.i, ptr noundef nonnull @.str.70, ptr noundef %call16.i.i)
   br label %if.end18.i.i
 
-if.end18.i.i:                                     ; preds = %replace_extn.exit37.i.i, %if.then12.i.i
+if.end18.i.i:                                     ; preds = %replace_extn.exit37.i.i, %open_file.exit.i.i
+  %call16.sink.i.i = phi ptr [ %call16.i.i, %replace_extn.exit37.i.i ], [ %99, %open_file.exit.i.i ]
+  %call17.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %retval.0.i.i.i, ptr noundef nonnull @.str.70, ptr noundef %call16.sink.i.i)
   %call19.i.i = call ptr @get_input_files() #19
   %101 = load ptr, ptr %call19.i.i, align 8
   %tobool20.not64.i.i = icmp eq ptr %101, null

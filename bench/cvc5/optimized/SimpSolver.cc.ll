@@ -2344,44 +2344,40 @@ _ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit:  ; preds = %_ZN4cvc58internal7M
   %extra_clause_field = getelementptr inbounds i8, ptr %this, i64 724
   store i8 0, ptr %extra_clause_field, align 4
   tail call void @_ZN4cvc58internal7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(850) %this)
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %59 = load ptr, ptr %vfn, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(1108) %this)
-  br label %if.end85
+  br label %if.end85.sink.split
 
 if.else84:                                        ; preds = %cleanup
   tail call void @_ZN4cvc58internal7Minisat10SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1108) %this)
   %garbage_frac.i = getelementptr inbounds i8, ptr %this, i64 192
-  %60 = load double, ptr %garbage_frac.i, align 8
-  %61 = load i32, ptr %wasted_.i.i, align 8
-  %conv.i.i = uitofp i32 %61 to double
-  %62 = load i32, ptr %sz.i.i37, align 8
-  %conv4.i.i = uitofp i32 %62 to double
-  %mul.i.i = fmul double %60, %conv4.i.i
+  %59 = load double, ptr %garbage_frac.i, align 8
+  %60 = load i32, ptr %wasted_.i.i, align 8
+  %conv.i.i = uitofp i32 %60 to double
+  %61 = load i32, ptr %sz.i.i37, align 8
+  %conv4.i.i = uitofp i32 %61 to double
+  %mul.i.i = fmul double %59, %conv4.i.i
   %cmp.i.i66 = fcmp olt double %mul.i.i, %conv.i.i
-  br i1 %cmp.i.i66, label %if.then.i.i, label %if.end85
+  br i1 %cmp.i.i66, label %if.end85.sink.split, label %if.end85
 
-if.then.i.i:                                      ; preds = %if.else84
+if.end85.sink.split:                              ; preds = %if.else84, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
   %vtable.i.i = load ptr, ptr %this, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %63 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(850) %this)
+  %62 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(850) %this)
   br label %if.end85
 
-if.end85:                                         ; preds = %if.then.i.i, %if.else84, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
-  %64 = load i32, ptr %verbosity, align 8
-  %cmp87 = icmp sgt i32 %64, 0
+if.end85:                                         ; preds = %if.end85.sink.split, %if.else84
+  %63 = load i32, ptr %verbosity, align 8
+  %cmp87 = icmp sgt i32 %63, 0
   br i1 %cmp87, label %land.lhs.true88, label %if.end97
 
 land.lhs.true88:                                  ; preds = %if.end85
   %sz.i67 = getelementptr inbounds i8, ptr %this, i64 904
-  %65 = load i32, ptr %sz.i67, align 8
-  %cmp90 = icmp sgt i32 %65, 0
+  %64 = load i32, ptr %sz.i67, align 8
+  %cmp90 = icmp sgt i32 %64, 0
   br i1 %cmp90, label %if.then91, label %if.end97
 
 if.then91:                                        ; preds = %land.lhs.true88
-  %conv94 = zext nneg i32 %65 to i64
+  %conv94 = zext nneg i32 %64 to i64
   %mul = shl nuw nsw i64 %conv94, 2
   %conv95 = uitofp nneg i64 %mul to double
   %div = fmul double %conv95, 0x3EB0000000000000
@@ -2390,8 +2386,8 @@ if.then91:                                        ; preds = %land.lhs.true88
 
 if.end97:                                         ; preds = %if.then91, %land.lhs.true88, %if.end85
   %ok98 = getelementptr inbounds i8, ptr %this, i64 344
-  %66 = load i8, ptr %ok98, align 8
-  %tobool99 = trunc i8 %66 to i1
+  %65 = load i8, ptr %ok98, align 8
+  %tobool99 = trunc i8 %65 to i1
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %if.end97

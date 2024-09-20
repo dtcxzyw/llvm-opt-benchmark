@@ -2627,8 +2627,7 @@ define internal i32 @table_load(ptr nocapture readnone %0, ptr noundef %1, i64 n
 
 135:                                              ; preds = %128
   call void @dm_sync_table(ptr noundef nonnull %9) #21
-  call void @dm_table_destroy(ptr noundef nonnull %130) #21
-  br label %140
+  br label %.sink.split
 
 .thread22:                                        ; preds = %62, %80, %71, %47, %30, %118, %107, %96, %82
   %136 = phi i32 [ %83, %82 ], [ %105, %107 ], [ -22, %118 ], [ -22, %96 ], [ -22, %30 ], [ -22, %62 ], [ %78, %80 ], [ -22, %71 ], [ -22, %47 ]
@@ -2638,11 +2637,16 @@ define internal i32 @table_load(ptr nocapture readnone %0, ptr noundef %1, i64 n
 137:                                              ; preds = %.thread22, %126
   %138 = phi i32 [ %136, %.thread22 ], [ -6, %126 ]
   %139 = load ptr, ptr %4, align 8
-  call void @dm_table_destroy(ptr noundef %139) #21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %135, %137
+  %.sink = phi ptr [ %139, %137 ], [ %130, %135 ]
+  %.ph = phi i32 [ %138, %137 ], [ 0, %135 ]
+  call void @dm_table_destroy(ptr noundef %.sink) #21
   br label %140
 
-140:                                              ; preds = %137, %135, %128, %11
-  %141 = phi i32 [ 0, %135 ], [ 0, %128 ], [ %19, %11 ], [ %138, %137 ]
+140:                                              ; preds = %.sink.split, %128, %11
+  %141 = phi i32 [ 0, %128 ], [ %19, %11 ], [ %.ph, %.sink.split ]
   call void @dm_put(ptr noundef nonnull %9) #21
   br label %142
 

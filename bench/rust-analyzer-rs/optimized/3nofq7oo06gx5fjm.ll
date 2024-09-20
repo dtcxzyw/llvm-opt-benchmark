@@ -1079,12 +1079,9 @@ switch.lookup17:                                  ; preds = %.thread21.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !100
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !147, !noalias !152
   %191 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, -9223372036854775808
-  br i1 %191, label %.thread.i.i.i.i, label %192
+  br i1 %191, label %.loopexit..thread9.i_crit_edge.i.i.i, label %192
 
-.thread.i.i.i.i:                                  ; preds = %.loopexit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !151
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !100
+.loopexit..thread9.i_crit_edge.i.i.i:             ; preds = %.loopexit.i.i.i
   %.pre.pre.i.i.i = load ptr, ptr %61, align 8, !alias.scope !149, !noalias !153
   %.pre6.pre.i.i.i = load i64, ptr %62, align 8, !alias.scope !149, !noalias !153
   br label %.thread9.i.i.i.i
@@ -1321,9 +1318,6 @@ _ZN4stdx13char_has_case17h637afda6d82dd9b7E.exit.thread.i.i.i.i.i: ; preds = %_Z
 .thread5.i.i.i.i:                                 ; preds = %296, %.noexc20.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !151
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !151
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !151
   br label %.thread9.i.i.i.i
 
 299:                                              ; preds = %219
@@ -1347,9 +1341,13 @@ _ZN4stdx13char_has_case17h637afda6d82dd9b7E.exit.thread.i.i.i.i.i: ; preds = %_Z
   %305 = icmp ult i64 %304, %.sroa.35.0.i.i.i.i
   br i1 %305, label %307, label %314
 
-.thread9.i.i.i.i:                                 ; preds = %.thread5.i.i.i.i, %.thread.i.i.i.i
-  %.pre6.i.i.i = phi i64 [ %.val18.i.i.i.i, %.thread5.i.i.i.i ], [ %.pre6.pre.i.i.i, %.thread.i.i.i.i ]
-  %.pre.i.i.i = phi ptr [ %.val.i.i.i4.i, %.thread5.i.i.i.i ], [ %.pre.pre.i.i.i, %.thread.i.i.i.i ]
+.thread9.i.i.i.i:                                 ; preds = %.thread5.i.i.i.i, %.loopexit..thread9.i_crit_edge.i.i.i
+  %.pre6.i.i.i = phi i64 [ %.val18.i.i.i.i, %.thread5.i.i.i.i ], [ %.pre6.pre.i.i.i, %.loopexit..thread9.i_crit_edge.i.i.i ]
+  %.pre.i.i.i = phi ptr [ %.val.i.i.i4.i, %.thread5.i.i.i.i ], [ %.pre.pre.i.i.i, %.loopexit..thread9.i_crit_edge.i.i.i ]
+  %.sink.i.i.i.i = phi ptr [ %10, %.thread5.i.i.i.i ], [ %17, %.loopexit..thread9.i_crit_edge.i.i.i ]
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !151
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !151
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sink.i.i.i.i, i64 24, i1 false), !noalias !152
   %306 = load i64, ptr %66, align 8, !alias.scope !186, !noalias !198, !noundef !14
   br label %314
 

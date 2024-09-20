@@ -5855,91 +5855,87 @@ define internal noundef ptr @worker_func(ptr nocapture noundef %0) #0 {
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.split34, label %.split
 
-.split:                                           ; preds = %8
-  tail call void @JS_SetCanBlock(ptr noundef nonnull %3, i32 noundef 1) #30
-  tail call void @js_std_add_helpers(ptr noundef nonnull %17, i32 noundef -1, ptr noundef null)
-  br label %21
-
 .split34:                                         ; preds = %8
   %19 = load ptr, ptr @stderr, align 8
   %20 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 21, i64 1, ptr %19) #33
+  br label %.split
+
+.split:                                           ; preds = %8, %.split34
+  %.sink = phi ptr [ null, %.split34 ], [ %17, %8 ]
   tail call void @JS_SetCanBlock(ptr noundef nonnull %3, i32 noundef 1) #30
-  tail call void @js_std_add_helpers(ptr noundef null, i32 noundef -1, ptr noundef null)
-  br label %21
-
-21:                                               ; preds = %.split, %.split34
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = tail call { i64, i64 } @JS_LoadModule(ptr noundef %17, ptr noundef %23, ptr noundef %24) #30
-  %26 = extractvalue { i64, i64 } %25, 0
-  %27 = extractvalue { i64, i64 } %25, 1
-  %28 = load ptr, ptr %0, align 8
+  tail call void @js_std_add_helpers(ptr noundef %.sink, i32 noundef -1, ptr noundef null)
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = tail call { i64, i64 } @JS_LoadModule(ptr noundef %17, ptr noundef %22, ptr noundef %23) #30
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = extractvalue { i64, i64 } %24, 1
+  %27 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %27) #30
+  %28 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %28) #30
-  %29 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %29) #30
   tail call void @free(ptr noundef nonnull %0) #30
-  %30 = tail call { i64, i64 } @js_std_await(ptr noundef %17, i64 %26, i64 %27)
-  %31 = extractvalue { i64, i64 } %30, 0
-  %32 = extractvalue { i64, i64 } %30, 1
-  %33 = and i64 %32, 4294967295
-  %.not = icmp eq i64 %33, 6
-  br i1 %.not, label %34, label %35
+  %29 = tail call { i64, i64 } @js_std_await(ptr noundef %17, i64 %25, i64 %26)
+  %30 = extractvalue { i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64 } %29, 1
+  %32 = and i64 %31, 4294967295
+  %.not = icmp eq i64 %32, 6
+  br i1 %.not, label %33, label %34
 
-34:                                               ; preds = %21
+33:                                               ; preds = %.split
   tail call void @js_std_dump_error(ptr noundef %17)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %34, %21
-  %36 = trunc i64 %32 to i32
-  %37 = icmp ugt i32 %36, -12
-  br i1 %37, label %38, label %JS_FreeValue.exit
+34:                                               ; preds = %33, %.split
+  %35 = trunc i64 %31 to i32
+  %36 = icmp ugt i32 %35, -12
+  br i1 %36, label %37, label %JS_FreeValue.exit
 
-38:                                               ; preds = %35
-  %39 = inttoptr i64 %31 to ptr
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 4
-  %42 = icmp slt i32 %41, 1
-  br i1 %42, label %43, label %JS_FreeValue.exit
+37:                                               ; preds = %34
+  %38 = inttoptr i64 %30 to ptr
+  %39 = load i32, ptr %38, align 4
+  %40 = add i32 %39, -1
+  store i32 %40, ptr %38, align 4
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %42, label %JS_FreeValue.exit
 
-43:                                               ; preds = %38
-  tail call void @__JS_FreeValue(ptr noundef %17, i64 %31, i64 %32) #30
+42:                                               ; preds = %37
+  tail call void @__JS_FreeValue(ptr noundef %17, i64 %30, i64 %31) #30
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %35, %38, %43
+JS_FreeValue.exit:                                ; preds = %34, %37, %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.backedge, %JS_FreeValue.exit
-  %45 = call ptr @JS_GetRuntime(ptr noundef %17) #30
-  %46 = call i32 @JS_ExecutePendingJob(ptr noundef %45, ptr noundef nonnull %2) #30
-  %47 = icmp slt i32 %46, 1
-  br i1 %47, label %48, label %.backedge
+43:                                               ; preds = %.backedge, %JS_FreeValue.exit
+  %44 = call ptr @JS_GetRuntime(ptr noundef %17) #30
+  %45 = call i32 @JS_ExecutePendingJob(ptr noundef %44, ptr noundef nonnull %2) #30
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %47, label %.backedge
 
-.backedge:                                        ; preds = %44, %54
-  br label %44
+.backedge:                                        ; preds = %43, %53
+  br label %43
 
-48:                                               ; preds = %44
-  %49 = icmp slt i32 %46, 0
-  br i1 %49, label %50, label %52
+47:                                               ; preds = %43
+  %48 = icmp slt i32 %45, 0
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr %2, align 8
-  call void @js_std_dump_error(ptr noundef %51)
-  br label %52
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %2, align 8
+  call void @js_std_dump_error(ptr noundef %50)
+  br label %51
 
-52:                                               ; preds = %50, %48
-  %53 = load ptr, ptr @os_poll_func, align 8
-  %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %js_std_loop.exit, label %54
+51:                                               ; preds = %49, %47
+  %52 = load ptr, ptr @os_poll_func, align 8
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %js_std_loop.exit, label %53
 
-54:                                               ; preds = %52
-  %55 = call i32 @js_os_poll(ptr noundef %17), !callees !16
-  %.not4.i = icmp eq i32 %55, 0
+53:                                               ; preds = %51
+  %54 = call i32 @js_os_poll(ptr noundef %17), !callees !16
+  %.not4.i = icmp eq i32 %54, 0
   br i1 %.not4.i, label %.backedge, label %js_std_loop.exit
 
-js_std_loop.exit:                                 ; preds = %52, %54
+js_std_loop.exit:                                 ; preds = %51, %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @JS_FreeContext(ptr noundef %17) #30
   call void @js_std_free_handlers(ptr noundef nonnull %3)

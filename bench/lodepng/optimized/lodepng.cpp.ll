@@ -2552,7 +2552,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %call.i.i.i.i42.i = call noalias noundef dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #30
   store ptr %call.i.i.i.i42.i, ptr %lengths.i.i.i.i, align 8
   %tobool.not.i.i.i43.i = icmp eq ptr %call.i.i.i.i42.i, null
-  br i1 %tobool.not.i.i.i43.i, label %if.end.thread143.i.i, label %for.body.i.i.preheader.i.i
+  br i1 %tobool.not.i.i.i43.i, label %if.end23.sink.split.i.i, label %for.body.i.i.preheader.i.i
 
 for.body.i.i.preheader.i.i:                       ; preds = %for.end.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i42.i, ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i, i64 128, i1 false)
@@ -2562,10 +2562,6 @@ for.body.i.i.preheader.i.i:                       ; preds = %for.end.i.i.i
   call void @free(ptr noundef nonnull %call.i.i.i.i) #31
   %tobool2.not.i.i = icmp eq i32 %call8.i.i.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
-
-if.end.thread143.i.i:                             ; preds = %for.end.i.i.i
-  call void @free(ptr noundef nonnull %call.i.i.i.i) #31
-  br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 if.then3.i.i:                                     ; preds = %for.body.i.i.preheader.i.i
   %19 = load i8, ptr %bp.i.i, align 8
@@ -2912,7 +2908,12 @@ if.end8.i105.i.i:                                 ; preds = %if.end.i125.i.i, %f
 
 if.end23.critedge.i.i:                            ; preds = %if.then5.i.i
   %91 = load ptr, ptr %lz77_encoded.i.i, align 8
-  call void @free(ptr noundef %91) #31
+  br label %if.end23.sink.split.i.i
+
+if.end23.sink.split.i.i:                          ; preds = %if.end23.critedge.i.i, %for.end.i.i.i
+  %.sink.i.i = phi ptr [ %91, %if.end23.critedge.i.i ], [ %call.i.i.i.i, %for.end.i.i.i ]
+  %error.1.ph.i.i = phi i32 [ %call6.i.i, %if.end23.critedge.i.i ], [ 83, %for.end.i.i.i ]
+  call void @free(ptr noundef %.sink.i.i) #31
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i: ; preds = %if.end8.i105.i.i, %if.then.i.i.i130.i.i
@@ -2920,8 +2921,8 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
   store i8 %92, ptr %bp.i.i, align 8
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
-_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %if.end23.critedge.i.i, %if.then16.i.i, %if.end.thread143.i.i, %for.body.i.i.preheader.i.i, %if.then.i.i, %if.then34.i
-  %error.1.i.i = phi i32 [ %call8.i.i.i.i, %for.body.i.i.preheader.i.i ], [ 83, %if.end.thread143.i.i ], [ 0, %if.then16.i.i ], [ 83, %if.then.i.i ], [ %call.i.i, %if.then34.i ], [ %call6.i.i, %if.end23.critedge.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
+_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %if.end23.sink.split.i.i, %if.then16.i.i, %for.body.i.i.preheader.i.i, %if.then.i.i, %if.then34.i
+  %error.1.i.i = phi i32 [ %call8.i.i.i.i, %for.body.i.i.preheader.i.i ], [ 0, %if.then16.i.i ], [ 83, %if.then.i.i ], [ %call.i.i, %if.then34.i ], [ %error.1.ph.i.i, %if.end23.sink.split.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
   %93 = load ptr, ptr %tree_ll.i.i, align 8
   call void @free(ptr noundef %93) #31
   %94 = load ptr, ptr %lengths.i.i, align 8
@@ -20624,15 +20625,11 @@ for.end23.i:                                      ; preds = %for.body14.i
   %tobool28.not.i = icmp eq ptr %call.i100.i, null
   %tobool30.not.i = icmp eq ptr %call.i101.i, null
   %or.cond.i = or i1 %tobool28.not.i, %tobool30.not.i
-  br i1 %or.cond.i, label %if.then31.i, label %for.cond33.preheader.i
+  br i1 %or.cond.i, label %if.end80.sink.split, label %for.cond33.preheader.i
 
 for.cond33.preheader.i:                           ; preds = %for.end23.i
   %cmp34123.not.i = icmp eq i64 %size.1.i, 0
   br i1 %cmp34123.not.i, label %for.body43.i.preheader, label %for.body35.i
-
-if.then31.i:                                      ; preds = %for.end23.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #31
-  br label %if.end80
 
 for.body35.i:                                     ; preds = %for.cond33.preheader.i, %for.body35.i
   %i.2124.i = phi i64 [ %inc39.i, %for.body35.i ], [ 0, %for.cond33.preheader.i ]
@@ -20842,11 +20839,15 @@ for.body170.i:                                    ; preds = %for.cond168.i, %for
 
 if.end80.critedge:                                ; preds = %entry
   tail call void @free(ptr noundef %call.i45) #31
-  tail call void @free(ptr noundef %call.i46) #31
+  br label %if.end80.sink.split
+
+if.end80.sink.split:                              ; preds = %for.end23.i, %if.end80.critedge
+  %calloc.i.sink = phi ptr [ %call.i46, %if.end80.critedge ], [ %calloc.i, %for.end23.i ]
+  tail call void @free(ptr noundef %calloc.i.sink) #31
   br label %if.end80
 
-if.end80:                                         ; preds = %if.else.i, %for.body84.i, %for.body170.i, %for.cond168.i, %for.inc164.i, %for.cond148.preheader.i, %for.cond168.preheader.i, %if.then31.i, %if.end76, %if.end80.critedge
-  %error.1 = phi i32 [ 83, %if.end80.critedge ], [ 83, %if.then31.i ], [ 83, %if.end76 ], [ 0, %for.cond148.preheader.i ], [ 0, %for.cond168.preheader.i ], [ 0, %for.inc164.i ], [ 0, %for.cond168.i ], [ 55, %for.body170.i ], [ 55, %for.body84.i ], [ 55, %if.else.i ]
+if.end80:                                         ; preds = %if.else.i, %for.body84.i, %for.body170.i, %for.cond168.i, %for.inc164.i, %if.end80.sink.split, %for.cond148.preheader.i, %for.cond168.preheader.i, %if.end76
+  %error.1 = phi i32 [ 83, %if.end76 ], [ 0, %for.cond148.preheader.i ], [ 0, %for.cond168.preheader.i ], [ 83, %if.end80.sink.split ], [ 0, %for.inc164.i ], [ 0, %for.cond168.i ], [ 55, %for.body170.i ], [ 55, %for.body84.i ], [ 55, %if.else.i ]
   ret i32 %error.1
 }
 

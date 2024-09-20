@@ -7495,7 +7495,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %8
 .thread75:                                        ; preds = %15
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %384
+  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -8030,7 +8030,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
 300:                                              ; preds = %28
   %301 = landingpad { ptr, i32 }
           cleanup
-  br i1 %7, label %384, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
+  br i1 %7, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
 
 302:                                              ; preds = %49, %32
   %303 = phi i1 [ %46, %49 ], [ true, %32 ]
@@ -8259,27 +8259,23 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit: ; preds = %_ZN5Eig
   br i1 %54, label %381, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138: ; preds = %.body
-  br i1 %54, label %.thread77, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
-
-.thread77:                                        ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138
-  call void @free(ptr noundef nonnull %53) #27
-  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
+  br i1 %54, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
 
 381:                                              ; preds = %380, %302
   %.pn.pn.pn76 = phi { ptr, i32 } [ %306, %302 ], [ %.pn.pn, %380 ]
   %382 = phi ptr [ %305, %302 ], [ %52, %380 ]
   %383 = phi ptr [ %304, %302 ], [ %53, %380 ]
   call void @free(ptr noundef nonnull %383) #27
-  br i1 %7, label %384, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
+  br i1 %7, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
 
-384:                                              ; preds = %.thread75, %381, %300
-  %.pn.pn.pn.pn33 = phi { ptr, i32 } [ %301, %300 ], [ %.pn.pn.pn76, %381 ], [ %17, %.thread75 ]
-  %385 = phi ptr [ %25, %300 ], [ %382, %381 ], [ %9, %.thread75 ]
-  call void @free(ptr noundef %385) #27
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split: ; preds = %300, %381, %.thread75, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138
+  %.sink = phi ptr [ %53, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138 ], [ %25, %300 ], [ %382, %381 ], [ %9, %.thread75 ]
+  %.pn.pn.pn.pn32.ph = phi { ptr, i32 } [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138 ], [ %301, %300 ], [ %.pn.pn.pn76, %381 ], [ %17, %.thread75 ]
+  call void @free(ptr noundef %.sink) #27
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140: ; preds = %.thread77, %380, %302, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138, %381, %300, %384
-  %.pn.pn.pn.pn32 = phi { ptr, i32 } [ %301, %300 ], [ %.pn.pn.pn.pn33, %384 ], [ %.pn.pn.pn76, %381 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138 ], [ %306, %302 ], [ %.pn.pn, %380 ], [ %.pn.pn, %.thread77 ]
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split, %380, %302, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138, %381, %300
+  %.pn.pn.pn.pn32 = phi { ptr, i32 } [ %301, %300 ], [ %.pn.pn.pn76, %381 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit138 ], [ %306, %302 ], [ %.pn.pn, %380 ], [ %.pn.pn.pn.pn32.ph, %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit140.sink.split ]
   resume { ptr, i32 } %.pn.pn.pn.pn32
 }
 
@@ -10648,7 +10644,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %9
 .thread255:                                       ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %385
+  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split
 
 .noexc:                                           ; preds = %16
   unreachable
@@ -11183,7 +11179,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE13InnerIteratorC2ERKS
 301:                                              ; preds = %29
   %302 = landingpad { ptr, i32 }
           cleanup
-  br i1 %8, label %385, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %8, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 303:                                              ; preds = %50, %33
   %304 = phi i1 [ %47, %50 ], [ true, %33 ]
@@ -11412,27 +11408,23 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit: ; preds = %_ZN5Eig
   br i1 %55, label %382, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176: ; preds = %.body
-  br i1 %55, label %.thread257, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
-
-.thread257:                                       ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176
-  call void @free(ptr noundef nonnull %54) #27
-  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %55, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 382:                                              ; preds = %381, %303
   %.pn.pn.pn256 = phi { ptr, i32 } [ %307, %303 ], [ %.pn.pn, %381 ]
   %383 = phi ptr [ %306, %303 ], [ %53, %381 ]
   %384 = phi ptr [ %305, %303 ], [ %54, %381 ]
   call void @free(ptr noundef nonnull %384) #27
-  br i1 %8, label %385, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %8, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
-385:                                              ; preds = %.thread255, %382, %301
-  %.pn.pn.pn.pn213 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %18, %.thread255 ]
-  %386 = phi ptr [ %26, %301 ], [ %383, %382 ], [ %10, %.thread255 ]
-  call void @free(ptr noundef %386) #27
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split: ; preds = %301, %382, %.thread255, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176
+  %.sink = phi ptr [ %54, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %26, %301 ], [ %383, %382 ], [ %10, %.thread255 ]
+  %.pn.pn.pn.pn212.ph = phi { ptr, i32 } [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %18, %.thread255 ]
+  call void @free(ptr noundef %.sink) #27
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178: ; preds = %.thread257, %381, %303, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176, %382, %301, %385
-  %.pn.pn.pn.pn212 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn.pn213, %385 ], [ %.pn.pn.pn256, %382 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %307, %303 ], [ %.pn.pn, %381 ], [ %.pn.pn, %.thread257 ]
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, %381, %303, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176, %382, %301
+  %.pn.pn.pn.pn212 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %307, %303 ], [ %.pn.pn, %381 ], [ %.pn.pn.pn.pn212.ph, %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split ]
   resume { ptr, i32 } %.pn.pn.pn.pn212
 }
 
@@ -12417,7 +12409,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %9
 .thread255:                                       ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %385
+  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split
 
 .noexc:                                           ; preds = %16
   unreachable
@@ -12952,7 +12944,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
 301:                                              ; preds = %29
   %302 = landingpad { ptr, i32 }
           cleanup
-  br i1 %8, label %385, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %8, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 303:                                              ; preds = %50, %33
   %304 = phi i1 [ %47, %50 ], [ true, %33 ]
@@ -13181,27 +13173,23 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit: ; preds = %_ZN5Eig
   br i1 %55, label %382, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176: ; preds = %.body
-  br i1 %55, label %.thread257, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
-
-.thread257:                                       ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176
-  call void @free(ptr noundef nonnull %54) #27
-  br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %55, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
 382:                                              ; preds = %381, %303
   %.pn.pn.pn256 = phi { ptr, i32 } [ %307, %303 ], [ %.pn.pn, %381 ]
   %383 = phi ptr [ %306, %303 ], [ %53, %381 ]
   %384 = phi ptr [ %305, %303 ], [ %54, %381 ]
   call void @free(ptr noundef nonnull %384) #27
-  br i1 %8, label %385, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
+  br i1 %8, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
-385:                                              ; preds = %.thread255, %382, %301
-  %.pn.pn.pn.pn213 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %18, %.thread255 ]
-  %386 = phi ptr [ %26, %301 ], [ %383, %382 ], [ %10, %.thread255 ]
-  call void @free(ptr noundef %386) #27
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split: ; preds = %301, %382, %.thread255, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176
+  %.sink = phi ptr [ %54, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %26, %301 ], [ %383, %382 ], [ %10, %.thread255 ]
+  %.pn.pn.pn.pn212.ph = phi { ptr, i32 } [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %18, %.thread255 ]
+  call void @free(ptr noundef %.sink) #27
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178: ; preds = %.thread257, %381, %303, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176, %382, %301, %385
-  %.pn.pn.pn.pn212 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn.pn213, %385 ], [ %.pn.pn.pn256, %382 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %307, %303 ], [ %.pn.pn, %381 ], [ %.pn.pn, %.thread257 ]
+_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split, %381, %303, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176, %382, %301
+  %.pn.pn.pn.pn212 = phi { ptr, i32 } [ %302, %301 ], [ %.pn.pn.pn256, %382 ], [ %.pn.pn, %_ZN5Eigen8internal28aligned_stack_memory_handlerIlED2Ev.exit176 ], [ %307, %303 ], [ %.pn.pn, %381 ], [ %.pn.pn.pn.pn212.ph, %_ZN5Eigen8internal28aligned_stack_memory_handlerIbED2Ev.exit178.sink.split ]
   resume { ptr, i32 } %.pn.pn.pn.pn212
 }
 

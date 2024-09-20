@@ -1515,13 +1515,13 @@ _ZN7Minisat3vecIiiED2Ev.exit24:                   ; preds = %.loopexit, %.prehea
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7Minisat10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1196) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN7Minisat6Solver8simplifyEv(ptr noundef nonnull align 8 dereferenceable(857) %0)
-  br i1 %3, label %4, label %222
+  br i1 %3, label %4, label %218
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 900
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %.preheader43, label %222
+  br i1 %7, label %.preheader43, label %218
 
 .preheader43:                                     ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 1188
@@ -1783,7 +1783,7 @@ _ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE9removeMinEv.ex
   br label %27, !llvm.loop !17
 
 _ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit: ; preds = %30, %.preheader.i.i, %._crit_edge.i, %143, %118, %49
-  br i1 %1, label %159, label %193
+  br i1 %1, label %159, label %190
 
 159:                                              ; preds = %_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit
   %160 = getelementptr inbounds i8, ptr %0, i64 928
@@ -1878,57 +1878,53 @@ _ZN7Minisat5QueueIjE5clearEb.exit:                ; preds = %_ZN7Minisat4HeapIiN
   %189 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 %188, ptr %189, align 8
   tail call void @_ZN7Minisat6Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(857) %0)
-  %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
-  %192 = load ptr, ptr %191, align 8
-  tail call void %192(ptr noundef nonnull align 8 dereferenceable(1196) %0)
+  br label %_ZN7Minisat6Solver12checkGarbageEv.exit.sink.split
+
+190:                                              ; preds = %_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit
+  %191 = getelementptr inbounds i8, ptr %0, i64 120
+  %192 = load double, ptr %191, align 8
+  %193 = load i32, ptr %25, align 8
+  %194 = uitofp i32 %193 to double
+  %195 = load i32, ptr %26, align 8
+  %196 = uitofp i32 %195 to double
+  %197 = fmul double %192, %196
+  %198 = fcmp olt double %197, %194
+  br i1 %198, label %_ZN7Minisat6Solver12checkGarbageEv.exit.sink.split, label %_ZN7Minisat6Solver12checkGarbageEv.exit
+
+_ZN7Minisat6Solver12checkGarbageEv.exit.sink.split: ; preds = %190, %_ZN7Minisat5QueueIjE5clearEb.exit
+  %199 = load ptr, ptr %0, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 16
+  %201 = load ptr, ptr %200, align 8
+  tail call void %201(ptr noundef nonnull align 8 dereferenceable(857) %0)
   br label %_ZN7Minisat6Solver12checkGarbageEv.exit
 
-193:                                              ; preds = %_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit
-  %194 = getelementptr inbounds i8, ptr %0, i64 120
-  %195 = load double, ptr %194, align 8
-  %196 = load i32, ptr %25, align 8
-  %197 = uitofp i32 %196 to double
-  %198 = load i32, ptr %26, align 8
-  %199 = uitofp i32 %198 to double
-  %200 = fmul double %195, %199
-  %201 = fcmp olt double %200, %197
-  br i1 %201, label %202, label %_ZN7Minisat6Solver12checkGarbageEv.exit
+_ZN7Minisat6Solver12checkGarbageEv.exit:          ; preds = %_ZN7Minisat6Solver12checkGarbageEv.exit.sink.split, %190
+  %202 = load i32, ptr %20, align 8
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %204, label %214
 
-202:                                              ; preds = %193
-  %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 16
-  %205 = load ptr, ptr %204, align 8
-  tail call void %205(ptr noundef nonnull align 8 dereferenceable(857) %0)
-  br label %_ZN7Minisat6Solver12checkGarbageEv.exit
-
-_ZN7Minisat6Solver12checkGarbageEv.exit:          ; preds = %202, %193, %_ZN7Minisat5QueueIjE5clearEb.exit
-  %206 = load i32, ptr %20, align 8
+204:                                              ; preds = %_ZN7Minisat6Solver12checkGarbageEv.exit
+  %205 = getelementptr inbounds i8, ptr %0, i64 920
+  %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 0
-  br i1 %207, label %208, label %218
+  br i1 %207, label %208, label %214
 
-208:                                              ; preds = %_ZN7Minisat6Solver12checkGarbageEv.exit
-  %209 = getelementptr inbounds i8, ptr %0, i64 920
-  %210 = load i32, ptr %209, align 8
-  %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %212, label %218
+208:                                              ; preds = %204
+  %209 = zext nneg i32 %206 to i64
+  %210 = shl nuw nsw i64 %209, 2
+  %211 = uitofp nneg i64 %210 to double
+  %212 = fmul double %211, 0x3EB0000000000000
+  %213 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %212)
+  br label %214
 
-212:                                              ; preds = %208
-  %213 = zext nneg i32 %210 to i64
-  %214 = shl nuw nsw i64 %213, 2
-  %215 = uitofp nneg i64 %214 to double
-  %216 = fmul double %215, 0x3EB0000000000000
-  %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %216)
+214:                                              ; preds = %208, %204, %_ZN7Minisat6Solver12checkGarbageEv.exit
+  %215 = getelementptr inbounds i8, ptr %0, i64 624
+  %216 = load i8, ptr %215, align 8
+  %217 = trunc i8 %216 to i1
   br label %218
 
-218:                                              ; preds = %212, %208, %_ZN7Minisat6Solver12checkGarbageEv.exit
-  %219 = getelementptr inbounds i8, ptr %0, i64 624
-  %220 = load i8, ptr %219, align 8
-  %221 = trunc i8 %220 to i1
-  br label %222
-
-222:                                              ; preds = %4, %2, %218
-  %.0 = phi i1 [ %221, %218 ], [ false, %2 ], [ true, %4 ]
+218:                                              ; preds = %4, %2, %214
+  %.0 = phi i1 [ %217, %214 ], [ false, %2 ], [ true, %4 ]
   ret i1 %.0
 }
 

@@ -796,21 +796,21 @@ define internal void @_toggle_capture_mode_clicked(ptr noundef %0, ptr nocapture
   %5 = tail call i64 @gtk_widget_get_type() #20
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #18
   %7 = icmp eq ptr %6, %0
-  br i1 %7, label %28, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !61
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %5) #18
   %12 = icmp eq ptr %11, %0
-  br i1 %12, label %28, label %13
+  br i1 %12, label %26, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !62
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %5) #18
   %17 = icmp eq ptr %16, %0
-  br i1 %17, label %18, label %37
+  br i1 %17, label %18, label %35
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %1, i64 48
@@ -821,26 +821,28 @@ define internal void @_toggle_capture_mode_clicked(ptr noundef %0, ptr nocapture
   tail call void @gtk_widget_set_sensitive(ptr noundef %20, i32 noundef %23) #18
   %24 = getelementptr inbounds i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !66
-  %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %21) #18
-  %27 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %26) #18
-  tail call void @gtk_widget_set_sensitive(ptr noundef %25, i32 noundef %27) #18
-  br label %37
+  br label %.sink.split
 
-28:                                               ; preds = %8, %2
-  %29 = phi i64 [ 32, %2 ], [ 40, %8 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !44
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %37, label %33
+26:                                               ; preds = %8, %2
+  %27 = phi i64 [ 32, %2 ], [ 40, %8 ]
+  %28 = getelementptr inbounds i8, ptr %1, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !44
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %35, label %31
 
-33:                                               ; preds = %28
-  %34 = tail call i64 @gtk_toggle_button_get_type() #20
-  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %34) #18
-  %36 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %35) #18
-  tail call void @gtk_widget_set_sensitive(ptr noundef nonnull %31, i32 noundef %36) #18
-  br label %37
+31:                                               ; preds = %26
+  %32 = tail call i64 @gtk_toggle_button_get_type() #20
+  br label %.sink.split
 
-37:                                               ; preds = %33, %28, %18, %13
+.sink.split:                                      ; preds = %18, %31
+  %.sink4 = phi i64 [ %32, %31 ], [ %21, %18 ]
+  %.sink = phi ptr [ %29, %31 ], [ %25, %18 ]
+  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %.sink4) #18
+  %34 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %33) #18
+  tail call void @gtk_widget_set_sensitive(ptr noundef %.sink, i32 noundef %34) #18
+  br label %35
+
+35:                                               ; preds = %.sink.split, %26, %13
   ret void
 }
 

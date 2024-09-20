@@ -16716,11 +16716,7 @@ if.end24:                                         ; preds = %if.then21, %if.end1
   %call25 = tail call zeroext i8 @stbi__get_marker(ptr noundef nonnull %j)
   %1 = and i8 %call25, -8
   %or.cond = icmp eq i8 %1, -48
-  br i1 %or.cond, label %if.then31, label %while.cond.backedge
-
-if.then31:                                        ; preds = %if.end24
-  %call32 = tail call zeroext i8 @stbi__get_marker(ptr noundef nonnull %j)
-  br label %while.cond.backedge
+  br i1 %or.cond, label %if.end62.sink.split, label %while.cond.backedge
 
 if.then37:                                        ; preds = %while.cond
   %2 = load ptr, ptr %j, align 8
@@ -16735,25 +16731,21 @@ if.end45:                                         ; preds = %if.then37
   %img_y = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %img_y, align 4
   %cmp47.not = icmp eq i32 %call40, %5
-  br i1 %cmp47.not, label %if.end51, label %return.sink.split
-
-if.end51:                                         ; preds = %if.end45
-  %call52 = tail call zeroext i8 @stbi__get_marker(ptr noundef nonnull %j)
-  br label %while.cond.backedge
-
-while.cond.backedge:                              ; preds = %if.end51, %if.end58, %if.end24, %if.then31
-  %m.1.in.be = phi i8 [ %call32, %if.then31 ], [ %call25, %if.end24 ], [ %call52, %if.end51 ], [ %call59, %if.end58 ]
-  br label %while.cond, !llvm.loop !138
+  br i1 %cmp47.not, label %if.end62.sink.split, label %return.sink.split
 
 if.else54:                                        ; preds = %while.cond
   %m.1 = zext i8 %m.1.in to i32
   %call55 = tail call i32 @stbi__process_marker(ptr noundef %j, i32 noundef %m.1)
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %return, label %if.end58
+  br i1 %tobool56.not, label %return, label %if.end62.sink.split
 
-if.end58:                                         ; preds = %if.else54
-  %call59 = tail call zeroext i8 @stbi__get_marker(ptr noundef %j)
+if.end62.sink.split:                              ; preds = %if.else54, %if.end45, %if.end24
+  %call52 = tail call zeroext i8 @stbi__get_marker(ptr noundef %j)
   br label %while.cond.backedge
+
+while.cond.backedge:                              ; preds = %if.end62.sink.split, %if.end24
+  %m.1.in.be = phi i8 [ %call25, %if.end24 ], [ %call52, %if.end62.sink.split ]
+  br label %while.cond, !llvm.loop !138
 
 while.end:                                        ; preds = %while.cond
   %progressive = getelementptr inbounds i8, ptr %j, i64 18480

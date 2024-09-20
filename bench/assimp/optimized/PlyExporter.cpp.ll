@@ -1766,15 +1766,18 @@ if.then62:                                        ; preds = %_ZNK6aiMesh24HasTan
   %call67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %arrayidx65, i64 noundef 12)
   %16 = load ptr, ptr %mBitangents.i, align 8
   %arrayidx70 = getelementptr inbounds %class.aiVector3t, ptr %16, i64 %indvars.iv61
-  %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %arrayidx70, i64 noundef 12)
-  br label %for.inc82
+  br label %for.inc82.sink.split
 
 if.else73:                                        ; preds = %if.then60, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
   %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %defaultNormal, i64 noundef 12)
-  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %defaultNormal, i64 noundef 12)
+  br label %for.inc82.sink.split
+
+for.inc82.sink.split:                             ; preds = %if.then62, %if.else73
+  %defaultNormal.sink = phi ptr [ %defaultNormal, %if.else73 ], [ %arrayidx70, %if.then62 ]
+  %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %defaultNormal.sink, i64 noundef 12)
   br label %for.inc82
 
-for.inc82:                                        ; preds = %for.end57, %if.else73, %if.then62
+for.inc82:                                        ; preds = %for.inc82.sink.split, %for.end57
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %17 = load i32, ptr %mNumVertices, align 4
   %18 = zext i32 %17 to i64

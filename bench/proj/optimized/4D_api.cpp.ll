@@ -2252,13 +2252,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
 ; Function Attrs: mustprogress uwtable
 define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %21, label %3
+  br i1 %2, label %19, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 840
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %21, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 816
@@ -2267,21 +2267,21 @@ define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_add
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   %13 = load ptr, ptr %0, align 8
-  br i1 %12, label %14, label %16
+  br i1 %12, label %.sink.split, label %14
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @proj_clone(ptr noundef %13, ptr noundef nonnull %0)
-  br label %21
+  %15 = zext nneg i32 %5 to i64
+  %16 = getelementptr inbounds %struct.PJCoordOperation, ptr %9, i64 %15, i32 10
+  %17 = load ptr, ptr %16, align 8
+  br label %.sink.split
 
-16:                                               ; preds = %7
-  %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds %struct.PJCoordOperation, ptr %9, i64 %17, i32 10
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @proj_clone(ptr noundef %13, ptr noundef %19)
-  br label %21
+.sink.split:                                      ; preds = %7, %14
+  %.sink = phi ptr [ %17, %14 ], [ %0, %7 ]
+  %18 = tail call ptr @proj_clone(ptr noundef %13, ptr noundef %.sink)
+  br label %19
 
-21:                                               ; preds = %1, %3, %16, %14
-  %.0 = phi ptr [ %15, %14 ], [ %20, %16 ], [ null, %3 ], [ null, %1 ]
+19:                                               ; preds = %.sink.split, %1, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %18, %.sink.split ]
   ret ptr %.0
 }
 
@@ -6042,16 +6042,15 @@ define internal fastcc noundef ptr @_ZL43create_operation_geocentric_crs_to_geog
 
 .critedge:                                        ; preds = %2, %20
   call void (ptr, ptr, ...) @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr noundef %0, ptr noundef nonnull @.str.93)
-  call void @proj_list_destroy(ptr noundef %17)
   br label %25
 
 23:                                               ; preds = %20
   %24 = call ptr @proj_list_get(ptr noundef %0, ptr noundef nonnull %17, i32 noundef 0)
-  call void @proj_list_destroy(ptr noundef nonnull %17)
   br label %25
 
 25:                                               ; preds = %23, %.critedge
   %.0 = phi ptr [ null, %.critedge ], [ %24, %23 ]
+  call void @proj_list_destroy(ptr noundef %17)
   ret ptr %.0
 }
 

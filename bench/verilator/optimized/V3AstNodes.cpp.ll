@@ -100903,54 +100903,42 @@ define dso_local noundef ptr @_ZNK14AstMemberDType15getChildStructpEv(ptr nocapt
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = select i1 %.not.i.i, ptr %5, ptr %3
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 328
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph, %1
+  %.sink = phi ptr [ %6, %1 ], [ %10, %.lr.ph ]
+  %.sink17 = phi i64 [ 328, %1 ], [ 408, %.lr.ph ]
+  %7 = load ptr, ptr %.sink, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.sink17
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(162) %6)
-  %.not.i15 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.i15)
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  %.sroa.0.0.copyload.i.i.i16 = load i16, ptr %11, align 8
-  %12 = and i16 %.sroa.0.0.copyload.i.i.i16, -2
-  %spec.select.i.i17 = icmp eq i16 %12, 74
-  %13 = load ptr, ptr %10, align 8
-  br i1 %spec.select.i.i17, label %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit, label %._crit_edge
-
-_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %1, %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
-  %14 = phi ptr [ %20, %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit ], [ %13, %1 ]
-  %.sink18 = phi ptr [ %17, %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit ], [ %10, %1 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(176) %.sink18)
-  %.not.i = icmp ne ptr %17, null
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(162) %.sink)
+  %.not.i = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %.not.i)
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %18, align 8
-  %19 = and i16 %.sroa.0.0.copyload.i.i.i, -2
-  %spec.select.i.i = icmp eq i16 %19, 74
-  %20 = load ptr, ptr %17, align 8
-  br i1 %spec.select.i.i, label %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit, label %._crit_edge
+  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %11, align 8
+  %12 = and i16 %.sroa.0.0.copyload.i.i.i, -2
+  %spec.select.i.i = icmp eq i16 %12, 74
+  br i1 %spec.select.i.i, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit, %1
-  %.sink.lcssa = phi ptr [ %10, %1 ], [ %17, %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit ]
-  %.lcssa = phi ptr [ %13, %1 ], [ %20, %_ZN7AstNode11privateCastI17AstNodeArrayDTypeP12AstNodeDTypeEEPT_PS_.exit ]
-  %21 = getelementptr inbounds i8, ptr %.lcssa, i64 328
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(162) %.sink.lcssa)
-  %.not.i6 = icmp eq ptr %23, null
-  br i1 %.not.i6, label %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit, label %24
+._crit_edge:                                      ; preds = %.lr.ph
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 328
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(162) %10)
+  %.not.i6 = icmp eq ptr %16, null
+  br i1 %.not.i6, label %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit, label %17
 
-24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
-  %.sroa.0.0.copyload.i.i.i7 = load i16, ptr %25, align 8
-  %26 = and i16 %.sroa.0.0.copyload.i.i.i7, -2
-  %spec.select.i.i8 = icmp eq i16 %26, 76
-  %spec.select.i9 = select i1 %spec.select.i.i8, ptr %23, ptr null
+17:                                               ; preds = %._crit_edge
+  %18 = getelementptr inbounds i8, ptr %16, i64 64
+  %.sroa.0.0.copyload.i.i.i7 = load i16, ptr %18, align 8
+  %19 = and i16 %.sroa.0.0.copyload.i.i.i7, -2
+  %spec.select.i.i8 = icmp eq i16 %19, 76
+  %spec.select.i9 = select i1 %spec.select.i.i8, ptr %16, ptr null
   br label %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit
 
-_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %._crit_edge, %24
-  %27 = phi ptr [ null, %._crit_edge ], [ %spec.select.i9, %24 ]
-  ret ptr %27
+_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %._crit_edge, %17
+  %20 = phi ptr [ null, %._crit_edge ], [ %spec.select.i9, %17 ]
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable

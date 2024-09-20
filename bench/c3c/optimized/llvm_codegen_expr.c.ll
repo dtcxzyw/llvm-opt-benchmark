@@ -7046,7 +7046,7 @@ define dso_local void @llvm_emit_ignored_expr(ptr noundef %0, ptr noundef %1) lo
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @LLVMGetFirstInstruction(ptr noundef %27) #10
   %.not35 = icmp eq ptr %28, null
-  br i1 %.not35, label %29, label %72
+  br i1 %.not35, label %29, label %71
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %26, align 8
@@ -7107,59 +7107,56 @@ define dso_local void @llvm_emit_ignored_expr(ptr noundef %0, ptr noundef %1) lo
   call void @LLVMInstructionEraseFromParent(ptr noundef %35) #10
   %53 = call ptr @LLVMGetFirstUse(ptr noundef %50) #10
   %.not44.i = icmp eq ptr %53, null
-  br i1 %.not44.i, label %54, label %60
+  br i1 %.not44.i, label %54, label %59
 
 54:                                               ; preds = %49
   %55 = call i32 @LLVMGetInstructionOpcode(ptr noundef %50) #10
   %56 = icmp eq i32 %55, 45
-  br i1 %56, label %57, label %.thread.i
-
-.thread.i:                                        ; preds = %54
-  call void @LLVMInstructionEraseFromParent(ptr noundef %50) #10
-  br label %60
+  br i1 %56, label %57, label %.sink.split.i
 
 57:                                               ; preds = %54
   %58 = call ptr @LLVMGetOperand(ptr noundef %50, i32 noundef 0) #10
   call void @LLVMInstructionEraseFromParent(ptr noundef %50) #10
   %.not45.i = icmp eq ptr %58, null
-  br i1 %.not45.i, label %60, label %59
+  br i1 %.not45.i, label %59, label %.sink.split.i
 
-59:                                               ; preds = %57
-  call void @LLVMInstructionEraseFromParent(ptr noundef nonnull %58) #10
-  br label %60
+.sink.split.i:                                    ; preds = %57, %54
+  %.sink.i = phi ptr [ %50, %54 ], [ %58, %57 ]
+  call void @LLVMInstructionEraseFromParent(ptr noundef %.sink.i) #10
+  br label %59
 
-60:                                               ; preds = %59, %57, %.thread.i, %49
+59:                                               ; preds = %.sink.split.i, %57, %49
   store ptr %51, ptr %26, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @LLVMGetFirstBasicBlock(ptr noundef %62) #10
-  %64 = icmp eq ptr %63, %51
-  %65 = getelementptr inbounds i8, ptr %0, i64 424
-  %66 = zext i1 %64 to i8
-  %67 = load i8, ptr %65, align 8
-  %68 = and i8 %67, -2
-  %69 = or disjoint i8 %68, %66
-  store i8 %69, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8
-  call void @LLVMPositionBuilderAtEnd(ptr noundef %71, ptr noundef %51) #10
+  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @LLVMGetFirstBasicBlock(ptr noundef %61) #10
+  %63 = icmp eq ptr %62, %51
+  %64 = getelementptr inbounds i8, ptr %0, i64 424
+  %65 = zext i1 %63 to i8
+  %66 = load i8, ptr %64, align 8
+  %67 = and i8 %66, -2
+  %68 = or disjoint i8 %67, %65
+  store i8 %68, ptr %64, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = load ptr, ptr %69, align 8
+  call void @LLVMPositionBuilderAtEnd(ptr noundef %70, ptr noundef %51) #10
   br label %llvm_prune_optional.exit
 
-72:                                               ; preds = %25
+71:                                               ; preds = %25
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %19) #10
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %19) #10
   br label %llvm_prune_optional.exit
 
-llvm_prune_optional.exit:                         ; preds = %.lr.ph.i, %60, %47, %._crit_edge.i, %39, %37, %34, %29, %72
+llvm_prune_optional.exit:                         ; preds = %.lr.ph.i, %59, %47, %._crit_edge.i, %39, %37, %34, %29, %71
   store ptr %16, ptr %15, align 8
   store ptr %18, ptr %17, align 8
-  br label %73
+  br label %72
 
 .critedge:                                        ; preds = %2, %12
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %1)
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.critedge, %llvm_prune_optional.exit
+72:                                               ; preds = %.critedge, %llvm_prune_optional.exit
   ret void
 }
 
@@ -20405,8 +20402,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %68 = call ptr @LLVMBuildCall2(ptr noundef %67, ptr noundef %66, ptr noundef %64, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %69 = load ptr, ptr %61, align 8
   %70 = call ptr @LLVMBuildICmp(ptr noundef %69, i32 noundef 35, ptr noundef %68, ptr noundef %55, ptr noundef nonnull @.str.205) #10
-  call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %70, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
-  br label %142
+  br label %.sink.split
 
 .critedge:                                        ; preds = %51
   %71 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 324), align 4
@@ -20445,8 +20441,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %98 = call ptr @LLVMBuildCall2(ptr noundef %97, ptr noundef %96, ptr noundef %94, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %99 = load ptr, ptr %61, align 8
   %100 = call ptr @LLVMBuildICmp(ptr noundef %99, i32 noundef 39, ptr noundef %98, ptr noundef %55, ptr noundef nonnull @.str.205) #10
-  call void @llvm_emit_panic_on_true(ptr noundef nonnull %0, ptr noundef %100, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
-  br label %142
+  br label %.sink.split
 
 101:                                              ; preds = %22
   %102 = call i32 @type_size(ptr noundef nonnull %10) #10
@@ -20479,8 +20474,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %121 = getelementptr inbounds i8, ptr %0, i64 64
   %122 = load ptr, ptr %121, align 8
   %123 = call ptr @LLVMBuildICmp(ptr noundef %122, i32 noundef 35, ptr noundef %1, ptr noundef %117, ptr noundef nonnull @.str.205) #10
-  call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %123, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
-  br label %142
+  br label %.sink.split
 
 .critedge2:                                       ; preds = %113
   %124 = call fastcc ptr @type_lowering(ptr noundef nonnull %10)
@@ -20507,10 +20501,14 @@ type_flatten.exit:                                ; preds = %.preheader
   call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %139, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
   %140 = load ptr, ptr %137, align 8
   %141 = call ptr @LLVMBuildICmp(ptr noundef %140, i32 noundef 39, ptr noundef %1, ptr noundef %117, ptr noundef nonnull @.str.205) #10
-  call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %141, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %62, %85, %120, %132
+  %.sink = phi ptr [ %141, %132 ], [ %123, %120 ], [ %100, %85 ], [ %70, %62 ]
+  call void @llvm_emit_panic_on_true(ptr noundef %0, ptr noundef %.sink, ptr noundef nonnull @.str.206, i64 %3, ptr noundef nonnull @.str.194, ptr noundef nonnull %6, ptr noundef null) #10
   br label %142
 
-142:                                              ; preds = %4, %132, %120, %85, %62
+142:                                              ; preds = %.sink.split, %4
   ret void
 }
 

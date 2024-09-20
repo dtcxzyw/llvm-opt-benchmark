@@ -240,7 +240,7 @@ entry:
   %0 = load ptr, ptr %arg, align 8
   %call.i.i = tail call ptr @SSL_new(ptr noundef %0) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %create_ssl.exit.i
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %create_http2_session_data.exit
 
 if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call i64 @ERR_get_error() #23
@@ -248,7 +248,7 @@ if.then.i.i:                                      ; preds = %entry
   tail call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %call2.i.i) #24
   unreachable
 
-create_ssl.exit.i:                                ; preds = %entry
+create_http2_session_data.exit:                   ; preds = %entry
   %calloc.i = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %app_ctx2.i = getelementptr inbounds i8, ptr %calloc.i, i64 40
   store ptr %arg, ptr %app_ctx2.i, align 8
@@ -261,23 +261,13 @@ create_ssl.exit.i:                                ; preds = %entry
   %call6.i = call i32 @bufferevent_enable(ptr noundef %call4.i, i16 noundef signext 6) #23
   %call7.i = call i32 @getnameinfo(ptr noundef %addr, i32 noundef %addrlen, ptr noundef nonnull %host.i, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #23
   %cmp.not.i = icmp eq i32 %call7.i, 0
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %create_ssl.exit.i
-  %call8.i = call noalias dereferenceable_or_null(10) ptr @strdup(ptr noundef nonnull @.str.8) #23
-  br label %create_http2_session_data.exit
-
-if.else.i:                                        ; preds = %create_ssl.exit.i
-  %call10.i = call noalias ptr @strdup(ptr noundef nonnull %host.i) #23
-  br label %create_http2_session_data.exit
-
-create_http2_session_data.exit:                   ; preds = %if.then.i, %if.else.i
-  %call8.sink.i = phi ptr [ %call10.i, %if.else.i ], [ %call8.i, %if.then.i ]
+  %host..str.8.i = select i1 %cmp.not.i, ptr %host.i, ptr @.str.8
+  %call10.i = call noalias ptr @strdup(ptr noundef nonnull %host..str.8.i) #23
   %2 = getelementptr inbounds i8, ptr %calloc.i, i64 56
-  store ptr %call8.sink.i, ptr %2, align 8
+  store ptr %call10.i, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %host.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  call void @bufferevent_setcb(ptr noundef %call4.i, ptr noundef nonnull @readcb, ptr noundef nonnull @writecb, ptr noundef nonnull @eventcb, ptr noundef nonnull %calloc.i) #23
+  call void @bufferevent_setcb(ptr noundef %call4.i, ptr noundef nonnull @readcb, ptr noundef nonnull @writecb, ptr noundef nonnull @eventcb, ptr noundef %calloc.i) #23
   ret void
 }
 

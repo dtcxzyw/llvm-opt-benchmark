@@ -255,7 +255,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslang13TIntermSym
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(184) %0) #7
   %6 = icmp eq i32 %5, 16
   %7 = load ptr, ptr %0, align 8
-  br i1 %6, label %8, label %16
+  br i1 %6, label %8, label %14
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %7, i64 240
@@ -263,19 +263,18 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslang13TIntermSym
   %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr %10(ptr noundef nonnull align 8 dereferenceable(184) %0) #7
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef nonnull align 8 dereferenceable(40) ptr %14(ptr noundef nonnull align 8 dereferenceable(152) %11) #7
-  br label %20
+  br label %16
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %7, i64 400
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef nonnull align 8 dereferenceable(40) ptr %18(ptr noundef nonnull align 8 dereferenceable(264) %0) #7
-  br label %20
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %7, i64 400
+  br label %16
 
-20:                                               ; preds = %16, %8
-  %.0 = phi ptr [ %15, %8 ], [ %19, %16 ]
-  ret ptr %.0
+16:                                               ; preds = %14, %8
+  %.sink3 = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.sink = phi ptr [ %0, %14 ], [ %11, %8 ]
+  %17 = load ptr, ptr %.sink3, align 8
+  %18 = tail call noundef nonnull align 8 dereferenceable(40) ptr %17(ptr noundef nonnull align 8 dereferenceable(152) %.sink) #7
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1445,58 +1444,39 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %49 = getelementptr inbounds i8, ptr %1, i64 11
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %63
-
-52:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %. = select i1 %51, i64 40, i64 32
+  %.27 = select i1 %51, i64 32, i64 40
+  %52 = getelementptr inbounds i8, ptr %0, i64 %.
+  %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(364) %54, ptr noundef nonnull %1) #7
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull %1) #7
+  %57 = getelementptr inbounds i8, ptr %0, i64 %.27
+  %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull %1) #7
-  br label %74
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull %1) #7
+  %62 = load i32, ptr %11, align 4
+  %63 = add nsw i32 %62, -1
+  store i32 %63, ptr %11, align 4
+  %64 = load ptr, ptr %18, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 -8
+  store ptr %65, ptr %18, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 10
+  %67 = load i8, ptr %66, align 2
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %.critedge
 
-63:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull %1) #7
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(364) %70, ptr noundef nonnull %1) #7
-  br label %74
-
-74:                                               ; preds = %63, %52
-  %75 = load i32, ptr %11, align 4
-  %76 = add nsw i32 %75, -1
-  store i32 %76, ptr %11, align 4
-  %77 = load ptr, ptr %18, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  store ptr %78, ptr %18, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 10
-  %80 = load i8, ptr %79, align 2
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %.critedge
-
-82:                                               ; preds = %74
-  %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 80
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 2, ptr noundef nonnull %0) #7
+69:                                               ; preds = %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
+  %70 = load ptr, ptr %1, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 80
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 2, ptr noundef nonnull %0) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %6, %82, %74
+.critedge:                                        ; preds = %6, %69, %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
   ret void
 }
 

@@ -997,24 +997,17 @@ delete.notnull72:                                 ; preds = %if.end59, %if.then6
 
 if.else75:                                        ; preds = %for.cond
   %cmp76 = icmp eq i32 %dir, 0
-  br i1 %cmp76, label %if.then77, label %if.else79
-
-if.then77:                                        ; preds = %if.else75
-  %call78 = tail call noundef ptr @_ZN6icu_7522TransliteratorIDParser9specsToIDEPKNS0_5SpecsEi(ptr noundef %specsA.2, i32 noundef 0)
-  br label %if.end85
+  br i1 %cmp76, label %if.end85, label %if.else79
 
 if.else79:                                        ; preds = %if.else75
   %call80 = tail call noundef ptr @_ZN6icu_7522TransliteratorIDParser21specsToSpecialInverseERKNS0_5SpecsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(265) %specsA.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp81 = icmp eq ptr %call80, null
-  br i1 %cmp81, label %if.then82, label %if.end88
+  br i1 %cmp81, label %if.end85, label %if.end88
 
-if.then82:                                        ; preds = %if.else79
-  %call83 = tail call noundef ptr @_ZN6icu_7522TransliteratorIDParser9specsToIDEPKNS0_5SpecsEi(ptr noundef nonnull %specsA.2, i32 noundef 1)
-  br label %if.end85
-
-if.end85:                                         ; preds = %if.then82, %if.then77
-  %single.1 = phi ptr [ %call78, %if.then77 ], [ %call83, %if.then82 ]
-  %cmp86 = icmp eq ptr %single.1, null
+if.end85:                                         ; preds = %if.else79, %if.else75
+  %.sink = phi i32 [ 0, %if.else75 ], [ 1, %if.else79 ]
+  %call83 = tail call noundef ptr @_ZN6icu_7522TransliteratorIDParser9specsToIDEPKNS0_5SpecsEi(ptr noundef %specsA.2, i32 noundef %.sink)
+  %cmp86 = icmp eq ptr %call83, null
   br i1 %cmp86, label %if.then87, label %if.end88
 
 if.then87:                                        ; preds = %if.end85
@@ -1022,7 +1015,7 @@ if.then87:                                        ; preds = %if.end85
   br label %return
 
 if.end88:                                         ; preds = %if.else79, %if.end85
-  %single.196 = phi ptr [ %single.1, %if.end85 ], [ %call80, %if.else79 ]
+  %single.196 = phi ptr [ %call83, %if.end85 ], [ %call80, %if.else79 ]
   %filter89 = getelementptr inbounds i8, ptr %specsA.2, i64 200
   %filter90 = getelementptr inbounds i8, ptr %single.196, i64 136
   %call91 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %filter90, ptr noundef nonnull align 8 dereferenceable(64) %filter89)

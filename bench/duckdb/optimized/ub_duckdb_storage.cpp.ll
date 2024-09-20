@@ -6160,7 +6160,7 @@ _ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit: ; preds
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   %6 = load i8, ptr %type, align 8, !tbaa !355
   switch i8 %6, label %sw.default [
-    i8 2, label %sw.bb
+    i8 2, label %sw.epilog
     i8 8, label %sw.bb4
     i8 6, label %sw.bb8
     i8 1, label %sw.bb12
@@ -6170,60 +6170,25 @@ _ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit: ; preds
     i8 4, label %sw.bb29
   ]
 
-sw.bb:                                            ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(104) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
-  br label %sw.epilog
-
 sw.bb4:                                           ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable6 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 104
-  %8 = load ptr, ptr %vfn7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(136) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable10 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 72
-  %9 = load ptr, ptr %vfn11, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(209) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable14 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 56
-  %10 = load ptr, ptr %vfn15, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(248) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable18 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 64
-  %11 = load ptr, ptr %vfn19, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(200) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable22 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 80
-  %12 = load ptr, ptr %vfn23, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(208) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable27 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 88
-  %13 = load ptr, ptr %vfn28, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(208) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
-  %vtable31 = load ptr, ptr %this, align 8, !tbaa !26
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 96
-  %14 = load ptr, ptr %vfn32, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(312) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit
@@ -6242,7 +6207,7 @@ invoke.cont35:                                    ; preds = %invoke.cont
           to label %unreachable unwind label %lpad34
 
 ehcleanup.thread:                                 ; preds = %sw.default
-  %15 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp33) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #37
@@ -6250,38 +6215,43 @@ ehcleanup.thread:                                 ; preds = %sw.default
 
 lpad34:                                           ; preds = %invoke.cont35, %invoke.cont
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont35 ], [ true, %invoke.cont ]
-  %16 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %ref.tmp, align 8, !tbaa !64
-  %18 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %17, %18
+  %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !64
+  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad34
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %19 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !66
-  %cmp3.i.i.i = icmp ult i64 %19, 16
+  %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !66
+  %cmp3.i.i.i = icmp ult i64 %11, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp33) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #37
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
 ehcleanup:                                        ; preds = %lpad34
-  call void @_ZdlPv(ptr noundef %17) #38
+  call void @_ZdlPv(ptr noundef %9) #38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp33) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #37
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
-  %.pn62 = phi { ptr, i32 } [ %15, %ehcleanup.thread ], [ %16, %ehcleanup ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn62 = phi { ptr, i32 } [ %7, %ehcleanup.thread ], [ %8, %ehcleanup ], [ %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %exception) #37
   br label %eh.resume
 
-sw.epilog:                                        ; preds = %sw.bb29, %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb8, %sw.bb4, %sw.bb
+sw.epilog:                                        ; preds = %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit, %sw.bb29, %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb8, %sw.bb4
+  %.sink = phi i64 [ 96, %sw.bb29 ], [ 88, %sw.bb24 ], [ 80, %sw.bb20 ], [ 64, %sw.bb16 ], [ 56, %sw.bb12 ], [ 72, %sw.bb8 ], [ 104, %sw.bb4 ], [ 48, %_ZN6duckdb10Serializer13WritePropertyINS_11CatalogTypeEEEvtPKcRKT_.exit ]
+  %vtable31 = load ptr, ptr %this, align 8, !tbaa !26
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 %.sink
+  %12 = load ptr, ptr %vfn32, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(104) %entry1, ptr noundef nonnull align 8 dereferenceable(10) %serializer)
   ret void
 
 eh.resume:                                        ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn61 = phi { ptr, i32 } [ %16, %ehcleanup ], [ %.pn62, %cleanup.action ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn61 = phi { ptr, i32 } [ %8, %ehcleanup ], [ %.pn62, %cleanup.action ], [ %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn61
 
 unreachable:                                      ; preds = %invoke.cont35

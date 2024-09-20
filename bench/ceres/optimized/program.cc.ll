@@ -1785,7 +1785,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program10IsFeasibleEPNSt7_
   br i1 %.not68110, label %.loopexit70, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.critedge, %.loopexit
-  %.sroa.065.0111 = phi ptr [ %77, %.loopexit ], [ %13, %.critedge ]
+  %.sroa.065.0111 = phi ptr [ %75, %.loopexit ], [ %13, %.critedge ]
   %16 = load ptr, ptr %.sroa.065.0111, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 8
@@ -1905,49 +1905,51 @@ _ZNK5ceres8internal14ParameterBlock22UpperBoundForParameterEi.exit: ; preds = %_
 67:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock22UpperBoundForParameterEi.exit
   %68 = trunc nuw nsw i64 %indvars.iv156 to i32
   call void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %17, i32 noundef %19, i32 noundef %68, double noundef %.0.i, double noundef %64, double noundef %.0.i60)
-  %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef %wide.trip.count159, ptr noundef nonnull %17, ptr noundef nonnull %1)
-  br label %.loopexit70
+  br label %.loopexit70.sink.split
 
 _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit: ; preds = %_ZNK5ceres8internal14ParameterBlock22UpperBoundForParameterEi.exit
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
   br i1 %exitcond160.not, label %.loopexit, label %56, !llvm.loop !24
 
-_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62: ; preds = %.lr.ph.split, %76
-  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph.split ]
-  %70 = getelementptr inbounds double, ptr %36, i64 %indvars.iv
-  %71 = load double, ptr %70, align 8
-  %72 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
-  %73 = load double, ptr %72, align 8
-  %74 = fcmp ult double %71, %73
-  br i1 %74, label %76, label %.split.us
+_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62: ; preds = %.lr.ph.split, %74
+  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph.split ]
+  %69 = getelementptr inbounds double, ptr %36, i64 %indvars.iv
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
+  %72 = load double, ptr %71, align 8
+  %73 = fcmp ult double %70, %72
+  br i1 %73, label %74, label %.split.us
 
 .split.us:                                        ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us
   %.pre-phi = phi i64 [ %wide.trip.count154, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ %wide.trip.count149, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %wide.trip.count149, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
-  %.us-phi83 = phi double [ %42, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ 0x7FEFFFFFFFFFFFFF, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %73, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
-  %.us-phi84 = phi double [ 0xFFEFFFFFFFFFFFFF, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ %46, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %71, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
+  %.us-phi83 = phi double [ %42, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ 0x7FEFFFFFFFFFFFFF, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %72, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
+  %.us-phi84 = phi double [ 0xFFEFFFFFFFFFFFFF, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ %46, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %70, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
   %.us-phi85.in = phi i64 [ %indvars.iv151, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us ], [ %indvars.iv146, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62.us86 ], [ %indvars.iv, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62 ]
   %.us-phi85 = trunc i64 %.us-phi85.in to i32
   call void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.10, ptr noundef %17, i32 noundef %19, i32 noundef %.us-phi85, double noundef %.us-phi84, double noundef %.us-phi83)
-  %75 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef %.pre-phi, ptr noundef %17, ptr noundef nonnull %1)
-  br label %.loopexit70
+  br label %.loopexit70.sink.split
 
-76:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62
+74:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count149
   br i1 %exitcond.not, label %.loopexit, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit62, !llvm.loop !23
 
-.loopexit:                                        ; preds = %76, %48, %44, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit, %.lr.ph.split.us, %.preheader, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.preheader
-  %77 = getelementptr inbounds i8, ptr %.sroa.065.0111, i64 8
-  %.not68 = icmp eq ptr %77, %15
+.loopexit:                                        ; preds = %74, %48, %44, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit, %.lr.ph.split.us, %.preheader, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.preheader
+  %75 = getelementptr inbounds i8, ptr %.sroa.065.0111, i64 8
+  %.not68 = icmp eq ptr %75, %15
   br i1 %.not68, label %.loopexit70, label %.lr.ph113
 
-.loopexit70:                                      ; preds = %.loopexit, %.critedge, %.split.us, %67
-  %.not6875 = phi i1 [ false, %.split.us ], [ false, %67 ], [ true, %.critedge ], [ true, %.loopexit ]
+.loopexit70.sink.split:                           ; preds = %67, %.split.us
+  %.sink222 = phi ptr [ %5, %.split.us ], [ %4, %67 ]
+  %.pre-phi.sink = phi i64 [ %.pre-phi, %.split.us ], [ %wide.trip.count159, %67 ]
+  %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.sink222) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink222) #26
+  call void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef %.pre-phi.sink, ptr noundef %17, ptr noundef nonnull %1)
+  br label %.loopexit70
+
+.loopexit70:                                      ; preds = %.loopexit, %.loopexit70.sink.split, %.critedge
+  %.not6875 = phi i1 [ true, %.critedge ], [ false, %.loopexit70.sink.split ], [ true, %.loopexit ]
   ret i1 %.not6875
 }
 

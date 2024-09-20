@@ -5801,9 +5801,7 @@ crec_copy_emit.exit:                              ; preds = %if.end.i58
 if.then40:                                        ; preds = %crec_copy_emit.exit
   store i16 23040, ptr %ot1.i64.i, align 4
   store i16 0, ptr %fold.i63.i, align 8
-  store i16 0, ptr %op2.i67.i, align 2
-  %call41 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
-  br label %return
+  br label %return.sink.split
 
 fallback:                                         ; preds = %if.else20.i.i, %if.else41.i.i, %if.then22.i, %crec_ct2irt.exit.i, %while.body.i, %while.body.i45, %entry, %emitcopy, %if.end
   %call45 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %J, i32 noundef 104, i32 noundef %trdst, i32 noundef %trsrc, i32 noundef %trlen) #8
@@ -5812,11 +5810,15 @@ fallback:                                         ; preds = %if.else20.i.i, %if.
   store i16 23040, ptr %ot1.i, align 4
   store i16 0, ptr %fold.i, align 8
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 0, ptr %op2.i, align 2
-  %call46 = tail call i32 @lj_opt_fold(ptr noundef %J) #8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %fallback, %if.then40
+  %op2.i67.i.sink = phi ptr [ %op2.i67.i, %if.then40 ], [ %op2.i, %fallback ]
+  store i16 0, ptr %op2.i67.i.sink, align 2
+  %call41 = tail call i32 @lj_opt_fold(ptr noundef %J) #8
   br label %return
 
-return:                                           ; preds = %crec_copy_emit.exit, %if.then40, %if.then, %fallback
+return:                                           ; preds = %return.sink.split, %crec_copy_emit.exit, %if.then
   ret void
 }
 

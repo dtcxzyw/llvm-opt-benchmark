@@ -1006,18 +1006,12 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %or.cond, label %if.then6, label %if.else
-
-if.then6:                                         ; preds = %if.then
-  %call9 = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %this, i1 noundef zeroext false, ptr noundef nonnull %buffer)
+  %buffer.pFormat = select i1 %or.cond, ptr %buffer, ptr %pFormat
+  %call13 = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %this, i1 noundef zeroext false, ptr noundef %buffer.pFormat)
   br label %return
 
-if.else:                                          ; preds = %if.then
-  %call13 = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %this, i1 noundef zeroext false, ptr noundef %pFormat)
-  br label %return
-
-return:                                           ; preds = %entry, %if.else, %if.then6
-  %retval.0 = phi i1 [ %call9, %if.then6 ], [ %call13, %if.else ], [ true, %entry ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call13, %if.then ]
   ret i1 %retval.0
 }
 

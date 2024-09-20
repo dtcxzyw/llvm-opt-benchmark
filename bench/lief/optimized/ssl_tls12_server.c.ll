@@ -3595,97 +3595,91 @@ declare i32 @mbedtls_ssl_parse_sig_alg_ext(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #5 {
   %4 = icmp ult i64 %2, 2
-  br i1 %4, label %5, label %7
+  br i1 %4, label %.loopexit.sink.split.sink.split, label %5
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @.str.8) #11
-  %6 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 50) #11
-  br label %.loopexit
-
-7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1
-  %9 = zext i8 %8 to i64
-  %10 = shl nuw nsw i64 %9, 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i64
-  %14 = or disjoint i64 %10, %13
-  %15 = add nuw nsw i64 %14, 2
-  %.not = icmp eq i64 %15, %2
-  %16 = and i64 %13, 1
-  %.not38 = icmp eq i64 %16, 0
+  %6 = load i8, ptr %1, align 1
+  %7 = zext i8 %6 to i64
+  %8 = shl nuw nsw i64 %7, 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i64
+  %12 = or disjoint i64 %8, %11
+  %13 = add nuw nsw i64 %12, 2
+  %.not = icmp eq i64 %13, %2
+  %14 = and i64 %11, 1
+  %.not38 = icmp eq i64 %14, 0
   %or.cond = and i1 %.not38, %.not
-  br i1 %or.cond, label %19, label %17
+  br i1 %or.cond, label %15, label %.loopexit.sink.split.sink.split
 
-17:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @.str.8) #11
-  %18 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 50) #11
-  br label %.loopexit
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 816
+  %19 = load ptr, ptr %18, align 8
+  %.not39 = icmp eq ptr %19, null
+  br i1 %.not39, label %20, label %.loopexit.sink.split.sink.split
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 816
-  %23 = load ptr, ptr %22, align 8
-  %.not39 = icmp eq ptr %23, null
-  br i1 %.not39, label %26, label %24
+20:                                               ; preds = %15
+  %21 = lshr exact i64 %12, 1
+  %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 13)
+  %spec.store.select = add nuw nsw i64 %22, 1
+  %23 = tail call noalias ptr @calloc(i64 noundef %spec.store.select, i64 noundef 8) #12
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.loopexit.sink.split, label %25
 
-24:                                               ; preds = %19
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 209, ptr noundef nonnull @.str.8) #11
-  %25 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef nonnull %0, i8 noundef zeroext 2, i8 noundef zeroext 47) #11
-  br label %.loopexit
-
-26:                                               ; preds = %19
-  %27 = lshr exact i64 %14, 1
-  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 13)
-  %spec.store.select = add nuw nsw i64 %28, 1
-  %29 = tail call noalias ptr @calloc(i64 noundef %spec.store.select, i64 noundef 8) #12
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
-
-31:                                               ; preds = %26
-  %32 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef nonnull %0, i8 noundef zeroext 2, i8 noundef zeroext 80) #11
-  br label %.loopexit
-
-33:                                               ; preds = %26
-  store ptr %29, ptr %22, align 8
-  %.not47 = icmp eq i64 %14, 0
+25:                                               ; preds = %20
+  store ptr %23, ptr %18, align 8
+  %.not47 = icmp eq i64 %12, 0
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33, %45
-  %.045 = phi ptr [ %.1, %45 ], [ %29, %33 ]
-  %.pn44 = phi ptr [ %.03146, %45 ], [ %1, %33 ]
-  %.03243 = phi i64 [ %.133, %45 ], [ %spec.store.select, %33 ]
-  %.03442 = phi i64 [ %46, %45 ], [ %14, %33 ]
+.lr.ph:                                           ; preds = %25, %37
+  %.045 = phi ptr [ %.1, %37 ], [ %23, %25 ]
+  %.pn44 = phi ptr [ %.03146, %37 ], [ %1, %25 ]
+  %.03243 = phi i64 [ %.133, %37 ], [ %spec.store.select, %25 ]
+  %.03442 = phi i64 [ %38, %37 ], [ %12, %25 ]
   %.03146 = getelementptr inbounds i8, ptr %.pn44, i64 2
-  %34 = load i8, ptr %.03146, align 1
-  %35 = zext i8 %34 to i16
-  %36 = shl nuw i16 %35, 8
-  %37 = getelementptr inbounds i8, ptr %.pn44, i64 3
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i16
-  %40 = or disjoint i16 %36, %39
-  %41 = tail call ptr @mbedtls_ecp_curve_info_from_tls_id(i16 noundef zeroext %40) #11
-  %.not40 = icmp eq ptr %41, null
-  br i1 %.not40, label %45, label %42
+  %26 = load i8, ptr %.03146, align 1
+  %27 = zext i8 %26 to i16
+  %28 = shl nuw i16 %27, 8
+  %29 = getelementptr inbounds i8, ptr %.pn44, i64 3
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i16
+  %32 = or disjoint i16 %28, %31
+  %33 = tail call ptr @mbedtls_ecp_curve_info_from_tls_id(i16 noundef zeroext %32) #11
+  %.not40 = icmp eq ptr %33, null
+  br i1 %.not40, label %37, label %34
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %.045, i64 8
-  store ptr %41, ptr %.045, align 8
-  %44 = add nsw i64 %.03243, -1
-  br label %45
+34:                                               ; preds = %.lr.ph
+  %35 = getelementptr inbounds i8, ptr %.045, i64 8
+  store ptr %33, ptr %.045, align 8
+  %36 = add nsw i64 %.03243, -1
+  br label %37
 
-45:                                               ; preds = %42, %.lr.ph
-  %.133 = phi i64 [ %44, %42 ], [ %.03243, %.lr.ph ]
-  %.1 = phi ptr [ %43, %42 ], [ %.045, %.lr.ph ]
-  %46 = add i64 %.03442, -2
-  %47 = icmp ne i64 %46, 0
-  %48 = icmp ugt i64 %.133, 1
-  %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !17
+37:                                               ; preds = %34, %.lr.ph
+  %.133 = phi i64 [ %36, %34 ], [ %.03243, %.lr.ph ]
+  %.1 = phi ptr [ %35, %34 ], [ %.045, %.lr.ph ]
+  %38 = add i64 %.03442, -2
+  %39 = icmp ne i64 %38, 0
+  %40 = icmp ugt i64 %.133, 1
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %45, %33, %31, %24, %17, %5
-  %.030 = phi i32 [ -29440, %5 ], [ -29440, %17 ], [ -26112, %24 ], [ -32512, %31 ], [ 0, %33 ], [ 0, %45 ]
+.loopexit.sink.split.sink.split:                  ; preds = %15, %5, %3
+  %.sink48 = phi i32 [ 191, %3 ], [ 200, %5 ], [ 209, %15 ]
+  %.sink.ph = phi i8 [ 50, %3 ], [ 50, %5 ], [ 47, %15 ]
+  %.030.ph.ph = phi i32 [ -29440, %3 ], [ -29440, %5 ], [ -26112, %15 ]
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %.sink48, ptr noundef nonnull @.str.8) #11
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %20
+  %.sink = phi i8 [ 80, %20 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ]
+  %.030.ph = phi i32 [ -32512, %20 ], [ %.030.ph.ph, %.loopexit.sink.split.sink.split ]
+  %42 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext %.sink) #11
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %37, %.loopexit.sink.split, %25
+  %.030 = phi i32 [ 0, %25 ], [ %.030.ph, %.loopexit.sink.split ], [ 0, %37 ]
   ret i32 %.030
 }
 

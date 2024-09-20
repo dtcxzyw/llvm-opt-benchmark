@@ -1649,78 +1649,47 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %111, %_ZNKSt9type_i
 define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedListScannerEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = sext i32 %4 to i64
-  switch i32 %4, label %30 [
-    i32 4, label %6
-    i32 8, label %10
-    i32 16, label %14
-    i32 20, label %18
-    i32 32, label %22
-    i32 64, label %26
+  switch i32 %4, label %10 [
+    i32 4, label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
+    i32 8, label %5
+    i32 16, label %6
+    i32 20, label %7
+    i32 32, label %8
+    i32 64, label %9
   ]
 
+5:                                                ; preds = %2
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
+
 6:                                                ; preds = %2
-  %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EEE, i64 16), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
+
+7:                                                ; preds = %2
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
+
+8:                                                ; preds = %2
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
+
+9:                                                ; preds = %2
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
 10:                                               ; preds = %2
-  %11 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EEE, i64 16), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
 
-14:                                               ; preds = %2
-  %15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EEE, i64 16), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
-
-18:                                               ; preds = %2
-  %19 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EEE, i64 16), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
-  store i64 %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 40
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
-
-22:                                               ; preds = %2
-  %23 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EEE, i64 16), ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
-  store i64 %5, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 48
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
-
-26:                                               ; preds = %2
-  %27 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EEE, i64 16), ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 72
-  store i64 %5, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 80
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
-
-30:                                               ; preds = %2
-  %31 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEEE, i64 16), ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
-  store i64 %5, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit
-
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit: ; preds = %6, %10, %14, %18, %22, %26, %30
-  %.sink.i = phi ptr [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %6 ]
-  %.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
-  %34 = zext i1 %1 to i8
-  store i8 %34, ptr %.sink.i, align 8
-  ret ptr %.0.i
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit: ; preds = %2, %5, %6, %7, %8, %9, %10
+  %.sink6.i = phi i64 [ 48, %10 ], [ 96, %9 ], [ 64, %8 ], [ 56, %7 ], [ 48, %6 ], [ 40, %5 ], [ 40, %2 ]
+  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEEE, i64 16), %10 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EEE, i64 16), %9 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EEE, i64 16), %8 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EEE, i64 16), %7 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EEE, i64 16), %6 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EEE, i64 16), %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EEE, i64 16), %2 ]
+  %.sink4.i = phi i64 [ 24, %10 ], [ 72, %9 ], [ 40, %8 ], [ 32, %7 ], [ 24, %6 ], [ 16, %5 ], [ 16, %2 ]
+  %.sink2.i = phi i64 [ 32, %10 ], [ 80, %9 ], [ 48, %8 ], [ 40, %7 ], [ 32, %6 ], [ 24, %5 ], [ 24, %2 ]
+  %11 = zext i1 %1 to i8
+  %12 = sext i32 %4 to i64
+  %13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef %.sink6.i) #30
+  store ptr %.sink.i, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.sink4.i
+  store i64 %12, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 %.sink2.i
+  store i8 %11, ptr %15, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable

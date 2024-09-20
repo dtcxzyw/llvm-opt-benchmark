@@ -19515,18 +19515,18 @@ _ZN4llvm14SmallSetVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %_ZNK4llvm6MDNo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZL18getOrSelfReferenceRN4llvm11LLVMContextENS_8ArrayRefIPNS_8MetadataEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit, label %5
+  br i1 %4, label %.loopexit.sink.split, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit, label %7
+  br i1 %.not.i.i, label %.loopexit.sink.split, label %7
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %6, align 4
   %.off = add i8 %8, -5
   %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %9, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit
+  br i1 %switch, label %9, label %.loopexit.sink.split
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %6, i64 -16
@@ -19549,7 +19549,7 @@ define internal fastcc noundef ptr @_ZL18getOrSelfReferenceRN4llvm11LLVMContextE
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %13, %16
   %.0.i.i20 = phi i64 [ %19, %16 ], [ %15, %13 ]
   %20 = icmp eq i64 %2, %.0.i.i20
-  br i1 %20, label %21, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit
+  br i1 %20, label %21, label %.loopexit.sink.split
 
 21:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
   %22 = load i64, ptr %10, align 8
@@ -19574,7 +19574,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %24, %28
   %.sroa.0.0.i.i = phi ptr [ %32, %28 ], [ %26, %24 ]
   %33 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %34 = icmp eq ptr %6, %33
-  br i1 %34, label %35, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit
+  br i1 %34, label %35, label %.loopexit.sink.split
 
 35:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
   %36 = trunc i64 %2 to i32
@@ -19617,18 +19617,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit24:            ; preds = %46, %49
   %54 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i23, i64 %41
   %55 = load ptr, ptr %54, align 8
   %.not18 = icmp eq ptr %43, %55
-  br i1 %.not18, label %38, label %56
+  br i1 %.not18, label %38, label %.loopexit.sink.split
 
-56:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit24
-  %57 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %1, i64 %2, i32 noundef 0, i1 noundef zeroext true)
+.loopexit.sink.split:                             ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit24, %3, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %5, %7
+  %56 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, i32 noundef 0, i1 noundef zeroext true)
   br label %.loopexit
 
-_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit: ; preds = %7, %5, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %3
-  %58 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, i32 noundef 0, i1 noundef zeroext true)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %38, %35, %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit, %56
-  %.0 = phi ptr [ %58, %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit ], [ %57, %56 ], [ %6, %35 ], [ %6, %38 ]
+.loopexit:                                        ; preds = %38, %.loopexit.sink.split, %35
+  %.0 = phi ptr [ %6, %35 ], [ %56, %.loopexit.sink.split ], [ %6, %38 ]
   ret ptr %.0
 }
 

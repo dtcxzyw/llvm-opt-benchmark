@@ -32977,8 +32977,7 @@ pm_splat_node_create.exit.cont:                   ; preds = %.thread, %pm_splat_
   store ptr %.sroa.2.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 40
   store ptr %.0354144, ptr %.sroa.7.0..sroa_idx.i, align 8
-  tail call fastcc void @pm_multi_target_node_targets_append(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %37)
-  br label %53
+  br label %.sink.split
 
 accept1.exit37:                                   ; preds = %16
   %39 = tail call fastcc zeroext i1 @token_begins_expression_p(i32 noundef %.val.i36)
@@ -32987,8 +32986,7 @@ accept1.exit37:                                   ; preds = %16
 40:                                               ; preds = %accept1.exit37
   %41 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef 48, i1 noundef zeroext false, i32 noundef 84)
   %42 = tail call fastcc ptr @parse_target(ptr noundef nonnull %0, ptr noundef %41)
-  tail call fastcc void @pm_multi_target_node_targets_append(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %42)
-  br label %53
+  br label %.sink.split
 
 43:                                               ; preds = %accept1.exit37
   %44 = icmp eq i32 %.val.i36, 1
@@ -33016,8 +33014,14 @@ pm_implicit_rest_node_create.exit:                ; preds = %45
   tail call fastcc void @pm_multi_target_node_targets_append(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %46)
   br label %accept1.exit
 
-53:                                               ; preds = %40, %43, %pm_splat_node_create.exit.cont
-  %.1 = phi i1 [ true, %pm_splat_node_create.exit.cont ], [ %.046, %40 ], [ %.046, %43 ]
+.sink.split:                                      ; preds = %pm_splat_node_create.exit.cont, %40
+  %.sink = phi ptr [ %42, %40 ], [ %37, %pm_splat_node_create.exit.cont ]
+  %.1.ph = phi i1 [ %.046, %40 ], [ true, %pm_splat_node_create.exit.cont ]
+  tail call fastcc void @pm_multi_target_node_targets_append(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.sink)
+  br label %53
+
+53:                                               ; preds = %.sink.split, %43
+  %.1 = phi i1 [ %.046, %43 ], [ %.1.ph, %.sink.split ]
   %.val.i = load i32, ptr %10, align 8
   %54 = icmp eq i32 %.val.i, 27
   br i1 %54, label %16, label %accept1.exit, !llvm.loop !133

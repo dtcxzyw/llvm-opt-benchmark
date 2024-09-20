@@ -32954,11 +32954,7 @@ terminate.lpad.i662:                              ; preds = %if.then13.i.i661
 
 cond.end150:                                      ; preds = %invoke.cont135, %if.then.i.i655, %if.then13.i.i661
   %call151 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers10TermGenEnv19considerCurrentTermEv(ptr noundef nonnull align 8 dereferenceable(488) %s)
-  br i1 %call151, label %return, label %cond.false153
-
-cond.false153:                                    ; preds = %cond.end150
-  %call154 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br i1 %call151, label %return, label %return.sink.split
 
 lpad124:                                          ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit563
   %27 = landingpad { ptr, i32 }
@@ -32980,18 +32976,14 @@ if.else:                                          ; preds = %_ZN4cvc58internal8T
   %d_gen_relevant_terms = getelementptr inbounds i8, ptr %s, i64 200
   %30 = load i8, ptr %d_gen_relevant_terms, align 8
   %tobool = trunc i8 %30 to i1
-  br i1 %tobool, label %if.then160, label %if.end162
+  br i1 %tobool, label %if.then160, label %return.sink.split
 
 if.then160:                                       ; preds = %if.else
   %d_tg_gdepth = getelementptr inbounds i8, ptr %s, i64 360
   %31 = load i32, ptr %d_tg_gdepth, align 8
   %inc161 = add i32 %31, 1
   store i32 %inc161, ptr %d_tg_gdepth, align 8
-  br label %if.end162
-
-if.end162:                                        ; preds = %if.then160, %if.else
-  %call163 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 if.else164:                                       ; preds = %_ZNK4cvc58internal8TypeNode6isNullEv.exit
   store i32 4, ptr %d_status115, align 4
@@ -33121,11 +33113,7 @@ cond.end196:                                      ; preds = %_ZN4cvc58internal8T
   %inc182 = add nsw i32 %43, 1
   store i32 %inc182, ptr %d_status_num166, align 8
   %call197 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers10TermGenEnv19considerCurrentTermEv(ptr noundef nonnull align 8 dereferenceable(488) %s)
-  br i1 %call197, label %return, label %cond.false199
-
-cond.false199:                                    ; preds = %cond.end196
-  %call200 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
-  br label %return
+  br i1 %call197, label %return, label %return.sink.split
 
 lpad175:                                          ; preds = %if.then.i.i720
   %44 = landingpad { ptr, i32 }
@@ -33150,8 +33138,7 @@ if.end208:                                        ; preds = %if.then206, %if.els
   %47 = load i32, ptr %d_status115, align 4
   %inc210 = add i32 %47, 1
   store i32 %inc210, ptr %d_status115, align 4
-  %call211 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 if.then215:                                       ; preds = %tailrecurse
   store i32 5, ptr %d_status115, align 4
@@ -33299,7 +33286,7 @@ cond.true241:                                     ; preds = %cleanup.done230
   %inc278 = add i32 %62, 1
   store i32 %inc278, ptr %d_tg_gdepth277, align 8
   %call279 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers10TermGenEnv19considerCurrentTermEv(ptr noundef nonnull align 8 dereferenceable(488) %s)
-  br i1 %call279, label %if.end286, label %if.then280
+  br i1 %call279, label %return.sink.split, label %if.then280
 
 if.then280:                                       ; preds = %cond.true241
   %63 = load i32, ptr %d_tg_gdepth277, align 8
@@ -33308,7 +33295,7 @@ if.then280:                                       ; preds = %cond.true241
   %64 = load i32, ptr %d_status115, align 4
   %dec284 = add i32 %64, -1
   store i32 %dec284, ptr %d_status115, align 4
-  br label %if.end286
+  br label %return.sink.split
 
 lpad224:                                          ; preds = %if.then.i.i884
   %65 = landingpad { ptr, i32 }
@@ -33316,15 +33303,10 @@ lpad224:                                          ; preds = %if.then.i.i884
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp221) #31
   br label %common.resume
 
-if.end286:                                        ; preds = %cond.true241, %if.then280
-  %call287 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
-
 if.else288:                                       ; preds = %cleanup.done230.if.else288_crit_edge, %if.then215
   %inc290 = phi i32 [ %60, %cleanup.done230.if.else288_crit_edge ], [ 6, %if.then215 ]
   store i32 %inc290, ptr %d_status115, align 4
-  %call291 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 if.then295:                                       ; preds = %tailrecurse
   %66 = load ptr, ptr %this, align 8
@@ -33459,8 +33441,7 @@ if.then305:                                       ; preds = %_ZN4cvc58internal8T
   %81 = load i32, ptr %d_status115, align 4
   %dec309 = add i32 %81, -1
   store i32 %dec309, ptr %d_status115, align 4
-  %call312 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 lpad300:                                          ; preds = %if.then.i.i1114
   %82 = landingpad { ptr, i32 }
@@ -33540,11 +33521,7 @@ if.then320:                                       ; preds = %invoke.cont316
   %d_id = getelementptr inbounds i8, ptr %this, i64 8
   %90 = load i32, ptr %d_id, align 8
   %call324 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers10TermGenEnv24considerCurrentTermCanonEj(ptr noundef nonnull align 8 dereferenceable(488) %s, i32 noundef %90)
-  br i1 %call324, label %return, label %cond.false326
-
-cond.false326:                                    ; preds = %if.then320
-  %call328 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br i1 %call324, label %return, label %return.sink.split
 
 if.else331:                                       ; preds = %invoke.cont316
   %d_children333 = getelementptr inbounds i8, ptr %this, i64 24
@@ -33768,7 +33745,7 @@ invoke.cont355:                                   ; preds = %invoke.cont353
   %bf.load.i.i1261 = load i64, ptr %112, align 8
   %113 = and i64 %bf.load.i.i1261, 1152920405095219200
   %cmp.not.i.i1262 = icmp eq i64 %113, 1152920405095219200
-  br i1 %cmp.not.i.i1262, label %_ZN4cvc58internal8TypeNodeD2Ev.exit1271, label %if.then.i.i1263
+  br i1 %cmp.not.i.i1262, label %return.sink.split, label %if.then.i.i1263
 
 if.then.i.i1263:                                  ; preds = %invoke.cont355
   %bf.value.i.i1264 = add i64 %bf.load.i.i1261, 1152920405095219200
@@ -33777,11 +33754,11 @@ if.then.i.i1263:                                  ; preds = %invoke.cont355
   %bf.set.i.i1267 = or disjoint i64 %bf.shl.i.i1265, %bf.clear7.i.i1266
   store i64 %bf.set.i.i1267, ptr %112, align 8
   %cmp12.i.i1268 = icmp eq i64 %bf.shl.i.i1265, 0
-  br i1 %cmp12.i.i1268, label %if.then13.i.i1269, label %_ZN4cvc58internal8TypeNodeD2Ev.exit1271
+  br i1 %cmp12.i.i1268, label %if.then13.i.i1269, label %return.sink.split
 
 if.then13.i.i1269:                                ; preds = %if.then.i.i1263
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %112)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit1271 unwind label %terminate.lpad.i1270
+          to label %return.sink.split unwind label %terminate.lpad.i1270
 
 terminate.lpad.i1270:                             ; preds = %if.then13.i.i1269
   %114 = landingpad { ptr, i32 }
@@ -33789,10 +33766,6 @@ terminate.lpad.i1270:                             ; preds = %if.then13.i.i1269
   %115 = extractvalue { ptr, i32 } %114, 0
   call void @__clang_call_terminate(ptr %115) #27
   unreachable
-
-_ZN4cvc58internal8TypeNodeD2Ev.exit1271:          ; preds = %invoke.cont355, %if.then.i.i1263, %if.then13.i.i1269
-  %call358 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
-  br label %return
 
 lpad354:                                          ; preds = %invoke.cont353
   %116 = landingpad { ptr, i32 }
@@ -33858,8 +33831,7 @@ if.then369:                                       ; preds = %invoke.cont365
   %121 = load i32, ptr %d_status_child_num303, align 4
   %inc371 = add nsw i32 %121, 1
   store i32 %inc371, ptr %d_status_child_num303, align 4
-  %call373 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 cond.end389:                                      ; preds = %invoke.cont365
   call void @_ZN4cvc58internal6theory11quantifiers10TermGenEnv13changeContextEb(ptr noundef nonnull align 8 dereferenceable(488) %s, i1 noundef zeroext false)
@@ -33869,8 +33841,7 @@ cond.end389:                                      ; preds = %invoke.cont365
   %123 = load i32, ptr %d_status_child_num303, align 4
   %dec393 = add nsw i32 %123, -1
   store i32 %dec393, ptr %d_status_child_num303, align 4
-  %call395 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %s, i32 noundef %depth)
-  br label %return
+  br label %return.sink.split
 
 if.then405:                                       ; preds = %tailrecurse
   %124 = load ptr, ptr %this, align 8
@@ -34005,11 +33976,14 @@ if.end413:                                        ; preds = %tailrecurse, %_ZN4c
   %inc415 = phi i32 [ %135, %_ZN4cvc58internal8TypeNodeD2Ev.exit1375 ], [ 4, %tailrecurse ]
   store i32 %inc415, ptr %d_status115, align 4
   store i32 -1, ptr %d_status_num166, align 8
-  %call417 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then13.i.i1269, %if.then.i.i1263, %invoke.cont355, %if.then320, %if.then280, %cond.true241, %cond.end196, %if.else, %if.then160, %cond.end150, %if.end208, %if.else288, %if.end413, %cond.end389, %if.then369, %if.then305
+  %call312 = call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13TermGenerator11getNextTermEPNS2_10TermGenEnvEj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, i32 noundef %depth)
   br label %return
 
-return:                                           ; preds = %tailrecurse, %if.then305, %cond.false326, %_ZN4cvc58internal8TypeNodeD2Ev.exit1271, %if.then369, %cond.end389, %if.then320, %cond.false199, %cond.end196, %cond.false153, %cond.end150, %if.end413, %if.else288, %if.end286, %if.end208, %if.end162
-  %retval.0 = phi i1 [ %call163, %if.end162 ], [ %call211, %if.end208 ], [ %call287, %if.end286 ], [ %call291, %if.else288 ], [ %call417, %if.end413 ], [ %call154, %cond.false153 ], [ true, %cond.end150 ], [ %call200, %cond.false199 ], [ true, %cond.end196 ], [ %call312, %if.then305 ], [ true, %if.then320 ], [ %call328, %cond.false326 ], [ %call358, %_ZN4cvc58internal8TypeNodeD2Ev.exit1271 ], [ %call373, %if.then369 ], [ %call395, %cond.end389 ], [ false, %tailrecurse ]
+return:                                           ; preds = %tailrecurse, %return.sink.split, %if.then320, %cond.end196, %cond.end150
+  %retval.0 = phi i1 [ true, %cond.end150 ], [ true, %cond.end196 ], [ true, %if.then320 ], [ %call312, %return.sink.split ], [ false, %tailrecurse ]
   ret i1 %retval.0
 }
 

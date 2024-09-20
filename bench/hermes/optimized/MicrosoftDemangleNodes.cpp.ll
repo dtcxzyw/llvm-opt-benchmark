@@ -4273,23 +4273,14 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef 1) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+  %.Flags = select i1 %cmp, i32 1, i32 %Flags
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %.Flags) #11
   %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   %3 = load i64, ptr %CurrentPosition.i.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit, label %_ZNK12OutputStream4backEv.exit.i
 
-_ZNK12OutputStream4backEv.exit.i:                 ; preds = %if.end
+_ZNK12OutputStream4backEv.exit.i:                 ; preds = %entry
   %4 = load ptr, ptr %OS, align 8
   %5 = getelementptr i8, ptr %4, i64 %3
   %arrayidx.i.i = getelementptr i8, ptr %5, i64 -1
@@ -4335,8 +4326,8 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
   store i64 %add.i.i.i, ptr %CurrentPosition.i.i, align 8
   br label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
 
-_ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %if.end, %_ZNK12OutputStream4backEv.exit.i, %_ZN12OutputStream4growEm.exit.i.i.i
-  %11 = phi i64 [ 0, %if.end ], [ %3, %_ZNK12OutputStream4backEv.exit.i ], [ %add.i.i.i, %_ZN12OutputStream4growEm.exit.i.i.i ]
+_ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12OutputStream4backEv.exit.i, %_ZN12OutputStream4growEm.exit.i.i.i
+  %11 = phi i64 [ 0, %entry ], [ %3, %_ZNK12OutputStream4backEv.exit.i ], [ %add.i.i.i, %_ZN12OutputStream4growEm.exit.i.i.i ]
   %Quals = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load i8, ptr %Quals, align 4
   %13 = and i8 %12, 16

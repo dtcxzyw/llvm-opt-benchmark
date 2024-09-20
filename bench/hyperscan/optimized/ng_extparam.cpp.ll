@@ -3334,11 +3334,7 @@ if.then.i.i.i219.i:                               ; preds = %invoke.cont270.i
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i: ; preds = %if.then.i.i.i219.i, %invoke.cont270.i
   %233 = load ptr, ptr %preds.i, align 8
   %tobool.not.i.i.i221.i = icmp eq ptr %233, null
-  br i1 %tobool.not.i.i.i221.i, label %cleanup273.i, label %if.then.i.i.i222.i
-
-if.then.i.i.i222.i:                               ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i
-  call void @_ZdlPv(ptr noundef nonnull %233) #21
-  br label %cleanup273.i
+  br i1 %tobool.not.i.i.i221.i, label %cleanup273.i, label %cleanup273.sink.split.i
 
 cleanup273.critedge.i:                            ; preds = %if.else93.i, %if.then63.i, %for.cond19.i.i.i, %for.cond.i.i.i
   %234 = phi ptr [ %186, %for.cond.i.i.i ], [ %186, %for.cond19.i.i.i ], [ %172, %if.then63.i ], [ %172, %if.else93.i ]
@@ -3346,27 +3342,22 @@ cleanup273.critedge.i:                            ; preds = %if.else93.i, %if.th
   %tobool.not.i.i.i.i.i.i.i.i.i225.i = icmp eq i64 %235, 0
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i228.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i123.i, %234
   %or.cond420.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i225.i, i1 true, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i228.i
-  br i1 %or.cond420.i, label %cleanup273.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i229.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i229.i:             ; preds = %cleanup273.critedge.i
-  call void @_ZdlPv(ptr noundef %234) #21
-  br label %cleanup273.i
+  br i1 %or.cond420.i, label %cleanup273.i, label %cleanup273.sink.split.i
 
 cleanup273.critedge49.i:                          ; preds = %invoke.cont131.i
   %236 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i161.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i232.i = icmp eq i64 %236, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i232.i, label %cleanup273.i, label %if.then.i.i.i.i.i.i.i.i.i233.i
-
-if.then.i.i.i.i.i.i.i.i.i233.i:                   ; preds = %cleanup273.critedge49.i
   %237 = load ptr, ptr %succ129.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i235.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164.i, %237
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i235.i, label %cleanup273.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i236.i
+  %or.cond421.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i232.i, i1 true, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i235.i
+  br i1 %or.cond421.i, label %cleanup273.i, label %cleanup273.sink.split.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i236.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i233.i
-  call void @_ZdlPv(ptr noundef %237) #21
+cleanup273.sink.split.i:                          ; preds = %cleanup273.critedge49.i, %cleanup273.critedge.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i
+  %.sink.i = phi ptr [ %233, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i ], [ %234, %cleanup273.critedge.i ], [ %237, %cleanup273.critedge49.i ]
+  call void @_ZdlPv(ptr noundef %.sink.i) #21
   br label %cleanup273.i
 
-cleanup273.i:                                     ; preds = %lor.lhs.false13.i.i165, %lor.lhs.false.i.i162, %call9.i.noexc.i156, %for.body.i52.i, %if.end.i.i182, %if.then.i.i.i.i.i.i.i.i.i.i.i.i236.i, %if.then.i.i.i.i.i.i.i.i.i233.i, %cleanup273.critedge49.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i229.i, %cleanup273.critedge.i, %if.then.i.i.i222.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i, %do.end163.i, %invoke.cont149.i, %invoke.cont112.i, %invoke.cont46.i, %invoke.cont20.i, %_ZN3ue211edges_rangeINS_8NGHolderEEEDTcl10pair_rangecl5edgesfp_EEERKT_.exit.i.i, %invoke.cont7.i176, %if.end17
+cleanup273.i:                                     ; preds = %lor.lhs.false13.i.i165, %lor.lhs.false.i.i162, %call9.i.noexc.i156, %for.body.i52.i, %if.end.i.i182, %cleanup273.sink.split.i, %cleanup273.critedge49.i, %cleanup273.critedge.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit220.i, %do.end163.i, %invoke.cont149.i, %invoke.cont112.i, %invoke.cont46.i, %invoke.cont20.i, %_ZN3ue211edges_rangeINS_8NGHolderEEEDTcl10pair_rangecl5edgesfp_EEERKT_.exit.i.i, %invoke.cont7.i176, %if.end17
   %_M_parent.i.i.i.i.i159 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 16
   %238 = load ptr, ptr %_M_parent.i.i.i.i.i159, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i138, ptr noundef %238)

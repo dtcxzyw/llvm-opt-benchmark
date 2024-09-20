@@ -4602,11 +4602,7 @@ if.then8:                                         ; preds = %_ZN6Assimp14ASSIMP_
 invoke.cont:                                      ; preds = %if.then8
   %call.i49 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prop, ptr noundef nonnull @.str.26) #28
   %cmp.i50 = icmp eq i32 %call.i49, 0
-  br i1 %cmp.i50, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %invoke.cont
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
-  br label %for.inc.sink.split
+  br i1 %cmp.i50, label %if.end43.sink.split, label %if.else
 
 lpad:                                             ; preds = %if.then8
   %14 = landingpad { ptr, i32 }
@@ -4616,20 +4612,12 @@ lpad:                                             ; preds = %if.then8
 if.else:                                          ; preds = %invoke.cont
   %call.i51 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prop, ptr noundef nonnull @.str.27) #28
   %cmp.i52 = icmp eq i32 %call.i51, 0
-  br i1 %cmp.i52, label %if.then15, label %if.else17
-
-if.then15:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rotation, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
-  br label %for.inc.sink.split
+  br i1 %cmp.i52, label %if.end43.sink.split, label %if.else17
 
 if.else17:                                        ; preds = %if.else
   %call.i53 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prop, ptr noundef nonnull @.str.28) #28
   %cmp.i54 = icmp eq i32 %call.i53, 0
-  br i1 %cmp.i54, label %if.then21, label %if.else23
-
-if.then21:                                        ; preds = %if.else17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scaling, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
-  br label %for.inc.sink.split
+  br i1 %cmp.i54, label %if.end43.sink.split, label %if.else23
 
 if.else23:                                        ; preds = %if.else17
   %15 = load i32, ptr %nd, align 8
@@ -4646,8 +4634,7 @@ if.then25:                                        ; preds = %if.else23
 
 if.then30:                                        ; preds = %if.then25
   %mLookAt = getelementptr inbounds i8, ptr %17, i64 1052
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mLookAt, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
-  br label %for.inc.sink.split
+  br label %if.end43.sink.split
 
 if.else32:                                        ; preds = %if.then25
   %call.i57 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prop, ptr noundef nonnull @.str.30) #28
@@ -4656,7 +4643,11 @@ if.else32:                                        ; preds = %if.then25
 
 if.then36:                                        ; preds = %if.else32
   %mUp = getelementptr inbounds i8, ptr %17, i64 1040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %mUp, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
+  br label %if.end43.sink.split
+
+if.end43.sink.split:                              ; preds = %if.else17, %if.else, %invoke.cont, %if.then30, %if.then36
+  %rotation.sink = phi ptr [ %mUp, %if.then36 ], [ %mLookAt, %if.then30 ], [ %position, %invoke.cont ], [ %rotation, %if.else ], [ %scaling, %if.else17 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rotation.sink, ptr noundef nonnull align 8 dereferenceable(12) %value.i, i64 12, i1 false)
   br label %for.inc.sink.split
 
 do.body.i66:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i66
@@ -5217,8 +5208,8 @@ ehcleanup299:                                     ; preds = %ehcleanup, %lpad185
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i193) #28
   br label %eh.resume
 
-for.inc.sink.split:                               ; preds = %if.then163, %if.then169, %if.else165, %if.then58, %if.then113, %if.then121, %if.else117, %if.then106, %if.then142, %land.lhs.true138, %lor.lhs.false, %if.then67, %if.then83, %if.then91, %if.else87, %if.then75, %if.then11, %if.then21, %if.then30, %if.then36, %if.else32, %if.else23, %if.then15, %cleanup
-  %prop183.sink = phi ptr [ %prop183, %cleanup ], [ %prop, %if.then15 ], [ %prop, %if.else23 ], [ %prop, %if.else32 ], [ %prop, %if.then36 ], [ %prop, %if.then30 ], [ %prop, %if.then21 ], [ %prop, %if.then11 ], [ %prop49, %if.then75 ], [ %prop49, %if.else87 ], [ %prop49, %if.then91 ], [ %prop49, %if.then83 ], [ %prop49, %if.then67 ], [ %prop49, %lor.lhs.false ], [ %prop49, %land.lhs.true138 ], [ %prop49, %if.then142 ], [ %prop49, %if.then106 ], [ %prop49, %if.else117 ], [ %prop49, %if.then121 ], [ %prop49, %if.then113 ], [ %prop49, %if.then58 ], [ %prop156, %if.else165 ], [ %prop156, %if.then169 ], [ %prop156, %if.then163 ]
+for.inc.sink.split:                               ; preds = %if.then163, %if.then169, %if.else165, %if.then58, %if.then113, %if.then121, %if.else117, %if.then106, %if.then142, %land.lhs.true138, %lor.lhs.false, %if.then67, %if.then83, %if.then91, %if.else87, %if.then75, %if.else32, %if.else23, %if.end43.sink.split, %cleanup
+  %prop183.sink = phi ptr [ %prop183, %cleanup ], [ %prop, %if.end43.sink.split ], [ %prop, %if.else23 ], [ %prop, %if.else32 ], [ %prop49, %if.then75 ], [ %prop49, %if.else87 ], [ %prop49, %if.then91 ], [ %prop49, %if.then83 ], [ %prop49, %if.then67 ], [ %prop49, %lor.lhs.false ], [ %prop49, %land.lhs.true138 ], [ %prop49, %if.then142 ], [ %prop49, %if.then106 ], [ %prop49, %if.else117 ], [ %prop49, %if.then121 ], [ %prop49, %if.then113 ], [ %prop49, %if.then58 ], [ %prop156, %if.else165 ], [ %prop156, %if.then169 ], [ %prop156, %if.then163 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop183.sink) #28
   br label %for.inc
 

@@ -8061,20 +8061,15 @@ define void @_ZN8LightGBM8Metadata8SetLabelEPKfi(ptr noundef nonnull align 8 der
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.split5, label %.split
 
-.split:                                           ; preds = %3
-  %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds float, ptr %1, i64 %5
-  tail call void @_ZN8LightGBM8Metadata21SetLabelsFromIteratorIPKfEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
-  br label %9
-
 .split5:                                          ; preds = %3
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.28)
-  %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds float, ptr null, i64 %7
-  tail call void @_ZN8LightGBM8Metadata21SetLabelsFromIteratorIPKfEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef null, ptr noundef %8)
-  br label %9
+  br label %.split
 
-9:                                                ; preds = %.split, %.split5
+.split:                                           ; preds = %3, %.split5
+  %.sink7 = phi ptr [ null, %.split5 ], [ %1, %3 ]
+  %5 = sext i32 %2 to i64
+  %6 = getelementptr inbounds float, ptr %.sink7, i64 %5
+  tail call void @_ZN8LightGBM8Metadata21SetLabelsFromIteratorIPKfEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef %.sink7, ptr noundef %6)
   ret void
 }
 

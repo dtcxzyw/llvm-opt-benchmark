@@ -515,11 +515,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   call void @free(ptr noundef %2) #16
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count
-  br i1 %exitcond.not.i52, label %stb_include_free_includes.exit, label %for.body.i, !llvm.loop !4
-
-stb_include_free_includes.exit:                   ; preds = %for.body.i
-  call void @free(ptr noundef nonnull %.pre) #16
-  br label %return
+  br i1 %exitcond.not.i52, label %return, label %for.body.i, !llvm.loop !4
 
 if.end57:                                         ; preds = %stb_include_file.exit
   %call58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4.i) #17
@@ -585,7 +581,7 @@ for.end:                                          ; preds = %stb_include_itoa.ex
   %call.i76 = call ptr @realloc(ptr noundef %text.0.lcssa, i64 noundef %add.i75) #15
   %add.ptr.i77 = getelementptr inbounds i8, ptr %call.i76, i64 %textlen.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i77, ptr readonly align 1 %add.ptr81, i64 %add, i1 false)
-  br i1 %cmp108, label %for.body.preheader.i80, label %stb_include_free_includes.exit87
+  br i1 %cmp108, label %for.body.preheader.i80, label %return
 
 for.body.preheader.i80:                           ; preds = %for.end
   %wide.trip.count.i81 = zext nneg i32 %call to i64
@@ -598,14 +594,11 @@ for.body.i82:                                     ; preds = %for.body.i82, %for.
   call void @free(ptr noundef %7) #16
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i81
-  br i1 %exitcond.not.i86, label %stb_include_free_includes.exit87, label %for.body.i82, !llvm.loop !4
+  br i1 %exitcond.not.i86, label %return, label %for.body.i82, !llvm.loop !4
 
-stb_include_free_includes.exit87:                 ; preds = %for.body.i82, %for.end
+return:                                           ; preds = %for.body.i, %for.body.i82, %for.end
+  %retval.0 = phi ptr [ %call.i76, %for.end ], [ %call.i76, %for.body.i82 ], [ null, %for.body.i ]
   call void @free(ptr noundef %.pre) #16
-  br label %return
-
-return:                                           ; preds = %stb_include_free_includes.exit87, %stb_include_free_includes.exit
-  %retval.0 = phi ptr [ null, %stb_include_free_includes.exit ], [ %call.i76, %stb_include_free_includes.exit87 ]
   ret ptr %retval.0
 }
 

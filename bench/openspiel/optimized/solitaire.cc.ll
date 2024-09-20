@@ -4106,37 +4106,31 @@ define void @_ZNK10open_spiel9solitaire10Foundation7TargetsEv(ptr dead_on_unwind
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %14, label %9
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %11 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  store ptr %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0, i64 20, i1 false)
-  br label %20
+  br label %14
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %16 = load i32, ptr %15, align 4
-  call void @_ZN10open_spiel9solitaire4CardC1EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr noundef nonnull align 4 dereferenceable(20) %3, i1 noundef zeroext false, i32 noundef %16, i32 noundef 0, i32 noundef 2)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %13 = load i32, ptr %12, align 4
+  call void @_ZN10open_spiel9solitaire4CardC1EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr noundef nonnull align 4 dereferenceable(20) %3, i1 noundef zeroext false, i32 noundef %13, i32 noundef 0, i32 noundef 2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %17 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
-  store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %18, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  br label %20
+  br label %14
 
-20:                                               ; preds = %14, %9
-  %.sink = phi ptr [ %18, %14 ], [ %12, %9 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+14:                                               ; preds = %11, %9
+  %.sink14 = phi ptr [ %3, %11 ], [ %.sroa.0, %9 ]
+  %15 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #33
+  store ptr %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %.sink14, i64 20, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %18, align 8
   ret void
 }
 

@@ -5568,30 +5568,24 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_116FindFullAncestry5vis
   %6 = getelementptr inbounds i8, ptr %5, i64 12
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  br i1 %8, label %9, label %13
+  br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %0)
-  br label %22
+  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(8) %7)
+  br i1 %13, label %.sink.split, label %17
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+.sink.split:                                      ; preds = %9, %2
+  %.sink9 = phi ptr [ %4, %2 ], [ %10, %9 ]
+  %14 = load ptr, ptr %.sink9, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
-  %17 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  br i1 %17, label %18, label %22
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull %0)
+  br label %17
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %14, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(212) %19, ptr noundef nonnull %0)
-  br label %22
-
-22:                                               ; preds = %13, %18, %9
+17:                                               ; preds = %.sink.split, %9
   ret i1 false
 }
 
@@ -5657,30 +5651,24 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_18FindNode5visitEPNS_15
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  br i1 %11, label %12, label %16
+  br i1 %11, label %.sink.split, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull %0)
-  br label %25
+  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %16 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  br i1 %16, label %.sink.split, label %20
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+.sink.split:                                      ; preds = %12, %2
+  %.sink9 = phi ptr [ %7, %2 ], [ %13, %12 ]
+  %17 = load ptr, ptr %.sink9, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
-  %20 = tail call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  br i1 %20, label %21, label %25
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef nonnull %0)
+  br label %20
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %17, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(212) %22, ptr noundef nonnull %0)
-  br label %25
-
-25:                                               ; preds = %16, %21, %12
+20:                                               ; preds = %.sink.split, %12
   ret i1 false
 }
 

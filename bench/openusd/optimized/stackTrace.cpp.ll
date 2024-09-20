@@ -1597,58 +1597,48 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113Arch_ProgInfo18PrintInfoFo
   %173 = call i64 @fwrite(ptr nonnull @.str.35, i64 6, i64 1, ptr %172) #36
   %174 = load ptr, ptr @stderr, align 8
   %175 = call i32 @fflush(ptr noundef %174)
-  br i1 %.not63, label %178, label %176
+  %. = select i1 %.not63, ptr %2, ptr %1
+  %176 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %5, ptr noundef %.)
+  %177 = load ptr, ptr @stderr, align 8
+  %178 = call i64 @fwrite(ptr nonnull @.str.36, i64 7, i64 1, ptr %177) #36
+  %179 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo acquire, align 8
+  %180 = icmp eq i8 %179, 0
+  br i1 %180, label %181, label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, !prof !4
 
-176:                                              ; preds = %164
-  %177 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %5, ptr noundef nonnull %1)
-  br label %180
+181:                                              ; preds = %164
+  %182 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo) #31
+  %.not.i80 = icmp eq i32 %182, 0
+  br i1 %.not.i80, label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, label %183
 
-178:                                              ; preds = %164
-  %179 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L20_LogStackTraceForPidEbPKcS1_(i1 noundef zeroext %0, ptr noundef %5, ptr noundef %2)
-  br label %180
-
-180:                                              ; preds = %178, %176
-  %181 = phi i32 [ %177, %176 ], [ %179, %178 ]
-  %182 = load ptr, ptr @stderr, align 8
-  %183 = call i64 @fwrite(ptr nonnull @.str.36, i64 7, i64 1, ptr %182) #36
-  %184 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo acquire, align 8
-  %185 = icmp eq i8 %184, 0
-  br i1 %185, label %186, label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, !prof !4
-
-186:                                              ; preds = %180
-  %187 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo) #31
-  %.not.i80 = icmp eq i32 %187, 0
-  br i1 %.not.i80, label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, label %188
-
-188:                                              ; preds = %186
+183:                                              ; preds = %181
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 8), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 16), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 32), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, i64 40), i8 0, i64 48, i1 false)
-  %189 = call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfoD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, ptr nonnull @__dso_handle) #31
+  %184 = call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfoD2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo, ptr nonnull @__dso_handle) #31
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEvE7logInfo) #31
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81
 
-_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81: ; preds = %180, %186, %188
-  %190 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef %190, i64 noundef 3)
+_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81: ; preds = %164, %181, %183
+  %185 = load ptr, ptr @stderr, align 8
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112Arch_LogInfo19EmitAnyExtraLogInfoEP8_IO_FILEm(ptr noundef %185, i64 noundef 3)
   call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %.sroa.speculated)
-  %191 = load ptr, ptr @stderr, align 8
-  %fputc68 = call i32 @fputc(i32 10, ptr %191)
-  %.not69 = icmp eq i32 %181, 0
-  br i1 %.not69, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit, label %192
+  %186 = load ptr, ptr @stderr, align 8
+  %fputc68 = call i32 @fputc(i32 10, ptr %186)
+  %.not69 = icmp eq i32 %176, 0
+  br i1 %.not69, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit, label %187
 
-192:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81
-  %193 = load i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_shouldLogStackToDbE, align 1
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %195, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
+187:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81
+  %188 = load i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_shouldLogStackToDbE, align 1
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %190, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
 
-195:                                              ; preds = %192
+190:                                              ; preds = %187
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_InvokeSessionLoggerEPKcS1_(ptr noundef nonnull %.str.1..i, ptr noundef nonnull %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, %192, %195, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit81, %187, %190, %.loopexit
   store atomic i8 0, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_E4busy release, align 1
   ret void
 }

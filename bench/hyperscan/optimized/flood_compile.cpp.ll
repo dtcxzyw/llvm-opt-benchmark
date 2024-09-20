@@ -778,7 +778,7 @@ for.body261.preheader:                            ; preds = %_ZNK3ue29CharReach1
   br i1 %cmp.not.i.i191309, label %if.end.i.i, label %for.end266
 
 if.end.i.i:                                       ; preds = %for.body261.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %c256.0246310 = phi i64 [ %retval.0.i.i192, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body261.preheader ]
+  %c256.0246310 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body261.preheader ]
   %div1.i.i.i193 = lshr i64 %c256.0246310, 6
   %rem.i.i = and i64 %c256.0246310, 63
   %cmp4.not.i.i194 = icmp eq i64 %rem.i.i, 63
@@ -797,8 +797,6 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i197 = and i64 %c256.0246310, 192
-  %89 = call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
-  %add9.i.i = or disjoint i64 %89, %mul.i.i197
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i198
@@ -809,21 +807,22 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 for.body.i.i198:                                  ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %second, i64 0, i64 %i.0.i.i
-  %90 = load i64, ptr %arrayidx.i.i13.i.i, align 8
-  %tobool17.not.i.i = icmp eq i64 %90, 0
+  %89 = load i64, ptr %arrayidx.i.i13.i.i, align 8
+  %tobool17.not.i.i = icmp eq i64 %89, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !16
 
 if.then18.i.i:                                    ; preds = %for.body.i.i198
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %91 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %90, i1 true)
-  %add21.i.i = or disjoint i64 %91, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.then18.i.i
-  %retval.0.i.i192 = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  %arrayidx262 = getelementptr inbounds i32, ptr %85, i64 %retval.0.i.i192
+  %and.i.i.sink = phi i64 [ %and.i.i, %if.then7.i.i ], [ %89, %if.then18.i.i ]
+  %mul.i.i197.sink = phi i64 [ %mul.i.i197, %if.then7.i.i ], [ %mul19.i.i, %if.then18.i.i ]
+  %90 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.sink, i1 true)
+  %add9.i.i = or disjoint i64 %90, %mul.i.i197.sink
+  %arrayidx262 = getelementptr inbounds i32, ptr %85, i64 %add9.i.i
   store i32 %currentFloodIndex.0249, ptr %arrayidx262, align 4
-  %cmp.not.i.i191 = icmp ult i64 %retval.0.i.i192, 256
+  %cmp.not.i.i191 = icmp ult i64 %mul.i.i197.sink, 256
   br i1 %cmp.not.i.i191, label %if.end.i.i, label %for.end266
 
 for.end266:                                       ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %for.body261.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

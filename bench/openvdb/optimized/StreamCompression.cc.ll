@@ -348,30 +348,20 @@ entry:
   %spec.select = select i1 %or.cond, i64 %add, i64 %uncompressedBytes
   %add2 = add i64 %spec.select, 16
   %cmp3 = icmp ugt i64 %add2, 2147483631
-  br i1 %cmp3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #21
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2) #21
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ %call5, %cond.false ]
-  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add2, ptr noundef %buffer, i64 noundef %uncompressedBytes)
+  %.add2 = select i1 %cmp3, i64 1, i64 %add2
+  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.add2) #21
+  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %call5, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add2, ptr noundef %buffer, i64 noundef %uncompressedBytes)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
-invoke.cont:                                      ; preds = %cond.end
+invoke.cont:                                      ; preds = %entry
   %1 = load i64, ptr %compressedBytes, align 8
   %cmp10 = icmp eq i64 %1, 0
   br i1 %cmp10, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15, label %if.end12
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then14, %cond.end
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then14, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %call5) #22
   resume { ptr, i32 } %2
 
 if.end12:                                         ; preds = %invoke.cont
@@ -382,19 +372,19 @@ if.then14:                                        ; preds = %if.end12
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13: ; preds = %if.then14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call16, ptr nonnull align 1 %cond, i64 %1, i1 false)
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call16, ptr nonnull align 1 %call5, i64 %1, i1 false)
+  tail call void @_ZdaPv(ptr noundef nonnull %call5) #22
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end12, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13
-  %outBuffer.sroa.0.1 = phi ptr [ %call16, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 ], [ %cond, %if.end12 ]
+  %outBuffer.sroa.0.1 = phi ptr [ %call16, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 ], [ %call5, %if.end12 ]
   %3 = ptrtoint ptr %outBuffer.sroa.0.1 to i64
   store i64 %3, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15: ; preds = %invoke.cont
   store ptr null, ptr %agg.result, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %call5) #22
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16: ; preds = %cleanup.thread, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15
@@ -411,30 +401,20 @@ entry:
   %spec.select.i = select i1 %or.cond.i, i64 %add.i, i64 %uncompressedBytes
   %add2.i = add i64 %spec.select.i, 16
   %cmp3.i = icmp ugt i64 %add2.i, 2147483631
-  br i1 %cmp3.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #21, !noalias !4
-  br label %cond.end.i
-
-cond.false.i:                                     ; preds = %entry
-  %call5.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i) #21, !noalias !4
-  br label %cond.end.i
-
-cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %call.i, %cond.true.i ], [ %call5.i, %cond.false.i ]
-  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %cond.i, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add2.i, ptr noundef %buffer, i64 noundef %uncompressedBytes)
+  %.add2.i = select i1 %cmp3.i, i64 1, i64 %add2.i
+  %call5.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.add2.i) #21, !noalias !4
+  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %call5.i, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes, i64 noundef %add2.i, ptr noundef %buffer, i64 noundef %uncompressedBytes)
           to label %invoke.cont.i unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i, !noalias !4
 
-invoke.cont.i:                                    ; preds = %cond.end.i
+invoke.cont.i:                                    ; preds = %entry
   %1 = load i64, ptr %compressedBytes, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i) #22
   ret i64 %1
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %cond.end.i
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #22, !noalias !4
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i) #22, !noalias !4
   resume { ptr, i32 } %2
 }
 
@@ -2525,30 +2505,20 @@ if.then2:                                         ; preds = %_ZN7openvdb5v11_011
   %spec.select.i.i = select i1 %or.cond.i, i64 %add.i.i, i64 %size
   %add2.i.i = add i64 %spec.select.i.i, 16
   %cmp3.i.i = icmp ugt i64 %add2.i.i, 2147483631
-  br i1 %cmp3.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %if.then2
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #21, !noalias !13
-  br label %cond.end.i.i
-
-cond.false.i.i:                                   ; preds = %if.then2
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i.i) #21, !noalias !13
-  br label %cond.end.i.i
-
-cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi ptr [ %call.i.i, %cond.true.i.i ], [ %call5.i.i, %cond.false.i.i ]
-  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %cond.i.i, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes.i, i64 noundef %add2.i.i, ptr noundef %buffer, i64 noundef %size)
+  %.add2.i.i = select i1 %cmp3.i.i, i64 1, i64 %add2.i.i
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.add2.i.i) #21, !noalias !13
+  invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %call5.i.i, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes.i, i64 noundef %add2.i.i, ptr noundef %buffer, i64 noundef %size)
           to label %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i, !noalias !13
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %cond.end.i.i
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %if.then2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #22, !noalias !13
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22, !noalias !13
   resume { ptr, i32 } %6
 
-_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %cond.end.i.i
+_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %if.then2
   %7 = load i64, ptr %compressedBytes.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressedBytes.i)
   store i64 %7, ptr %compressedBytes, align 8
   br label %if.end4

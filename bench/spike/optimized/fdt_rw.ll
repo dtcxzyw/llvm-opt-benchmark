@@ -1008,7 +1008,7 @@ fdt_rw_probe_.exit:                               ; preds = %51, %50
   %52 = call ptr @fdt_get_property(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %7) #9
   store ptr %52, ptr %6, align 8
   %.not25 = icmp eq ptr %52, null
-  br i1 %.not25, label %68, label %53
+  br i1 %.not25, label %67, label %53
 
 53:                                               ; preds = %fdt_rw_probe_.exit
   %54 = load i32, ptr %7, align 4
@@ -1029,24 +1029,26 @@ fdt_rw_probe_.exit:                               ; preds = %51, %50
   %64 = load i32, ptr %7, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %56, i64 %65
-  %67 = sext i32 %4 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %3, i64 %67, i1 false)
+  br label %fdt_rw_probe_.exit.thread.sink.split
+
+67:                                               ; preds = %fdt_rw_probe_.exit
+  %68 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %6)
+  %.not26 = icmp eq i32 %68, 0
+  br i1 %.not26, label %69, label %fdt_rw_probe_.exit.thread
+
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 12
+  br label %fdt_rw_probe_.exit.thread.sink.split
+
+fdt_rw_probe_.exit.thread.sink.split:             ; preds = %69, %62
+  %.sink = phi ptr [ %66, %62 ], [ %71, %69 ]
+  %72 = sext i32 %4 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink, ptr align 1 %3, i64 %72, i1 false)
   br label %fdt_rw_probe_.exit.thread
 
-68:                                               ; preds = %fdt_rw_probe_.exit
-  %69 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %6)
-  %.not26 = icmp eq i32 %69, 0
-  br i1 %.not26, label %70, label %fdt_rw_probe_.exit.thread
-
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 12
-  %73 = sext i32 %4 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %72, ptr align 1 %3, i64 %73, i1 false)
-  br label %fdt_rw_probe_.exit.thread
-
-fdt_rw_probe_.exit.thread:                        ; preds = %30, %10, %5, %62, %70, %68, %53
-  %.0 = phi i32 [ %61, %53 ], [ %69, %68 ], [ 0, %70 ], [ 0, %62 ], [ -12, %30 ], [ -10, %10 ], [ %8, %5 ]
+fdt_rw_probe_.exit.thread:                        ; preds = %fdt_rw_probe_.exit.thread.sink.split, %30, %10, %5, %67, %53
+  %.0 = phi i32 [ %61, %53 ], [ %68, %67 ], [ -12, %30 ], [ -10, %10 ], [ %8, %5 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
   ret i32 %.0
 }
 

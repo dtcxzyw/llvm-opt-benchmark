@@ -8993,7 +8993,7 @@ copy_segment_id.exit:                             ; preds = %._crit_edge.split.u
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 19539
   %108 = load i8, ptr %107, align 1
   %.not84 = icmp eq i8 %108, 0
-  br i1 %.not84, label %190, label %109
+  br i1 %.not84, label %get_predicted_segment_id.exit112.sink.split, label %109
 
 109:                                              ; preds = %106
   %110 = getelementptr i8, ptr %1, i64 7880
@@ -9091,7 +9091,7 @@ aom_read_symbol_.exit:                            ; preds = %av1_get_pred_contex
   store i16 %171, ptr %166, align 1
   %172 = and i32 %133, 1
   %.not85 = icmp eq i32 %172, 0
-  br i1 %.not85, label %188, label %173
+  br i1 %.not85, label %get_predicted_segment_id.exit112.sink.split, label %173
 
 173:                                              ; preds = %aom_read_symbol_.exit
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 19712
@@ -9136,48 +9136,44 @@ aom_read_symbol_.exit:                            ; preds = %av1_get_pred_contex
   %exitcond29.not.i.i111 = icmp eq i32 %187, %28
   br i1 %exitcond29.not.i.i111, label %get_predicted_segment_id.exit112, label %.preheader.us.i.i100, !llvm.loop !29
 
-188:                                              ; preds = %aom_read_symbol_.exit
-  %189 = tail call fastcc i32 @read_segment_id(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 0)
+get_predicted_segment_id.exit112.sink.split:      ; preds = %106, %aom_read_symbol_.exit
+  %188 = tail call fastcc i32 @read_segment_id(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3, i32 noundef 0)
   br label %get_predicted_segment_id.exit112
 
-190:                                              ; preds = %106
-  %191 = tail call fastcc i32 @read_segment_id(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3, i32 noundef 0)
-  br label %get_predicted_segment_id.exit112
-
-get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i110, %176, %173, %188, %190
-  %.074 = phi i32 [ %189, %188 ], [ %191, %190 ], [ 0, %173 ], [ 2147483647, %176 ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
-  %192 = icmp sgt i32 %28, 0
-  br i1 %192, label %.preheader.lr.ph.i113, label %get_predicted_segment_id.exit
+get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i110, %get_predicted_segment_id.exit112.sink.split, %176, %173
+  %.074 = phi i32 [ 0, %173 ], [ 2147483647, %176 ], [ %188, %get_predicted_segment_id.exit112.sink.split ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
+  %189 = icmp sgt i32 %28, 0
+  br i1 %189, label %.preheader.lr.ph.i113, label %get_predicted_segment_id.exit
 
 .preheader.lr.ph.i113:                            ; preds = %get_predicted_segment_id.exit112
-  %193 = icmp sgt i32 %., 0
-  %194 = trunc i32 %.074 to i8
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  br i1 %193, label %.preheader.us.i114, label %get_predicted_segment_id.exit
+  %190 = icmp sgt i32 %., 0
+  %191 = trunc i32 %.074 to i8
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  br i1 %190, label %.preheader.us.i114, label %get_predicted_segment_id.exit
 
 .preheader.us.i114:                               ; preds = %.preheader.lr.ph.i113, %._crit_edge.us.i118
-  %.01113.us.i115 = phi i32 [ %207, %._crit_edge.us.i118 ], [ 0, %.preheader.lr.ph.i113 ]
-  br label %196
+  %.01113.us.i115 = phi i32 [ %204, %._crit_edge.us.i118 ], [ 0, %.preheader.lr.ph.i113 ]
+  br label %193
 
-196:                                              ; preds = %196, %.preheader.us.i114
-  %.012.us.i116 = phi i32 [ 0, %.preheader.us.i114 ], [ %206, %196 ]
-  %197 = load ptr, ptr %195, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 80
-  %199 = load ptr, ptr %198, align 8
-  %200 = load i32, ptr %12, align 8
-  %201 = mul nsw i32 %200, %.01113.us.i115
-  %202 = add i32 %.012.us.i116, %15
-  %203 = add i32 %202, %201
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr %199, i64 %204
-  store i8 %194, ptr %205, align 1
-  %206 = add nuw nsw i32 %.012.us.i116, 1
-  %exitcond.not.i117 = icmp eq i32 %206, %.
-  br i1 %exitcond.not.i117, label %._crit_edge.us.i118, label %196, !llvm.loop !6
+193:                                              ; preds = %193, %.preheader.us.i114
+  %.012.us.i116 = phi i32 [ 0, %.preheader.us.i114 ], [ %203, %193 ]
+  %194 = load ptr, ptr %192, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 80
+  %196 = load ptr, ptr %195, align 8
+  %197 = load i32, ptr %12, align 8
+  %198 = mul nsw i32 %197, %.01113.us.i115
+  %199 = add i32 %.012.us.i116, %15
+  %200 = add i32 %199, %198
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i8, ptr %196, i64 %201
+  store i8 %191, ptr %202, align 1
+  %203 = add nuw nsw i32 %.012.us.i116, 1
+  %exitcond.not.i117 = icmp eq i32 %203, %.
+  br i1 %exitcond.not.i117, label %._crit_edge.us.i118, label %193, !llvm.loop !6
 
-._crit_edge.us.i118:                              ; preds = %196
-  %207 = add nuw nsw i32 %.01113.us.i115, 1
-  %exitcond16.not.i119 = icmp eq i32 %207, %28
+._crit_edge.us.i118:                              ; preds = %193
+  %204 = add nuw nsw i32 %.01113.us.i115, 1
+  %exitcond16.not.i119 = icmp eq i32 %204, %28
   br i1 %exitcond16.not.i119, label %get_predicted_segment_id.exit, label %.preheader.us.i114, !llvm.loop !7
 
 get_predicted_segment_id.exit:                    ; preds = %._crit_edge.us.i, %._crit_edge.us.i118, %._crit_edge.us.i.i, %.preheader.lr.ph.i113, %get_predicted_segment_id.exit112, %.preheader.lr.ph.i88, %88, %63, %copy_segment_id.exit, %75, %4

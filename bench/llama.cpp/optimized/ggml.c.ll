@@ -32100,11 +32100,7 @@ ggml_is_contiguous.exit34:                        ; preds = %land.lhs.true10.i24
   %cmp27.i33 = icmp eq i64 %18, %mul26.i32
   %cmp = icmp eq i32 %1, %11
   %or.cond = and i1 %cmp, %cmp27.i33
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %ggml_is_contiguous.exit34
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef %params, ptr noundef nonnull %src0, ptr noundef nonnull %dst)
-  br label %sw.epilog
+  br i1 %or.cond, label %sw.epilog.sink.split, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %land.lhs.true.i16, %land.lhs.true10.i24, %entry, %land.lhs.true.i, %land.lhs.true10.i, %ggml_is_contiguous.exit34, %ggml_is_contiguous.exit
   switch i32 %1, label %do.body [
@@ -32217,11 +32213,7 @@ land.lhs.true.i351.i:                             ; preds = %land.lhs.true.i41
   %or.cond406.i = select i1 %or.cond405.i, i1 %cmp27.i368.i, i1 false
   %cmp45.i = icmp eq i32 %.pre1103.i, 1
   %or.cond407.i = and i1 %cmp45.i, %or.cond406.i
-  br i1 %or.cond407.i, label %if.then46.i, label %if.end47.i
-
-if.then46.i:                                      ; preds = %land.lhs.true.i351.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
-  br label %sw.epilog
+  br i1 %or.cond407.i, label %sw.epilog.sink.split, label %if.end47.i
 
 if.end47.i:                                       ; preds = %land.lhs.true.i351.i, %land.lhs.true.i41, %land.lhs.true.i.i, %if.end8.if.end47_crit_edge.i
   %43 = phi i32 [ %.pre.i, %if.end8.if.end47_crit_edge.i ], [ %.pre1103.i, %land.lhs.true.i41 ], [ %.pre1103.i, %land.lhs.true.i351.i ], [ %.pre1103.i, %land.lhs.true.i.i ]
@@ -33307,11 +33299,7 @@ land.lhs.true.i312.i:                             ; preds = %land.lhs.true.i200
   %or.cond360.i = select i1 %or.cond359.i, i1 %cmp27.i329.i, i1 false
   %cmp45.i201 = icmp eq i32 %.pre943.i, 0
   %or.cond361.i = and i1 %cmp45.i201, %or.cond360.i
-  br i1 %or.cond361.i, label %if.then46.i202, label %if.end47.i70
-
-if.then46.i202:                                   ; preds = %land.lhs.true.i312.i
-  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef readonly %params, ptr noundef nonnull readonly %src0, ptr noundef nonnull readonly %dst)
-  br label %sw.epilog
+  br i1 %or.cond361.i, label %sw.epilog.sink.split, label %if.end47.i70
 
 if.end47.i70:                                     ; preds = %land.lhs.true.i312.i, %land.lhs.true.i200, %land.lhs.true.i.i191, %if.end8.if.end47_crit_edge.i68
   %130 = phi i32 [ %.pre.i69, %if.end8.if.end47_crit_edge.i68 ], [ %.pre943.i, %land.lhs.true.i200 ], [ %.pre943.i, %land.lhs.true.i312.i ], [ %.pre943.i, %land.lhs.true.i.i191 ]
@@ -34122,7 +34110,11 @@ do.body:                                          ; preds = %if.end
   tail call void @abort() #47
   unreachable
 
-sw.epilog:                                        ; preds = %for.cond507.for.inc628_crit_edge.split.us.us.us.split.us.us.i, %for.cond382.for.inc493_crit_edge.split.us.us.us.split.us.us.i, %for.cond309.for.inc360_crit_edge.split.us.split.us.us.us.us.i, %for.cond244.for.inc291_crit_edge.us.i.loopexit.us.us, %for.cond182.for.inc219_crit_edge.us.i.loopexit.us, %for.cond121.for.inc156_crit_edge.us.i150, %for.cond73.for.inc98_crit_edge.split.us.us.us.i189, %for.cond590.for.inc705_crit_edge.split.us.us.us.split.us.us.i, %for.cond465.for.inc576_crit_edge.split.us.us.us.split.us.us.i, %for.cond395.for.inc443_crit_edge.split.us.us.us.i, %for.cond328.for.inc377_crit_edge.us.i, %for.cond173.for.inc219_crit_edge.us.i, %for.cond121.for.inc156_crit_edge.us.i, %for.cond251.for.inc302_crit_edge.us.i, %for.cond73.for.inc98_crit_edge.split.us.us.us.i, %for.cond244.preheader.lr.ph.i, %for.cond382.preheader.lr.ph.i, %for.cond377.preheader.i, %for.cond507.preheader.lr.ph.i, %for.cond502.preheader.i, %for.cond309.preheader.lr.ph.i, %if.then298.i, %if.then233.i, %for.cond182.preheader.lr.ph.i, %if.then161.i, %for.cond121.preheader.lr.ph.i140, %if.then110.i137, %for.cond73.preheader.lr.ph.i165, %if.then69.i163, %if.then46.i202, %do.end.i53, %do.end.i53, %for.cond465.preheader.lr.ph.i, %for.cond460.preheader.i, %for.cond590.preheader.lr.ph.i, %for.cond585.preheader.i, %for.cond395.preheader.lr.ph.i, %if.then384.i, %for.cond328.preheader.lr.ph.i, %if.then317.i, %for.cond251.preheader.lr.ph.i, %if.then226.i, %for.cond173.preheader.lr.ph.i, %if.then162.i, %for.cond121.preheader.lr.ph.i, %if.then110.i, %for.cond73.preheader.lr.ph.i, %if.then69.i, %if.then46.i, %do.end.i, %do.end.i, %if.then
+sw.epilog.sink.split:                             ; preds = %land.lhs.true.i312.i, %land.lhs.true.i351.i, %ggml_is_contiguous.exit34
+  tail call fastcc void @ggml_compute_forward_dup_same_cont(ptr noundef %params, ptr noundef nonnull %src0, ptr noundef nonnull %dst)
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %for.cond507.for.inc628_crit_edge.split.us.us.us.split.us.us.i, %for.cond382.for.inc493_crit_edge.split.us.us.us.split.us.us.i, %for.cond309.for.inc360_crit_edge.split.us.split.us.us.us.us.i, %for.cond244.for.inc291_crit_edge.us.i.loopexit.us.us, %for.cond182.for.inc219_crit_edge.us.i.loopexit.us, %for.cond121.for.inc156_crit_edge.us.i150, %for.cond73.for.inc98_crit_edge.split.us.us.us.i189, %for.cond590.for.inc705_crit_edge.split.us.us.us.split.us.us.i, %for.cond465.for.inc576_crit_edge.split.us.us.us.split.us.us.i, %for.cond395.for.inc443_crit_edge.split.us.us.us.i, %for.cond328.for.inc377_crit_edge.us.i, %for.cond173.for.inc219_crit_edge.us.i, %for.cond121.for.inc156_crit_edge.us.i, %for.cond251.for.inc302_crit_edge.us.i, %for.cond73.for.inc98_crit_edge.split.us.us.us.i, %sw.epilog.sink.split, %for.cond244.preheader.lr.ph.i, %for.cond382.preheader.lr.ph.i, %for.cond377.preheader.i, %for.cond507.preheader.lr.ph.i, %for.cond502.preheader.i, %for.cond309.preheader.lr.ph.i, %if.then298.i, %if.then233.i, %for.cond182.preheader.lr.ph.i, %if.then161.i, %for.cond121.preheader.lr.ph.i140, %if.then110.i137, %for.cond73.preheader.lr.ph.i165, %if.then69.i163, %do.end.i53, %do.end.i53, %for.cond465.preheader.lr.ph.i, %for.cond460.preheader.i, %for.cond590.preheader.lr.ph.i, %for.cond585.preheader.i, %for.cond395.preheader.lr.ph.i, %if.then384.i, %for.cond328.preheader.lr.ph.i, %if.then317.i, %for.cond251.preheader.lr.ph.i, %if.then226.i, %for.cond173.preheader.lr.ph.i, %if.then162.i, %for.cond121.preheader.lr.ph.i, %if.then110.i, %for.cond73.preheader.lr.ph.i, %if.then69.i, %do.end.i, %do.end.i
   ret void
 }
 

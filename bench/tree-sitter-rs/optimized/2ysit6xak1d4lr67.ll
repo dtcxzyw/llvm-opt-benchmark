@@ -2285,19 +2285,8 @@ define noundef align 8 ptr @_ZN11tree_sitter6Parser17cancellation_flag17h9203fbe
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11tree_sitter6Parser21set_cancellation_flag17h4751d2774de456fcE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noundef align 8 %1) unnamed_addr #1 {
-  %.not = icmp eq ptr %1, null
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %2
-  tail call void @ts_parser_set_cancellation_flag(ptr noundef nonnull %3, ptr noundef nonnull %1)
-  br label %6
-
-5:                                                ; preds = %2
-  tail call void @ts_parser_set_cancellation_flag(ptr noundef nonnull %3, ptr noundef null)
-  br label %6
-
-6:                                                ; preds = %5, %4
+  tail call void @ts_parser_set_cancellation_flag(ptr noundef nonnull %3, ptr noundef %1)
   ret void
 }
 

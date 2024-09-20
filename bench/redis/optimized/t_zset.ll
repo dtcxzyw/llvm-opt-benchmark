@@ -4619,7 +4619,7 @@ entry:
   %vlong.i = alloca i64, align 8
   %call = tail call ptr @lpSeek(ptr noundef %zl, i64 noundef 0) #19
   %cmp.not34 = icmp eq ptr %call, null
-  br i1 %cmp.not34, label %if.then23, label %while.body.lr.ph
+  br i1 %cmp.not34, label %if.end25, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %ele, i64 -1
@@ -4669,11 +4669,7 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vlong.i)
   %cmp5 = fcmp ogt double %score.0.i, %score
-  br i1 %cmp5, label %if.then, label %if.else
-
-if.then:                                          ; preds = %zzlGetScore.exit
-  %call7 = call ptr @zzlInsertAt(ptr noundef %zl, ptr noundef nonnull %eptr.035, ptr noundef %ele, double noundef %score)
-  br label %if.end25
+  br i1 %cmp5, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %zzlGetScore.exit
   %cmp8 = fcmp oeq double %score.0.i, %score
@@ -4748,24 +4744,17 @@ zzlCompareElements.exit:                          ; preds = %entry.if.end_crit_e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vlong.i25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %vbuf.i)
   %cmp14 = icmp sgt i32 %retval.0.i28, 0
-  br i1 %cmp14, label %if.then16, label %if.end19
-
-if.then16:                                        ; preds = %zzlCompareElements.exit
-  %call17 = call ptr @zzlInsertAt(ptr noundef %zl, ptr noundef nonnull %eptr.035, ptr noundef nonnull %ele, double noundef %score)
-  br label %if.end25
+  br i1 %cmp14, label %if.end25, label %if.end19
 
 if.end19:                                         ; preds = %if.else, %zzlCompareElements.exit
   %call20 = call ptr @lpNext(ptr noundef %zl, ptr noundef nonnull %call1) #19
   %cmp.not = icmp eq ptr %call20, null
-  br i1 %cmp.not, label %if.then23, label %while.body, !llvm.loop !50
+  br i1 %cmp.not, label %if.end25, label %while.body, !llvm.loop !50
 
-if.then23:                                        ; preds = %if.end19, %entry
-  %call24 = call ptr @zzlInsertAt(ptr noundef %zl, ptr noundef null, ptr noundef %ele, double noundef %score)
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.then, %if.then16, %if.then23
-  %zl.addr.1 = phi ptr [ %call24, %if.then23 ], [ %call17, %if.then16 ], [ %call7, %if.then ]
-  ret ptr %zl.addr.1
+if.end25:                                         ; preds = %if.end19, %zzlCompareElements.exit, %zzlGetScore.exit, %entry
+  %eptr.035.lcssa39.sink = phi ptr [ null, %entry ], [ %eptr.035, %zzlGetScore.exit ], [ %eptr.035, %zzlCompareElements.exit ], [ null, %if.end19 ]
+  %call7 = call ptr @zzlInsertAt(ptr noundef %zl, ptr noundef %eptr.035.lcssa39.sink, ptr noundef %ele, double noundef %score)
+  ret ptr %call7
 }
 
 ; Function Attrs: nounwind uwtable

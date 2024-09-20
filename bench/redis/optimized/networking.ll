@@ -2231,11 +2231,7 @@ define dso_local void @addReplySds(ptr noundef %c, ptr noundef %s) local_unnamed
 entry:
   %call = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not = icmp eq i32 %call, 0
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @sdsfree(ptr noundef %s) #27
-  br label %return
+  br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 -1
@@ -2281,10 +2277,10 @@ sw.bb13.i:                                        ; preds = %if.end
 sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end ]
   tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull %s, i64 noundef %retval.0.i)
-  tail call void @sdsfree(ptr noundef nonnull %s) #27
   br label %return
 
-return:                                           ; preds = %sdslen.exit, %if.then
+return:                                           ; preds = %entry, %sdslen.exit
+  tail call void @sdsfree(ptr noundef %s) #27
   ret void
 }
 
@@ -2319,11 +2315,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false.split:                              ; preds = %lor.lhs.false
   %call.i = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %if.end
-
-if.end.i:                                         ; preds = %lor.lhs.false.split
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly %s, i64 noundef %len)
-  br label %if.end
+  br i1 %cmp.not.i, label %if.end.sink.split, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call.i5 = tail call i32 @prepareClientToWrite(ptr noundef %c)
@@ -2337,13 +2329,13 @@ if.end.i7:                                        ; preds = %if.then
 addReplyProto.exit8:                              ; preds = %if.then, %if.end.i7
   %call.i9 = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i10 = icmp eq i32 %call.i9, 0
-  br i1 %cmp.not.i10, label %if.end.i11, label %if.end
+  br i1 %cmp.not.i10, label %if.end.sink.split, label %if.end
 
-if.end.i11:                                       ; preds = %addReplyProto.exit8
+if.end.sink.split:                                ; preds = %addReplyProto.exit8, %lor.lhs.false.split
   tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef readonly %s, i64 noundef %len)
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i11, %addReplyProto.exit8, %if.end.i, %lor.lhs.false.split
+if.end:                                           ; preds = %if.end.sink.split, %addReplyProto.exit8, %lor.lhs.false.split
   %call.i13 = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i14 = icmp eq i32 %call.i13, 0
   br i1 %cmp.not.i14, label %if.end.i15, label %addReplyProto.exit16
@@ -4659,11 +4651,7 @@ if.end.i.i:                                       ; preds = %if.then
 addReplyProto.exit.i:                             ; preds = %if.end.i.i, %if.then
   %call.i4.i = tail call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp.not.i5.i, label %if.end.i6.i, label %if.end13
-
-if.end.i6.i:                                      ; preds = %addReplyProto.exit.i
-  tail call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
-  br label %if.end13
+  br i1 %cmp.not.i5.i, label %if.end13.sink.split, label %if.end13
 
 if.else:                                          ; preds = %entry
   %add = add i64 %len, 4
@@ -4708,13 +4696,13 @@ if.end.i16:                                       ; preds = %addReplyProto.exit
 addReplyProto.exit17:                             ; preds = %addReplyProto.exit, %if.end.i16
   %call.i18 = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i19 = icmp eq i32 %call.i18, 0
-  br i1 %cmp.not.i19, label %if.end.i20, label %if.end13
+  br i1 %cmp.not.i19, label %if.end13.sink.split, label %if.end13
 
-if.end.i20:                                       ; preds = %addReplyProto.exit17
+if.end13.sink.split:                              ; preds = %addReplyProto.exit17, %addReplyProto.exit.i
   tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly @.str.6, i64 noundef 2)
   br label %if.end13
 
-if.end13:                                         ; preds = %if.end.i20, %addReplyProto.exit17, %if.end.i6.i, %addReplyProto.exit.i
+if.end13:                                         ; preds = %if.end13.sink.split, %addReplyProto.exit17, %addReplyProto.exit.i
   ret void
 }
 

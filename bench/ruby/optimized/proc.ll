@@ -216,8 +216,8 @@ define internal void @binding_mark_and_move(ptr noundef %0) #0 {
   switch i32 %3, label %block_mark_and_move.exit [
     i32 0, label %4
     i32 1, label %4
-    i32 2, label %10
-    i32 3, label %11
+    i32 2, label %.sink.split.i
+    i32 3, label %.sink.split.i
   ]
 
 4:                                                ; preds = %1, %1
@@ -231,20 +231,16 @@ define internal void @binding_mark_and_move(ptr noundef %0) #0 {
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %7, i64 8
-  tail call void @rb_gc_mark_and_move(ptr noundef %9) #20
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %8, %1, %1
+  %.sink.i = phi ptr [ %9, %8 ], [ %0, %1 ], [ %0, %1 ]
+  tail call void @rb_gc_mark_and_move(ptr noundef %.sink.i) #20
   br label %block_mark_and_move.exit
 
-10:                                               ; preds = %1
-  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %0) #20
-  br label %block_mark_and_move.exit
-
-11:                                               ; preds = %1
-  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %0) #20
-  br label %block_mark_and_move.exit
-
-block_mark_and_move.exit:                         ; preds = %1, %4, %8, %10, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %12) #20
+block_mark_and_move.exit:                         ; preds = %1, %4, %.sink.split.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %10) #20
   ret void
 }
 
@@ -6772,8 +6768,8 @@ define internal void @proc_mark_and_move(ptr noundef %0) #0 {
   switch i32 %3, label %block_mark_and_move.exit [
     i32 0, label %4
     i32 1, label %4
-    i32 2, label %10
-    i32 3, label %11
+    i32 2, label %.sink.split.i
+    i32 3, label %.sink.split.i
   ]
 
 4:                                                ; preds = %1, %1
@@ -6787,18 +6783,14 @@ define internal void @proc_mark_and_move(ptr noundef %0) #0 {
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %7, i64 8
-  tail call void @rb_gc_mark_and_move(ptr noundef %9) #20
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %8, %1, %1
+  %.sink.i = phi ptr [ %9, %8 ], [ %0, %1 ], [ %0, %1 ]
+  tail call void @rb_gc_mark_and_move(ptr noundef %.sink.i) #20
   br label %block_mark_and_move.exit
 
-10:                                               ; preds = %1
-  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %0) #20
-  br label %block_mark_and_move.exit
-
-11:                                               ; preds = %1
-  tail call void @rb_gc_mark_and_move(ptr noundef nonnull %0) #20
-  br label %block_mark_and_move.exit
-
-block_mark_and_move.exit:                         ; preds = %1, %4, %8, %10, %11
+block_mark_and_move.exit:                         ; preds = %1, %4, %.sink.split.i
   ret void
 }
 

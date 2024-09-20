@@ -435,7 +435,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %4 = tail call ptr @agbindrec(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 1) #14
   %.not21 = icmp eq ptr %4, null
-  br i1 %.not21, label %47, label %5
+  br i1 %.not21, label %44, label %5
 
 5:                                                ; preds = %._crit_edge
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -455,7 +455,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   %17 = getelementptr inbounds i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %.not22 = icmp eq ptr %18, null
-  br i1 %.not22, label %41, label %19
+  br i1 %.not22, label %38, label %19
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds i8, ptr %16, i64 344
@@ -496,30 +496,24 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   %35 = icmp eq i32 %34, -1
   %36 = getelementptr inbounds i8, ptr %.lcssa, i64 264
   %37 = load ptr, ptr %36, align 8
-  br i1 %35, label %38, label %40
+  %.sink.idx = select i1 %35, i64 -80, i64 0
+  %.sink = getelementptr inbounds i8, ptr %37, i64 %.sink.idx
+  tail call void @free(ptr noundef %.sink) #14
+  br label %38
 
-38:                                               ; preds = %._crit_edge31
-  %39 = getelementptr inbounds i8, ptr %37, i64 -80
-  tail call void @free(ptr noundef nonnull %39) #14
-  br label %41
+38:                                               ; preds = %._crit_edge31, %5
+  %39 = tail call ptr @agroot(ptr noundef nonnull %0) #14
+  %.not24 = icmp eq ptr %0, %39
+  br i1 %.not24, label %44, label %40
 
-40:                                               ; preds = %._crit_edge31
-  tail call void @free(ptr noundef %37) #14
-  br label %41
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  tail call void @free_label(ptr noundef %43) #14
+  br label %44
 
-41:                                               ; preds = %38, %40, %5
-  %42 = tail call ptr @agroot(ptr noundef nonnull %0) #14
-  %.not24 = icmp eq ptr %0, %42
-  br i1 %.not24, label %47, label %43
-
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
-  %46 = load ptr, ptr %45, align 8
-  tail call void @free_label(ptr noundef %46) #14
-  br label %47
-
-47:                                               ; preds = %._crit_edge, %43, %41
+44:                                               ; preds = %._crit_edge, %40, %38
   ret void
 }
 

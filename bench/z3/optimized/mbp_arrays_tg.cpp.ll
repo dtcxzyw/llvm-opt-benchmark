@@ -6984,11 +6984,7 @@ _ZN3mbp12mbp_array_tg4impl6is_varEP4expr.exit:    ; preds = %land.rhs.i.i16, %_Z
   %12 = load ptr, ptr %m_vars_set.i.i, align 8
   %13 = load ptr, ptr %this, align 8
   %call.i.i = tail call noundef zeroext i1 @_Z13contains_varsP4exprRK13obj_hashtableI3appER11ast_managerii(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef -1, i32 noundef -1)
-  br i1 %call.i.i, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %_ZN3mbp12mbp_array_tg4impl6is_varEP4expr.exit
-  tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores, ptr noundef nonnull %e, i1 noundef zeroext true)
-  br label %return
+  br i1 %call.i.i, label %return.sink.split, label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true, %land.lhs.true.i.i, %_Z17is_uninterp_constPK4expr.exit.i, %land.rhs.i.i, %_ZN3mbp12mbp_array_tg4impl6is_varEP4expr.exit, %_ZNK17array_recognizers8is_storeEP4expr.exit
   %m_num_args.i.i = getelementptr inbounds i8, ptr %e, i64 24
@@ -7013,11 +7009,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %__begin0.06.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %m_args.i.ptr.i, %for.body.preheader.i ]
   %16 = load ptr, ptr %__begin0.06.i, align 8
   %call.i.i18 = tail call noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores, ptr noundef %16)
-  br i1 %call.i.i18, label %if.then14, label %for.cond.i
-
-if.then14:                                        ; preds = %for.body.i
-  tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores, ptr noundef %e, i1 noundef zeroext true)
-  br label %return
+  br i1 %call.i.i18, label %return.sink.split, label %for.cond.i
 
 if.end16:                                         ; preds = %for.cond.i
   %.pre = load i32, ptr %m_num_args.i.i, align 8
@@ -7041,14 +7033,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin2.023 = phi ptr [ %incdec.ptr, %for.cond ], [ %m_args.i19.ptr, %for.body.preheader ]
   %18 = load ptr, ptr %__begin2.023, align 8
   %call20 = tail call noundef zeroext i1 @_ZN3mbp12mbp_array_tg4impl10has_storesEP4expr(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %18)
-  br i1 %call20, label %if.then21, label %for.cond
+  br i1 %call20, label %return.sink.split, label %for.cond
 
-if.then21:                                        ; preds = %for.body
+return.sink.split:                                ; preds = %for.body.i, %for.body, %_ZN3mbp12mbp_array_tg4impl6is_varEP4expr.exit
   tail call void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores, ptr noundef %e, i1 noundef zeroext true)
   br label %return
 
-return:                                           ; preds = %for.cond, %if.end11, %if.end16, %if.end, %entry, %if.then21, %if.then14, %if.then9
-  %retval.0 = phi i1 [ true, %if.then9 ], [ true, %if.then14 ], [ true, %if.then21 ], [ true, %entry ], [ false, %if.end ], [ false, %if.end16 ], [ false, %if.end11 ], [ false, %for.cond ]
+return:                                           ; preds = %for.cond, %return.sink.split, %if.end11, %if.end16, %if.end, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %if.end16 ], [ false, %if.end11 ], [ true, %return.sink.split ], [ false, %for.cond ]
   ret i1 %retval.0
 }
 

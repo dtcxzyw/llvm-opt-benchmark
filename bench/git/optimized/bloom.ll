@@ -480,21 +480,17 @@ if.end19:                                         ; preds = %if.end16
   %parents = getelementptr inbounds i8, ptr %c, i64 48
   %33 = load ptr, ptr %parents, align 8
   %tobool21.not = icmp eq ptr %33, null
-  br i1 %tobool21.not, label %if.else, label %if.then22
+  br i1 %tobool21.not, label %if.end28, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
   %34 = load ptr, ptr %33, align 8
   %oid = getelementptr inbounds i8, ptr %34, i64 4
-  %oid25 = getelementptr inbounds i8, ptr %c, i64 4
-  call void @diff_tree_oid(ptr noundef nonnull %oid, ptr noundef nonnull %oid25, ptr noundef nonnull @.str, ptr noundef nonnull %diffopt) #14
   br label %if.end28
 
-if.else:                                          ; preds = %if.end19
+if.end28:                                         ; preds = %if.end19, %if.then22
+  %.sink = phi ptr [ %oid, %if.then22 ], [ null, %if.end19 ]
   %oid27 = getelementptr inbounds i8, ptr %c, i64 4
-  call void @diff_tree_oid(ptr noundef null, ptr noundef nonnull %oid27, ptr noundef nonnull @.str, ptr noundef nonnull %diffopt) #14
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.else, %if.then22
+  call void @diff_tree_oid(ptr noundef %.sink, ptr noundef nonnull %oid27, ptr noundef nonnull @.str, ptr noundef nonnull %diffopt) #14
   call void @diffcore_std(ptr noundef nonnull %diffopt) #14
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %36 = load i32, ptr %max_changed_paths, align 4

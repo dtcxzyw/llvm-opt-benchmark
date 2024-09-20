@@ -461,8 +461,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
 212:                                              ; preds = %209
   call void @hdestroy_r(ptr noundef nonnull %211) #14
   %213 = load ptr, ptr %210, align 8
-  call void @free(ptr noundef %213) #14
-  br label %.preheader.sink.split
+  br label %.preheader.sink.split.sink.split
 
 214:                                              ; preds = %68
   call void @free(ptr noundef nonnull %66) #14
@@ -470,12 +469,18 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
 
 .loopexit247:                                     ; preds = %54, %214
   call void @hdestroy_r(ptr noundef nonnull %51) #14
-  call void @free(ptr noundef nonnull %51) #14
+  br label %.preheader.sink.split.sink.split
+
+.preheader.sink.split.sink.split:                 ; preds = %.loopexit247, %212
+  %.sink304 = phi ptr [ %213, %212 ], [ %51, %.loopexit247 ]
+  %.sink303.sink.ph = phi ptr [ %.1.lcssa226229234, %212 ], [ %41, %.loopexit247 ]
+  %.0111157241.ph.ph = phi ptr [ %.5145, %212 ], [ null, %.loopexit247 ]
+  call void @free(ptr noundef %.sink304) #14
   br label %.preheader.sink.split
 
-.preheader.sink.split:                            ; preds = %43, %179, %209, %212, %.loopexit247
-  %.sink303.sink = phi ptr [ %41, %.loopexit247 ], [ %177, %179 ], [ %.1.lcssa226229234, %209 ], [ %.1.lcssa226229234, %212 ], [ %41, %43 ]
-  %.0111157241.ph = phi ptr [ null, %.loopexit247 ], [ %.1.lcssa226229233, %179 ], [ %.5145, %209 ], [ %.5145, %212 ], [ null, %43 ]
+.preheader.sink.split:                            ; preds = %43, %.preheader.sink.split.sink.split, %179, %209
+  %.sink303.sink = phi ptr [ %177, %179 ], [ %.1.lcssa226229234, %209 ], [ %.sink303.sink.ph, %.preheader.sink.split.sink.split ], [ %41, %43 ]
+  %.0111157241.ph = phi ptr [ %.1.lcssa226229233, %179 ], [ %.5145, %209 ], [ %.0111157241.ph.ph, %.preheader.sink.split.sink.split ], [ null, %43 ]
   call void @free(ptr noundef nonnull %.sink303.sink) #14
   br label %.preheader
 

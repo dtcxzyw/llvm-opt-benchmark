@@ -4676,19 +4676,9 @@ if.then275:                                       ; preds = %if.end273
   %243 = load ptr, ptr %vfn.i761, align 8
   %call.i762 = call noundef ptr %243(ptr noundef nonnull align 8 dereferenceable(850) %this)
   %tobool.i763.not = icmp eq ptr %call.i762, null
-  br i1 %tobool.i763.not, label %if.else, label %if.then281
-
-if.then281:                                       ; preds = %if.then275
-  %m_last_good_position282 = getelementptr inbounds i8, ptr %this, i64 884
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %pos279, ptr noundef nonnull align 4 dereferenceable(12) %m_last_good_position282, i64 12, i1 false), !tbaa.struct !174
-  br label %if.end284
-
-if.else:                                          ; preds = %if.then275
-  %m_base_position283 = getelementptr inbounds i8, ptr %this, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %pos279, ptr noundef nonnull align 8 dereferenceable(12) %m_base_position283, i64 12, i1 false), !tbaa.struct !174
-  br label %if.end284
-
-if.end284:                                        ; preds = %if.else, %if.then281
+  %. = select i1 %tobool.i763.not, i64 32, i64 884
+  %m_base_position283 = getelementptr inbounds i8, ptr %this, i64 %.
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %pos279, ptr noundef nonnull align 4 dereferenceable(12) %m_base_position283, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %str285) #34
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp286) #34
   store <2 x float> zeroinitializer, ptr %ref.tmp286, align 8, !tbaa !76
@@ -4712,7 +4702,7 @@ if.end284:                                        ; preds = %if.else, %if.then28
   %call.i769770 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt5dequeI19ActiveObjectMessageSaIS0_EE12emplace_backIJtbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_messages_out288, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp289, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp293, ptr noundef nonnull align 8 dereferenceable(32) %str285)
           to label %invoke.cont295 unwind label %lpad294
 
-invoke.cont295:                                   ; preds = %if.end284
+invoke.cont295:                                   ; preds = %if.then275
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp293) #34
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp289) #34
   %245 = load ptr, ptr %str285, align 8, !tbaa !11
@@ -4736,7 +4726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit777: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %pos279) #34
   br label %if.end303
 
-lpad294:                                          ; preds = %if.end284
+lpad294:                                          ; preds = %if.then275
   %248 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp293) #34

@@ -3434,11 +3434,7 @@ if.else.i.invoke.cont5_crit_edge:                 ; preds = %if.else.i
 invoke.cont5:                                     ; preds = %if.else.i.invoke.cont5_crit_edge, %_ZNSt16allocator_traitsISaISt6vectorIjSaIjEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
   %9 = phi ptr [ %.pre1119, %if.else.i.invoke.cont5_crit_edge ], [ %6, %_ZNSt16allocator_traitsISaISt6vectorIjSaIjEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i, label %nrvo.skipdtor, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %invoke.cont5
-  call void @_ZdlPv(ptr noundef nonnull %9) #23
-  br label %nrvo.skipdtor
+  br i1 %tobool.not.i.i.i, label %nrvo.skipdtor, label %nrvo.skipdtor.sink.split
 
 lpad:                                             ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %if.then
   %10 = landingpad { ptr, i32 }
@@ -4161,11 +4157,7 @@ _ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Sel
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %99 = load ptr, ptr %sgns, align 8
   %cmp.i.i.i.i.i1032 = icmp eq ptr %99, %_M_single_bucket.i.i
-  br i1 %cmp.i.i.i.i.i1032, label %nrvo.skipdtor, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_EN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %99) #23
-  br label %nrvo.skipdtor
+  br i1 %cmp.i.i.i.i.i1032, label %nrvo.skipdtor, label %nrvo.skipdtor.sink.split
 
 ehcleanup369:                                     ; preds = %lpad182.loopexit, %lpad182.loopexit.split-lp, %if.then.i.i.i716, %lpad191
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad191 ], [ %lpad.phi, %if.then.i.i.i716 ], [ %lpad.loopexit1100, %lpad182.loopexit ], [ %lpad.loopexit.split-lp1101, %lpad182.loopexit.split-lp ]
@@ -4193,7 +4185,12 @@ ehcleanup371:                                     ; preds = %if.then.i.i.i1037, 
   call void @_ZNSt13unordered_mapISt4pairIjiESt6vectorIjSaIjEEN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncESt8equal_toIS1_ESaIS0_IKS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %sgns) #22
   br label %ehcleanup373
 
-nrvo.skipdtor:                                    ; preds = %if.end.i.i.i.i, %_ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_EN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.then.i.i.i, %invoke.cont5
+nrvo.skipdtor.sink.split:                         ; preds = %_ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_EN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %invoke.cont5
+  %.sink = phi ptr [ %9, %invoke.cont5 ], [ %99, %_ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_EN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ]
+  call void @_ZdlPv(ptr noundef %.sink) #23
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.split, %_ZNSt10_HashtableISt4pairIjiES0_IKS1_St6vectorIjSaIjEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_EN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure23ArithVarIntPairHashFuncENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %invoke.cont5
   ret void
 
 ehcleanup373:                                     ; preds = %if.then.i.i.i28, %lpad, %ehcleanup371

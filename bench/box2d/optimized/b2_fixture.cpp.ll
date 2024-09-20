@@ -36,6 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.27 = private unnamed_addr constant [24 x i8] c"    fd.shape = &shape;\0A\00", align 1
 @.str.28 = private unnamed_addr constant [37 x i8] c"    bodies[%d]->CreateFixture(&fd);\0A\00", align 1
+@switch.table._ZN9b2Fixture7DestroyEP16b2BlockAllocator = private unnamed_addr constant [4 x i32] [i32 24, i32 56, i32 160, i32 48], align 4
 
 @_ZN9b2FixtureC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9b2FixtureC2Ev
 
@@ -156,43 +157,20 @@ entry:
   %3 = load ptr, ptr %m_shape, align 8
   %m_type = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %m_type, align 8
-  switch i32 %4, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb8
-    i32 2, label %sw.bb13
-    i32 3, label %sw.bb18
-  ]
+  %5 = icmp ult i32 %4, 4
+  br i1 %5, label %switch.lookup, label %sw.epilog
 
-sw.bb:                                            ; preds = %entry
-  %vtable6 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %vtable6, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
-  br label %sw.epilog.sink.split
-
-sw.bb8:                                           ; preds = %entry
-  %vtable11 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %vtable11, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(49) %3) #7
-  br label %sw.epilog.sink.split
-
-sw.bb13:                                          ; preds = %entry
-  %vtable16 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %vtable16, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(156) %3) #7
-  br label %sw.epilog.sink.split
-
-sw.bb18:                                          ; preds = %entry
+switch.lookup:                                    ; preds = %entry
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN9b2Fixture7DestroyEP16b2BlockAllocator, i64 0, i64 %6
+  %switch.load = load i32, ptr %switch.gep, align 4
   %vtable21 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %vtable21, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(44) %3) #7
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb8, %sw.bb13, %sw.bb18
-  %.sink = phi i32 [ 48, %sw.bb18 ], [ 160, %sw.bb13 ], [ 56, %sw.bb8 ], [ 24, %sw.bb ]
-  tail call void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, ptr noundef nonnull %3, i32 noundef %.sink)
+  %7 = load ptr, ptr %vtable21, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
+  tail call void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, ptr noundef nonnull %3, i32 noundef %switch.load)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
+sw.epilog:                                        ; preds = %entry, %switch.lookup
   store ptr null, ptr %m_shape, align 8
   ret void
 }

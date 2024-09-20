@@ -629,8 +629,7 @@ define dso_local void @_ZN4llvm4UserdlEPv(ptr noundef %0) local_unnamed_addr #0 
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Use", ptr %7, i64 %9
   tail call void @_ZN4llvm3Use3zapEPS0_PKS0_b(ptr noundef %7, ptr noundef %10, i1 noundef zeroext true) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #8
-  br label %22
+  br label %21
 
 11:                                               ; preds = %1
   %.not23 = icmp sgt i32 %3, -1
@@ -646,14 +645,11 @@ define dso_local void @_ZN4llvm4UserdlEPv(ptr noundef %0) local_unnamed_addr #0 
   %18 = load i64, ptr %17, align 8
   %19 = sub i64 0, %18
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #8
-  br label %22
+  br label %21
 
-21:                                               ; preds = %11
-  tail call void @_ZdlPv(ptr noundef %15) #8
-  br label %22
-
-22:                                               ; preds = %16, %21, %5
+21:                                               ; preds = %11, %16, %5
+  %.sink = phi ptr [ %20, %16 ], [ %6, %5 ], [ %15, %11 ]
+  tail call void @_ZdlPv(ptr noundef %.sink) #8
   ret void
 }
 

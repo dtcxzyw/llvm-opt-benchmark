@@ -11266,8 +11266,7 @@ sema_find_cached_lambda.exit:                     ; preds = %144, %sema_may_reus
   %378 = getelementptr inbounds i8, ptr %377, i64 8
   %379 = load ptr, ptr %378, align 8
   tail call void @scratch_buffer_append(ptr noundef %379) #12
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.318) #12
-  br label %399
+  br label %.sink.split
 
 380:                                              ; preds = %._crit_edge
   %381 = load ptr, ptr %50, align 8
@@ -11283,16 +11282,14 @@ sema_find_cached_lambda.exit:                     ; preds = %144, %sema_may_reus
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.319) #12
   %387 = load ptr, ptr %50, align 8
   %388 = load ptr, ptr %387, align 8
-  tail call void @scratch_buffer_append(ptr noundef %388) #12
-  br label %399
+  br label %.sink.split
 
 389:                                              ; preds = %380
   %390 = getelementptr inbounds i8, ptr %0, i64 40
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
-  tail call void @scratch_buffer_append(ptr noundef %393) #12
-  br label %399
+  br label %.sink.split
 
 394:                                              ; preds = %._crit_edge
   %395 = load ptr, ptr %371, align 8
@@ -11300,10 +11297,14 @@ sema_find_cached_lambda.exit:                     ; preds = %144, %sema_may_reus
   %397 = getelementptr inbounds i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8
   tail call void @scratch_buffer_append(ptr noundef %398) #12
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.320) #12
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %375, %394, %389, %382
+  %.sink = phi ptr [ %388, %382 ], [ %393, %389 ], [ @.str.320, %394 ], [ @.str.318, %375 ]
+  tail call void @scratch_buffer_append(ptr noundef %.sink) #12
   br label %399
 
-399:                                              ; preds = %382, %389, %394, %375, %._crit_edge
+399:                                              ; preds = %.sink.split, %._crit_edge
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.321) #12
   %400 = getelementptr inbounds i8, ptr %371, i64 216
   %401 = load i32, ptr %400, align 8

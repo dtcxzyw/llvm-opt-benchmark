@@ -12510,25 +12510,19 @@ entry:
 dynamic_cast.end:                                 ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %instance, ptr nonnull @_ZTIN6icu_757UObjectE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 0) #24
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %dynamic_cast.end
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
-  %2 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  br label %return
+  br i1 %cmp.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry, %dynamic_cast.end
-  %vtable2 = load ptr, ptr %instance, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
-  %3 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(618) %instance)
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %call4, %if.else ]
-  ret ptr %retval.0
+return:                                           ; preds = %dynamic_cast.end, %if.else
+  %instance.sink4 = phi ptr [ %instance, %if.else ], [ %1, %dynamic_cast.end ]
+  %.sink = phi i64 [ 24, %if.else ], [ 56, %dynamic_cast.end ]
+  %vtable2 = load ptr, ptr %instance.sink4, align 8
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 %.sink
+  %2 = load ptr, ptr %vfn3, align 8
+  %call4 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %instance.sink4)
+  ret ptr %call4
 }
 
 declare noundef ptr @_ZN6icu_7510ICUService19createSimpleFactoryEPNS_7UObjectERKNS_13UnicodeStringEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6

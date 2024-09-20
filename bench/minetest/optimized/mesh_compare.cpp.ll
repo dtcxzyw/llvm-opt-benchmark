@@ -1385,15 +1385,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %arrayidx.i.i43 = getelementptr inbounds i8, ptr %t, i64 72
   %call5 = call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %t, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i43)
-  br i1 %call5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %t, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element = getelementptr inbounds i8, ptr %agg.result, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element8 = getelementptr inbounds i8, ptr %agg.result, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element8, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i43, i64 36, i1 false), !tbaa.struct !28
-  br label %return
+  br i1 %call5, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %arrayidx.i.i47 = getelementptr inbounds i8, ptr %t, i64 72
@@ -1402,15 +1394,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 land.lhs.true13:                                  ; preds = %if.end
   %call16 = call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %t)
-  br i1 %call16, label %if.then17, label %if.end25
-
-if.then17:                                        ; preds = %land.lhs.true13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %agg.result, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element21 = getelementptr inbounds i8, ptr %agg.result, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element21, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i47, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element23 = getelementptr inbounds i8, ptr %agg.result, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element23, ptr noundef nonnull align 8 dereferenceable(36) %t, i64 36, i1 false), !tbaa.struct !28
-  br label %return
+  br i1 %call16, label %return, label %if.end25
 
 if.end25:                                         ; preds = %land.lhs.true13, %if.end
   %call28 = call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i47, ptr noundef nonnull align 4 dereferenceable(36) %t)
@@ -1418,15 +1402,7 @@ if.end25:                                         ; preds = %land.lhs.true13, %i
 
 land.lhs.true29:                                  ; preds = %if.end25
   %call32 = call noundef zeroext i1 @_ZNK3irr5video9S3DVertexltERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i47, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i)
-  br i1 %call32, label %if.then33, label %if.end41
-
-if.then33:                                        ; preds = %land.lhs.true29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i47, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element37 = getelementptr inbounds i8, ptr %agg.result, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element37, ptr noundef nonnull align 8 dereferenceable(36) %t, i64 36, i1 false), !tbaa.struct !28
-  %arrayinit.element39 = getelementptr inbounds i8, ptr %agg.result, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element39, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
-  br label %return
+  br i1 %call32, label %return, label %if.end41
 
 if.end41:                                         ; preds = %land.lhs.true29, %if.end25
   %exception = call ptr @__cxa_allocate_exception(i64 16) #16
@@ -1443,7 +1419,15 @@ lpad:                                             ; preds = %if.end41
   call void @__cxa_free_exception(ptr %exception) #16
   resume { ptr, i32 } %0
 
-return:                                           ; preds = %if.then33, %if.then17, %if.then
+return:                                           ; preds = %land.lhs.true29, %land.lhs.true13, %land.lhs.true
+  %arrayidx.i.i47.sink = phi ptr [ %t, %land.lhs.true ], [ %arrayidx.i.i, %land.lhs.true13 ], [ %arrayidx.i.i47, %land.lhs.true29 ]
+  %t.sink = phi ptr [ %arrayidx.i.i, %land.lhs.true ], [ %arrayidx.i.i47, %land.lhs.true13 ], [ %t, %land.lhs.true29 ]
+  %arrayidx.i.i.sink = phi ptr [ %arrayidx.i.i43, %land.lhs.true ], [ %t, %land.lhs.true13 ], [ %arrayidx.i.i, %land.lhs.true29 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %agg.result, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i47.sink, i64 36, i1 false)
+  %arrayinit.element37 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element37, ptr noundef nonnull align 4 dereferenceable(36) %t.sink, i64 36, i1 false)
+  %arrayinit.element39 = getelementptr inbounds i8, ptr %agg.result, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element39, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i.sink, i64 36, i1 false)
   ret void
 }
 

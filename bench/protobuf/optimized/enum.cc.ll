@@ -12703,26 +12703,18 @@ if.then:                                          ; preds = %entry
   %conv3.i = zext i8 %1 to i64
   %arrayidx.i6.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.281", ptr %add.ptr.i.i.i.i, i64 %conv3.i
   %cmp.not7.i = icmp eq i8 %1, 0
-  br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit, label %for.body.i
+  br i1 %cmp.not7.i, label %return.sink.split, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %s.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i, %if.then ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.08.i) #27
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.08.i, i64 40
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %arrayidx.i6.i
-  br i1 %cmp.not.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit, label %for.body.i, !llvm.loop !255
-
-_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit: ; preds = %for.body.i, %if.then
-  tail call void @_ZdlPv(ptr noundef %node) #28
-  br label %return
+  br i1 %cmp.not.i, label %return.sink.split, label %for.body.i, !llvm.loop !255
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i8 %1, 0
-  br i1 %cmp, label %if.then7, label %while.body.preheader
-
-if.then7:                                         ; preds = %if.end
-  tail call void @_ZdlPv(ptr noundef nonnull %node) #28
-  br label %return
+  br i1 %cmp, label %return.sink.split, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
   %2 = load ptr, ptr %node, align 8
@@ -12838,7 +12830,11 @@ do.end52:                                         ; preds = %if.end46
   %conv39 = zext i8 %16 to i64
   br label %do.body.backedge
 
-return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit86, %if.then7, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit
+return.sink.split:                                ; preds = %for.body.i, %if.end, %if.then
+  tail call void @_ZdlPv(ptr noundef %node) #28
+  br label %return
+
+return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS9_ESaISt4pairIKS9_iEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit86, %return.sink.split
   ret void
 }
 

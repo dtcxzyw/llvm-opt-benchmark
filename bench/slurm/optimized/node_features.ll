@@ -1137,48 +1137,38 @@ define ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_addr #0 {
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %15, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %15 ]
-  %.118 = phi ptr [ %26, %22 ], [ %.0, %15 ]
+.lr.ph:                                           ; preds = %15, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
+  %.118 = phi ptr [ %22, %.lr.ph ], [ %.0, %15 ]
   %.not16 = icmp eq ptr %.118, null
-  br i1 %.not16, label %20, label %18
-
-18:                                               ; preds = %.lr.ph
-  %19 = call ptr @xstrdup(ptr noundef nonnull %.118) #8
-  br label %22
-
-20:                                               ; preds = %.lr.ph
-  %21 = call ptr @xstrdup(ptr noundef %0) #8
-  br label %22
-
-22:                                               ; preds = %20, %18
-  %storemerge = phi ptr [ %21, %20 ], [ %19, %18 ]
-  store ptr %storemerge, ptr %6, align 8
-  %23 = load ptr, ptr @ops, align 8
-  %24 = getelementptr inbounds %struct.node_features_ops, ptr %23, i64 %indvars.iv, i32 13
-  %25 = load ptr, ptr %24, align 8
-  %26 = call ptr %25(ptr noundef %storemerge) #8
+  %..118 = select i1 %.not16, ptr %0, ptr %.118
+  %18 = call ptr @xstrdup(ptr noundef %..118) #8
+  store ptr %18, ptr %6, align 8
+  %19 = load ptr, ptr @ops, align 8
+  %20 = getelementptr inbounds %struct.node_features_ops, ptr %19, i64 %indvars.iv, i32 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr %21(ptr noundef %18) #8
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr @g_context_cnt, align 4
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %23 = load i32, ptr @g_context_cnt, align 4
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %22, %15
-  %.1.lcssa = phi ptr [ %.0, %15 ], [ %26, %22 ]
-  %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not15 = icmp eq i32 %30, 0
-  br i1 %.not15, label %33, label %31
+._crit_edge:                                      ; preds = %.lr.ph, %15
+  %.1.lcssa = phi ptr [ %.0, %15 ], [ %22, %.lr.ph ]
+  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %29, label %27
 
-31:                                               ; preds = %._crit_edge
-  %32 = tail call ptr @__errno_location() #9
-  store i32 %30, ptr %32, align 4
+27:                                               ; preds = %._crit_edge
+  %28 = tail call ptr @__errno_location() #9
+  store i32 %26, ptr %28, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 519, ptr noundef nonnull @__func__.node_features_g_node_xlate2) #10
   unreachable
 
-33:                                               ; preds = %._crit_edge
-  %34 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
+29:                                               ; preds = %._crit_edge
+  %30 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_xlate2, i64 noundef 0, ptr noundef nonnull %5) #8
   ret ptr %.1.lcssa
 }

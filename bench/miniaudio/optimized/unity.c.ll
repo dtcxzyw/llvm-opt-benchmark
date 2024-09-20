@@ -42536,19 +42536,9 @@ if.then2.i.i:                                     ; preds = %if.then40.i
 if.end74.i:                                       ; preds = %if.then2.i.i, %if.then67.i
   %35 = phi i8 [ %31, %if.then2.i.i ], [ %.pre.i, %if.then67.i ]
   %tobool76.not.i = icmp eq i8 %35, 0
-  br i1 %tobool76.not.i, label %if.else82.i, label %if.then77.i
-
-if.then77.i:                                      ; preds = %if.end74.i
-  %call81.i = call i32 @ma_channel_converter_process_pcm_frames(ptr noundef nonnull %channelConverter17.i, ptr noundef nonnull %pTempBufferOut.i, ptr noundef nonnull %pTempBufferIn.i, i64 noundef %frameCountThisIteration.1.i)
-  br label %if.end86.i
-
-if.else82.i:                                      ; preds = %if.end74.i
-  %call85.i = call i32 @ma_channel_converter_process_pcm_frames(ptr noundef nonnull %channelConverter17.i, ptr noundef %pFramesOutThisIteration.0.i, ptr noundef nonnull %pTempBufferIn.i, i64 noundef %frameCountThisIteration.1.i)
-  br label %if.end86.i
-
-if.end86.i:                                       ; preds = %if.else82.i, %if.then77.i
-  %result.0.i = phi i32 [ %call81.i, %if.then77.i ], [ %call85.i, %if.else82.i ]
-  %cmp87.not.i = icmp eq i32 %result.0.i, 0
+  %pFramesOutThisIteration.0.pTempBufferOut.i = select i1 %tobool76.not.i, ptr %pFramesOutThisIteration.0.i, ptr %pTempBufferOut.i
+  %call85.i = call i32 @ma_channel_converter_process_pcm_frames(ptr noundef nonnull %channelConverter17.i, ptr noundef %pFramesOutThisIteration.0.pTempBufferOut.i, ptr noundef nonnull %pTempBufferIn.i, i64 noundef %frameCountThisIteration.1.i)
+  %cmp87.not.i = icmp eq i32 %call85.i, 0
   br i1 %cmp87.not.i, label %if.end106.i, label %if.end122.i
 
 if.else91.i:                                      ; preds = %if.end38.i
@@ -42559,8 +42549,8 @@ if.else91.i:                                      ; preds = %if.end38.i
   %cmp102.not.i = icmp eq i32 %call101.i, 0
   br i1 %cmp102.not.i, label %if.end106.i, label %if.end122.i
 
-if.end106.i:                                      ; preds = %if.else91.i, %if.end86.i
-  %frameCountThisIteration.2.i = phi i64 [ %frameCountThisIteration.1.i, %if.end86.i ], [ %spec.select71.i, %if.else91.i ]
+if.end106.i:                                      ; preds = %if.else91.i, %if.end74.i
+  %frameCountThisIteration.2.i = phi i64 [ %frameCountThisIteration.1.i, %if.end74.i ], [ %spec.select71.i, %if.else91.i ]
   %36 = load i8, ptr %hasPostFormatConversion55.i, align 1
   %tobool108.i = icmp ne i8 %36, 0
   %cmp110.i = icmp ne ptr %pFramesOutThisIteration.0.i, null
@@ -42582,7 +42572,7 @@ if.end121.i:                                      ; preds = %if.then112.i, %if.e
   %cmp15.i = icmp ult i64 %add.i, %cond.i60
   br i1 %cmp15.i, label %while.body.i, label %if.end122.i, !llvm.loop !483
 
-if.end122.i:                                      ; preds = %if.end121.i, %if.else91.i, %if.end86.i, %if.else.i61, %if.then10.i
+if.end122.i:                                      ; preds = %if.end121.i, %if.else91.i, %if.end74.i, %if.else.i61, %if.then10.i
   br i1 %cmp.not.i52, label %if.end126.i, label %if.then125.i
 
 if.then125.i:                                     ; preds = %if.end122.i
@@ -43199,7 +43189,7 @@ if.end3.i132:                                     ; preds = %if.then2.i131, %if.
   br label %while.cond.i154
 
 while.cond.i154:                                  ; preds = %if.end118.i, %if.end3.i132
-  %framesProcessedIn.0.i155 = phi i64 [ 0, %if.end3.i132 ], [ %add.i195, %if.end118.i ]
+  %framesProcessedIn.0.i155 = phi i64 [ 0, %if.end3.i132 ], [ %add.i194, %if.end118.i ]
   %framesProcessedOut.0.i156 = phi i64 [ 0, %if.end3.i132 ], [ %add119.i, %if.end118.i ]
   %cmp16.i = icmp ult i64 %framesProcessedOut.0.i156, %frameCountOut.0.i133
   br i1 %cmp16.i, label %while.body.i161, label %while.end.i157
@@ -43306,22 +43296,22 @@ if.end71.i:                                       ; preds = %if.then70.i, %if.en
 
 if.then74.i:                                      ; preds = %if.end71.i
   %cmp75.not.i = icmp eq ptr %pRunningFramesIn.0.i166, null
-  br i1 %cmp75.not.i, label %if.end85.i, label %if.then77.i187
+  br i1 %cmp75.not.i, label %if.end85.i, label %if.then77.i
 
-if.then77.i187:                                   ; preds = %if.then74.i
+if.then77.i:                                      ; preds = %if.then74.i
   %166 = load i32, ptr %channelConverter.i134, align 8
   %167 = load i32, ptr %pConverter, align 8
   %168 = load i32, ptr %channelsIn21.i, align 8
   %169 = load i32, ptr %ditherMode.i153, align 8
-  %conv.i.i188 = zext i32 %168 to i64
-  %mul.i70.i = mul i64 %164, %conv.i.i188
+  %conv.i.i187 = zext i32 %168 to i64
+  %mul.i70.i = mul i64 %164, %conv.i.i187
   call void @ma_pcm_convert(ptr noundef nonnull %pTempBufferIn.i120, i32 noundef %166, ptr noundef nonnull %pRunningFramesIn.0.i166, i32 noundef %167, i64 noundef %mul.i70.i, i32 noundef %169)
   %.pre83.i = load i64, ptr %frameCountInThisIteration.i123, align 8
   br label %if.end85.i
 
-if.end85.i:                                       ; preds = %if.then77.i187, %if.then74.i, %if.end71.i
-  %170 = phi i64 [ %.pre83.i, %if.then77.i187 ], [ %164, %if.then74.i ], [ %164, %if.end71.i ]
-  %pChannelsBufferIn.0.i = phi ptr [ %pTempBufferIn.i120, %if.then77.i187 ], [ null, %if.then74.i ], [ %pRunningFramesIn.0.i166, %if.end71.i ]
+if.end85.i:                                       ; preds = %if.then77.i, %if.then74.i, %if.end71.i
+  %170 = phi i64 [ %.pre83.i, %if.then77.i ], [ %164, %if.then74.i ], [ %164, %if.end71.i ]
+  %pChannelsBufferIn.0.i = phi ptr [ %pTempBufferIn.i120, %if.then77.i ], [ null, %if.then74.i ], [ %pRunningFramesIn.0.i166, %if.end71.i ]
   %call88.i = call i32 @ma_channel_converter_process_pcm_frames(ptr noundef nonnull %channelConverter.i134, ptr noundef nonnull %pTempBufferMid.i121, ptr noundef %pChannelsBufferIn.0.i, i64 noundef %170)
   %cmp89.not.i = icmp eq i32 %call88.i, 0
   br i1 %cmp89.not.i, label %if.end92.i, label %ma_data_converter_process_pcm_frames__channels_first.exit
@@ -43329,25 +43319,25 @@ if.end85.i:                                       ; preds = %if.then77.i187, %if
 if.end92.i:                                       ; preds = %if.end85.i
   %171 = load i8, ptr %hasPostFormatConversion.i147, align 1
   %tobool94.not.i = icmp eq i8 %171, 0
-  %pRunningFramesOut.0.pTempBufferOut.i189 = select i1 %tobool94.not.i, ptr %pRunningFramesOut.0.i173, ptr %pTempBufferOut.i122
+  %pRunningFramesOut.0.pTempBufferOut.i188 = select i1 %tobool94.not.i, ptr %pRunningFramesOut.0.i173, ptr %pTempBufferOut.i122
   %172 = load ptr, ptr %pBackendVTable.i.i149, align 8
-  %cmp5.i.i190 = icmp eq ptr %172, null
-  br i1 %cmp5.i.i190, label %ma_data_converter_process_pcm_frames__channels_first.exit, label %lor.lhs.false.i72.i
+  %cmp5.i.i189 = icmp eq ptr %172, null
+  br i1 %cmp5.i.i189, label %ma_data_converter_process_pcm_frames__channels_first.exit, label %lor.lhs.false.i72.i
 
 lor.lhs.false.i72.i:                              ; preds = %if.end92.i
-  %onProcess.i.i191 = getelementptr inbounds i8, ptr %172, i64 24
-  %173 = load ptr, ptr %onProcess.i.i191, align 8
-  %cmp7.i.i192 = icmp eq ptr %173, null
-  br i1 %cmp7.i.i192, label %ma_data_converter_process_pcm_frames__channels_first.exit, label %ma_resampler_process_pcm_frames.exit.i193
+  %onProcess.i.i190 = getelementptr inbounds i8, ptr %172, i64 24
+  %173 = load ptr, ptr %onProcess.i.i190, align 8
+  %cmp7.i.i191 = icmp eq ptr %173, null
+  br i1 %cmp7.i.i191, label %ma_data_converter_process_pcm_frames__channels_first.exit, label %ma_resampler_process_pcm_frames.exit.i192
 
-ma_resampler_process_pcm_frames.exit.i193:        ; preds = %lor.lhs.false.i72.i
+ma_resampler_process_pcm_frames.exit.i192:        ; preds = %lor.lhs.false.i72.i
   %174 = load ptr, ptr %pBackendUserData.i.i150, align 8
   %175 = load ptr, ptr %resampler.i140, align 8
-  %call.i74.i = call i32 %173(ptr noundef %174, ptr noundef %175, ptr noundef nonnull %pTempBufferMid.i121, ptr noundef nonnull %frameCountInThisIteration.i123, ptr noundef %pRunningFramesOut.0.pTempBufferOut.i189, ptr noundef nonnull %frameCountOutThisIteration.i124) #64
-  %cmp102.not.i194 = icmp eq i32 %call.i74.i, 0
-  br i1 %cmp102.not.i194, label %if.end105.i, label %ma_data_converter_process_pcm_frames__channels_first.exit
+  %call.i74.i = call i32 %173(ptr noundef %174, ptr noundef %175, ptr noundef nonnull %pTempBufferMid.i121, ptr noundef nonnull %frameCountInThisIteration.i123, ptr noundef %pRunningFramesOut.0.pTempBufferOut.i188, ptr noundef nonnull %frameCountOutThisIteration.i124) #64
+  %cmp102.not.i193 = icmp eq i32 %call.i74.i, 0
+  br i1 %cmp102.not.i193, label %if.end105.i, label %ma_data_converter_process_pcm_frames__channels_first.exit
 
-if.end105.i:                                      ; preds = %ma_resampler_process_pcm_frames.exit.i193
+if.end105.i:                                      ; preds = %ma_resampler_process_pcm_frames.exit.i192
   %176 = load i8, ptr %hasPostFormatConversion.i147, align 1
   %tobool107.i = icmp ne i8 %176, 0
   %cmp109.i = icmp ne ptr %pRunningFramesOut.0.i173, null
@@ -43362,19 +43352,19 @@ if.then111.i:                                     ; preds = %if.end105.i
   %181 = load i32, ptr %ditherMode.i153, align 8
   %conv.i76.i = zext i32 %180 to i64
   %mul.i77.i = mul i64 %179, %conv.i76.i
-  call void @ma_pcm_convert(ptr noundef nonnull %pRunningFramesOut.0.i173, i32 noundef %177, ptr noundef nonnull %pRunningFramesOut.0.pTempBufferOut.i189, i32 noundef %178, i64 noundef %mul.i77.i, i32 noundef %181)
+  call void @ma_pcm_convert(ptr noundef nonnull %pRunningFramesOut.0.i173, i32 noundef %177, ptr noundef nonnull %pRunningFramesOut.0.pTempBufferOut.i188, i32 noundef %178, i64 noundef %mul.i77.i, i32 noundef %181)
   br label %if.end118.i
 
 if.end118.i:                                      ; preds = %if.then111.i, %if.end105.i
   %182 = load i64, ptr %frameCountInThisIteration.i123, align 8
-  %add.i195 = add i64 %182, %framesProcessedIn.0.i155
+  %add.i194 = add i64 %182, %framesProcessedIn.0.i155
   %183 = load i64, ptr %frameCountOutThisIteration.i124, align 8
   %add119.i = add i64 %183, %framesProcessedOut.0.i156
   %cmp120.i = icmp eq i64 %183, 0
   br i1 %cmp120.i, label %while.end.i157, label %while.cond.i154, !llvm.loop !486
 
 while.end.i157:                                   ; preds = %if.end118.i, %while.cond.i154
-  %framesProcessedIn.1.i158 = phi i64 [ %add.i195, %if.end118.i ], [ %framesProcessedIn.0.i155, %while.cond.i154 ]
+  %framesProcessedIn.1.i158 = phi i64 [ %add.i194, %if.end118.i ], [ %framesProcessedIn.0.i155, %while.cond.i154 ]
   %framesProcessedOut.1.i159 = phi i64 [ %add119.i, %if.end118.i ], [ %framesProcessedOut.0.i156, %while.cond.i154 ]
   br i1 %cmp.not.i126, label %if.end127.i, label %if.then126.i
 
@@ -43389,8 +43379,8 @@ if.then130.i:                                     ; preds = %if.end127.i
   store i64 %framesProcessedOut.1.i159, ptr %pFrameCountOut, align 8
   br label %ma_data_converter_process_pcm_frames__channels_first.exit
 
-ma_data_converter_process_pcm_frames__channels_first.exit: ; preds = %if.end85.i, %if.end92.i, %lor.lhs.false.i72.i, %ma_resampler_process_pcm_frames.exit.i193, %if.end127.i, %if.then130.i
-  %retval.0.i160 = phi i32 [ 0, %if.then130.i ], [ 0, %if.end127.i ], [ %call88.i, %if.end85.i ], [ %call.i74.i, %ma_resampler_process_pcm_frames.exit.i193 ], [ -29, %lor.lhs.false.i72.i ], [ -29, %if.end92.i ]
+ma_data_converter_process_pcm_frames__channels_first.exit: ; preds = %if.end85.i, %if.end92.i, %lor.lhs.false.i72.i, %ma_resampler_process_pcm_frames.exit.i192, %if.end127.i, %if.then130.i
+  %retval.0.i160 = phi i32 [ 0, %if.then130.i ], [ 0, %if.end127.i ], [ %call88.i, %if.end85.i ], [ %call.i74.i, %ma_resampler_process_pcm_frames.exit.i192 ], [ -29, %lor.lhs.false.i72.i ], [ -29, %if.end92.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %pTempBufferIn.i120)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %pTempBufferMid.i121)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %pTempBufferOut.i122)

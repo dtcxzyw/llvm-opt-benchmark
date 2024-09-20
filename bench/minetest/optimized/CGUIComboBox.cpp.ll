@@ -1798,26 +1798,23 @@ if.end:                                           ; preds = %lor.lhs.false
   %cmp4 = icmp eq i32 %idx, -1
   %SelectedText = getelementptr inbounds i8, ptr %this, i64 320
   %2 = load ptr, ptr %SelectedText, align 8, !tbaa !49
-  br i1 %cmp4, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
-  %vtable = load ptr, ptr %2, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef nonnull @.str) #18
-  br label %if.end13
+  br i1 %cmp4, label %if.end13.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
   %conv.i16 = zext nneg i32 %idx to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.irr::gui::CGUIComboBox::SComboData", ptr %1, i64 %conv.i16
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !87
+  %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !87
+  br label %if.end13.sink.split
+
+if.end13.sink.split:                              ; preds = %if.end, %if.else
+  %.sink = phi ptr [ %3, %if.else ], [ @.str, %if.end ]
   %vtable11 = load ptr, ptr %2, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 160
-  %5 = load ptr, ptr %vfn12, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef %4) #18
+  %4 = load ptr, ptr %vfn12, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef %.sink) #18
   br label %if.end13
 
-if.end13:                                         ; preds = %if.else, %if.then5, %lor.lhs.false, %entry
+if.end13:                                         ; preds = %if.end13.sink.split, %lor.lhs.false, %entry
   ret void
 }
 

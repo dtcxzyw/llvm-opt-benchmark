@@ -6771,21 +6771,23 @@ while.cond.preheader.lr.ph.split:                 ; preds = %while.cond.preheade
 while.cond.preheader.us53.preheader:              ; preds = %while.cond.preheader.lr.ph.split
   %2 = shl nuw i32 %n, 1
   %3 = zext i32 %2 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 2 %out, i8 0, i64 %3, i1 false)
-  br label %for.end
+  br label %for.end.sink.split
 
 while.cond.preheader.us44.preheader:              ; preds = %while.cond.preheader.lr.ph.split
   %4 = zext nneg i32 %n to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %out, i8 0, i64 %4, i1 false)
-  br label %for.end
+  br label %for.end.sink.split
 
 while.cond.preheader.preheader:                   ; preds = %while.cond.preheader.lr.ph.split
   %5 = zext nneg i32 %n to i64
   %6 = shl nuw nsw i64 %5, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %out, i8 0, i64 %6, i1 false)
+  br label %for.end.sink.split
+
+for.end.sink.split:                               ; preds = %while.cond.preheader.preheader, %while.cond.preheader.us44.preheader, %while.cond.preheader.us53.preheader
+  %.sink = phi i64 [ %3, %while.cond.preheader.us53.preheader ], [ %4, %while.cond.preheader.us44.preheader ], [ %6, %while.cond.preheader.preheader ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %out, i8 0, i64 %.sink, i1 false)
   br label %for.end
 
-for.end:                                          ; preds = %for.inc.us, %while.cond.preheader.us53.preheader, %while.cond.preheader.us44.preheader, %while.cond.preheader.preheader, %entry
+for.end:                                          ; preds = %for.inc.us, %for.end.sink.split, %entry
   ret void
 }
 
@@ -7694,7 +7696,7 @@ while.cond.while.end_crit_edge.us.i152:           ; preds = %if.end.us.i138, %if
 while.cond.preheader.lr.ph.split.i123:            ; preds = %while.cond.preheader.lr.ph.i118
   %115 = shl nuw i32 %cond264, 1
   %116 = zext i32 %115 to i64
-  call void @llvm.memset.p0.i64(ptr align 2 %cond283, i8 0, i64 %116, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %cond283, i8 0, i64 %116, i1 false)
   br label %_ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit172
 
 _ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit172: ; preds = %while.cond.while.end_crit_edge.us.i152, %for.body256, %while.cond.preheader.lr.ph.split.i123
@@ -7828,7 +7830,7 @@ while.cond.while.end_crit_edge.us.i214:           ; preds = %if.end.us.i200, %if
 
 while.cond.preheader.lr.ph.split.i185:            ; preds = %while.cond.preheader.lr.ph.i180
   %133 = shl nuw nsw i64 %129, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %cond330, i8 0, i64 %133, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %cond330, i8 0, i64 %133, i1 false)
   br label %_ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit234
 
 _ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit234: ; preds = %while.cond.while.end_crit_edge.us.i214, %for.body303, %while.cond.preheader.lr.ph.split.i185
@@ -10442,7 +10444,7 @@ while.cond.while.end_crit_edge.us.i120:           ; preds = %if.end.us.i106, %if
 while.cond.preheader.lr.ph.split.i91:             ; preds = %while.cond.preheader.lr.ph.i86
   %73 = shl i64 %cond221, 1
   %74 = and i64 %73, 4294967294
-  tail call void @llvm.memset.p0.i64(ptr align 2 %cond240, i8 0, i64 %74, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %cond240, i8 0, i64 %74, i1 false)
   br label %_ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit140
 
 _ZN18OpenImageIO_v2_6_09TIFFInput11bit_convertEiPKhiPvi.exit140: ; preds = %while.cond.while.end_crit_edge.us.i120, %for.body215, %while.cond.preheader.lr.ph.split.i91
