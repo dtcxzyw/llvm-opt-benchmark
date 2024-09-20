@@ -420,8 +420,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call { i64, i64 } @gpr_inf_past(i32 noundef 1)
-  %0 = extractvalue { i64, i64 } %call, 0
-  %1 = extractvalue { i64, i64 } %call, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -429,14 +427,13 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload = load i64, ptr %iat, align 8
   %retval.sroa.3.0.iat.sroa_idx = getelementptr inbounds i8, ptr %claims, i64 40
   %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.iat.sroa_idx, align 8
+  %0 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %1 = insertvalue { i64, i64 } %0, i64 %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ %retval.sroa.0.0.copyload, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.3.0.copyload, %if.end ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %call, %if.then ], [ %1, %if.end ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare { i64, i64 } @gpr_inf_past(i32 noundef) local_unnamed_addr #0
@@ -452,8 +449,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call { i64, i64 } @gpr_inf_future(i32 noundef 1)
-  %0 = extractvalue { i64, i64 } %call, 0
-  %1 = extractvalue { i64, i64 } %call, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -461,14 +456,13 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload = load i64, ptr %exp, align 8
   %retval.sroa.3.0.exp.sroa_idx = getelementptr inbounds i8, ptr %claims, i64 56
   %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.exp.sroa_idx, align 8
+  %0 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %1 = insertvalue { i64, i64 } %0, i64 %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ %retval.sroa.0.0.copyload, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.3.0.copyload, %if.end ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %call, %if.then ], [ %1, %if.end ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare { i64, i64 } @gpr_inf_future(i32 noundef) local_unnamed_addr #0
@@ -481,8 +475,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call { i64, i64 } @gpr_inf_past(i32 noundef 1)
-  %0 = extractvalue { i64, i64 } %call, 0
-  %1 = extractvalue { i64, i64 } %call, 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -490,14 +482,13 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload = load i64, ptr %nbf, align 8
   %retval.sroa.3.0.nbf.sroa_idx = getelementptr inbounds i8, ptr %claims, i64 72
   %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.nbf.sroa_idx, align 8
+  %0 = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %1 = insertvalue { i64, i64 } %0, i64 %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ %retval.sroa.0.0.copyload, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.3.0.copyload, %if.end ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i64 } [ %call, %if.then ], [ %1, %if.end ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

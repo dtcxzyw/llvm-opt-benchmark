@@ -1093,23 +1093,17 @@ invoke.cont19:                                    ; preds = %if.then
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = extractvalue { ptr, i32 } %5, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont7, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = extractvalue { ptr, i32 } %8, 1
   br label %ehcleanup69
 
 lpad18:                                           ; preds = %try.cont, %invoke.cont47, %invoke.cont38, %if.then24, %if.end, %if.then
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = extractvalue { ptr, i32 } %11, 1
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont19, %invoke.cont11
@@ -1117,8 +1111,8 @@ if.end:                                           ; preds = %invoke.cont19, %inv
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %if.end
-  %14 = load i8, ptr %call22, align 1
-  %conv = sext i8 %14 to i32
+  %8 = load i8, ptr %call22, align 1
+  %conv = sext i8 %8 to i32
   %call23 = call i32 @isalpha(i32 noundef %conv) #22
   %tobool.not = icmp eq i32 %call23, 0
   br i1 %tobool.not, label %if.then24, label %if.end28
@@ -1143,8 +1137,8 @@ if.end28:                                         ; preds = %invoke.cont26, %inv
   br i1 %cmp73.i.i.i.i, label %for.body.preheader.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.end28
-  %15 = and i64 %sub.ptr.sub.i.i.i.i.i, -4
-  %scevgep.i.i.i.i = getelementptr i8, ptr %call31, i64 %15
+  %9 = and i64 %sub.ptr.sub.i.i.i.i.i, -4
+  %scevgep.i.i.i.i = getelementptr i8, ptr %call31, i64 %9
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end22.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -1176,7 +1170,7 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %tobool.not.i.i19.i.i.i.i = icmp eq i32 %call.i.i18.i.i.i.i, 0
   %cmp.i.i20.i.i.i.i = icmp ne i8 %call.val.i16.i.i.i.i, 95
   %spec.select.i.i21.i.i.i.i = and i1 %cmp.i.i20.i.i.i.i, %tobool.not.i.i19.i.i.i.i
-  br i1 %spec.select.i.i21.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit20", label %if.end16.i.i.i.i
+  br i1 %spec.select.i.i21.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit21", label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i22.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.074.i.i.i.i, i64 3
@@ -1186,7 +1180,7 @@ if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %tobool.not.i.i26.i.i.i.i = icmp eq i32 %call.i.i25.i.i.i.i, 0
   %cmp.i.i27.i.i.i.i = icmp ne i8 %call.val.i23.i.i.i.i, 95
   %spec.select.i.i28.i.i.i.i = and i1 %cmp.i.i27.i.i.i.i, %tobool.not.i.i26.i.i.i.i
-  br i1 %spec.select.i.i28.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit22", label %if.end22.i.i.i.i
+  br i1 %spec.select.i.i28.i.i.i.i, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit23", label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i29.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.074.i.i.i.i, i64 4
@@ -1250,16 +1244,16 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.074.i.i.i.i, i64 1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit20": ; preds = %if.end10.i.i.i.i
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit21": ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i15.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.074.i.i.i.i, i64 2
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit22": ; preds = %if.end16.i.i.i.i
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit23": ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i22.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.074.i.i.i.i, i64 3
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i": ; preds = %for.body.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit20", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit22", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i15.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit20" ], [ %incdec.ptr.i22.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit22" ], [ %__first.sroa.0.074.i.i.i.i, %for.body.i.i.i.i ]
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i": ; preds = %for.body.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit21", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit23", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i15.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit21" ], [ %incdec.ptr.i22.i.i.i.i.le, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i.loopexit.split.loop.exit23" ], [ %__first.sroa.0.074.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %call33
   %__first.sroa.0.025.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 1
   %cmp.i1.not26.i.i = icmp eq ptr %__first.sroa.0.025.i.i, %call33
@@ -1295,36 +1289,36 @@ invoke.cont38:                                    ; preds = %for.inc.i.i, %"_ZSt
           to label %invoke.cont47 unwind label %lpad18
 
 invoke.cont47:                                    ; preds = %invoke.cont38
-  %16 = load ptr, ptr %shaderCreator, align 8
+  %10 = load ptr, ptr %shaderCreator, align 8
   %call51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #18
-  %vtable52 = load ptr, ptr %16, align 8
+  %vtable52 = load ptr, ptr %10, align 8
   %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 16
-  %17 = load ptr, ptr %vfn53, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %call51)
+  %11 = load ptr, ptr %vfn53, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %call51)
           to label %invoke.cont54 unwind label %lpad18
 
 invoke.cont54:                                    ; preds = %invoke.cont47
-  %18 = load ptr, ptr %this, align 8
-  invoke void @_ZNK19OpenColorIO_v2_4dev12GPUProcessor4Impl20extractGpuShaderInfoERSt10shared_ptrINS_16GpuShaderCreatorEE(ptr noundef nonnull align 8 dereferenceable(224) %18, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator)
+  %12 = load ptr, ptr %this, align 8
+  invoke void @_ZNK19OpenColorIO_v2_4dev12GPUProcessor4Impl20extractGpuShaderInfoERSt10shared_ptrINS_16GpuShaderCreatorEE(ptr noundef nonnull align 8 dereferenceable(224) %12, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator)
           to label %try.cont unwind label %lpad55
 
 lpad55:                                           ; preds = %invoke.cont54
-  %19 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = extractvalue { ptr, i32 } %19, 1
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #18
-  %matches = icmp eq i32 %21, %22
+  %14 = extractvalue { ptr, i32 } %13, 1
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #18
+  %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %lpad55
-  %23 = call ptr @__cxa_begin_catch(ptr %20) #18
-  %24 = load ptr, ptr %shaderCreator, align 8
-  %vtable60 = load ptr, ptr %24, align 8
+  %16 = extractvalue { ptr, i32 } %13, 0
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #18
+  %18 = load ptr, ptr %shaderCreator, align 8
+  %vtable60 = load ptr, ptr %18, align 8
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 24
-  %25 = load ptr, ptr %vfn61, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  %19 = load ptr, ptr %vfn61, align 8
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %catch
@@ -1332,19 +1326,17 @@ invoke.cont63:                                    ; preds = %catch
           to label %unreachable unwind label %lpad62
 
 lpad62:                                           ; preds = %invoke.cont63, %catch
-  %26 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  %28 = extractvalue { ptr, i32 } %26, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont54
-  %29 = load ptr, ptr %shaderCreator, align 8
-  %vtable66 = load ptr, ptr %29, align 8
+  %21 = load ptr, ptr %shaderCreator, align 8
+  %vtable66 = load ptr, ptr %21, align 8
   %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 24
-  %30 = load ptr, ptr %vfn67, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %29)
+  %22 = load ptr, ptr %vfn67, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %invoke.cont68 unwind label %lpad18
 
 invoke.cont68:                                    ; preds = %try.cont
@@ -1353,29 +1345,24 @@ invoke.cont68:                                    ; preds = %try.cont
   ret void
 
 ehcleanup:                                        ; preds = %lpad62, %lpad55, %lpad18
-  %ehselector.slot.2 = phi i32 [ %13, %lpad18 ], [ %28, %lpad62 ], [ %21, %lpad55 ]
-  %exn.slot.2 = phi ptr [ %12, %lpad18 ], [ %27, %lpad62 ], [ %20, %lpad55 ]
+  %.merged8 = phi { ptr, i32 } [ %7, %lpad18 ], [ %20, %lpad62 ], [ %13, %lpad55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #18
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %ehcleanup, %lpad3
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup ], [ %10, %lpad3 ]
-  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup ], [ %9, %lpad3 ]
+  %.merged = phi { ptr, i32 } [ %.merged8, %ehcleanup ], [ %6, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmpKey) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup69, %lpad
-  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup69 ], [ %7, %lpad ]
-  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup69 ], [ %6, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
-  %lpad.val72 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
-  resume { ptr, i32 } %lpad.val72
+  %lpad.val72.merged = phi { ptr, i32 } [ %.merged, %ehcleanup69 ], [ %5, %lpad ]
+  resume { ptr, i32 } %lpad.val72.merged
 
 terminate.lpad:                                   ; preds = %lpad62
-  %31 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont63

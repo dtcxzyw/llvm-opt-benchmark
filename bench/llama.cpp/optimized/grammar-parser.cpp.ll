@@ -3247,39 +3247,38 @@ if.then:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 2
   %call = tail call fastcc { i32, ptr } @_ZN14grammar_parserL9parse_hexEPKci(ptr noundef nonnull %add.ptr, i32 noundef 2)
-  %2 = extractvalue { i32, ptr } %call, 0
-  %3 = extractvalue { i32, ptr } %call, 1
   br label %return
 
 sw.bb2:                                           ; preds = %if.then
   %add.ptr3 = getelementptr inbounds i8, ptr %src, i64 2
   %call4 = tail call fastcc { i32, ptr } @_ZN14grammar_parserL9parse_hexEPKci(ptr noundef nonnull %add.ptr3, i32 noundef 4)
-  %4 = extractvalue { i32, ptr } %call4, 0
-  %5 = extractvalue { i32, ptr } %call4, 1
   br label %return
 
 sw.bb5:                                           ; preds = %if.then
   %add.ptr6 = getelementptr inbounds i8, ptr %src, i64 2
   %call7 = tail call fastcc { i32, ptr } @_ZN14grammar_parserL9parse_hexEPKci(ptr noundef nonnull %add.ptr6, i32 noundef 8)
-  %6 = extractvalue { i32, ptr } %call7, 0
-  %7 = extractvalue { i32, ptr } %call7, 1
   br label %return
 
 sw.bb8:                                           ; preds = %if.then
   %add.ptr11 = getelementptr inbounds i8, ptr %src, i64 2
+  %2 = insertvalue { i32, ptr } { i32 9, ptr poison }, ptr %add.ptr11, 1
   br label %return
 
 sw.bb13:                                          ; preds = %if.then
   %add.ptr17 = getelementptr inbounds i8, ptr %src, i64 2
+  %3 = insertvalue { i32, ptr } { i32 13, ptr poison }, ptr %add.ptr17, 1
   br label %return
 
 sw.bb19:                                          ; preds = %if.then
   %add.ptr23 = getelementptr inbounds i8, ptr %src, i64 2
+  %4 = insertvalue { i32, ptr } { i32 10, ptr poison }, ptr %add.ptr23, 1
   br label %return
 
 sw.bb25:                                          ; preds = %if.then, %if.then, %if.then, %if.then
   %add.ptr29 = getelementptr inbounds i8, ptr %src, i64 2
   %conv.i28 = zext nneg i8 %1 to i32
+  %5 = insertvalue { i32, ptr } poison, i32 %conv.i28, 0
+  %6 = insertvalue { i32, ptr } %5, ptr %add.ptr29, 1
   br label %return
 
 sw.default:                                       ; preds = %if.then
@@ -3302,32 +3301,32 @@ invoke.cont37:                                    ; preds = %invoke.cont35
           to label %unreachable unwind label %lpad36
 
 ehcleanup38.thread:                               ; preds = %sw.default
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #23
   br label %cleanup.action
 
 lpad34:                                           ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
 lpad36:                                           ; preds = %invoke.cont37, %invoke.cont35
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont37 ], [ true, %invoke.cont35 ]
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #23
   br label %ehcleanup38
 
 ehcleanup38:                                      ; preds = %lpad34, %lpad36
-  %.pn = phi { ptr, i32 } [ %10, %lpad36 ], [ %9, %lpad34 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad36 ], [ %8, %lpad34 ]
   %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad36 ], [ true, %lpad34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #23
   br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup38.thread, %ehcleanup38
-  %.pn.pn35 = phi { ptr, i32 } [ %8, %ehcleanup38.thread ], [ %.pn, %ehcleanup38 ]
+  %.pn.pn35 = phi { ptr, i32 } [ %7, %ehcleanup38.thread ], [ %.pn, %ehcleanup38 ]
   call void @__cxa_free_exception(ptr %exception) #23
   br label %eh.resume
 
@@ -3336,33 +3335,40 @@ if.then40:                                        ; preds = %entry
   %shr.i = lshr i8 %0, 4
   %idxprom.i = zext nneg i8 %shr.i to i64
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr @_ZZN14grammar_parserL11decode_utf8EPKcE6lookup, i64 0, i64 %idxprom.i
-  %11 = load i32, ptr %arrayidx.i, align 4
-  %sub.i = sub nsw i32 8, %11
+  %10 = load i32, ptr %arrayidx.i, align 4
+  %sub.i = sub nsw i32 8, %10
   %notmask.i = shl nsw i32 -1, %sub.i
   %conv5.i = xor i32 %notmask.i, -1
   %and.i = and i32 %conv5.i, %conv.i32
-  %idx.ext.i = sext i32 %11 to i64
+  %idx.ext.i = sext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext.i
   %storemerge8.i = getelementptr inbounds i8, ptr %src, i64 1
-  %12 = and i64 %idxprom.i, 12
-  %cmp9.i = icmp eq i64 %12, 12
-  br i1 %cmp9.i, label %land.rhs.i, label %return
+  %11 = and i64 %idxprom.i, 12
+  %cmp9.i = icmp eq i64 %11, 12
+  br i1 %cmp9.i, label %land.rhs.i, label %_ZN14grammar_parserL11decode_utf8EPKc.exit
 
 land.rhs.i:                                       ; preds = %if.then40, %for.body.i
   %storemerge11.i = phi ptr [ %storemerge.i, %for.body.i ], [ %storemerge8.i, %if.then40 ]
   %value.010.i = phi i32 [ %add.i, %for.body.i ], [ %and.i, %if.then40 ]
-  %13 = load i8, ptr %storemerge11.i, align 1
-  %tobool.not.i = icmp eq i8 %13, 0
-  br i1 %tobool.not.i, label %return, label %for.body.i
+  %12 = load i8, ptr %storemerge11.i, align 1
+  %tobool.not.i = icmp eq i8 %12, 0
+  br i1 %tobool.not.i, label %_ZN14grammar_parserL11decode_utf8EPKc.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
   %shl7.i = shl i32 %value.010.i, 6
-  %14 = and i8 %13, 63
-  %and9.i = zext nneg i8 %14 to i32
+  %13 = and i8 %12, 63
+  %and9.i = zext nneg i8 %13 to i32
   %add.i = or disjoint i32 %shl7.i, %and9.i
   %storemerge.i = getelementptr inbounds i8, ptr %storemerge11.i, i64 1
   %cmp.i = icmp ult ptr %storemerge.i, %add.ptr.i
-  br i1 %cmp.i, label %land.rhs.i, label %return, !llvm.loop !16
+  br i1 %cmp.i, label %land.rhs.i, label %_ZN14grammar_parserL11decode_utf8EPKc.exit, !llvm.loop !16
+
+_ZN14grammar_parserL11decode_utf8EPKc.exit:       ; preds = %land.rhs.i, %for.body.i, %if.then40
+  %value.0.lcssa.i = phi i32 [ %and.i, %if.then40 ], [ %value.010.i, %land.rhs.i ], [ %add.i, %for.body.i ]
+  %storemerge.lcssa.i = phi ptr [ %storemerge8.i, %if.then40 ], [ %storemerge11.i, %land.rhs.i ], [ %storemerge.i, %for.body.i ]
+  %14 = insertvalue { i32, ptr } poison, i32 %value.0.lcssa.i, 0
+  %15 = insertvalue { i32, ptr } %14, ptr %storemerge.lcssa.i, 1
+  br label %return
 
 if.end42:                                         ; preds = %entry
   %exception43 = tail call ptr @__cxa_allocate_exception(i64 16) #23
@@ -3374,20 +3380,17 @@ invoke.cont45:                                    ; preds = %if.end42
   unreachable
 
 lpad44:                                           ; preds = %if.end42
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception43) #23
   br label %eh.resume
 
-return:                                           ; preds = %for.body.i, %land.rhs.i, %if.then40, %sw.bb25, %sw.bb19, %sw.bb13, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.sroa.0.0 = phi i32 [ %conv.i28, %sw.bb25 ], [ 10, %sw.bb19 ], [ 13, %sw.bb13 ], [ 9, %sw.bb8 ], [ %6, %sw.bb5 ], [ %4, %sw.bb2 ], [ %2, %sw.bb ], [ %and.i, %if.then40 ], [ %value.010.i, %land.rhs.i ], [ %add.i, %for.body.i ]
-  %retval.sroa.9.0 = phi ptr [ %add.ptr29, %sw.bb25 ], [ %add.ptr23, %sw.bb19 ], [ %add.ptr17, %sw.bb13 ], [ %add.ptr11, %sw.bb8 ], [ %7, %sw.bb5 ], [ %5, %sw.bb2 ], [ %3, %sw.bb ], [ %storemerge8.i, %if.then40 ], [ %storemerge11.i, %land.rhs.i ], [ %storemerge.i, %for.body.i ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.9.0, 1
-  ret { i32, ptr } %.fca.1.insert
+return:                                           ; preds = %_ZN14grammar_parserL11decode_utf8EPKc.exit, %sw.bb25, %sw.bb19, %sw.bb13, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
+  %.fca.1.insert.merged = phi { i32, ptr } [ %15, %_ZN14grammar_parserL11decode_utf8EPKc.exit ], [ %6, %sw.bb25 ], [ %4, %sw.bb19 ], [ %3, %sw.bb13 ], [ %2, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %call4, %sw.bb2 ], [ %call, %sw.bb ]
+  ret { i32, ptr } %.fca.1.insert.merged
 
 eh.resume:                                        ; preds = %ehcleanup38, %cleanup.action, %lpad44
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn35, %cleanup.action ], [ %.pn, %ehcleanup38 ], [ %15, %lpad44 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn35, %cleanup.action ], [ %.pn, %ehcleanup38 ], [ %16, %lpad44 ]
   resume { ptr, i32 } %.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont37

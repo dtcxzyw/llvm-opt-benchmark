@@ -208,28 +208,27 @@ define hidden { i64, i64 } @_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv(ptr noc
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 1
-  br i1 %4, label %5, label %._crit_edge
+  br i1 %4, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.sroa.2.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.2.0.copyload.pre = load i64, ptr %.sroa.2.0..sroa_idx.phi.trans.insert, align 8
-  br label %9
+  %5 = insertvalue { i64, i64 } poison, i64 %3, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.2.0.copyload.pre, 1
+  br label %11
 
-5:                                                ; preds = %1
-  %6 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
-  %7 = extractvalue { i64, i64 } %6, 0
-  %8 = extractvalue { i64, i64 } %6, 1
-  store i64 %7, ptr %2, align 8
+7:                                                ; preds = %1
+  %8 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #11
+  %9 = extractvalue { i64, i64 } %8, 0
+  %10 = extractvalue { i64, i64 } %8, 1
+  store i64 %9, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br label %9
+  store i64 %10, ptr %.sroa.2.0..sroa_idx.i, align 8
+  br label %11
 
-9:                                                ; preds = %._crit_edge, %5
-  %.sroa.2.0.copyload = phi i64 [ %8, %5 ], [ %.sroa.2.0.copyload.pre, %._crit_edge ]
-  %.sroa.0.0.copyload = phi i64 [ %7, %5 ], [ %3, %._crit_edge ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
-  ret { i64, i64 } %.fca.1.insert
+11:                                               ; preds = %._crit_edge, %7
+  %.fca.1.insert.merged = phi { i64, i64 } [ %8, %7 ], [ %6, %._crit_edge ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -249,10 +248,10 @@ define hidden noundef double @_ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv(p
   br label %_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit
 
 _ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit: ; preds = %1, %5
-  %.sroa.0.0.copyload.i = phi i64 [ %7, %5 ], [ %3, %1 ]
+  %.fca.1.insert.merged.i = phi i64 [ %7, %5 ], [ %3, %1 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = sub nsw i64 %.sroa.0.0.copyload.i, %10
+  %11 = sub nsw i64 %.fca.1.insert.merged.i, %10
   %12 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %11) #11
   ret double %12
 }
@@ -282,11 +281,11 @@ define hidden void @_ZN27RefProcPhaseTimeBaseTrackerD2Ev(ptr nocapture noundef n
   br label %_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit
 
 _ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit: ; preds = %._crit_edge.i, %6
-  %.sroa.2.0.copyload.i = phi i64 [ %9, %6 ], [ %.sroa.2.0.copyload.pre.i, %._crit_edge.i ]
-  %.sroa.0.0.copyload.i = phi i64 [ %8, %6 ], [ %4, %._crit_edge.i ]
-  store i64 %.sroa.0.0.copyload.i, ptr %2, align 8
+  %.pre-phi2 = phi i64 [ %.sroa.2.0.copyload.pre.i, %._crit_edge.i ], [ %9, %6 ]
+  %.pre-phi = phi i64 [ %4, %._crit_edge.i ], [ %8, %6 ]
+  store i64 %.pre-phi, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %10, align 8
+  store i64 %.pre-phi2, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 176
   %13 = load ptr, ptr %12, align 8
@@ -334,10 +333,10 @@ define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerD2Ev(ptr nocapture nound
   br label %_ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit
 
 _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
-  %.sroa.0.0.copyload.i.i = phi i64 [ %8, %6 ], [ %4, %1 ]
+  %.fca.1.insert.merged.i.i = phi i64 [ %8, %6 ], [ %4, %1 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = sub nsw i64 %.sroa.0.0.copyload.i.i, %11
+  %12 = sub nsw i64 %.fca.1.insert.merged.i.i, %11
   %13 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #11
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
@@ -361,16 +360,16 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   store i64 %24, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i.i.i3 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i3, align 8
+  %.sroa.2.0..sroa_idx.i.i.i2 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i2, align 8
   br label %_ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit
 
 _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %22
-  %.sroa.2.0.copyload.i.i = phi i64 [ %25, %22 ], [ %.sroa.2.0.copyload.pre.i.i, %._crit_edge.i.i ]
-  %.sroa.0.0.copyload.i.i2 = phi i64 [ %24, %22 ], [ %20, %._crit_edge.i.i ]
-  store i64 %.sroa.0.0.copyload.i.i2, ptr %2, align 8
+  %.pre-phi2.i = phi i64 [ %.sroa.2.0.copyload.pre.i.i, %._crit_edge.i.i ], [ %25, %22 ]
+  %.pre-phi.i = phi i64 [ %20, %._crit_edge.i.i ], [ %24, %22 ]
+  store i64 %.pre-phi.i, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %26, align 8
+  store i64 %.pre-phi2.i, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 176
   %29 = load ptr, ptr %28, align 8
@@ -429,10 +428,10 @@ define hidden void @_ZN29RefProcTotalPhaseTimesTrackerD2Ev(ptr nocapture noundef
   br label %_ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit
 
 _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
-  %.sroa.0.0.copyload.i.i = phi i64 [ %8, %6 ], [ %4, %1 ]
+  %.fca.1.insert.merged.i.i = phi i64 [ %8, %6 ], [ %4, %1 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = sub nsw i64 %.sroa.0.0.copyload.i.i, %11
+  %12 = sub nsw i64 %.fca.1.insert.merged.i.i, %11
   %13 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #11
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
@@ -456,16 +455,16 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   store i64 %24, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i.i.i3 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i3, align 8
+  %.sroa.2.0..sroa_idx.i.i.i2 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i.i2, align 8
   br label %_ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit
 
 _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %22
-  %.sroa.2.0.copyload.i.i = phi i64 [ %25, %22 ], [ %.sroa.2.0.copyload.pre.i.i, %._crit_edge.i.i ]
-  %.sroa.0.0.copyload.i.i2 = phi i64 [ %24, %22 ], [ %20, %._crit_edge.i.i ]
-  store i64 %.sroa.0.0.copyload.i.i2, ptr %2, align 8
+  %.pre-phi2.i = phi i64 [ %.sroa.2.0.copyload.pre.i.i, %._crit_edge.i.i ], [ %25, %22 ]
+  %.pre-phi.i = phi i64 [ %20, %._crit_edge.i.i ], [ %24, %22 ]
+  store i64 %.pre-phi.i, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %26, align 8
+  store i64 %.pre-phi2.i, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 176
   %29 = load ptr, ptr %28, align 8

@@ -614,20 +614,17 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call4 = tail call noundef double @_ZN8QuantLib24modifiedBesselFunction_iEdd(double noundef %nu, double noundef %1)
+  %2 = insertvalue { double, double } poison, double %call4, 0
+  %3 = insertvalue { double, double } %2, double 0.000000e+00, 1
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call5 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_129modifiedBesselFunction_i_implISt7complexIdENS0_10UnweightedEEET_dRKS5_(double noundef %nu, ptr noundef nonnull align 8 dereferenceable(16) %z)
-  %2 = extractvalue { double, double } %call5, 0
-  %3 = extractvalue { double, double } %call5, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.3.0 = phi double [ %3, %if.end ], [ 0.000000e+00, %if.then ]
-  %retval.sroa.0.0 = phi double [ %2, %if.end ], [ %call4, %if.then ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+  %.fca.1.insert.merged = phi { double, double } [ %call5, %if.end ], [ %3, %if.then ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1665,20 +1662,17 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call4 = tail call noundef double @_ZN8QuantLib46modifiedBesselFunction_i_exponentiallyWeightedEdd(double noundef %nu, double noundef %1)
+  %2 = insertvalue { double, double } poison, double %call4, 0
+  %3 = insertvalue { double, double } %2, double 0.000000e+00, 1
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call5 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_129modifiedBesselFunction_i_implISt7complexIdENS0_21ExponentiallyWeightedEEET_dRKS5_(double noundef %nu, ptr noundef nonnull align 8 dereferenceable(16) %z)
-  %2 = extractvalue { double, double } %call5, 0
-  %3 = extractvalue { double, double } %call5, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.3.0 = phi double [ %3, %if.end ], [ 0.000000e+00, %if.then ]
-  %retval.sroa.0.0 = phi double [ %2, %if.end ], [ %call4, %if.then ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+  %.fca.1.insert.merged = phi { double, double } [ %call5, %if.end ], [ %3, %if.then ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

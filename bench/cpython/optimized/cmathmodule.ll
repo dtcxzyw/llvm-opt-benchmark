@@ -2149,23 +2149,27 @@ special_type.exit46:                              ; preds = %if.then1.i40, %if.e
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
   %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
-  br label %return
+  %10 = insertvalue { double, double } poison, double %retval.sroa.0.0.copyload, 0
+  %11 = insertvalue { double, double } %10, double %retval.sroa.4.0.copyload, 1
+  br label %common.ret1
 
 if.end:                                           ; preds = %entry
   %cmp = fcmp olt double %z.coerce0, 0.000000e+00
   br i1 %cmp, label %if.then8, label %if.end13
 
+common.ret1:                                      ; preds = %if.end85, %special_type.exit46, %if.then8
+  %common.ret1.op = phi { double, double } [ %call12, %if.then8 ], [ %20, %if.end85 ], [ %11, %special_type.exit46 ]
+  ret { double, double } %common.ret1.op
+
 if.then8:                                         ; preds = %if.end
   %call10 = tail call { double, double } @_Py_c_neg(double %z.coerce0, double %z.coerce1) #10
-  %10 = extractvalue { double, double } %call10, 0
-  %11 = extractvalue { double, double } %call10, 1
-  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %10, double %11)
-  %12 = extractvalue { double, double } %call11, 0
-  %13 = extractvalue { double, double } %call11, 1
-  %call12 = tail call { double, double } @_Py_c_neg(double %12, double %13) #10
-  %14 = extractvalue { double, double } %call12, 0
-  %15 = extractvalue { double, double } %call12, 1
-  br label %return
+  %12 = extractvalue { double, double } %call10, 0
+  %13 = extractvalue { double, double } %call10, 1
+  %call11 = tail call fastcc { double, double } @cmath_atanh_impl(double %12, double %13)
+  %14 = extractvalue { double, double } %call11, 0
+  %15 = extractvalue { double, double } %call11, 1
+  %call12 = tail call { double, double } @_Py_c_neg(double %14, double %15) #10
+  br label %common.ret1
 
 if.end13:                                         ; preds = %if.end
   %cmp17 = fcmp ogt double %z.coerce0, 0x5FDFFFFFFFFFFFFF
@@ -2181,9 +2185,7 @@ if.then21:                                        ; preds = %if.end13
   %div28 = fdiv double %div27, %call25
   %div29 = fdiv double %div28, %call25
   %fneg32 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %z.coerce1)
-  %call34 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call34, align 4
-  br label %return
+  br label %if.end85
 
 if.else:                                          ; preds = %if.end13
   %cmp36 = fcmp oeq double %z.coerce0, 1.000000e+00
@@ -2193,12 +2195,7 @@ if.else:                                          ; preds = %if.end13
 
 if.then39:                                        ; preds = %if.else
   %cmp40 = fcmp oeq double %z.coerce1, 0.000000e+00
-  br i1 %cmp40, label %if.then41, label %if.else46
-
-if.then41:                                        ; preds = %if.then39
-  %call45 = tail call ptr @__errno_location() #11
-  store i32 33, ptr %call45, align 4
-  br label %return
+  br i1 %cmp40, label %if.end85, label %if.else46
 
 if.else46:                                        ; preds = %if.then39
   %sqrt = tail call double @llvm.sqrt.f64(double %2)
@@ -2211,9 +2208,7 @@ if.else46:                                        ; preds = %if.then39
   %call55 = tail call double @atan2(double noundef 2.000000e+00, double noundef %fneg54) #10
   %div56 = fmul double %call55, 5.000000e-01
   %16 = tail call double @llvm.copysign.f64(double %div56, double %z.coerce1)
-  %call59 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call59, align 4
-  br label %return
+  br label %if.end85
 
 if.else61:                                        ; preds = %if.else
   %mul = fmul double %z.coerce0, 4.000000e+00
@@ -2237,16 +2232,17 @@ _Py_log1p.exit:                                   ; preds = %if.else61, %if.else
   %18 = tail call double @llvm.fmuladd.f64(double %sub, double %add, double %neg)
   %call79 = tail call double @atan2(double noundef %mul73, double noundef %18) #10
   %div81 = fmul double %call79, -5.000000e-01
-  %call83 = tail call ptr @__errno_location() #11
-  store i32 0, ptr %call83, align 4
-  br label %return
+  br label %if.end85
 
-return:                                           ; preds = %if.then21, %if.then41, %if.else46, %_Py_log1p.exit, %if.then8, %special_type.exit46
-  %retval.sroa.0.0 = phi double [ %14, %if.then8 ], [ %retval.sroa.0.0.copyload, %special_type.exit46 ], [ %div29, %if.then21 ], [ 0x7FF0000000000000, %if.then41 ], [ %fneg52, %if.else46 ], [ %div70, %_Py_log1p.exit ]
-  %retval.sroa.4.0 = phi double [ %15, %if.then8 ], [ %retval.sroa.4.0.copyload, %special_type.exit46 ], [ %fneg32, %if.then21 ], [ %z.coerce1, %if.then41 ], [ %16, %if.else46 ], [ %div81, %_Py_log1p.exit ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
-  ret { double, double } %.fca.1.insert
+if.end85:                                         ; preds = %if.then39, %_Py_log1p.exit, %if.else46, %if.then21
+  %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %if.else46 ], [ 0, %if.then21 ], [ 33, %if.then39 ]
+  %r.sroa.0.0 = phi double [ %div70, %_Py_log1p.exit ], [ %fneg52, %if.else46 ], [ %div29, %if.then21 ], [ 0x7FF0000000000000, %if.then39 ]
+  %r.sroa.5.0 = phi double [ %div81, %_Py_log1p.exit ], [ %16, %if.else46 ], [ %fneg32, %if.then21 ], [ %z.coerce1, %if.then39 ]
+  %call83 = tail call ptr @__errno_location() #11
+  store i32 %.sink, ptr %call83, align 4
+  %19 = insertvalue { double, double } poison, double %r.sroa.0.0, 0
+  %20 = insertvalue { double, double } %19, double %r.sroa.5.0, 1
+  br label %common.ret1
 }
 
 declare { double, double } @_Py_c_neg(double, double) local_unnamed_addr #1

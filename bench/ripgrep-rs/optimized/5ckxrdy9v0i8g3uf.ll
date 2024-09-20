@@ -69,25 +69,26 @@ define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !20
   %4 = load i64, ptr %1, align 8, !range !19, !alias.scope !23, !noalias !26, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775808
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !23, !noalias !26, !nonnull !5, !align !29, !noundef !5
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !23, !noalias !26, !noundef !5
+  %11 = insertvalue { ptr, i64 } poison, ptr %8, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
   br label %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hbabe2417c4ccb357E.exit"
 
-11:                                               ; preds = %2
-  %12 = tail call { ptr, i64 } @"_ZN5alloc5slice98_$LT$impl$u20$core..borrow..Borrow$LT$$u5b$T$u5d$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$6borrow17h69b1689a2a9074d0E.llvm.5128983867462840767"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !26
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = extractvalue { ptr, i64 } %12, 1
+13:                                               ; preds = %2
+  %14 = tail call { ptr, i64 } @"_ZN5alloc5slice98_$LT$impl$u20$core..borrow..Borrow$LT$$u5b$T$u5d$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$6borrow17h69b1689a2a9074d0E.llvm.5128983867462840767"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !26
   br label %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hbabe2417c4ccb357E.exit"
 
-"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hbabe2417c4ccb357E.exit": ; preds = %6, %11
-  %.sroa.5.0.i.i.i.i.i.i = phi i64 [ %10, %6 ], [ %14, %11 ]
-  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %8, %6 ], [ %13, %11 ]
-  call void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i.i.i)
+"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hbabe2417c4ccb357E.exit": ; preds = %6, %13
+  %.merged.i.i.i.i.i.i = phi { ptr, i64 } [ %12, %6 ], [ %14, %13 ]
+  %15 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i, 0
+  %16 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i, 1
+  call void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !20
   ret void

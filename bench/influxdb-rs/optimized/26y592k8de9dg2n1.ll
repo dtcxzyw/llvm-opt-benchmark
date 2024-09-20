@@ -446,51 +446,45 @@ define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_loa
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i32 } %7, 1
-  %15 = extractvalue { i64, i32 } %7, 0
-  br label %16
-
-16:                                               ; preds = %._crit_edge, %13
-  %.sroa.3.0 = phi i32 [ %14, %13 ], [ %29, %._crit_edge ]
-  %.sroa.0.0 = phi i64 [ %15, %13 ], [ %27, %._crit_edge ]
-  %17 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, i32 } %17, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %18
+13:                                               ; preds = %6, %._crit_edge
+  %.merged = phi { i64, i32 } [ %26, %._crit_edge ], [ %7, %6 ]
+  ret { i64, i32 } %.merged
 
 .lr.ph:                                           ; preds = %10, %.thread.i
   %.07 = phi i32 [ %spec.select, %.thread.i ], [ 0, %10 ]
-  %19 = icmp ult i32 %.07, 7
-  br i1 %19, label %.preheader.i, label %20
+  %14 = icmp ult i32 %.07, 7
+  br i1 %14, label %.preheader.i, label %15
 
-20:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   tail call void @_ZN3std6thread9yield_now17h30501af566733cbcE()
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.preheader.i, %20
-  %21 = icmp ult i32 %.07, 11
-  %22 = zext i1 %21 to i32
-  %spec.select = add nuw nsw i32 %.07, %22
-  %23 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge
+.thread.i:                                        ; preds = %.preheader.i, %15
+  %16 = icmp ult i32 %.07, 11
+  %17 = zext i1 %16 to i32
+  %spec.select = add nuw nsw i32 %.07, %17
+  %18 = atomicrmw xchg ptr %4, i64 1 acquire, align 8
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %25, %.preheader.i ], [ 0, %.lr.ph ]
-  %25 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.08.i = phi i32 [ %20, %.preheader.i ], [ 0, %.lr.ph ]
+  %20 = add nuw nsw i32 %.sroa.01.08.i, 1
   tail call void @llvm.x86.sse2.pause() #13
-  %.sroa.01.0.highbits.i = lshr i32 %25, %.07
-  %26 = icmp eq i32 %.sroa.01.0.highbits.i, 0
-  br i1 %26, label %.preheader.i, label %.thread.i
+  %.sroa.01.0.highbits.i = lshr i32 %20, %.07
+  %21 = icmp eq i32 %.sroa.01.0.highbits.i, 0
+  br i1 %21, label %.preheader.i, label %.thread.i
 
 ._crit_edge:                                      ; preds = %.thread.i, %10
-  %.lcssa = phi i64 [ %11, %10 ], [ %23, %.thread.i ]
+  %.lcssa = phi i64 [ %11, %10 ], [ %18, %.thread.i ]
   fence release
-  %27 = load i64, ptr %0, align 8, !noundef !4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8, !range !52, !noundef !4
+  %22 = load i64, ptr %0, align 8, !noundef !4
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 8, !range !52, !noundef !4
   store atomic i64 %.lcssa, ptr %4 release, align 8
-  br label %16
+  %25 = insertvalue { i64, i32 } poison, i64 %22, 0
+  %26 = insertvalue { i64, i32 } %25, i32 %24, 1
+  br label %13
 }
 
 ; Function Attrs: nonlazybind uwtable

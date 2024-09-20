@@ -1250,10 +1250,10 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   %.pre-phi = phi i32 [ %.pre52, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %56, %.loopexit.i.i ]
   %57 = phi i8 [ %36, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %55, %.loopexit.i.i ]
   %58 = phi ptr [ %.pre, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %53, %.loopexit.i.i ]
-  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.0.0.i7.i.i.i, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %53, %.loopexit.i.i ]
-  %.sroa.33.0.i.i.i = phi i32 [ %.sroa.8.0.i.i.i.i, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %56, %.loopexit.i.i ]
-  %59 = icmp eq ptr %.sroa.02.0.i.i.i, %58
-  %60 = icmp eq i32 %.sroa.33.0.i.i.i, %.pre-phi
+  %.pn6.i.i.i = phi ptr [ %.sroa.0.0.i7.i.i.i, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %53, %.loopexit.i.i ]
+  %.pn4.i.i.i = phi i32 [ %.sroa.8.0.i.i.i.i, %._ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit_crit_edge ], [ %56, %.loopexit.i.i ]
+  %59 = icmp eq ptr %.pn6.i.i.i, %58
+  %60 = icmp eq i32 %.pn4.i.i.i, %.pre-phi
   %61 = select i1 %59, i1 %60, i1 false
   br i1 %61, label %62, label %70
 
@@ -1286,7 +1286,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   br label %108
 
 70:                                               ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEE4findIlEENS1_14btree_iteratorINS1_10btree_nodeISJ_EERSH_PSH_EERSG_.exit
-  %.not1.i.i = icmp slt i32 %.sroa.33.0.i.i.i, 0
+  %.not1.i.i = icmp slt i32 %.pn4.i.i.i, 0
   br i1 %.not1.i.i, label %71, label %72
 
 71:                                               ; preds = %70
@@ -1295,7 +1295,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 
 72:                                               ; preds = %70
   %73 = zext i8 %57 to i32
-  %74 = icmp ult i32 %.sroa.33.0.i.i.i, %73
+  %74 = icmp ult i32 %.pn4.i.i.i, %73
   br i1 %74, label %_ZNK4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEERSH_PSH_EptEv.exit, label %75
 
 75:                                               ; preds = %72
@@ -1303,8 +1303,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   unreachable
 
 _ZNK4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEERSH_PSH_EptEv.exit: ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i, i64 16
-  %77 = zext nneg i32 %.sroa.33.0.i.i.i to i64
+  %76 = getelementptr inbounds i8, ptr %.pn6.i.i.i, i64 16
+  %77 = zext nneg i32 %.pn4.i.i.i to i64
   %78 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load double, ptr %79, align 8

@@ -1631,21 +1631,18 @@ if.then:                                          ; preds = %_ZN6hermes2vm6Handl
   %8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store i32 3, ptr %8, align 8
   %call7 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6) #16
+  %9 = insertvalue { i32, i64 } poison, i32 %call7, 0
+  %10 = insertvalue { i32, i64 } %9, i64 undef, 1
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.sroa.0.0.i, align 8
   %call21 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr nonnull %retval.sroa.0.0.i3, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, i64 %retval.sroa.0.0.copyload.i, i1 noundef zeroext false) #16
-  %9 = extractvalue { i32, i64 } %call21, 0
-  %10 = extractvalue { i32, i64 } %call21, 1
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %9, %if.end ], [ %call7, %if.then ]
-  %retval.sroa.3.0 = phi i64 [ %10, %if.end ], [ undef, %if.then ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i32, i64 } [ %call21, %if.end ], [ %10, %if.then ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, i64, i1 noundef zeroext) local_unnamed_addr #1

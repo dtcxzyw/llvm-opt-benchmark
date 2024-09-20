@@ -39758,14 +39758,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %bounds, align 4
   %retval.sroa.3.0.bounds.sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   %retval.sroa.3.0.copyload = load <2 x float>, ptr %retval.sroa.3.0.bounds.sroa_idx, align 4
+  %1 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %2 = insertvalue { <2 x float>, <2 x float> } %1, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %retval.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %2, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -39883,14 +39882,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %clip, align 4
   %retval.sroa.3.0.clip.sroa_idx = getelementptr inbounds i8, ptr %1, i64 76
   %retval.sroa.3.0.copyload = load <2 x float>, ptr %retval.sroa.3.0.clip.sroa_idx, align 4
+  %2 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %3 = insertvalue { <2 x float>, <2 x float> } %2, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %retval.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.0.copyload, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %3, %if.end ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -50897,7 +50895,7 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false
   %layout4.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %layout4.i, align 8
   %tobool5.not.i = icmp eq ptr %1, null
-  br i1 %tobool5.not.i, label %return, label %if.end.i
+  br i1 %tobool5.not.i, label %nk_layout_peek.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
   %at_y.i = getelementptr inbounds i8, ptr %1, i64 44
@@ -50937,14 +50935,18 @@ if.end23.i:                                       ; preds = %if.then21.i, %if.en
   %retval.sroa.0.0.copyload.pre = load <2 x float>, ptr %bounds, align 8
   %retval.sroa.3.0.bounds.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
   %retval.sroa.3.0.copyload.pre = load <2 x float>, ptr %retval.sroa.3.0.bounds.sroa_idx.phi.trans.insert, align 8
+  br label %nk_layout_peek.exit
+
+nk_layout_peek.exit:                              ; preds = %lor.lhs.false2.i, %if.end23.i
+  %retval.sroa.3.0.copyload = phi <2 x float> [ %retval.sroa.3.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
+  %retval.sroa.0.0.copyload = phi <2 x float> [ %retval.sroa.0.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
+  %9 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
+  %10 = insertvalue { <2 x float>, <2 x float> } %9, <2 x float> %retval.sroa.3.0.copyload, 1
   br label %return
 
-return:                                           ; preds = %lor.lhs.false2.i, %if.end23.i, %entry, %lor.lhs.false
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ], [ %retval.sroa.0.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %retval.sroa.3.0 = phi <2 x float> [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ], [ %retval.sroa.3.0.copyload.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+return:                                           ; preds = %entry, %lor.lhs.false, %nk_layout_peek.exit
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %10, %nk_layout_peek.exit ], [ zeroinitializer, %lor.lhs.false ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

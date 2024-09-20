@@ -468,68 +468,67 @@ _ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit: ; pr
   %15 = tail call { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hebbe0522f95138b1E"(ptr noundef nonnull align 8 %14)
   %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %15, 0
   %.not.i.i.i = icmp eq ptr %.fca.0.extract.i.i.i, null
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %17
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit
   %16 = getelementptr inbounds i8, ptr %7, i64 312
-  br label %18
+  br label %17
 
-17:                                               ; preds = %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit
-  %.fca.1.extract.i.i.i = extractvalue { ptr, ptr } %15, 1
-  br label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
-
-18:                                               ; preds = %25, %.preheader.i.i.i
+17:                                               ; preds = %24, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
-  %19 = load i64, ptr %3, align 8, !range !20, !noundef !4
-  switch i64 %19, label %default.unreachable [
+  %18 = load i64, ptr %3, align 8, !range !20, !noundef !4
+  switch i64 %18, label %default.unreachable [
     i64 0, label %.loopexit.i.i.i
-    i64 1, label %20
-    i64 2, label %25
+    i64 1, label %19
+    i64 2, label %24
   ]
 
-default.unreachable:                              ; preds = %18
+default.unreachable:                              ; preds = %17
   unreachable
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = load ptr, ptr %23, align 8, !noundef !4
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = load ptr, ptr %22, align 8, !noundef !4
   br label %.loopexit.i.i.i
 
-25:                                               ; preds = %18
+24:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %18
+  br label %17
 
-.loopexit.i.i.i:                                  ; preds = %18, %20
-  %.sroa.4.1.i.i.i = phi ptr [ %24, %20 ], [ undef, %18 ]
-  %.sroa.0.1.i.i.i = phi ptr [ %22, %20 ], [ null, %18 ]
+.loopexit.i.i.i:                                  ; preds = %17, %19
+  %.sroa.4.1.i.i.i = phi ptr [ %23, %19 ], [ undef, %17 ]
+  %.sroa.0.1.i.i.i = phi ptr [ %21, %19 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.i.i, 0
+  %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.4.1.i.i.i, 1
   br label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
 
-_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i: ; preds = %.loopexit.i.i.i, %17
-  %.sroa.4.0.i.i.i = phi ptr [ %.fca.1.extract.i.i.i, %17 ], [ %.sroa.4.1.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.fca.0.extract.i.i.i, %17 ], [ %.sroa.0.1.i.i.i, %.loopexit.i.i.i ]
-  %26 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401"(ptr noundef %.sroa.0.0.i.i.i, ptr %.sroa.4.0.i.i.i, ptr noundef nonnull align 128 %7)
-  %27 = extractvalue { ptr, ptr } %26, 0
-  %28 = extractvalue { ptr, ptr } %26, 1
-  %29 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h4641df10c98eb782E.llvm.14976363794789945401"(ptr noundef %27, ptr %28, ptr noundef nonnull align 128 %7)
-  %.fca.0.extract.i = extractvalue { ptr, ptr } %29, 0
-  %30 = icmp eq ptr %.fca.0.extract.i, null
-  br i1 %30, label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit, label %31
+_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i: ; preds = %.loopexit.i.i.i, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit
+  %.pre-phi.i.i = phi ptr [ %.fca.0.extract.i.i.i, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit ], [ %.sroa.0.1.i.i.i, %.loopexit.i.i.i ]
+  %.merged.i.i.i = phi { ptr, ptr } [ %15, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit ], [ %26, %.loopexit.i.i.i ]
+  %27 = extractvalue { ptr, ptr } %.merged.i.i.i, 1
+  %28 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401"(ptr noundef %.pre-phi.i.i, ptr %27, ptr noundef nonnull align 128 %7)
+  %29 = extractvalue { ptr, ptr } %28, 0
+  %30 = extractvalue { ptr, ptr } %28, 1
+  %31 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h4641df10c98eb782E.llvm.14976363794789945401"(ptr noundef %29, ptr %30, ptr noundef nonnull align 128 %7)
+  %.fca.0.extract.i = extractvalue { ptr, ptr } %31, 0
+  %32 = icmp eq ptr %.fca.0.extract.i, null
+  br i1 %32, label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit, label %33
 
-31:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
-  %.fca.1.extract.i = extractvalue { ptr, ptr } %29, 1
+33:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
+  %.fca.1.extract.i = extractvalue { ptr, ptr } %31, 1
   tail call void %.fca.0.extract.i(ptr noundef %.fca.1.extract.i)
   br label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit
 
-_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit: ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i, %31
-  %32 = zext i1 %30 to i8
+_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit: ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i, %33
+  %34 = zext i1 %32 to i8
   br label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread
 
 _ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i", %10, %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit
-  %.0 = phi i8 [ %32, %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit ], [ 2, %10 ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i" ]
+  %.0 = phi i8 [ %34, %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit ], [ 2, %10 ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i" ]
   ret i8 %.0
 }
 
@@ -571,10 +570,6 @@ _ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit: ; pr
   %16 = getelementptr inbounds i8, ptr %7, i64 312
   br label %17
 
-_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i: ; preds = %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit
-  %.fca.1.extract.i.i = extractvalue { ptr, ptr } %15, 1
-  br label %24
-
 17:                                               ; preds = %19, %.preheader.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
@@ -602,16 +597,19 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.
   %22 = getelementptr inbounds i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %24
+  %24 = insertvalue { ptr, ptr } poison, ptr %21, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %23, 1
+  br label %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i
 
-24:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i
-  %.sroa.0.0.i5.i = phi ptr [ %.fca.0.extract.i.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ %21, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ]
-  %.sroa.4.0.i4.i = phi ptr [ %.fca.1.extract.i.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ %23, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ]
-  tail call void %.sroa.0.0.i5.i(ptr noundef %.sroa.4.0.i4.i)
+_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i: ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit
+  %.merged.i5.i = phi { ptr, ptr } [ %25, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ], [ %15, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit ]
+  %.fca.0.extract.pre-phi4.i = phi ptr [ %21, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ], [ %.fca.0.extract.i.i, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit ]
+  %.fca.1.extract.i = extractvalue { ptr, ptr } %.merged.i5.i, 1
+  tail call void %.fca.0.extract.pre-phi4.i(ptr noundef %.fca.1.extract.i)
   br label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread
 
-_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread: ; preds = %24, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i", %10
-  %.0 = phi i8 [ 2, %10 ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i" ], [ 0, %24 ], [ 1, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i ]
+_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread: ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i", %10
+  %.0 = phi i8 [ 2, %10 ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i" ], [ 0, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ 1, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i ]
   ret i8 %.0
 }
 
@@ -646,75 +644,74 @@ define noundef range(i8 0, 3) i8 @_ZN10rayon_core11thread_pool9yield_now17h96d6e
   %0 = alloca { i64, [2 x i64] }, align 8
   %.0.val.i = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8, !noundef !4
   %1 = icmp eq ptr %.0.val.i, null
-  br i1 %1, label %22, label %2
+  br i1 %1, label %24, label %2
 
 2:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit"
   %3 = getelementptr inbounds i8, ptr %.0.val.i, i64 280
   %4 = tail call { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hebbe0522f95138b1E"(ptr noundef nonnull align 8 %3)
   %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %4, 0
   %.not.i.i.i = icmp eq ptr %.fca.0.extract.i.i.i, null
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %6
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
 
 .preheader.i.i.i:                                 ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.0.val.i, i64 312
-  br label %7
+  br label %6
 
-6:                                                ; preds = %2
-  %.fca.1.extract.i.i.i = extractvalue { ptr, ptr } %4, 1
-  br label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
-
-7:                                                ; preds = %14, %.preheader.i.i.i
+6:                                                ; preds = %13, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %0)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-  %8 = load i64, ptr %0, align 8, !range !20, !noundef !4
-  switch i64 %8, label %default.unreachable [
+  %7 = load i64, ptr %0, align 8, !range !20, !noundef !4
+  switch i64 %7, label %default.unreachable [
     i64 0, label %.loopexit.i.i.i
-    i64 1, label %9
-    i64 2, label %14
+    i64 1, label %8
+    i64 2, label %13
   ]
 
-default.unreachable:                              ; preds = %7
+default.unreachable:                              ; preds = %6
   unreachable
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !noundef !4
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !noundef !4
   br label %.loopexit.i.i.i
 
-14:                                               ; preds = %7
+13:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %0)
-  br label %7
+  br label %6
 
-.loopexit.i.i.i:                                  ; preds = %7, %9
-  %.sroa.4.1.i.i.i = phi ptr [ %13, %9 ], [ undef, %7 ]
-  %.sroa.0.1.i.i.i = phi ptr [ %11, %9 ], [ null, %7 ]
+.loopexit.i.i.i:                                  ; preds = %6, %8
+  %.sroa.4.1.i.i.i = phi ptr [ %12, %8 ], [ undef, %6 ]
+  %.sroa.0.1.i.i.i = phi ptr [ %10, %8 ], [ null, %6 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %0)
+  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.i.i, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.4.1.i.i.i, 1
   br label %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
 
-_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i: ; preds = %.loopexit.i.i.i, %6
-  %.sroa.4.0.i.i.i = phi ptr [ %.fca.1.extract.i.i.i, %6 ], [ %.sroa.4.1.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.fca.0.extract.i.i.i, %6 ], [ %.sroa.0.1.i.i.i, %.loopexit.i.i.i ]
-  %15 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401"(ptr noundef %.sroa.0.0.i.i.i, ptr %.sroa.4.0.i.i.i, ptr noundef nonnull align 128 %.0.val.i)
-  %16 = extractvalue { ptr, ptr } %15, 0
-  %17 = extractvalue { ptr, ptr } %15, 1
-  %18 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h4641df10c98eb782E.llvm.14976363794789945401"(ptr noundef %16, ptr %17, ptr noundef nonnull align 128 %.0.val.i)
-  %.fca.0.extract.i = extractvalue { ptr, ptr } %18, 0
-  %19 = icmp eq ptr %.fca.0.extract.i, null
-  br i1 %19, label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit, label %20
+_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i: ; preds = %.loopexit.i.i.i, %2
+  %.pre-phi.i.i = phi ptr [ %.fca.0.extract.i.i.i, %2 ], [ %.sroa.0.1.i.i.i, %.loopexit.i.i.i ]
+  %.merged.i.i.i = phi { ptr, ptr } [ %4, %2 ], [ %15, %.loopexit.i.i.i ]
+  %16 = extractvalue { ptr, ptr } %.merged.i.i.i, 1
+  %17 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401"(ptr noundef %.pre-phi.i.i, ptr %16, ptr noundef nonnull align 128 %.0.val.i)
+  %18 = extractvalue { ptr, ptr } %17, 0
+  %19 = extractvalue { ptr, ptr } %17, 1
+  %20 = tail call { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h4641df10c98eb782E.llvm.14976363794789945401"(ptr noundef %18, ptr %19, ptr noundef nonnull align 128 %.0.val.i)
+  %.fca.0.extract.i = extractvalue { ptr, ptr } %20, 0
+  %21 = icmp eq ptr %.fca.0.extract.i, null
+  br i1 %21, label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit, label %22
 
-20:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
-  %.fca.1.extract.i = extractvalue { ptr, ptr } %18, 1
+22:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i
+  %.fca.1.extract.i = extractvalue { ptr, ptr } %20, 1
   tail call void %.fca.0.extract.i(ptr noundef %.fca.1.extract.i)
   br label %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit
 
-_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit: ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i, %20
-  %21 = zext i1 %19 to i8
-  br label %22
+_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit: ; preds = %_ZN10rayon_core8registry12WorkerThread9find_work17h901465a66565fa5aE.llvm.14976363794789945401.exit.i, %22
+  %23 = zext i1 %21 to i8
+  br label %24
 
-22:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit", %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit
-  %.0 = phi i8 [ %21, %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit" ]
+24:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit", %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit
+  %.0 = phi i8 [ %23, %_ZN10rayon_core8registry12WorkerThread9yield_now17h53410ab005338db1E.exit ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit" ]
   ret i8 %.0
 }
 
@@ -736,10 +733,6 @@ define noundef range(i8 0, 3) i8 @_ZN10rayon_core11thread_pool11yield_local17h29
 .preheader.i.i:                                   ; preds = %2
   %5 = getelementptr inbounds i8, ptr %.0.val.i, i64 312
   br label %6
-
-_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i: ; preds = %2
-  %.fca.1.extract.i.i = extractvalue { ptr, ptr } %4, 1
-  br label %13
 
 6:                                                ; preds = %8, %.preheader.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %0)
@@ -768,16 +761,19 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %0)
-  br label %13
+  %13 = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %14 = insertvalue { ptr, ptr } %13, ptr %12, 1
+  br label %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i
 
-13:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i
-  %.sroa.0.0.i5.i = phi ptr [ %.fca.0.extract.i.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ %10, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ]
-  %.sroa.4.0.i4.i = phi ptr [ %.fca.1.extract.i.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ %12, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ]
-  tail call void %.sroa.0.0.i5.i(ptr noundef %.sroa.4.0.i4.i)
+_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i: ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i, %2
+  %.merged.i5.i = phi { ptr, ptr } [ %14, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ], [ %4, %2 ]
+  %.fca.0.extract.pre-phi4.i = phi ptr [ %10, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ], [ %.fca.0.extract.i.i, %2 ]
+  %.fca.1.extract.i = extractvalue { ptr, ptr } %.merged.i5.i, 1
+  tail call void %.fca.0.extract.pre-phi4.i(ptr noundef %.fca.1.extract.i)
   br label %_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit
 
-_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit: ; preds = %13, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit"
-  %.0 = phi i8 [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit" ], [ 0, %13 ], [ 1, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i ]
+_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit: ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit"
+  %.0 = phi i8 [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.exit" ], [ 0, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ 1, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i ]
   ret i8 %.0
 }
 

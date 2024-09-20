@@ -1546,16 +1546,11 @@ define { ptr, ptr } @_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE(ptr noalias no
 .sink.split:                                      ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
-  %.fca.0.extract1 = extractvalue { ptr, ptr } %4, 0
-  %.fca.1.extract3 = extractvalue { ptr, ptr } %4, 1
   br label %5
 
 5:                                                ; preds = %1, %.sink.split
-  %.sroa.4.0 = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ], [ %.fca.1.extract3, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1, %.sink.split ]
-  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %7
+  %.merged = phi { ptr, ptr } [ { ptr inttoptr (i64 1 to ptr), ptr @anon.67b65e521e72d52680c2b83e26507c19.29 }, %1 ], [ %4, %.sink.split ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1567,16 +1562,11 @@ define { ptr, ptr } @_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E(ptr noalia
 .sink.split:                                      ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-  %.fca.0.extract1 = extractvalue { ptr, ptr } %4, 0
-  %.fca.1.extract3 = extractvalue { ptr, ptr } %4, 1
   br label %5
 
 5:                                                ; preds = %1, %.sink.split
-  %.sroa.4.0 = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ], [ %.fca.1.extract3, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1, %.sink.split ]
-  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %7
+  %.merged = phi { ptr, ptr } [ { ptr inttoptr (i64 1 to ptr), ptr @anon.67b65e521e72d52680c2b83e26507c19.31 }, %1 ], [ %4, %.sink.split ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1704,16 +1694,11 @@ define { ptr, ptr } @"_ZN83_$LT$$RF$syn..data..Fields$u20$as$u20$core..iter..tra
 .sink.split.i:                                    ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
-  %.fca.0.extract1.i = extractvalue { ptr, ptr } %4, 0
-  %.fca.1.extract3.i = extractvalue { ptr, ptr } %4, 1
   br label %_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit
 
 _ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit: ; preds = %1, %.sink.split.i
-  %.sroa.4.0.i = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ], [ %.fca.1.extract3.i, %.sink.split.i ]
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1.i, %.sink.split.i ]
-  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %6
+  %.merged.i = phi { ptr, ptr } [ { ptr inttoptr (i64 1 to ptr), ptr @anon.67b65e521e72d52680c2b83e26507c19.29 }, %1 ], [ %4, %.sink.split.i ]
+  ret { ptr, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1725,16 +1710,11 @@ define { ptr, ptr } @"_ZN91_$LT$$RF$mut$u20$syn..data..Fields$u20$as$u20$core..i
 .sink.split.i:                                    ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-  %.fca.0.extract1.i = extractvalue { ptr, ptr } %4, 0
-  %.fca.1.extract3.i = extractvalue { ptr, ptr } %4, 1
   br label %_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit
 
 _ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit: ; preds = %1, %.sink.split.i
-  %.sroa.4.0.i = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ], [ %.fca.1.extract3.i, %.sink.split.i ]
-  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1.i, %.sink.split.i ]
-  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %6
+  %.merged.i = phi { ptr, ptr } [ { ptr inttoptr (i64 1 to ptr), ptr @anon.67b65e521e72d52680c2b83e26507c19.31 }, %1 ], [ %4, %.sink.split.i ]
+  ret { ptr, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable

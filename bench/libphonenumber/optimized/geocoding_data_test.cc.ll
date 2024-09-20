@@ -3114,10 +3114,10 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi2
 594:                                              ; preds = %.loopexit.i.i.i, %._crit_edge176.i
   %.pre-phi.i = phi i32 [ %.pre178.i, %._crit_edge176.i ], [ %593, %.loopexit.i.i.i ]
   %595 = phi ptr [ %.pre.i, %._crit_edge176.i ], [ %590, %.loopexit.i.i.i ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ %.sroa.0.0.i5.i.i.i.i, %._crit_edge176.i ], [ %590, %.loopexit.i.i.i ]
-  %.sroa.32.0.i.i.i.i = phi i32 [ %.sroa.8.0.i.i.i.i.i, %._crit_edge176.i ], [ %593, %.loopexit.i.i.i ]
-  %.not.i.i70 = icmp ne ptr %.sroa.01.0.i.i.i.i, %595
-  %596 = icmp ne i32 %.sroa.32.0.i.i.i.i, %.pre-phi.i
+  %.pn5.i.i.i.i = phi ptr [ %.sroa.0.0.i5.i.i.i.i, %._crit_edge176.i ], [ %590, %.loopexit.i.i.i ]
+  %.pn3.i.i.i.i = phi i32 [ %.sroa.8.0.i.i.i.i.i, %._crit_edge176.i ], [ %593, %.loopexit.i.i.i ]
+  %.not.i.i70 = icmp ne ptr %.pn5.i.i.i.i, %595
+  %596 = icmp ne i32 %.pn3.i.i.i.i, %.pre-phi.i
   %597 = select i1 %.not.i.i70, i1 true, i1 %596
   %598 = zext i1 %597 to i8
   store i8 %598, ptr %30, align 8

@@ -2951,9 +2951,12 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6d
   %649 = and i32 %648, 67108863
   %650 = add nsw i32 %649, -1
   %651 = zext i32 %650 to i64
+  %.fca.0.insert.i.i.i.i = insertvalue { ptr, i64 } poison, ptr %spec.select.i.i169.i, 0
   %.not.i.i198.i = icmp eq i64 %646, %651
-  %652 = and i64 %646, 4294967295
-  %653 = select i1 %.not.i.i198.i, i64 4294967294, i64 %652
+  %.fca.1.insert.i4.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.i, i64 4294967294, 1
+  %spec.select.i.i199.i = select i1 %.not.i.i198.i, { ptr, i64 } %.fca.1.insert.i4.i.i.i, { ptr, i64 } %645
+  %652 = extractvalue { ptr, i64 } %spec.select.i.i199.i, 1
+  %653 = and i64 %652, 4294967295
   %.not.i.i201.i = icmp eq i64 %653, 4294967294
   %654 = shl nuw nsw i64 %653, 1
   %655 = add nuw nsw i64 %654, 3

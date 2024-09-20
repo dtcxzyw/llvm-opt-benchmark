@@ -1236,19 +1236,21 @@ default.unreachable:                              ; preds = %1
   %11 = tail call { ptr, i64 } @_ZN3std4path4Path9file_name17h487e452ab7aa83f9E(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i), !noalias !267
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = icmp eq ptr %12, null
-  %14 = extractvalue { ptr, i64 } %11, 1
-  %.sroa.3.0.i.i = select i1 %13, i64 %.val1.i, i64 %14
-  %.sroa.0.0.i.i = select i1 %13, ptr %.val.i, ptr %12
+  %14 = insertvalue { ptr, i64 } poison, ptr %.val.i, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %.val1.i, 1
+  %.merged.i.i = select i1 %13, { ptr, i64 } %15, { ptr, i64 } %11
+  %16 = extractvalue { ptr, i64 } %.merged.i.i, 0
+  %17 = extractvalue { ptr, i64 } %.merged.i.i, 1
   br label %_ZN6ignore4walk13DirEntryInner9file_name17h9a5d5f63fedfc773E.exit
 
 _ZN6ignore4walk13DirEntryInner9file_name17h9a5d5f63fedfc773E.exit: ; preds = %1, %3, %8
-  %.sroa.4.0.i = phi i64 [ %.sroa.3.0.i.i, %8 ], [ %7, %3 ], [ 7, %1 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.i.i, %8 ], [ %6, %3 ], [ @anon.39d39965bcce7f92a968b1dffe3af095.41.llvm.10116246441495270677, %1 ]
-  %15 = icmp ne ptr %.sroa.0.0.i, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.4.0.i, 1
-  ret { ptr, i64 } %17
+  %.sroa.4.0.i = phi i64 [ %17, %8 ], [ %7, %3 ], [ 7, %1 ]
+  %.sroa.0.0.i = phi ptr [ %16, %8 ], [ %6, %3 ], [ @anon.39d39965bcce7f92a968b1dffe3af095.41.llvm.10116246441495270677, %1 ]
+  %18 = icmp ne ptr %.sroa.0.0.i, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.4.0.i, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

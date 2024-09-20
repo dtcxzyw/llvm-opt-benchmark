@@ -1452,97 +1452,89 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %9, %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %13 = load ptr, ptr %6, align 8
   invoke void @_ZN3gmx22SelectionOptionManager4Impl25placeSelectionsInRequestsERKSt6vectorINS_9SelectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %34 unwind label %18
+          to label %32 unwind label %16
 
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = extractvalue { ptr, i32 } %15, 1
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
-  br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14
+  br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit15
 
-18:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+  %17 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = extractvalue { ptr, i32 } %19, 1
-  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx16GromacsExceptionE) #18
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %37
+  %18 = extractvalue { ptr, i32 } %17, 1
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx16GromacsExceptionE) #18
+  %20 = icmp eq i32 %18, %19
+  br i1 %20, label %21, label %35
 
-24:                                               ; preds = %18
-  %25 = call ptr @__cxa_begin_catch(ptr %20) #18
-  %26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.8, ptr noundef %26)
-          to label %27 unwind label %29
+21:                                               ; preds = %16
+  %22 = extractvalue { ptr, i32 } %17, 0
+  %23 = call ptr @__cxa_begin_catch(ptr %22) #18
+  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.8, ptr noundef %24)
+          to label %25 unwind label %27
 
-27:                                               ; preds = %24
-  invoke void @_ZN3gmx16GromacsException14prependContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %28 unwind label %31
+25:                                               ; preds = %21
+  invoke void @_ZN3gmx16GromacsException14prependContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %26 unwind label %29
 
-28:                                               ; preds = %27
+26:                                               ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   invoke void @__cxa_rethrow() #20
-          to label %45 unwind label %29
+          to label %41 unwind label %27
 
-29:                                               ; preds = %28, %24
+27:                                               ; preds = %26, %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  br label %31
+
+29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %33
-
-31:                                               ; preds = %27
-  %32 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  br label %33
+  br label %31
 
-33:                                               ; preds = %31, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
-  %.2 = extractvalue { ptr, i32 } %.pn, 0
-  %.29 = extractvalue { ptr, i32 } %.pn, 1
+31:                                               ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   invoke void @__cxa_end_catch()
-          to label %37 unwind label %42
+          to label %35 unwind label %38
 
-34:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %35 = load ptr, ptr %3, align 8
-  %.not.i.i.i12 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i12, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit, label %36
+32:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+  %33 = load ptr, ptr %3, align 8
+  %.not.i.i.i13 = icmp eq ptr %33, null
+  br i1 %.not.i.i.i13, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit, label %34
 
-36:                                               ; preds = %34
-  call void @_ZdlPv(ptr noundef nonnull %35) #19
+34:                                               ; preds = %32
+  call void @_ZdlPv(ptr noundef nonnull %33) #19
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %34, %36
+_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %32, %34
   ret void
 
-37:                                               ; preds = %33, %18
-  %.18 = phi i32 [ %.29, %33 ], [ %21, %18 ]
-  %.1 = phi ptr [ %.2, %33 ], [ %20, %18 ]
-  %38 = load ptr, ptr %3, align 8
-  %.not.i.i.i13 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i13, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14, label %39
+35:                                               ; preds = %31, %16
+  %.merged12 = phi { ptr, i32 } [ %.pn, %31 ], [ %17, %16 ]
+  %36 = load ptr, ptr %3, align 8
+  %.not.i.i.i14 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit15, label %37
 
-39:                                               ; preds = %37
-  call void @_ZdlPv(ptr noundef nonnull %38) #19
-  br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14
+37:                                               ; preds = %35
+  call void @_ZdlPv(ptr noundef nonnull %36) #19
+  br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit15
 
-_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14: ; preds = %39, %37, %14
-  %.07 = phi i32 [ %17, %14 ], [ %.18, %37 ], [ %.18, %39 ]
-  %.0 = phi ptr [ %16, %14 ], [ %.1, %37 ], [ %.1, %39 ]
-  %40 = insertvalue { ptr, i32 } poison, ptr %.0, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %.07, 1
-  resume { ptr, i32 } %41
+_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit15: ; preds = %37, %35, %14
+  %.merged = phi { ptr, i32 } [ %15, %14 ], [ %.merged12, %35 ], [ %.merged12, %37 ]
+  resume { ptr, i32 } %.merged
 
-42:                                               ; preds = %33
-  %43 = landingpad { ptr, i32 }
+38:                                               ; preds = %31
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #22
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
-45:                                               ; preds = %28
+41:                                               ; preds = %26
   unreachable
 }
 

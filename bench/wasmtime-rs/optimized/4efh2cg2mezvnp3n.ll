@@ -1106,24 +1106,31 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i: ; preds = %240, %.
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hbfffe0a462324f65E"(ptr noundef nonnull align 8 %0, i128 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   switch i128 %1, label %3 [
-    i128 -54725041379456136744266246918678833694, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
-    i128 1321375238606253647825657805455458885, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
-    i128 -126699910044459607814569778676284200562, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
+    i128 -54725041379456136744266246918678833694, label %10
+    i128 1321375238606253647825657805455458885, label %8
+    i128 -126699910044459607814569778676284200562, label %6
   ]
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 736
   %5 = tail call { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E"(ptr noundef nonnull align 8 %4, i128 noundef %1), !noalias !140
-  %6 = extractvalue { i64, ptr } %5, 0
-  %7 = extractvalue { i64, ptr } %5, 1
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit": ; preds = %3, %2, %2, %2
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %6, %3 ], [ 1, %2 ], [ 1, %2 ]
-  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %7, %3 ], [ %0, %2 ], [ %0, %2 ]
-  %8 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, ptr } %8, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %9
+6:                                                ; preds = %2
+  %7 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
+
+8:                                                ; preds = %2
+  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
+
+10:                                               ; preds = %2
+  %11 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit"
+
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hdf59a9be4caa1299E.exit": ; preds = %8, %6, %3, %10
+  %.merged = phi { i64, ptr } [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %3 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

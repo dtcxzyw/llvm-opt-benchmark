@@ -82110,7 +82110,7 @@ define internal fastcc void @_ZN3tev12tryLoadImageEiNSt3__14__fs10filesystem4pat
   %62 = getelementptr inbounds i8, ptr %0, i64 16
   %63 = getelementptr inbounds i8, ptr %0, i64 848
   %64 = load i2, ptr %63, align 16
-  switch i2 %64, label %724 [
+  switch i2 %64, label %722 [
     i2 0, label %65
     i2 1, label %230
     i2 -2, label %292
@@ -82240,7 +82240,7 @@ _ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000E
 110:                                              ; preds = %109
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt16invalid_argument, i64 16), ptr %106, align 8
   invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #34
-          to label %723 unwind label %.critedge68
+          to label %721 unwind label %.critedge68
 
 .critedge:                                        ; preds = %105
   %111 = landingpad { ptr, i32 }
@@ -83621,7 +83621,7 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
 
 609:                                              ; preds = %.critedge66
   invoke void @__cxa_throw(ptr nonnull %608, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #34
-          to label %723 unwind label %614
+          to label %721 unwind label %614
 
 610:                                              ; preds = %.critedge66
   %611 = landingpad { ptr, i32 }
@@ -83780,7 +83780,7 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
   %666 = extractvalue { ptr, i32 } %.sink181, 1
   store i32 %666, ptr %19, align 4
   invoke void @__cxa_end_catch()
-          to label %671 unwind label %720
+          to label %671 unwind label %718
 
 667:                                              ; preds = %628
   %668 = landingpad { ptr, i32 }
@@ -83803,7 +83803,7 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
 
 674:                                              ; preds = %671
   invoke void @__cxa_end_catch()
-          to label %675 unwind label %700
+          to label %675 unwind label %702
 
 675:                                              ; preds = %_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev.exit, %_ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit, %629, %674
   %676 = getelementptr inbounds i8, ptr %0, i64 24
@@ -83848,7 +83848,7 @@ _ZN3tev5Latch9countDownEv.exit.i137:              ; preds = %675
 
 _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread: ; preds = %_ZN3tev5Latch9countDownEv.exit.i137
   store ptr null, ptr %61, align 16
-  br label %704
+  br label %706
 
 _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit: ; preds = %_ZN3tev5Latch9countDownEv.exit.thread.i, %_ZN3tev5Latch9countDownEv.exit.i137
   %691 = load ptr, ptr %676, align 8
@@ -83856,7 +83856,7 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
   %693 = inttoptr i64 %692 to ptr
   store ptr %693, ptr %61, align 16
   %.not.i140 = icmp eq i64 %692, 0
-  br i1 %.not.i140, label %704, label %694
+  br i1 %.not.i140, label %706, label %694
 
 694:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
   store ptr null, ptr %0, align 16
@@ -83873,43 +83873,45 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
   %699 = extractvalue { ptr, i32 } %697, 1
   store i32 %699, ptr %19, align 4
   invoke void @__cxa_end_catch()
-          to label %._crit_edge164 unwind label %720
+          to label %._crit_edge164 unwind label %718
 
 ._crit_edge164:                                   ; preds = %696
   %.pre165 = load ptr, ptr %18, align 16
   %.pre166 = load i32, ptr %19, align 4
-  br label %715
+  %700 = insertvalue { ptr, i32 } poison, ptr %.pre165, 0
+  %701 = insertvalue { ptr, i32 } %700, i32 %.pre166, 1
+  br label %717
 
-700:                                              ; preds = %674
-  %701 = landingpad { ptr, i32 }
+702:                                              ; preds = %674
+  %703 = landingpad { ptr, i32 }
           cleanup
-  %702 = extractvalue { ptr, i32 } %701, 0
-  store ptr %702, ptr %18, align 16
-  %703 = extractvalue { ptr, i32 } %701, 1
-  store i32 %703, ptr %19, align 4
-  br label %715
+  %704 = extractvalue { ptr, i32 } %703, 0
+  store ptr %704, ptr %18, align 16
+  %705 = extractvalue { ptr, i32 } %703, 1
+  store i32 %705, ptr %19, align 4
+  br label %717
 
-704:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
-  %705 = getelementptr inbounds i8, ptr %0, i64 32
-  %706 = load ptr, ptr %705, align 16
-  %.not.i.i141 = icmp eq ptr %706, null
-  br i1 %.not.i.i141, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit, label %707
+706:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
+  %707 = getelementptr inbounds i8, ptr %0, i64 32
+  %708 = load ptr, ptr %707, align 16
+  %.not.i.i141 = icmp eq ptr %708, null
+  br i1 %.not.i.i141, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit, label %709
 
-707:                                              ; preds = %704
-  %708 = getelementptr inbounds i8, ptr %706, i64 8
-  %709 = atomicrmw add ptr %708, i64 -1 acq_rel, align 8
-  %710 = icmp eq i64 %709, 0
-  br i1 %710, label %711, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
+709:                                              ; preds = %706
+  %710 = getelementptr inbounds i8, ptr %708, i64 8
+  %711 = atomicrmw add ptr %710, i64 -1 acq_rel, align 8
+  %712 = icmp eq i64 %711, 0
+  br i1 %712, label %713, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
 
-711:                                              ; preds = %707
-  %712 = load ptr, ptr %706, align 8
-  %713 = getelementptr inbounds i8, ptr %712, i64 16
-  %714 = load ptr, ptr %713, align 8
-  call void %714(ptr noundef nonnull align 8 dereferenceable(16) %706) #29
-  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %706) #29
+713:                                              ; preds = %709
+  %714 = load ptr, ptr %708, align 8
+  %715 = getelementptr inbounds i8, ptr %714, i64 16
+  %716 = load ptr, ptr %715, align 8
+  call void %716(ptr noundef nonnull align 8 dereferenceable(16) %708) #29
+  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %708) #29
   br label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
 
-_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit: ; preds = %704, %707, %711
+_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit: ; preds = %706, %709, %713
   call void @_ZNSt3__17promiseINS_6vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #29
@@ -83919,26 +83921,23 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
 .critedge60:                                      ; preds = %_ZN3tev4TaskIvE11await_readyEv.exit, %_ZN3tev4TaskINSt3__16vectorINS_9ImageDataENS1_9allocatorIS3_EEEEE11await_readyEv.exit, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
   ret void
 
-715:                                              ; preds = %._crit_edge164, %700
-  %716 = phi i32 [ %.pre166, %._crit_edge164 ], [ %703, %700 ]
-  %717 = phi ptr [ %.pre165, %._crit_edge164 ], [ %702, %700 ]
+717:                                              ; preds = %._crit_edge164, %702
+  %.merged = phi { ptr, i32 } [ %701, %._crit_edge164 ], [ %703, %702 ]
   store ptr null, ptr %0, align 16
   store i2 -1, ptr %63, align 16
-  %718 = insertvalue { ptr, i32 } poison, ptr %717, 0
-  %719 = insertvalue { ptr, i32 } %718, i32 %716, 1
-  resume { ptr, i32 } %719
+  resume { ptr, i32 } %.merged
 
-720:                                              ; preds = %.invoke, %696
-  %721 = landingpad { ptr, i32 }
+718:                                              ; preds = %.invoke, %696
+  %719 = landingpad { ptr, i32 }
           catch ptr null
-  %722 = extractvalue { ptr, i32 } %721, 0
-  call void @__clang_call_terminate(ptr %722) #33
+  %720 = extractvalue { ptr, i32 } %719, 0
+  call void @__clang_call_terminate(ptr %720) #33
   unreachable
 
-723:                                              ; preds = %609, %110
+721:                                              ; preds = %609, %110
   unreachable
 
-724:                                              ; preds = %1
+722:                                              ; preds = %1
   unreachable
 }
 
@@ -84861,7 +84860,7 @@ _ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000E
 
 149:                                              ; preds = %146
   invoke void @__cxa_end_catch()
-          to label %150 unwind label %175
+          to label %150 unwind label %177
 
 150:                                              ; preds = %_ZNSt3__16vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS4_EEED2B8ne190000Ev.exit, %149
   %151 = getelementptr inbounds i8, ptr %0, i64 24
@@ -84906,7 +84905,7 @@ _ZN3tev5Latch9countDownEv.exit.i2:                ; preds = %150
 
 _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread: ; preds = %_ZN3tev5Latch9countDownEv.exit.i2
   store ptr null, ptr %15, align 8
-  br label %179
+  br label %181
 
 _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit: ; preds = %_ZN3tev5Latch9countDownEv.exit.thread.i, %_ZN3tev5Latch9countDownEv.exit.i2
   %166 = load ptr, ptr %151, align 8
@@ -84914,7 +84913,7 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
   %168 = inttoptr i64 %167 to ptr
   store ptr %168, ptr %15, align 8
   %.not.i5 = icmp eq i64 %167, 0
-  br i1 %.not.i5, label %179, label %169
+  br i1 %.not.i5, label %181, label %169
 
 169:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
   store ptr null, ptr %0, align 8
@@ -84931,43 +84930,45 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
   %174 = extractvalue { ptr, i32 } %172, 1
   store i32 %174, ptr %9, align 4
   invoke void @__cxa_end_catch()
-          to label %._crit_edge unwind label %195
+          to label %._crit_edge unwind label %193
 
 ._crit_edge:                                      ; preds = %171
   %.pre10 = load ptr, ptr %8, align 8
   %.pre11 = load i32, ptr %9, align 4
-  br label %190
+  %175 = insertvalue { ptr, i32 } poison, ptr %.pre10, 0
+  %176 = insertvalue { ptr, i32 } %175, i32 %.pre11, 1
+  br label %192
 
-175:                                              ; preds = %149
-  %176 = landingpad { ptr, i32 }
+177:                                              ; preds = %149
+  %178 = landingpad { ptr, i32 }
           cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %8, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %9, align 4
-  br label %190
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %8, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %9, align 4
+  br label %192
 
-179:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
-  %180 = getelementptr inbounds i8, ptr %0, i64 32
-  %181 = load ptr, ptr %180, align 8
-  %.not.i.i6 = icmp eq ptr %181, null
-  br i1 %.not.i.i6, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit, label %182
+181:                                              ; preds = %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit.thread, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_E13final_suspendEv.exit
+  %182 = getelementptr inbounds i8, ptr %0, i64 32
+  %183 = load ptr, ptr %182, align 8
+  %.not.i.i6 = icmp eq ptr %183, null
+  br i1 %.not.i.i6, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit, label %184
 
-182:                                              ; preds = %179
-  %183 = getelementptr inbounds i8, ptr %181, i64 8
-  %184 = atomicrmw add ptr %183, i64 -1 acq_rel, align 8
-  %185 = icmp eq i64 %184, 0
-  br i1 %185, label %186, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %183, i64 8
+  %186 = atomicrmw add ptr %185, i64 -1 acq_rel, align 8
+  %187 = icmp eq i64 %186, 0
+  br i1 %187, label %188, label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr %181, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 16
-  %189 = load ptr, ptr %188, align 8
-  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %181) #29
-  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %181) #29
+188:                                              ; preds = %184
+  %189 = load ptr, ptr %183, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 16
+  %191 = load ptr, ptr %190, align 8
+  call void %191(ptr noundef nonnull align 8 dereferenceable(16) %183) #29
+  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %183) #29
   br label %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
 
-_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit: ; preds = %179, %182, %186
+_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit: ; preds = %181, %184, %188
   call void @_ZNSt3__17promiseINS_6vectorINS_10shared_ptrIN3tev5ImageEEENS_9allocatorIS5_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
@@ -84977,20 +84978,17 @@ _ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9a
 .critedge:                                        ; preds = %_ZN3tev4TaskINSt3__16vectorINS1_10shared_ptrINS_5ImageEEENS1_9allocatorIS5_EEEEE11await_readyEv.exit, %_ZN3tev11TaskPromiseINS_4TaskINSt3__16vectorINS2_10shared_ptrINS_5ImageEEENS2_9allocatorIS6_EEEEEES9_ED2Ev.exit
   ret void
 
-190:                                              ; preds = %._crit_edge, %175
-  %191 = phi i32 [ %.pre11, %._crit_edge ], [ %178, %175 ]
-  %192 = phi ptr [ %.pre10, %._crit_edge ], [ %177, %175 ]
+192:                                              ; preds = %._crit_edge, %177
+  %.merged = phi { ptr, i32 } [ %176, %._crit_edge ], [ %178, %177 ]
   store ptr null, ptr %0, align 8
   store i2 -2, ptr %17, align 8
-  %193 = insertvalue { ptr, i32 } poison, ptr %192, 0
-  %194 = insertvalue { ptr, i32 } %193, i32 %191, 1
-  resume { ptr, i32 } %194
+  resume { ptr, i32 } %.merged
 
-195:                                              ; preds = %171
-  %196 = landingpad { ptr, i32 }
+193:                                              ; preds = %171
+  %194 = landingpad { ptr, i32 }
           catch ptr null
-  %197 = extractvalue { ptr, i32 } %196, 0
-  call void @__clang_call_terminate(ptr %197) #33
+  %195 = extractvalue { ptr, i32 } %194, 0
+  call void @__clang_call_terminate(ptr %195) #33
   unreachable
 }
 

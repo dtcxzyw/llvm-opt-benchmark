@@ -4474,6 +4474,8 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  %20 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i, 0
+  %21 = insertvalue { <2 x float>, <2 x float> } %20, <2 x float> %.fca.1.load.i, 1
   br label %return
 
 if.then32:                                        ; preds = %if.then
@@ -4489,33 +4491,33 @@ if.then32:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i20, i8 0, i64 16, i1 false)
   %c2.i.i21 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
-  %20 = load float, ptr %c2.i.i21, align 4
+  %22 = load float, ptr %c2.i.i21, align 4
   %c1.i.i22 = getelementptr inbounds i8, ptr %ref.tmp33, i64 4
-  %21 = load float, ptr %c1.i.i22, align 4
-  %22 = load float, ptr %ref.tmp33, align 4
+  %23 = load float, ptr %c1.i.i22, align 4
+  %24 = load float, ptr %ref.tmp33, align 4
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33, %if.then32
   %indvars.iv.i24 = phi i64 [ 0, %if.then32 ], [ %indvars.iv.next.i36, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33 ]
   %arrayidx.i.i.i25 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i24
-  %23 = load float, ptr %arrayidx.i.i.i25, align 4
-  %24 = call noundef float @llvm.fma.f32(float %23, float %22, float %21)
-  %25 = call noundef float @llvm.fma.f32(float %23, float %24, float %20)
-  %26 = call float @llvm.fabs.f32(float %25)
-  %27 = fcmp oeq float %26, 0x7FF0000000000000
-  br i1 %27, label %if.then.i.i.i43, label %if.end.i.i.i26
+  %25 = load float, ptr %arrayidx.i.i.i25, align 4
+  %26 = call noundef float @llvm.fma.f32(float %25, float %24, float %23)
+  %27 = call noundef float @llvm.fma.f32(float %25, float %26, float %22)
+  %28 = call float @llvm.fabs.f32(float %27)
+  %29 = fcmp oeq float %28, 0x7FF0000000000000
+  br i1 %29, label %if.then.i.i.i43, label %if.end.i.i.i26
 
 if.then.i.i.i43:                                  ; preds = %for.body.i23
-  %cmp.i.i.i44 = fcmp ogt float %25, 0.000000e+00
+  %cmp.i.i.i44 = fcmp ogt float %27, 0.000000e+00
   %conv.i.i.i45 = uitofp i1 %cmp.i.i.i44 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33
 
 if.end.i.i.i26:                                   ; preds = %for.body.i23
-  %mul.i.i.i.i27 = fmul float %25, %25
+  %mul.i.i.i.i27 = fmul float %27, %27
   %add.i.i.i28 = fadd float %mul.i.i.i.i27, 1.000000e+00
   %sqrt.i.i.i29 = call float @llvm.sqrt.f32(float %add.i.i.i28)
   %mul.i.i.i30 = fmul float %sqrt.i.i.i29, 2.000000e+00
-  %div.i.i.i31 = fdiv float %25, %mul.i.i.i30
+  %div.i.i.i31 = fdiv float %27, %mul.i.i.i30
   %add3.i.i.i32 = fadd float %div.i.i.i31, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33
 
@@ -4532,13 +4534,13 @@ _ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %
   %.fca.1.gep.i40 = getelementptr inbounds i8, ptr %retval.i20, i64 8
   %.fca.1.load.i41 = load <2 x float>, ptr %.fca.1.gep.i40, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i20)
+  %30 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i38, 0
+  %31 = insertvalue { <2 x float>, <2 x float> } %30, <2 x float> %.fca.1.load.i41, 1
   br label %return
 
 if.else41:                                        ; preds = %if.then
   call void @_ZN4pbrt21RGBIlluminantSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(152) %9, <2 x float> %retval.sroa.0.4.vec.insert.i, float %.sroa.speculated.i)
   %call44 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  %28 = extractvalue { <2 x float>, <2 x float> } %call44, 0
-  %29 = extractvalue { <2 x float>, <2 x float> } %call44, 1
   br label %return
 
 do.end:                                           ; preds = %entry
@@ -4557,14 +4559,13 @@ return.loopexit:                                  ; preds = %for.body.i.i
   %.fca.0.load.pre = load <2 x float>, ptr %retval, align 8
   %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load <2 x float>, ptr %.fca.1.gep.phi.trans.insert, align 8
+  %32 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.pre, 0
+  %33 = insertvalue { <2 x float>, <2 x float> } %32, <2 x float> %.fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.else41, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit
-  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %29, %if.else41 ], [ %.fca.1.load.i41, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %28, %if.else41 ], [ %.fca.0.load.i38, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %33, %return.loopexit ], [ %call44, %if.else41 ], [ %31, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %21, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 declare { <2 x float>, float } @_ZNK4pbrt6MIPMap6FilterINS_3RGBEEET_NS_6Point2IfEENS_7Vector2IfEES7_(ptr noundef nonnull align 8 dereferenceable(52), <2 x float>, <2 x float>, <2 x float>) local_unnamed_addr #2
@@ -8254,6 +8255,8 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  %14 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i, 0
+  %15 = insertvalue { <2 x float>, <2 x float> } %14, <2 x float> %.fca.1.load.i, 1
   br label %return
 
 if.then12:                                        ; preds = %do.end
@@ -8275,33 +8278,33 @@ if.then12:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i3, i8 0, i64 16, i1 false)
   %c2.i.i4 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
-  %14 = load float, ptr %c2.i.i4, align 4
+  %16 = load float, ptr %c2.i.i4, align 4
   %c1.i.i5 = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
-  %15 = load float, ptr %c1.i.i5, align 4
-  %16 = load float, ptr %ref.tmp13, align 4
+  %17 = load float, ptr %c1.i.i5, align 4
+  %18 = load float, ptr %ref.tmp13, align 4
   br label %for.body.i6
 
 for.body.i6:                                      ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16, %if.then12
   %indvars.iv.i7 = phi i64 [ 0, %if.then12 ], [ %indvars.iv.next.i19, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16 ]
   %arrayidx.i.i.i8 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i7
-  %17 = load float, ptr %arrayidx.i.i.i8, align 4
-  %18 = call noundef float @llvm.fma.f32(float %17, float %16, float %15)
-  %19 = call noundef float @llvm.fma.f32(float %17, float %18, float %14)
-  %20 = call float @llvm.fabs.f32(float %19)
-  %21 = fcmp oeq float %20, 0x7FF0000000000000
-  br i1 %21, label %if.then.i.i.i26, label %if.end.i.i.i9
+  %19 = load float, ptr %arrayidx.i.i.i8, align 4
+  %20 = call noundef float @llvm.fma.f32(float %19, float %18, float %17)
+  %21 = call noundef float @llvm.fma.f32(float %19, float %20, float %16)
+  %22 = call float @llvm.fabs.f32(float %21)
+  %23 = fcmp oeq float %22, 0x7FF0000000000000
+  br i1 %23, label %if.then.i.i.i26, label %if.end.i.i.i9
 
 if.then.i.i.i26:                                  ; preds = %for.body.i6
-  %cmp.i.i.i27 = fcmp ogt float %19, 0.000000e+00
+  %cmp.i.i.i27 = fcmp ogt float %21, 0.000000e+00
   %conv.i.i.i28 = uitofp i1 %cmp.i.i.i27 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16
 
 if.end.i.i.i9:                                    ; preds = %for.body.i6
-  %mul.i.i.i.i10 = fmul float %19, %19
+  %mul.i.i.i.i10 = fmul float %21, %21
   %add.i.i.i11 = fadd float %mul.i.i.i.i10, 1.000000e+00
   %sqrt.i.i.i12 = call float @llvm.sqrt.f32(float %add.i.i.i11)
   %mul.i.i.i13 = fmul float %sqrt.i.i.i12, 2.000000e+00
-  %div.i.i.i14 = fdiv float %19, %mul.i.i.i13
+  %div.i.i.i14 = fdiv float %21, %mul.i.i.i13
   %add3.i.i.i15 = fadd float %div.i.i.i14, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16
 
@@ -8318,27 +8321,26 @@ _ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %
   %.fca.1.gep.i23 = getelementptr inbounds i8, ptr %retval.i3, i64 8
   %.fca.1.load.i24 = load <2 x float>, ptr %.fca.1.gep.i23, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i3)
+  %24 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i21, 0
+  %25 = insertvalue { <2 x float>, <2 x float> } %24, <2 x float> %.fca.1.load.i24, 1
   br label %return
 
 if.else20:                                        ; preds = %do.end
   call void @_ZN4pbrt21RGBIlluminantSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(152) %4, <2 x float> %rgb.sroa.0.4.vec.insert, float %2)
   %call23 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  %22 = extractvalue { <2 x float>, <2 x float> } %call23, 0
-  %23 = extractvalue { <2 x float>, <2 x float> } %call23, 1
   br label %return
 
 return.loopexit:                                  ; preds = %for.body.i.i
   %.fca.0.load.pre = load <2 x float>, ptr %retval, align 8
   %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load <2 x float>, ptr %.fca.1.gep.phi.trans.insert, align 8
+  %26 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.pre, 0
+  %27 = insertvalue { <2 x float>, <2 x float> } %26, <2 x float> %.fca.1.load.pre, 1
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.else20, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit
-  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %23, %if.else20 ], [ %.fca.1.load.i24, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %22, %if.else20 ], [ %.fca.0.load.i21, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %27, %return.loopexit ], [ %call23, %if.else20 ], [ %25, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %15, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

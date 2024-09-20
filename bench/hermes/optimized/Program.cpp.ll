@@ -1540,15 +1540,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %retval.sroa.44.0.copyload = load ptr, ptr %_M_cat.i, align 8
+  %1 = insertvalue { i32, ptr } poison, i32 %0, 0
   br label %cleanup
 
 if.end:                                           ; preds = %entry
   %OutBufEnd.i = getelementptr inbounds i8, ptr %OS, i64 16
-  %1 = load ptr, ptr %OutBufEnd.i, align 8
+  %2 = load ptr, ptr %OutBufEnd.i, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %OS, i64 24
-  %2 = load ptr, ptr %OutBufCur.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
+  %3 = load ptr, ptr %OutBufCur.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i7 = icmp ugt i64 %Contents.coerce1, %sub.ptr.sub.i
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
@@ -1562,16 +1563,16 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %Contents.coerce0, i64 %Contents.coerce1, i1 false)
-  %3 = load ptr, ptr %OutBufCur.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %Contents.coerce1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %Contents.coerce0, i64 %Contents.coerce1, i1 false)
+  %4 = load ptr, ptr %OutBufCur.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %Contents.coerce1
   store ptr %add.ptr.i, ptr %OutBufCur.i, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.i, %if.then4.i
   %EC.i = getelementptr inbounds i8, ptr %OS, i64 48
-  %4 = load i32, ptr %EC.i, align 8
-  %cmp.i.i.not = icmp eq i32 %4, 0
+  %5 = load i32, ptr %EC.i, align 8
+  %cmp.i.i.not = icmp eq i32 %5, 0
   br i1 %cmp.i.i.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -1581,15 +1582,15 @@ if.then4:                                         ; preds = %_ZN4llvh11raw_ostre
 if.end6:                                          ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %retval.sroa.0.0.copyload1 = load i32, ptr %EC, align 8
   %retval.sroa.44.0.copyload6 = load ptr, ptr %_M_cat.i, align 8
+  %6 = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0.copyload1, 0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end6, %if.then4, %if.then
-  %retval.sroa.0.0 = phi i32 [ %0, %if.then ], [ 5, %if.then4 ], [ %retval.sroa.0.0.copyload1, %if.end6 ]
-  %retval.sroa.44.0 = phi ptr [ %retval.sroa.44.0.copyload, %if.then ], [ %call.i8, %if.then4 ], [ %retval.sroa.44.0.copyload6, %if.end6 ]
+  %.pn = phi { i32, ptr } [ %1, %if.then ], [ { i32 5, ptr poison }, %if.then4 ], [ %6, %if.end6 ]
+  %retval.sroa.44.0.copyload.pn = phi ptr [ %retval.sroa.44.0.copyload, %if.then ], [ %call.i8, %if.then4 ], [ %retval.sroa.44.0.copyload6, %if.end6 ]
+  %.fca.1.insert.merged = insertvalue { i32, ptr } %.pn, ptr %retval.sroa.44.0.copyload.pn, 1
   call void @_ZN4llvh14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %OS) #21
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.44.0, 1
-  ret { i32, ptr } %.fca.1.insert
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 declare void @_ZN4llvh14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72), ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #5

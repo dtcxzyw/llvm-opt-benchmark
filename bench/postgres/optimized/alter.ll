@@ -640,25 +640,24 @@ define dso_local { i64, i32 } @ExecAlterObjectDependsStmt(ptr nocapture noundef 
 
 34:                                               ; preds = %30
   %35 = call i64 @deleteDependencyRecordsForSpecific(i32 noundef %18, i32 noundef %20, i8 noundef signext 120, i32 noundef %28, i32 noundef %27) #7
-  br label %40
+  br label %42
 
 36:                                               ; preds = %30
   %37 = call ptr @getAutoExtensionsOfObject(i32 noundef %18, i32 noundef %20) #7
   %38 = call zeroext i1 @list_member_oid(ptr noundef %37, i32 noundef %27) #7
-  br i1 %38, label %40, label %39
+  br i1 %38, label %42, label %39
 
 39:                                               ; preds = %36
   call void @recordDependencyOn(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 120) #7
   %.sroa.0.0.copyload.pre = load i64, ptr %3, align 8
   %.sroa.2.0.copyload.pre = load i32, ptr %.sroa.212.0..sroa_idx, align 8
-  br label %40
+  %40 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.pre, 0
+  %41 = insertvalue { i64, i32 } %40, i32 %.sroa.2.0.copyload.pre, 1
+  br label %42
 
-40:                                               ; preds = %36, %39, %34
-  %.sroa.2.0.copyload = phi i32 [ %.fca.1.extract8, %36 ], [ %.sroa.2.0.copyload.pre, %39 ], [ %.fca.1.extract8, %34 ]
-  %.sroa.0.0.copyload = phi i64 [ %.fca.0.extract7, %36 ], [ %.sroa.0.0.copyload.pre, %39 ], [ %.fca.0.extract7, %34 ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload, 1
-  ret { i64, i32 } %.fca.1.insert
+42:                                               ; preds = %36, %39, %34
+  %.fca.1.insert.merged = phi { i64, i32 } [ %12, %36 ], [ %41, %39 ], [ %12, %34 ]
+  ret { i64, i32 } %.fca.1.insert.merged
 }
 
 declare { i64, i32 } @get_object_address_rv(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1

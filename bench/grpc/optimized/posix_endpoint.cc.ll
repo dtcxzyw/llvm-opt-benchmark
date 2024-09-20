@@ -1736,23 +1736,24 @@ cond.true.i:                                      ; preds = %invoke.cont28
   %16 = inttoptr i64 %sub.i.i to ptr
   %message.i = getelementptr inbounds i8, ptr %16, i64 8
   %call4.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #29
-  %17 = extractvalue { i64, ptr } %call4.i, 0
-  %18 = extractvalue { i64, ptr } %call4.i, 1
   br label %invoke.cont33
 
 cond.false.i:                                     ; preds = %invoke.cont28
-  %19 = and i64 %11, 2
-  %.not.i = icmp eq i64 %19, 0
+  %17 = and i64 %11, 2
+  %.not.i = icmp eq i64 %17, 0
   %spec.select.i = select i1 %.not.i, i64 0, i64 27
   %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202308026Status16kMovedFromStringE
+  %18 = insertvalue { i64, ptr } poison, i64 %spec.select.i, 0
+  %19 = insertvalue { i64, ptr } %18, ptr %spec.select1.i, 1
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %cond.false.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %17, %cond.true.i ], [ %spec.select.i, %cond.false.i ]
-  %retval.sroa.4.0.i = phi ptr [ %18, %cond.true.i ], [ %spec.select1.i, %cond.false.i ]
-  store i64 %retval.sroa.0.0.i, ptr %ref.tmp29, align 8
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %call4.i, %cond.true.i ], [ %19, %cond.false.i ]
+  %20 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
+  %21 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
+  store i64 %20, ptr %ref.tmp29, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
-  store ptr %retval.sroa.4.0.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
+  store ptr %21, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29)
           to label %invoke.cont36 unwind label %lpad
 
@@ -1762,7 +1763,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
           to label %if.end40 unwind label %lpad38
 
 lpad38:                                           ; preds = %invoke.cont36
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #29
   br label %ehcleanup
@@ -1779,17 +1780,17 @@ if.then.i.i3.i.i:                                 ; preds = %if.end40
           to label %return unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #30
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #30
   unreachable
 
 return:                                           ; preds = %if.end40.thread, %if.then.i.i3.i.i, %if.end40, %_ZSt3minIiET_St16initializer_listIS0_E.exit, %entry
   ret void
 
 ehcleanup:                                        ; preds = %lpad38, %lpad
-  %.pn = phi { ptr, i32 } [ %14, %lpad ], [ %20, %lpad38 ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad ], [ %22, %lpad38 ]
   call void @_ZN4absl12lts_202308028StatusOrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %result) #29
   resume { ptr, i32 } %.pn
 }

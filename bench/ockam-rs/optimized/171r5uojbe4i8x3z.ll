@@ -9423,35 +9423,32 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
 
 5:                                                ; preds = %1
   %trunc.i.i = trunc i8 %3 to i1
-  br i1 %trunc.i.i, label %9, label %._crit_edge.i.i
+  br i1 %trunc.i.i, label %10, label %16
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !1369, !nonnull !4, !align !5, !noundef !4
-  br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1369, !nonnull !4, !align !5, !noundef !4
-  %12 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-  %13 = extractvalue { i64, ptr } %12, 1
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
-  br label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %5, %9
-  %.pn.i.i = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
-  %.sroa.0.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 0
-  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
-  br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
-
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %6, %._crit_edge.i.i
-  %.sroa.4.0.i.i = phi ptr [ %8, %6 ], [ %.sroa.4.1.i.i, %._crit_edge.i.i ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %6 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
-  %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.0.i.i, 1
-  ret { i64, ptr } %16
+  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %8, 1
+  br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !1369, !nonnull !4, !align !5, !noundef !4
+  %13 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
+  %14 = extractvalue { i64, ptr } %13, 1
+  %15 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %15)
+  br label %16
+
+16:                                               ; preds = %10, %5
+  %.pn.i.i = phi { i64, ptr } [ %13, %10 ], [ zeroinitializer, %5 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
+  br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
+
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %6, %16
+  %.merged.i.i = phi { i64, ptr } [ %9, %6 ], [ %.pn.i.i, %16 ]
+  ret { i64, ptr } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

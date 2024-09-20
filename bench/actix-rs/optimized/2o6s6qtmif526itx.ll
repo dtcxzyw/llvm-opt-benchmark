@@ -6349,60 +6349,46 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit308
 define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$8shutdown17h2ecf3f22c0d56a4dE"(ptr noalias noundef align 8 dereferenceable(328) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$5flush17h84e957494f32f90aE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %4 = extractvalue { i64, ptr } %3, 0
+  %5 = extractvalue { i64, ptr } %3, 1
   %switch = icmp eq i64 %4, 0
-  br i1 %switch, label %5, label %13
+  %6 = icmp eq ptr %5, null
+  %or.cond = select i1 %switch, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %10
 
-5:                                                ; preds = %2
-  %6 = extractvalue { i64, ptr } %3, 1
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %13
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = tail call { i64, ptr } @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$13poll_shutdown17h2346598871f94d6bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  br label %10
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
-  %10 = tail call { i64, ptr } @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$13poll_shutdown17h2346598871f94d6bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = extractvalue { i64, ptr } %10, 1
-  br label %13
-
-13:                                               ; preds = %2, %5, %8
-  %.sroa.4.1 = phi ptr [ %12, %8 ], [ undef, %2 ], [ %6, %5 ]
-  %.sroa.0.1 = phi i64 [ %11, %8 ], [ %4, %2 ], [ 0, %5 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.1, 1
-  ret { i64, ptr } %15
+10:                                               ; preds = %2, %7
+  %.merged = phi { i64, ptr } [ %9, %7 ], [ %3, %2 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$8shutdown17h70998d51de1bb0e6E"(ptr noalias noundef align 8 dereferenceable(320) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$5flush17h1af54a484cc553dcE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %4 = extractvalue { i64, ptr } %3, 0
+  %5 = extractvalue { i64, ptr } %3, 1
   %switch = icmp eq i64 %4, 0
-  br i1 %switch, label %5, label %18
+  %6 = icmp eq ptr %5, null
+  %or.cond = select i1 %switch, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %15
 
-5:                                                ; preds = %2
-  %6 = extractvalue { i64, ptr } %3, 1
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %18
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 304
   tail call void @llvm.experimental.noalias.scope.decl(metadata !480)
-  %10 = load ptr, ptr %9, align 8, !alias.scope !480, !noalias !483, !nonnull !10, !align !11, !noundef !10
-  %11 = getelementptr inbounds i8, ptr %0, i64 312
-  %12 = load ptr, ptr %11, align 8, !alias.scope !480, !noalias !483, !nonnull !10, !align !12, !noundef !10
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !invariant.load !10, !noalias !485, !nonnull !10
-  %15 = tail call { i64, ptr } %14(ptr noalias noundef nonnull align 1 %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !480
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
-  br label %18
+  %9 = load ptr, ptr %8, align 8, !alias.scope !480, !noalias !483, !nonnull !10, !align !11, !noundef !10
+  %10 = getelementptr inbounds i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !alias.scope !480, !noalias !483, !nonnull !10, !align !12, !noundef !10
+  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %13 = load ptr, ptr %12, align 8, !invariant.load !10, !noalias !485, !nonnull !10
+  %14 = tail call { i64, ptr } %13(ptr noalias noundef nonnull align 1 %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !480
+  br label %15
 
-18:                                               ; preds = %2, %5, %8
-  %.sroa.4.1 = phi ptr [ %17, %8 ], [ undef, %2 ], [ %6, %5 ]
-  %.sroa.0.1 = phi i64 [ %16, %8 ], [ %4, %2 ], [ 0, %5 ]
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.4.1, 1
-  ret { i64, ptr } %20
+15:                                               ; preds = %2, %7
+  %.merged = phi { i64, ptr } [ %14, %7 ], [ %3, %2 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

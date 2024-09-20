@@ -13160,52 +13160,49 @@ define hidden { i16, i16 } @_ZN6rustls4msgs9handshake23ServerKeyExchangeParams11
   %2 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = load i64, ptr %0, align 8, !range !33, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i16, ptr %6, align 8, !range !772, !noundef !4
   %8 = getelementptr inbounds i8, ptr %0, i64 34
   %9 = load i16, ptr %8, align 2
-  br label %29
+  %10 = insertvalue { i16, i16 } poison, i16 %7, 0
+  %11 = insertvalue { i16, i16 } %10, i16 %9, 1
+  br label %31
 
-10:                                               ; preds = %1
+12:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3205)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !3205
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !3205, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8, !alias.scope !3205, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !alias.scope !3205, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = load i64, ptr %17, align 8, !alias.scope !3205, !noundef !4
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !3205, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !3205, !noundef !4
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8, !alias.scope !3205, !nonnull !4, !noundef !4
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = load i64, ptr %19, align 8, !alias.scope !3205, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3208)
-  %19 = tail call { ptr, i64 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826(ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14), !noalias !3211
-  %20 = extractvalue { ptr, i64 } %19, 0
-  %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = tail call { ptr, i64 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18), !noalias !3213
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  store ptr %20, ptr %2, align 8, !alias.scope !3208, !noalias !3214
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %21, ptr %25, align 8, !alias.scope !3208, !noalias !3214
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %23, ptr %26, align 8, !alias.scope !3208, !noalias !3214
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %24, ptr %27, align 8, !alias.scope !3208, !noalias !3214
-  %28 = call { i16, i16 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup11named_group17h53d513d70db42d2bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !3205
+  %21 = tail call { ptr, i64 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826(ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16), !noalias !3211
+  %22 = extractvalue { ptr, i64 } %21, 0
+  %23 = extractvalue { ptr, i64 } %21, 1
+  %24 = tail call { ptr, i64 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826(ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20), !noalias !3213
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = extractvalue { ptr, i64 } %24, 1
+  store ptr %22, ptr %2, align 8, !alias.scope !3208, !noalias !3214
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %23, ptr %27, align 8, !alias.scope !3208, !noalias !3214
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %25, ptr %28, align 8, !alias.scope !3208, !noalias !3214
+  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %26, ptr %29, align 8, !alias.scope !3208, !noalias !3214
+  %30 = call { i16, i16 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup11named_group17h53d513d70db42d2bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !3205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !3205
-  %.fca.0.extract = extractvalue { i16, i16 } %28, 0
-  %.fca.1.extract = extractvalue { i16, i16 } %28, 1
-  br label %29
+  br label %31
 
-29:                                               ; preds = %10, %5
-  %.sroa.3.0 = phi i16 [ %9, %5 ], [ %.fca.1.extract, %10 ]
-  %.sroa.0.0 = phi i16 [ %7, %5 ], [ %.fca.0.extract, %10 ]
-  %30 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %31 = insertvalue { i16, i16 } %30, i16 %.sroa.3.0, 1
-  ret { i16, i16 } %31
+31:                                               ; preds = %12, %5
+  %.merged = phi { i16, i16 } [ %11, %5 ], [ %30, %12 ]
+  ret { i16, i16 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

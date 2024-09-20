@@ -1052,8 +1052,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br label %85
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i: ; preds = %83, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i
-  %.sroa.2.0.i.i.i.i = phi i8 [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ], [ 0, %83 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ], [ %59, %83 ]
+  %.sroa.2.0.i.i.i.i = phi i8 [ 0, %83 ], [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %59, %83 ], [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit
 
@@ -1126,11 +1126,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit: ; pred
   br i1 %108, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6cdc3ed66d664733E.exit", label %105
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6cdc3ed66d664733E.exit": ; preds = %105, %107, %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit, %97
-  %.sroa.3.0.i = phi i8 [ %.sroa.2.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit ], [ 5, %97 ], [ %106, %107 ], [ 5, %105 ]
-  %.sroa.02.0.i = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit ], [ undef, %97 ], [ %103, %107 ], [ %103, %105 ]
-  %109 = insertvalue { i64, i8 } poison, i64 %.sroa.02.0.i, 0
-  %110 = insertvalue { i64, i8 } %109, i8 %.sroa.3.0.i, 1
-  ret { i64, i8 } %110
+  %.sroa.01.0.i.pn.i = phi i64 [ undef, %97 ], [ %.sroa.0.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit ], [ %103, %107 ], [ %103, %105 ]
+  %.sroa.22.0.i.pn.i = phi i8 [ 5, %97 ], [ %.sroa.2.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit ], [ 5, %105 ], [ %106, %107 ]
+  %.pn.i = insertvalue { i64, i8 } poison, i64 %.sroa.01.0.i.pn.i, 0
+  %.merged.i = insertvalue { i64, i8 } %.pn.i, i8 %.sroa.22.0.i.pn.i, 1
+  ret { i64, i8 } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1328,8 +1328,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br label %85
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i: ; preds = %83, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i
-  %.sroa.2.0.i.i.i.i = phi i8 [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ], [ 0, %83 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ], [ %59, %83 ]
+  %.sroa.2.0.i.i.i.i = phi i8 [ 0, %83 ], [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %59, %83 ], [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit
 
@@ -1402,11 +1402,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit: ; pred
   br i1 %108, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8c6aa339eeb0bb0bE.exit", label %105
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h8c6aa339eeb0bb0bE.exit": ; preds = %105, %107, %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit, %97
-  %.sroa.3.0.i = phi i8 [ %.sroa.2.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit ], [ 5, %97 ], [ %106, %107 ], [ 5, %105 ]
-  %.sroa.02.0.i = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit ], [ undef, %97 ], [ %103, %107 ], [ %103, %105 ]
-  %109 = insertvalue { i64, i8 } poison, i64 %.sroa.02.0.i, 0
-  %110 = insertvalue { i64, i8 } %109, i8 %.sroa.3.0.i, 1
-  ret { i64, i8 } %110
+  %.sroa.01.0.i.pn.i = phi i64 [ undef, %97 ], [ %.sroa.0.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit ], [ %103, %107 ], [ %103, %105 ]
+  %.sroa.22.0.i.pn.i = phi i8 [ 5, %97 ], [ %.sroa.2.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit ], [ 5, %105 ], [ %106, %107 ]
+  %.pn.i = insertvalue { i64, i8 } poison, i64 %.sroa.01.0.i.pn.i, 0
+  %.merged.i = insertvalue { i64, i8 } %.pn.i, i8 %.sroa.22.0.i.pn.i, 1
+  ret { i64, i8 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3184,22 +3184,26 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i, align 8, !alias.scope !995
   store i64 0, ptr %1, align 8, !alias.scope !995
   %4 = icmp eq i64 %.sroa.02.0.copyload.i, 1
-  br i1 %4, label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h187c0821e372b385E.llvm.10393017446704266758.exit", label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
   %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !995
-  %7 = extractvalue { i64, i64 } %6, 0
-  %8 = extractvalue { i64, i64 } %6, 1
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h187c0821e372b385E.llvm.10393017446704266758.exit"
 
-"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h187c0821e372b385E.llvm.10393017446704266758.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
-  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+7:                                                ; preds = %3
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload.i, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.6.0.copyload.i, 1
+  br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h187c0821e372b385E.llvm.10393017446704266758.exit"
+
+"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h187c0821e372b385E.llvm.10393017446704266758.exit": ; preds = %5, %7
+  %.merged.i = phi { i64, i64 } [ %9, %7 ], [ %6, %5 ]
+  %10 = extractvalue { i64, i64 } %.merged.i, 0
+  %11 = extractvalue { i64, i64 } %.merged.i, 1
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8
   ret ptr %.sroa.4.0..sroa_idx
 }
 
@@ -3348,20 +3352,20 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.1.sroa_idx, align 8
   store i64 0, ptr %0, align 8
   %3 = icmp eq i64 %.sroa.02.0.copyload, 1
-  br i1 %3, label %8, label %4
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
   %5 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE()
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = extractvalue { i64, i64 } %5, 1
-  br label %8
+  br label %9
 
-8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+6:                                                ; preds = %2
+  %7 = insertvalue { i64, i64 } poison, i64 %.sroa.5.0.copyload, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.6.0.copyload, 1
+  br label %9
+
+9:                                                ; preds = %6, %4
+  %.merged = phi { i64, i64 } [ %8, %6 ], [ %5, %4 ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

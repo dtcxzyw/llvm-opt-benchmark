@@ -142,52 +142,53 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call8 = tail call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i) #8
-  %4 = extractvalue { i32, i64 } %call8, 0
-  %5 = extractvalue { i32, i64 } %call8, 1
   br label %return
 
 if.end:                                           ; preds = %entry, %entry
   %newTarget_.i.i = getelementptr inbounds i8, ptr %args, i64 16
-  %6 = load ptr, ptr %newTarget_.i.i, align 8
-  %7 = load i64, ptr %6, align 8
-  %shr.i.mask.i.i.i = and i64 %7, -140737488355328
+  %4 = load ptr, ptr %newTarget_.i.i, align 8
+  %5 = load i64, ptr %4, align 8
+  %shr.i.mask.i.i.i = and i64 %5, -140737488355328
   %cmp.i.i.i.not = icmp eq i64 %shr.i.mask.i.i.i, -1688849860263936
   br i1 %cmp.i.i.i.not, label %if.end22, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8
+  %6 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.0.0.copyload.i.i, 1
   br label %return
 
 if.end22:                                         ; preds = %if.end
   %call23 = tail call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #8
-  %8 = ptrtoint ptr %call23 to i64
-  %or.i.i.i.i.i = or i64 %8, -281474976710656
+  %7 = ptrtoint ptr %call23 to i64
+  %or.i.i.i.i.i = or i64 %7, -281474976710656
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
-  %9 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 192
-  %10 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 200
-  %11 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult ptr %10, %11
+  %8 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 192
+  %9 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 200
+  %10 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end22
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
-  store i64 %or.i.i.i.i.i, ptr %10, align 8
-  br label %return
+  store i64 %or.i.i.i.i.i, ptr %9, align 8
+  br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end22
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %9, i64 %or.i.i.i.i.i) #8
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %8, i64 %or.i.i.i.i.i) #8
   %retval.sroa.0.0.copyload.i.i8.pre = load i64, ptr %call7.i.i.i.i.i.i, align 8
+  br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
+
+_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
+  %retval.sroa.0.0.copyload.i.i8 = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i8.pre, %if.end.i.i.i.i.i.i ]
+  %11 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.0.0.copyload.i.i8, 1
   br label %return
 
-return:                                           ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then10, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then10 ], [ %4, %if.then ], [ 1, %if.then.i.i.i.i.i.i ], [ 1, %if.end.i.i.i.i.i.i ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i.i, %if.then10 ], [ %5, %if.then ], [ %or.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i8.pre, %if.end.i.i.i.i.i.i ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i32, i64 } %.fca.1.insert
+return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.then10, %if.then
+  %.fca.1.insert.merged = phi { i32, i64 } [ %6, %if.then10 ], [ %11, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %call8, %if.then ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 declare void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

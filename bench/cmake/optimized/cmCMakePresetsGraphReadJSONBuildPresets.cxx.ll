@@ -2579,9 +2579,9 @@ _ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32: ; pred
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %44 = getelementptr inbounds i8, ptr %5, i64 16
   %45 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %6, i64 16
   %46 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %5, i64 32
   %47 = getelementptr inbounds i8, ptr %5, i64 40
   %48 = getelementptr inbounds i8, ptr %12, i64 8
   %49 = getelementptr inbounds i8, ptr %12, i64 40
@@ -2606,9 +2606,9 @@ _ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32: ; pred
   %68 = getelementptr inbounds i8, ptr %0, i64 32
   br label %69
 
-69:                                               ; preds = %.lr.ph, %87
-  %.02236 = phi i1 [ true, %.lr.ph ], [ %spec.select, %87 ]
-  %.02335 = phi i32 [ 0, %.lr.ph ], [ %71, %87 ]
+69:                                               ; preds = %.lr.ph, %89
+  %.02236 = phi i1 [ true, %.lr.ph ], [ %spec.select, %89 ]
+  %.02335 = phi i32 [ 0, %.lr.ph ], [ %71, %89 ]
   %70 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json17ValueIteratorBase5derefEv(ptr noundef nonnull align 8 dereferenceable(9) %9)
   %71 = add nuw nsw i32 %.02335, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -2620,34 +2620,35 @@ _ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %72 = load ptr, ptr %6, align 8, !noalias !37
   %.not.i.i2.i = icmp eq ptr %72, null
-  br i1 %.not.i.i2.i, label %77, label %73
+  br i1 %.not.i.i2.i, label %75, label %73
 
 73:                                               ; preds = %69
   %74 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #23, !noalias !37
-  %75 = extractvalue { i64, ptr } %74, 0
-  %76 = extractvalue { i64, ptr } %74, 1
   %.pre.i3.i = load ptr, ptr %6, align 8, !noalias !37
   br label %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
 
-77:                                               ; preds = %69
-  %.sroa.0.0.copyload.i.i7.i = load i64, ptr %45, align 8, !noalias !37
-  %.sroa.3.0.copyload.i.i9.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i8.i, align 8, !noalias !37
+75:                                               ; preds = %69
+  %.sroa.0.0.copyload.i.i6.i = load i64, ptr %45, align 8, !noalias !37
+  %.sroa.3.0.copyload.i.i8.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i7.i, align 8, !noalias !37
+  %76 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.copyload.i.i6.i, 0
+  %77 = insertvalue { i64, ptr } %76, ptr %.sroa.3.0.copyload.i.i8.i, 1
   br label %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
 
-_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit: ; preds = %73, %77
-  %78 = phi ptr [ %.pre.i3.i, %73 ], [ null, %77 ]
-  %.sroa.0.0.i.i4.i = phi i64 [ %75, %73 ], [ %.sroa.0.0.copyload.i.i7.i, %77 ]
-  %.sroa.3.0.i.i5.i = phi ptr [ %76, %73 ], [ %.sroa.3.0.copyload.i.i9.i, %77 ]
-  store i64 %.sroa.0.0.i.i4.i, ptr %46, align 8, !alias.scope !34, !noalias !31
-  store ptr %.sroa.3.0.i.i5.i, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !alias.scope !34, !noalias !31
+_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit: ; preds = %73, %75
+  %78 = phi ptr [ %.pre.i3.i, %73 ], [ null, %75 ]
+  %.fca.1.insert.merged.i.i4.i = phi { i64, ptr } [ %74, %73 ], [ %77, %75 ]
+  %79 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i4.i, 0
+  %80 = extractvalue { i64, ptr } %.fca.1.insert.merged.i.i4.i, 1
+  store i64 %79, ptr %46, align 8, !alias.scope !34, !noalias !31
+  store ptr %80, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !alias.scope !34, !noalias !31
   store ptr %78, ptr %47, align 8, !alias.scope !34, !noalias !31
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull %5, i64 2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   invoke void @_ZN11cmJSONState10push_stackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %70)
-          to label %79 unwind label %83
+          to label %81 unwind label %85
 
-79:                                               ; preds = %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
+81:                                               ; preds = %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #23
@@ -2671,42 +2672,42 @@ _Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT
   store i8 0, ptr %65, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
   store i8 0, ptr %67, align 4
-  %80 = invoke noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph11BuildPresetEEclERS2_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %68, ptr noundef nonnull align 8 dereferenceable(360) %12, ptr noundef nonnull %70, ptr noundef nonnull %3)
-          to label %81 unwind label %85
+  %82 = invoke noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph11BuildPresetEEclERS2_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %68, ptr noundef nonnull align 8 dereferenceable(360) %12, ptr noundef nonnull %70, ptr noundef nonnull %3)
+          to label %83 unwind label %87
 
-81:                                               ; preds = %79
-  %spec.select = select i1 %80, i1 %.02236, i1 false
-  %82 = invoke noundef nonnull align 8 dereferenceable(360) ptr @_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(360) %12)
-          to label %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit unwind label %85
+83:                                               ; preds = %81
+  %spec.select = select i1 %82, i1 %.02236, i1 false
+  %84 = invoke noundef nonnull align 8 dereferenceable(360) ptr @_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(360) %12)
+          to label %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit unwind label %87
 
-83:                                               ; preds = %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
-  br label %89
-
-85:                                               ; preds = %81, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit, %79
+85:                                               ; preds = %_Z8cmStrCatIRA14_KciJEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_.exit
   %86 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  br label %91
+
+87:                                               ; preds = %83, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit, %81
+  %88 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %12) #23
-  br label %89
+  br label %91
 
-_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit: ; preds = %81
+_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit: ; preds = %83
   invoke void @_ZN11cmJSONState9pop_stackEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
-          to label %87 unwind label %85
+          to label %89 unwind label %87
 
-87:                                               ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit
+89:                                               ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE9push_backEOS1_.exit
   call void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %12) #23
   call void @_ZN4Json17ValueIteratorBase9incrementEv(ptr noundef nonnull align 8 dereferenceable(9) %9)
-  %88 = call noundef zeroext i1 @_ZNK4Json17ValueIteratorBase7isEqualERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 8 dereferenceable(9) %10)
-  br i1 %88, label %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit, label %69
+  %90 = call noundef zeroext i1 @_ZNK4Json17ValueIteratorBase7isEqualERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 8 dereferenceable(9) %10)
+  br i1 %90, label %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit, label %69
 
-_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit: ; preds = %87, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32, %_ZSt8_DestroyIPN19cmCMakePresetsGraph11BuildPresetES1_EvT_S3_RSaIT0_E.exit.i.i, %13, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit
-  %.021 = phi i1 [ false, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit ], [ true, %13 ], [ true, %_ZSt8_DestroyIPN19cmCMakePresetsGraph11BuildPresetES1_EvT_S3_RSaIT0_E.exit.i.i ], [ true, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32 ], [ %spec.select, %87 ]
+_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit: ; preds = %89, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32, %_ZSt8_DestroyIPN19cmCMakePresetsGraph11BuildPresetES1_EvT_S3_RSaIT0_E.exit.i.i, %13, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit
+  %.021 = phi i1 [ false, %_ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit ], [ true, %13 ], [ true, %_ZSt8_DestroyIPN19cmCMakePresetsGraph11BuildPresetES1_EvT_S3_RSaIT0_E.exit.i.i ], [ true, %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE5clearEv.exit32 ], [ %spec.select, %89 ]
   ret i1 %.021
 
-89:                                               ; preds = %85, %83
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
+91:                                               ; preds = %87, %85
+  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn
 }
 

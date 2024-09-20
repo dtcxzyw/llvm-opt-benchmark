@@ -2763,8 +2763,8 @@ _ZN12clap_builder6output13help_template12HelpTemplate14write_bin_name17h9f1b1439
   %283 = icmp eq ptr %282, null
   %284 = getelementptr i8, ptr %280, i64 624
   %.val.i141 = load ptr, ptr %284, align 8, !noalias !537
-  %.sroa.02.0.i.i = select i1 %283, ptr %.val.i141, ptr %282
-  %.not.i142 = icmp eq ptr %.sroa.02.0.i.i, null
+  %.624.val.pn.i.i = select i1 %283, ptr %.val.i141, ptr %282
+  %.not.i142 = icmp eq ptr %.624.val.pn.i.i, null
   br i1 %.not.i142, label %_ZN12clap_builder6output13help_template12HelpTemplate13write_version17h14ecf94e525ccb62E.exit, label %285
 
 285:                                              ; preds = %279
@@ -2774,19 +2774,19 @@ _ZN12clap_builder6output13help_template12HelpTemplate14write_bin_name17h9f1b1439
   %.sroa.3.0.i.i.i.i = select i1 %286, i64 undef, i64 %.val2.i
   %288 = getelementptr inbounds i8, ptr %280, i64 616
   %..val2.i.i143 = load i64, ptr %288, align 8, !alias.scope !540, !noalias !537
-  %.sroa.33.0.i.i = select i1 %283, i64 %.sroa.3.0.i.i.i.i, i64 %..val2.i.i143
+  %.sroa.3.0.i.i.pn.i.i = select i1 %283, i64 %.sroa.3.0.i.i.i.i, i64 %..val2.i.i143
   %289 = load ptr, ptr %92, align 8, !alias.scope !537, !nonnull !12, !align !101, !noundef !12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !537
   call void @llvm.experimental.noalias.scope.decl(metadata !543)
-  %290 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1852f655f36c0dc7E"(i64 noundef %.sroa.33.0.i.i, i1 noundef zeroext false), !noalias !546
+  %290 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1852f655f36c0dc7E"(i64 noundef %.sroa.3.0.i.i.pn.i.i, i1 noundef zeroext false), !noalias !546
   %291 = extractvalue { i64, ptr } %290, 0
   %292 = extractvalue { i64, ptr } %290, 1
   %293 = icmp ne ptr %292, null
   call void @llvm.assume(i1 %293)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %.sroa.02.0.i.i, i64 %.sroa.33.0.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %.624.val.pn.i.i, i64 %.sroa.3.0.i.i.pn.i.i, i1 false)
   store i64 %291, ptr %7, align 8, !alias.scope !543, !noalias !551
   store ptr %292, ptr %.sroa.4.0..sroa_idx.i.i144, align 8, !alias.scope !543, !noalias !551
-  store i64 %.sroa.33.0.i.i, ptr %.sroa.5.0..sroa_idx.i.i145, align 8, !alias.scope !543, !noalias !551
+  store i64 %.sroa.3.0.i.i.pn.i.i, ptr %.sroa.5.0..sroa_idx.i.i145, align 8, !alias.scope !543, !noalias !551
   call void @_ZN12clap_builder7builder10styled_str9StyledStr11push_string17hc54db5043998c4d3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %289, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7), !noalias !537
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !537
   br label %_ZN12clap_builder6output13help_template12HelpTemplate13write_version17h14ecf94e525ccb62E.exit

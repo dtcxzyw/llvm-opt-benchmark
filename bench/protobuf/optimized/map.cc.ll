@@ -1525,51 +1525,53 @@ entry:
   %3 = inttoptr i64 %sub.i to ptr
   %call.i.i = call { ptr, i32 } @_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE13internal_findIS7_EENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %key)
   %4 = extractvalue { ptr, i32 } %call.i.i, 0
-  %5 = extractvalue { ptr, i32 } %call.i.i, 1
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
 
 cond.false.i.i.i:                                 ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr i8, ptr %6, i64 10
-  %7 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
-  %conv.i.i.i.i = zext i8 %7 to i32
+  %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i = getelementptr i8, ptr %5, i64 10
+  %6 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
+  %conv.i.i.i.i = zext i8 %6 to i32
+  %7 = insertvalue { ptr, i32 } poison, ptr %5, 0
+  %8 = insertvalue { ptr, i32 } %7, i32 %conv.i.i.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
 
 _ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit: ; preds = %entry, %cond.false.i.i.i
-  %retval.sroa.0.0.i.i.i = phi ptr [ %6, %cond.false.i.i.i ], [ %4, %entry ]
-  %retval.sroa.3.0.i.i.i = phi i32 [ %conv.i.i.i.i, %cond.false.i.i.i ], [ %5, %entry ]
+  %.pre-phi = phi ptr [ %4, %entry ], [ %5, %cond.false.i.i.i ]
+  %.fca.1.insert.merged.i.merged.i.i = phi { ptr, i32 } [ %call.i.i, %entry ], [ %8, %cond.false.i.i.i ]
+  %9 = extractvalue { ptr, i32 } %.fca.1.insert.merged.i.merged.i.i, 1
   %cmp.not = icmp eq ptr %it, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
-  store ptr %retval.sroa.0.0.i.i.i, ptr %it, align 8
+  store ptr %.pre-phi, ptr %it, align 8
   %tree_it.sroa.4.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
-  store i32 %retval.sroa.3.0.i.i.i, ptr %tree_it.sroa.4.0.it.sroa_idx, align 8
+  store i32 %9, ptr %tree_it.sroa.4.0.it.sroa_idx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEEE4findIS8_EENS1_14btree_iteratorINS1_10btree_nodeISI_EERSG_PSG_EERSF_.exit
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr i8, ptr %8, i64 10
-  %9 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = zext i8 %9 to i32
-  %cmp.i.i = icmp ne ptr %retval.sroa.0.0.i.i.i, %8
-  %cmp6.i.i = icmp ne i32 %retval.sroa.3.0.i.i.i, %conv.i.i
+  %10 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %arrayidx.i.i.i = getelementptr i8, ptr %10, i64 10
+  %11 = load i8, ptr %arrayidx.i.i.i, align 1
+  %conv.i.i = zext i8 %11 to i32
+  %cmp.i.i = icmp ne ptr %.pre-phi, %10
+  %cmp6.i.i = icmp ne i32 %9, %conv.i.i
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp6.i.i
   br i1 %.not.i, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
-  %10 = and i32 %retval.sroa.3.0.i.i.i, 255
-  %conv6.i.i = zext nneg i32 %10 to i64
-  %add.ptr.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
+  %12 = and i32 %9, 255
+  %conv6.i.i = zext nneg i32 %12 to i64
+  %add.ptr.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
   %second = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i5, i64 %conv6.i.i, i32 0, i32 1
-  %11 = load ptr, ptr %second, align 8
+  %13 = load ptr, ptr %second, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5
-  %retval.sroa.0.0 = phi ptr [ %11, %if.then5 ], [ null, %if.end ]
+  %retval.sroa.0.0 = phi ptr [ %13, %if.then5 ], [ null, %if.end ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %b, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -2068,8 +2070,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %iter.coerce1, ptr %0, align 8
   %1 = load ptr, ptr %this, align 8
-  %cmp23 = icmp eq ptr %iter.coerce0, %1
-  br i1 %cmp23, label %if.then, label %if.end5
+  %cmp24 = icmp eq ptr %iter.coerce0, %1
+  br i1 %cmp24, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %if.end16, %entry
   %res.sroa.10.0.lcssa = phi i32 [ %iter.coerce1, %entry ], [ %res.sroa.10.2, %if.end16 ]
@@ -2122,9 +2124,9 @@ if.then3:                                         ; preds = %_ZN4absl12lts_20230
 
 if.end5:                                          ; preds = %entry, %if.end16
   %10 = phi ptr [ %13, %if.end16 ], [ %iter.coerce0, %entry ]
-  %first_iteration.026 = phi i1 [ false, %if.end16 ], [ true, %entry ]
-  %res.sroa.0.025 = phi ptr [ %res.sroa.0.2, %if.end16 ], [ %iter.coerce0, %entry ]
-  %res.sroa.10.024 = phi i32 [ %res.sroa.10.2, %if.end16 ], [ %iter.coerce1, %entry ]
+  %first_iteration.027 = phi i1 [ false, %if.end16 ], [ true, %entry ]
+  %res.sroa.0.026 = phi ptr [ %res.sroa.0.2, %if.end16 ], [ %iter.coerce0, %entry ]
+  %res.sroa.10.025 = phi i32 [ %res.sroa.10.2, %if.end16 ], [ %iter.coerce1, %entry ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
   %11 = load i8, ptr %arrayidx.i.i3, align 1
   %cmp8 = icmp ugt i8 %11, 4
@@ -2134,8 +2136,8 @@ if.end10:                                         ; preds = %if.end5
   %call11 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE22try_merge_or_rebalanceEPNS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %iter)
   %res.sroa.0.0.copyload10 = load ptr, ptr %iter, align 8
   %res.sroa.10.0.copyload14 = load i32, ptr %0, align 8
-  %res.sroa.10.2 = select i1 %first_iteration.026, i32 %res.sroa.10.0.copyload14, i32 %res.sroa.10.024
-  %res.sroa.0.2 = select i1 %first_iteration.026, ptr %res.sroa.0.0.copyload10, ptr %res.sroa.0.025
+  %res.sroa.10.2 = select i1 %first_iteration.027, i32 %res.sroa.10.0.copyload14, i32 %res.sroa.10.025
+  %res.sroa.0.2 = select i1 %first_iteration.027, ptr %res.sroa.0.0.copyload10, ptr %res.sroa.0.026
   br i1 %call11, label %if.end16, label %for.end
 
 if.end16:                                         ; preds = %if.end10
@@ -2150,8 +2152,8 @@ if.end16:                                         ; preds = %if.end10
   br i1 %cmp, label %if.then, label %if.end5, !llvm.loop !59
 
 for.end:                                          ; preds = %if.end10, %if.end5, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit
-  %res.sroa.10.1 = phi i32 [ %res.sroa.10.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.10.2, %if.end10 ], [ %res.sroa.10.024, %if.end5 ]
-  %res.sroa.0.1 = phi ptr [ %res.sroa.0.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.0.2, %if.end10 ], [ %res.sroa.0.025, %if.end5 ]
+  %res.sroa.10.1 = phi i32 [ %res.sroa.10.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.10.2, %if.end10 ], [ %res.sroa.10.025, %if.end5 ]
+  %res.sroa.0.1 = phi ptr [ %res.sroa.0.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.0.2, %if.end10 ], [ %res.sroa.0.026, %if.end5 ]
   %arrayidx.i = getelementptr i8, ptr %res.sroa.0.1, i64 10
   %15 = load i8, ptr %arrayidx.i, align 1
   %conv26 = zext i8 %15 to i32
@@ -2178,7 +2180,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %arrayidx.i1.i.i.i = getelementptr i8, ptr %18, i64 10
   %21 = load i8, ptr %arrayidx.i1.i.i.i, align 1
   %cmp.i2.i.i = icmp eq i8 %20, %21
-  br i1 %cmp.i2.i.i, label %land.rhs.i.i.i, label %return.loopexit19.split.loop.exit29, !llvm.loop !19
+  br i1 %cmp.i2.i.i, label %land.rhs.i.i.i, label %return.loopexit20.split.loop.exit30, !llvm.loop !19
 
 if.else.i.i.i:                                    ; preds = %if.then28
   %add.ptr.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %res.sroa.0.1, i64 256
@@ -2195,16 +2197,16 @@ while.cond24.i.i.i:                               ; preds = %while.cond24.i.i.i,
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 256
   br i1 %cmp.i.not.i.i.i.i, label %while.cond24.i.i.i, label %return, !llvm.loop !20
 
-return.loopexit19.split.loop.exit29:              ; preds = %while.body.i.i.i
+return.loopexit20.split.loop.exit30:              ; preds = %while.body.i.i.i
   %conv8.i.i.i.le = zext i8 %20 to i32
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i.i, %while.cond24.i.i.i, %return.loopexit19.split.loop.exit29, %for.end, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %8, %if.then3 ], [ %res.sroa.0.1, %for.end ], [ %18, %return.loopexit19.split.loop.exit29 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %res.sroa.0.1, %land.rhs.i.i.i ]
-  %retval.sroa.3.0 = phi i32 [ %conv.i, %if.then3 ], [ %res.sroa.10.1, %for.end ], [ %conv8.i.i.i.le, %return.loopexit19.split.loop.exit29 ], [ 0, %while.cond24.i.i.i ], [ %res.sroa.10.1, %land.rhs.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.3.0, 1
-  ret { ptr, i32 } %.fca.1.insert
+return:                                           ; preds = %land.rhs.i.i.i, %while.cond24.i.i.i, %return.loopexit20.split.loop.exit30, %for.end, %if.then3
+  %.pn19 = phi ptr [ %8, %if.then3 ], [ %res.sroa.0.1, %for.end ], [ %18, %return.loopexit20.split.loop.exit30 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %res.sroa.0.1, %land.rhs.i.i.i ]
+  %conv.i.pn = phi i32 [ %conv.i, %if.then3 ], [ %res.sroa.10.1, %for.end ], [ %conv8.i.i.i.le, %return.loopexit20.split.loop.exit30 ], [ 0, %while.cond24.i.i.i ], [ %res.sroa.10.1, %land.rhs.i.i.i ]
+  %.fca.0.insert.i.pn = insertvalue { ptr, i32 } poison, ptr %.pn19, 0
+  %.fca.1.insert.merged = insertvalue { ptr, i32 } %.fca.0.insert.i.pn, i32 %conv.i.pn, 1
+  ret { ptr, i32 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

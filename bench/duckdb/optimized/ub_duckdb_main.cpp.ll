@@ -26708,8 +26708,6 @@ invoke.cont6:                                     ; preds = %invoke.cont
 ehcleanup.thread:                                 ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
-  %exn.slot.0130 = extractvalue { ptr, i32 } %3, 0
-  %ehselector.slot.0131 = extractvalue { ptr, i32 } %3, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #40
   br label %cleanup.action
 
@@ -26727,21 +26725,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !61
   %cmp3.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
-  %exn.slot.0134 = extractvalue { ptr, i32 } %4, 0
-  %ehselector.slot.0135 = extractvalue { ptr, i32 } %4, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #40
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
 ehcleanup:                                        ; preds = %lpad5
   call void @_ZdlPv(ptr noundef %5) #41
-  %exn.slot.0 = extractvalue { ptr, i32 } %4, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %4, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #40
   br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %ehcleanup.thread
-  %ehselector.slot.0133 = phi i32 [ %ehselector.slot.0131, %ehcleanup.thread ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.0135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %exn.slot.0132 = phi ptr [ %exn.slot.0130, %ehcleanup.thread ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.0134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.merged = phi { ptr, i32 } [ %3, %ehcleanup.thread ], [ %4, %ehcleanup ], [ %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %exception) #40
   br label %eh.resume
 
@@ -26933,12 +26926,7 @@ if.end38:                                         ; preds = %_ZNSt7__cxx1112basi
 ehcleanup39:                                      ; preds = %ehcleanup36, %lpad25
   %.pn89 = phi { ptr, i32 } [ %26, %lpad25 ], [ %.pn, %ehcleanup36 ]
   invoke void @__cxa_end_catch()
-          to label %invoke.cont40 unwind label %terminate.lpad
-
-invoke.cont40:                                    ; preds = %ehcleanup39
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn89, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn89, 1
-  br label %eh.resume
+          to label %eh.resume unwind label %terminate.lpad
 
 lpad45:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106
   %36 = landingpad { ptr, i32 }
@@ -26977,27 +26965,17 @@ ehcleanup58:                                      ; preds = %if.then.i.i123, %_Z
 ehcleanup60:                                      ; preds = %ehcleanup58, %lpad45
   %.pn93 = phi { ptr, i32 } [ %36, %lpad45 ], [ %.pn91, %ehcleanup58 ]
   invoke void @__cxa_end_catch()
-          to label %invoke.cont62 unwind label %terminate.lpad
-
-invoke.cont62:                                    ; preds = %ehcleanup60
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn93, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn93, 1
-  br label %eh.resume
+          to label %eh.resume unwind label %terminate.lpad
 
 lpad70:                                           ; preds = %if.end72, %if.then68
   %42 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %invoke.cont74 unwind label %terminate.lpad
+          to label %eh.resume unwind label %terminate.lpad
 
 if.end72:                                         ; preds = %if.then68, %catch64
   invoke void @__cxa_rethrow() #44
           to label %unreachable unwind label %lpad70
-
-invoke.cont74:                                    ; preds = %lpad70
-  %43 = extractvalue { ptr, i32 } %42, 1
-  %44 = extractvalue { ptr, i32 } %42, 0
-  br label %eh.resume
 
 try.cont:                                         ; preds = %if.end.i
   br i1 %or.cond136, label %if.then77, label %if.end79
@@ -27009,18 +26987,15 @@ if.then77:                                        ; preds = %try.cont
 if.end79:                                         ; preds = %if.then77, %try.cont
   ret void
 
-eh.resume:                                        ; preds = %invoke.cont74, %invoke.cont62, %invoke.cont40, %catch.fallthrough20, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %ehselector.slot.6 = phi i32 [ %ehselector.slot.0133, %cleanup.action ], [ %ehselector.slot.0, %ehcleanup ], [ %43, %invoke.cont74 ], [ %ehselector.slot.4, %invoke.cont62 ], [ %ehselector.slot.2, %invoke.cont40 ], [ %14, %catch.fallthrough20 ], [ %ehselector.slot.0135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %exn.slot.6 = phi ptr [ %exn.slot.0132, %cleanup.action ], [ %exn.slot.0, %ehcleanup ], [ %44, %invoke.cont74 ], [ %exn.slot.4, %invoke.cont62 ], [ %exn.slot.2, %invoke.cont40 ], [ %13, %catch.fallthrough20 ], [ %exn.slot.0134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.6, 0
-  %lpad.val83 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.6, 1
-  resume { ptr, i32 } %lpad.val83
+eh.resume:                                        ; preds = %lpad70, %ehcleanup60, %ehcleanup39, %catch.fallthrough20, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %lpad.val83.merged = phi { ptr, i32 } [ %.merged, %cleanup.action ], [ %4, %ehcleanup ], [ %12, %catch.fallthrough20 ], [ %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn89, %ehcleanup39 ], [ %.pn93, %ehcleanup60 ], [ %42, %lpad70 ]
+  resume { ptr, i32 } %lpad.val83.merged
 
 terminate.lpad:                                   ; preds = %lpad70, %ehcleanup60, %ehcleanup39
-  %45 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #43
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #43
   unreachable
 
 unreachable:                                      ; preds = %if.end72, %if.end38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106, %invoke.cont6
@@ -29981,32 +29956,32 @@ _ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i236: ; preds = %ehc
 
 _ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit239: ; preds = %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i236, %ehcleanup110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %copied_statement) #40
+  %115 = insertvalue { ptr, i32 } poison, ptr %exn.slot.10, 0
+  %116 = insertvalue { ptr, i32 } %115, i32 %ehselector.slot.10, 1
   br label %eh.resume
 
 if.end114:                                        ; preds = %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit234.if.end114_crit_edge, %land.lhs.true, %entry
-  %115 = phi i64 [ %.pre, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit234.if.end114_crit_edge ], [ %1, %land.lhs.true ], [ %1, %entry ]
-  store i64 %115, ptr %agg.tmp115, align 8, !tbaa !6
+  %117 = phi i64 [ %.pre, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit234.if.end114_crit_edge ], [ %1, %land.lhs.true ], [ %1, %entry ]
+  store i64 %117, ptr %agg.tmp115, align 8, !tbaa !6
   store ptr null, ptr %statement, align 8, !tbaa !6
   invoke void @_ZN6duckdb13ClientContext35PendingStatementOrPreparedStatementERNS_17ClientContextLockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_12SQLStatementESt14default_deleteISC_ELb1EEERSt10shared_ptrINS_21PreparedStatementDataEERKNS_22PendingQueryParametersE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.1079") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %this, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %query, ptr noundef nonnull %agg.tmp115, ptr noundef nonnull align 8 dereferenceable(16) %prepared, ptr noundef nonnull align 8 dereferenceable(9) %parameters)
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %if.end114
-  %116 = load ptr, ptr %agg.tmp115, align 8, !tbaa !6
-  %cmp.not.i240 = icmp eq ptr %116, null
+  %118 = load ptr, ptr %agg.tmp115, align 8, !tbaa !6
+  %cmp.not.i240 = icmp eq ptr %118, null
   br i1 %cmp.not.i240, label %return, label %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i241
 
 _ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i241: ; preds = %invoke.cont117
-  %vtable.i.i242 = load ptr, ptr %116, align 8, !tbaa !3
+  %vtable.i.i242 = load ptr, ptr %118, align 8, !tbaa !3
   %vfn.i.i243 = getelementptr inbounds i8, ptr %vtable.i.i242, i64 8
-  %117 = load ptr, ptr %vfn.i.i243, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(128) %116) #40
+  %119 = load ptr, ptr %vfn.i.i243, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(128) %118) #40
   br label %return
 
 lpad116:                                          ; preds = %if.end114
-  %118 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  %120 = extractvalue { ptr, i32 } %118, 1
   %121 = load ptr, ptr %agg.tmp115, align 8, !tbaa !6
   %cmp.not.i245 = icmp eq ptr %121, null
   br i1 %cmp.not.i245, label %eh.resume, label %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i246
@@ -30022,11 +29997,8 @@ return:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i246, %lpad116, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit239
-  %ehselector.slot.11 = phi i32 [ %ehselector.slot.10, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit239 ], [ %120, %lpad116 ], [ %120, %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i246 ]
-  %exn.slot.11 = phi ptr [ %exn.slot.10, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit239 ], [ %119, %lpad116 ], [ %119, %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i246 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.11, 0
-  %lpad.val121 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.11, 1
-  resume { ptr, i32 } %lpad.val121
+  %lpad.val121.merged = phi { ptr, i32 } [ %116, %_ZNSt10unique_ptrIN6duckdb12SQLStatementESt14default_deleteIS1_EED2Ev.exit239 ], [ %120, %lpad116 ], [ %120, %_ZNKSt14default_deleteIN6duckdb12SQLStatementEEclEPS1_.exit.i246 ]
+  resume { ptr, i32 } %lpad.val121.merged
 
 terminate.lpad:                                   ; preds = %lpad80, %lpad67, %lpad22, %lpad12
   %123 = landingpad { ptr, i32 }
@@ -75365,8 +75337,6 @@ ehcleanup13:                                      ; preds = %lpad10, %lpad8
 
 ehcleanup15:                                      ; preds = %ehcleanup13, %ehcleanup
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %ehcleanup13 ], [ %.pn, %ehcleanup ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn44.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn44.pn, 1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %exception) #40
   br label %eh.resume
 
@@ -75384,14 +75354,14 @@ lpad18:                                           ; preds = %if.end
   %31 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6duckdb9ExceptionE
-  %32 = extractvalue { ptr, i32 } %31, 0
-  %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb9ExceptionE) #40
-  %matches = icmp eq i32 %33, %34
+  %32 = extractvalue { ptr, i32 } %31, 1
+  %33 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb9ExceptionE) #40
+  %matches = icmp eq i32 %32, %33
   br i1 %matches, label %catch, label %ehcleanup37
 
 catch:                                            ; preds = %lpad18
-  %35 = tail call ptr @__cxa_begin_catch(ptr %32) #40
+  %34 = extractvalue { ptr, i32 } %31, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #40
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp20) #40
   invoke void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(80) %35)
           to label %invoke.cont22 unwind label %lpad21
@@ -75421,12 +75391,7 @@ ehcleanup26:                                      ; preds = %lpad23, %lpad21
   %.pn47 = phi { ptr, i32 } [ %37, %lpad23 ], [ %36, %lpad21 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp20) #40
   invoke void @__cxa_end_catch()
-          to label %invoke.cont28 unwind label %terminate.lpad
-
-invoke.cont28:                                    ; preds = %ehcleanup26
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn47, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn47, 1
-  br label %ehcleanup37
+          to label %ehcleanup37 unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %if.end
   br i1 %allow_stream_result, label %land.rhs, label %land.end
@@ -75451,9 +75416,8 @@ cleanup:                                          ; preds = %land.end, %invoke.c
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %parameters) #40
   br label %return
 
-ehcleanup37:                                      ; preds = %invoke.cont28, %lpad18
-  %ehselector.slot.4 = phi i32 [ %ehselector.slot.3, %invoke.cont28 ], [ %33, %lpad18 ]
-  %exn.slot.4 = phi ptr [ %exn.slot.3, %invoke.cont28 ], [ %32, %lpad18 ]
+ehcleanup37:                                      ; preds = %ehcleanup26, %lpad18
+  %.merged = phi { ptr, i32 } [ %31, %lpad18 ], [ %.pn47, %ehcleanup26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %parameters) #40
   br label %eh.resume
 
@@ -75461,11 +75425,8 @@ return:                                           ; preds = %cleanup, %_ZN6duckd
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup37, %ehcleanup15
-  %ehselector.slot.5 = phi i32 [ %ehselector.slot.4, %ehcleanup37 ], [ %ehselector.slot.2, %ehcleanup15 ]
-  %exn.slot.5 = phi ptr [ %exn.slot.4, %ehcleanup37 ], [ %exn.slot.2, %ehcleanup15 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.5, 0
-  %lpad.val40 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.5, 1
-  resume { ptr, i32 } %lpad.val40
+  %lpad.val40.merged = phi { ptr, i32 } [ %.merged, %ehcleanup37 ], [ %.pn44.pn, %ehcleanup15 ]
+  resume { ptr, i32 } %lpad.val40.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup26
   %41 = landingpad { ptr, i32 }

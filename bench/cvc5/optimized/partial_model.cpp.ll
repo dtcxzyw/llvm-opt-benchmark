@@ -6192,11 +6192,11 @@ if.else:                                          ; preds = %entry, %land.lhs.tr
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.insert.insert.i.i.i, %if.else ]
-  %retval.sroa.3.0 = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %retval.sroa.0.0.insert.insert.i3.i.i, %if.else ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %retval.sroa.0.0.copyload.pn = phi i64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.insert.insert.i.i.i, %if.else ]
+  %retval.sroa.3.0.copyload.pn = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %retval.sroa.0.0.insert.insert.i3.i.i, %if.else ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.copyload.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, i64 } %.pn, i64 %retval.sroa.3.0.copyload.pn, 1
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
