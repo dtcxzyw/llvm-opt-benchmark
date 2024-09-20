@@ -878,6 +878,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRK
   %30 = fmul double %26, %29
   %31 = fpext float %.sroa.6.0.copyload.i.i.i to double
   %32 = fmul double %26, %31
+  %.sroa.6.0.copyload.i.i18.i = load float, ptr %16, align 4
   br label %62
 
 33:                                               ; preds = %3
@@ -902,6 +903,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRK
   %45 = fmul double %39, %44
   %46 = tail call double @sin(double noundef %38) #19
   %.sroa.6.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.6.0.copyload.i51 = load float, ptr %.sroa.6.0..sroa_idx.i50, align 4
   br label %62
 
 47:                                               ; preds = %33
@@ -923,12 +925,13 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRK
   %59 = fmul double %0, %22
   %60 = tail call double @sin(double noundef %59) #19
   %61 = fmul double %48, %60
+  %.sroa.6.0.copyload.i78 = load float, ptr %16, align 4
   br label %62
 
 62:                                               ; preds = %47, %37, %25
-  %.sink118 = phi ptr [ %16, %47 ], [ %.sroa.6.0..sroa_idx.i50, %37 ], [ %16, %25 ]
   %.sroa.0.0.copyload.i76.sink117.in = phi ptr [ %2, %47 ], [ %4, %37 ], [ %2, %25 ]
   %.sink115 = phi double [ %61, %47 ], [ %46, %37 ], [ %0, %25 ]
+  %.sroa.6.0.copyload.i78.sink = phi float [ %.sroa.6.0.copyload.i78, %47 ], [ %.sroa.6.0.copyload.i51, %37 ], [ %.sroa.6.0.copyload.i.i18.i, %25 ]
   %.sink106.in = phi double [ %54, %47 ], [ %41, %37 ], [ %28, %25 ]
   %.sink103.in = phi double [ %56, %47 ], [ %43, %37 ], [ %30, %25 ]
   %.sink.in = phi double [ %58, %47 ], [ %45, %37 ], [ %32, %25 ]
@@ -936,7 +939,6 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRK
   %.sink103 = fptrunc double %.sink103.in to float
   %.sink106 = fptrunc double %.sink106.in to float
   %.sroa.0.0.copyload.i76.sink117 = load <2 x float>, ptr %.sroa.0.0.copyload.i76.sink117.in, align 4
-  %.sroa.6.0.copyload.i78 = load float, ptr %.sink118, align 4
   %.sroa.0.0.vec.extract.i79 = extractelement <2 x float> %.sroa.0.0.copyload.i76.sink117, i64 0
   %63 = fpext float %.sroa.0.0.vec.extract.i79 to double
   %64 = fmul double %.sink115, %63
@@ -945,7 +947,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRK
   %66 = fpext float %.sroa.0.4.vec.extract.i81 to double
   %67 = fmul double %.sink115, %66
   %68 = fptrunc double %67 to float
-  %69 = fpext float %.sroa.6.0.copyload.i78 to double
+  %69 = fpext float %.sroa.6.0.copyload.i78.sink to double
   %70 = fmul double %.sink115, %69
   %71 = fptrunc double %70 to float
   %72 = fadd float %.sink106, %65

@@ -176,17 +176,20 @@ define noundef i32 @dtrmm_olnucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br label %.sink.split
 
 107:                                              ; preds = %.split.split
-  %gep = getelementptr double, ptr %invariant.gep, i64 %98
   %108 = icmp slt i64 %4, %98
-  br i1 %108, label %111, label %.sink.split
+  br i1 %108, label %111, label %109
 
-.sink.split:                                      ; preds = %107, %100
-  %gep.sink = phi ptr [ %105, %100 ], [ %gep, %107 ]
-  %.sink38 = phi double [ %106, %100 ], [ 1.000000e+00, %107 ]
-  %109 = load double, ptr %gep.sink, align 8, !tbaa !3
+109:                                              ; preds = %107
+  %gep = getelementptr double, ptr %invariant.gep, i64 %98
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %100, %109
+  %.sink38 = phi double [ 1.000000e+00, %109 ], [ %106, %100 ]
+  %.sink.in = phi ptr [ %gep, %109 ], [ %105, %100 ]
+  %.sink = load double, ptr %.sink.in, align 8, !tbaa !3
   store double %.sink38, ptr %96, align 8, !tbaa !3
   %110 = getelementptr inbounds i8, ptr %96, i64 8
-  store double %109, ptr %110, align 8, !tbaa !3
+  store double %.sink, ptr %110, align 8, !tbaa !3
   br label %111
 
 111:                                              ; preds = %.sink.split, %107

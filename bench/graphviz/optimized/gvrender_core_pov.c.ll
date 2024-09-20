@@ -1119,22 +1119,19 @@ agxbsizeof.exit.i.i8:                             ; preds = %agxbfree.exit
 72:                                               ; preds = %71
   %73 = zext i8 %.val.i15.pre.i.i9 to i64
   %74 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %73
-  br label %agxbputc.exit.i11
+  store i8 0, ptr %74, align 1
+  %.pre = load ptr, ptr %4, align 8
+  br label %agxbdisown.exit
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %agxbsizeof.exit.i.i8
   %75 = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ %68, %agxbsizeof.exit.i.i8 ]
   %76 = load ptr, ptr %4, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 %75
-  br label %agxbputc.exit.i11
-
-agxbputc.exit.i11:                                ; preds = %.thread.i, %72
-  %.sink.i = phi ptr [ %74, %72 ], [ %77, %.thread.i ]
-  store i8 0, ptr %.sink.i, align 1
-  %78 = load ptr, ptr %4, align 8
+  store i8 0, ptr %77, align 1
   br label %agxbdisown.exit
 
-agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %agxbputc.exit.i11
-  %.0.i = phi ptr [ %78, %agxbputc.exit.i11 ], [ %61, %agxblen.exit.i ]
+agxbdisown.exit:                                  ; preds = %72, %.thread.i, %agxblen.exit.i
+  %.0.i = phi ptr [ %61, %agxblen.exit.i ], [ %76, %.thread.i ], [ %.pre, %72 ]
   ret ptr %.0.i
 }
 

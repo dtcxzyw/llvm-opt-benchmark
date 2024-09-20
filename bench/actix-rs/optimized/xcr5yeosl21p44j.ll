@@ -14522,9 +14522,9 @@ common.ret:                                       ; preds = %297, %159, %85
   ret void
 
 85:                                               ; preds = %293, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit", %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48", %160
-  %.sroa.095.2 = phi ptr [ %.sroa.0.0.i, %160 ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.073.1.i, %293 ]
-  %.sroa.796.2 = phi ptr [ %.sroa.3.0.i, %160 ], [ %.sroa.796.3, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ %.sroa.796.0, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.4.1.i, %293 ]
-  %.sroa.13.0 = phi i64 [ %.sroa.4.0.i, %160 ], [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.774.1.i, %293 ]
+  %.sroa.095.2 = phi ptr [ %.sroa.682.0.ph, %160 ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.073.1.i, %293 ]
+  %.sroa.796.2 = phi ptr [ %.sroa.883.0.ph, %160 ], [ %.sroa.796.3, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ %.sroa.796.0, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.4.1.i, %293 ]
+  %.sroa.13.0 = phi i64 [ %.sroa.984.0.ph, %160 ], [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit48" ], [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit" ], [ %.sroa.774.1.i, %293 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.095.2, ptr %86, align 8
   %.sroa.796.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -14608,7 +14608,7 @@ common.ret:                                       ; preds = %297, %159, %85
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11), !noalias !2779
   %111 = load i32, ptr %96, align 4, !alias.scope !2793, !noalias !2779, !noundef !7
   %112 = invoke noundef i32 @close(i32 noundef %111)
-          to label %160 unwind label %119, !noalias !2779
+          to label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i" unwind label %119, !noalias !2779
 
 113:                                              ; preds = %108, %106
   %114 = landingpad { ptr, i32 }
@@ -14632,6 +14632,10 @@ common.ret:                                       ; preds = %297, %159, %85
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr44drop_in_place$LT$socket2..socket..Socket$GT$17h4976e267fe9ba0cbE.exit.i"
+
+"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i": ; preds = %110
+  store i8 0, ptr %95, align 1, !noalias !2779
+  br label %160
 
 121:                                              ; preds = %153, %143
   %122 = landingpad { ptr, i32 }
@@ -14722,6 +14726,7 @@ common.ret:                                       ; preds = %297, %159, %85
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds i8, ptr %1, i64 137
+  store i8 0, ptr %152, align 1, !noalias !2779
   br label %160
 
 153:                                              ; preds = %127
@@ -14743,13 +14748,11 @@ common.ret:                                       ; preds = %297, %159, %85
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.077)
   br label %common.ret
 
-160:                                              ; preds = %110, %151
-  %161 = phi ptr [ %140, %151 ], [ %93, %110 ]
-  %.sink.i = phi ptr [ %152, %151 ], [ %95, %110 ]
-  %.sroa.4.0.i = phi i64 [ %.sroa.4.0.copyload5.i, %151 ], [ undef, %110 ]
-  %.sroa.3.0.i = phi ptr [ %.sroa.3.0.copyload3.i, %151 ], [ %101, %110 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload1.i, %151 ], [ null, %110 ]
-  store i8 0, ptr %.sink.i, align 1, !noalias !2779
+160:                                              ; preds = %151, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i"
+  %161 = phi ptr [ %93, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i" ], [ %140, %151 ]
+  %.sroa.682.0.ph = phi ptr [ null, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i" ], [ %.sroa.0.0.copyload1.i, %151 ]
+  %.sroa.883.0.ph = phi ptr [ %101, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i" ], [ %.sroa.3.0.copyload3.i, %151 ]
+  %.sroa.984.0.ph = phi i64 [ undef, %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit.i" ], [ %.sroa.4.0.copyload5.i, %151 ]
   store i8 1, ptr %161, align 8, !noalias !2779
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.077)

@@ -3571,7 +3571,9 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %128
   %131 = load i8, ptr %130, align 8
   %132 = or i8 %131, 1
   store i8 %132, ptr %130, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !186)
   store ptr %129, ptr %0, align 8, !alias.scope !186
+  store ptr null, ptr %17, align 8, !noalias !186
   br label %164
 
 _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %128
@@ -3631,11 +3633,10 @@ _ZNSt10unique_ptrIN4llvm3pdb13NativeSessionESt14default_deleteIS2_EE5resetEPS2_.
   %162 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %163 = load i64, ptr %162, align 8
   store i64 %163, ptr %161, align 8
+  store ptr null, ptr %162, align 8
   br label %164
 
 164:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit11, %_ZNSt10unique_ptrIN4llvm3pdb13NativeSessionESt14default_deleteIS2_EE5resetEPS2_.exit
-  %.sink = phi ptr [ %17, %_ZN4llvm5ErrorD2Ev.exit11 ], [ %162, %_ZNSt10unique_ptrIN4llvm3pdb13NativeSessionESt14default_deleteIS2_EE5resetEPS2_.exit ]
-  store ptr null, ptr %.sink, align 8
   %165 = load ptr, ptr %16, align 8
   %.not.i14 = icmp eq ptr %165, null
   br i1 %.not.i14, label %_ZNSt10unique_ptrIN4llvm3pdb11IPDBSessionESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb11IPDBSessionEEclEPS2_.exit.i
@@ -3735,6 +3736,7 @@ _ZN4llvm5ErrorD2Ev.exit23:                        ; preds = %184
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %202 = load ptr, ptr %21, align 8, !noalias !208
   store ptr %202, ptr %0, align 8, !alias.scope !208
+  store ptr null, ptr %21, align 8, !noalias !208
   br label %232
 
 203:                                              ; preds = %184
@@ -3792,11 +3794,10 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit: ; p
   %230 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %231 = load i64, ptr %230, align 8
   store i64 %231, ptr %229, align 8
+  store ptr null, ptr %230, align 8
   br label %232
 
 232:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit, %_ZN4llvm5ErrorD2Ev.exit23
-  %.sink42 = phi ptr [ %230, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit ], [ %21, %_ZN4llvm5ErrorD2Ev.exit23 ]
-  store ptr null, ptr %.sink42, align 8
   %233 = load i8, ptr %190, align 8
   %234 = trunc i8 %233 to i1
   br i1 %234, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %235

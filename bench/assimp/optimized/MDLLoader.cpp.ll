@@ -758,7 +758,9 @@ if.then291:                                       ; preds = %invoke.cont267
   %ref.tmp292.sroa.9.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %20, i64 1060
   store float -1.000000e+00, ptr %ref.tmp292.sroa.9.0.mTransformation.sroa_idx, align 4
   %ref.tmp292.sroa.10.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %20, i64 1064
+  %ref.tmp292.sroa.16.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %20, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp292.sroa.10.0.mTransformation.sroa_idx, i8 0, i64 24, i1 false)
+  store float 1.000000e+00, ptr %ref.tmp292.sroa.16.0.mTransformation.sroa_idx, align 4
   br label %if.end301
 
 if.else295:                                       ; preds = %invoke.cont89.invoke, %invoke.cont179.invoke, %invoke.cont209
@@ -778,13 +780,12 @@ if.else295:                                       ; preds = %invoke.cont89.invok
   %ref.tmp296.sroa.10.0.mTransformation300.sroa_idx = getelementptr inbounds i8, ptr %22, i64 1064
   store float -1.000000e+00, ptr %ref.tmp296.sroa.10.0.mTransformation300.sroa_idx, align 4
   %ref.tmp296.sroa.11.0.mTransformation300.sroa_idx = getelementptr inbounds i8, ptr %22, i64 1068
+  %ref.tmp296.sroa.16.0.mTransformation300.sroa_idx = getelementptr inbounds i8, ptr %22, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp296.sroa.11.0.mTransformation300.sroa_idx, i8 0, i64 20, i1 false)
+  store float 1.000000e+00, ptr %ref.tmp296.sroa.16.0.mTransformation300.sroa_idx, align 4
   br label %if.end301
 
 if.end301:                                        ; preds = %if.else295, %if.then291
-  %.pn56 = phi ptr [ %22, %if.else295 ], [ %20, %if.then291 ]
-  %ref.tmp296.sroa.16.0.mTransformation300.sroa_idx.sink = getelementptr inbounds i8, ptr %.pn56, i64 1088
-  store float 1.000000e+00, ptr %ref.tmp296.sroa.16.0.mTransformation300.sroa_idx.sink, align 4
   %23 = load ptr, ptr %mBuffer, align 8
   %tobool.not.i30 = icmp eq ptr %23, null
   br i1 %tobool.not.i30, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %delete.notnull.i31

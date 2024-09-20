@@ -148,8 +148,11 @@ if.then:                                          ; preds = %for.body
   %conv4 = and i64 %indvars.iv.next, 4294967295
   store i64 %conv4, ptr %key, align 8
   store i8 3, ptr %tt_.i, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %key, i64 16
   %11 = load ptr, ptr %array, align 8
   %arrayidx8 = getelementptr inbounds %struct.TValue, ptr %11, i64 %indvars.iv
+  %12 = load i64, ptr %arrayidx8, align 8
+  store i64 %12, ptr %add.ptr, align 8
   br label %return.sink.split
 
 for.inc:                                          ; preds = %for.body
@@ -161,15 +164,15 @@ for.end:                                          ; preds = %for.inc, %findindex
   %i.0.lcssa = phi i32 [ %retval.0.i32, %findindex.exit ], [ %retval.0.i, %for.inc ]
   %sub = sub nuw i32 %i.0.lcssa, %retval.0.i
   %lsizenode = getelementptr inbounds i8, ptr %t, i64 11
-  %12 = load i8, ptr %lsizenode, align 1
-  %conv14 = zext nneg i8 %12 to i32
+  %13 = load i8, ptr %lsizenode, align 1
+  %conv14 = zext nneg i8 %13 to i32
   %shl = shl nuw i32 1, %conv14
   %cmp1537 = icmp slt i32 %sub, %shl
   br i1 %cmp1537, label %for.body17.lr.ph, label %return
 
 for.body17.lr.ph:                                 ; preds = %for.end
   %node = getelementptr inbounds i8, ptr %t, i64 24
-  %13 = load ptr, ptr %node, align 8
+  %14 = load ptr, ptr %node, align 8
   br label %for.body17
 
 for.cond13:                                       ; preds = %for.body17
@@ -180,31 +183,31 @@ for.cond13:                                       ; preds = %for.body17
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.cond13
   %i.138 = phi i32 [ %sub, %for.body17.lr.ph ], [ %inc40, %for.cond13 ]
   %idxprom18 = zext i32 %i.138 to i64
-  %arrayidx19 = getelementptr inbounds %union.Node, ptr %13, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds %union.Node, ptr %14, i64 %idxprom18
   %tt_20 = getelementptr inbounds i8, ptr %arrayidx19, i64 8
-  %14 = load i8, ptr %tt_20, align 8
-  %15 = and i8 %14, 15
-  %cmp23 = icmp eq i8 %15, 0
+  %15 = load i8, ptr %tt_20, align 8
+  %16 = and i8 %15, 15
+  %cmp23 = icmp eq i8 %16, 0
   br i1 %cmp23, label %for.cond13, label %if.then25
 
 if.then25:                                        ; preds = %for.body17
   %key_val = getelementptr inbounds i8, ptr %arrayidx19, i64 16
-  %16 = load i64, ptr %key_val, align 8
-  store i64 %16, ptr %key, align 8
+  %17 = load i64, ptr %key_val, align 8
+  store i64 %17, ptr %key, align 8
   %key_tt = getelementptr inbounds i8, ptr %arrayidx19, i64 9
-  %17 = load i8, ptr %key_tt, align 1
-  store i8 %17, ptr %tt_.i, align 8
+  %18 = load i8, ptr %key_tt, align 1
+  store i8 %18, ptr %tt_.i, align 8
+  %add.ptr32 = getelementptr inbounds i8, ptr %key, i64 16
+  %19 = load i64, ptr %arrayidx19, align 8
+  store i64 %19, ptr %add.ptr32, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then25
-  %arrayidx8.sink = phi ptr [ %arrayidx8, %if.then ], [ %arrayidx19, %if.then25 ]
-  %add.ptr.sink = getelementptr inbounds i8, ptr %key, i64 16
-  %18 = load i64, ptr %arrayidx8.sink, align 8
-  store i64 %18, ptr %add.ptr.sink, align 8
-  %tt_20.le.sink = getelementptr inbounds i8, ptr %arrayidx8.sink, i64 8
-  %19 = load i8, ptr %tt_20.le.sink, align 8
+  %arrayidx19.pn = phi ptr [ %arrayidx19, %if.then25 ], [ %arrayidx8, %if.then ]
+  %.sink.in = getelementptr inbounds i8, ptr %arrayidx19.pn, i64 8
+  %.sink = load i8, ptr %.sink.in, align 8
   %tt_37 = getelementptr inbounds i8, ptr %key, i64 24
-  store i8 %19, ptr %tt_37, align 8
+  store i8 %.sink, ptr %tt_37, align 8
   br label %return
 
 return:                                           ; preds = %for.cond13, %return.sink.split, %for.end

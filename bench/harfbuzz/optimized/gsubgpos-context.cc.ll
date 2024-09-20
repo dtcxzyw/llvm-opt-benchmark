@@ -339,12 +339,6 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN5graph7graph_t8new_nodeEPcS1_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %head, ptr noundef %tail) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %__begin2.sroa.0 = alloca ptr, align 8
-  %__begin2.sroa.4 = alloca i32, align 8
-  %__begin2.sroa.8 = alloca i32, align 4
-  %__begin2.sroa.9 = alloca ptr, align 8
-  %__begin2.sroa.12 = alloca i32, align 8
-  %__begin2.sroa.16 = alloca i32, align 4
   %positions_invalid = getelementptr inbounds i8, ptr %this, i64 34
   store i8 1, ptr %positions_invalid, align 2
   %distance_invalid = getelementptr inbounds i8, ptr %this, i64 33
@@ -417,42 +411,42 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit: ; preds = %if.then.i7,
   %virtual_links.val.i = load i32, ptr %10, align 4, !noalias !9
   %11 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
   %virtual_links.val2.i = load ptr, ptr %11, align 8, !noalias !9
-  store ptr %real_links.val1.i, ptr %__begin2.sroa.0, align 8
-  store i32 %real_links.val.i, ptr %__begin2.sroa.4, align 8
-  store i32 0, ptr %__begin2.sroa.8, align 4
-  store ptr %virtual_links.val2.i, ptr %__begin2.sroa.9, align 8
-  store i32 %virtual_links.val.i, ptr %__begin2.sroa.12, align 8
-  store i32 0, ptr %__begin2.sroa.16, align 4
   %idx.ext.i.i.i.i.i.i.i.i = zext i32 %real_links.val.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %real_links.val1.i, i64 %idx.ext.i.i.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i10.i.i.i = zext i32 %virtual_links.val.i to i64
   %add.ptr.i.i.i.i.i11.i.i.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %virtual_links.val2.i, i64 %idx.ext.i.i.i.i.i10.i.i.i
   br label %for.cond.outer
 
-for.cond.outer:                                   ; preds = %if.end.sink.split.i.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit
-  %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre50.ph = phi ptr [ %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre.pre, %if.end.sink.split.i.i ], [ %virtual_links.val2.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
-  %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48.ph = phi i32 [ %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre.pre, %if.end.sink.split.i.i ], [ %virtual_links.val.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
-  %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44.ph = phi i32 [ %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre.pre, %if.end.sink.split.i.i ], [ %real_links.val.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
-  %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre42.ph = phi ptr [ %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre.pre, %if.end.sink.split.i.i ], [ %real_links.val1.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
-  %cmp.not.i.i = icmp ne ptr %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre42.ph, %add.ptr.i.i.i.i.i.i.i.i
-  %cmp.not.i2.i = icmp ne ptr %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre50.ph, %add.ptr.i.i.i.i.i11.i.i.i
+for.cond.outer:                                   ; preds = %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit
+  %__begin2.sroa.0.0.ph = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %real_links.val1.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
+  %__begin2.sroa.5.0.ph = phi i32 [ %dec.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %real_links.val.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
+  %__begin2.sroa.11.0.ph = phi ptr [ %__begin2.sroa.11.0.ph42, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %virtual_links.val2.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
+  %__begin2.sroa.15.0.ph = phi i32 [ %__begin2.sroa.15.0, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %virtual_links.val.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit ]
+  %cmp.not.i.i = icmp ne ptr %__begin2.sroa.0.0.ph, %add.ptr.i.i.i.i.i.i.i.i
+  br label %for.cond.outer40
+
+for.cond.outer40:                                 ; preds = %for.cond.outer, %if.end.i.i3.i.i
+  %__begin2.sroa.5.0.ph41 = phi i32 [ %__begin2.sroa.5.0.ph, %for.cond.outer ], [ 0, %if.end.i.i3.i.i ]
+  %__begin2.sroa.11.0.ph42 = phi ptr [ %__begin2.sroa.11.0.ph, %for.cond.outer ], [ %incdec.ptr.i.i7.i.i, %if.end.i.i3.i.i ]
+  %__begin2.sroa.15.0.ph43 = phi i32 [ %__begin2.sroa.15.0.ph, %for.cond.outer ], [ %dec.i.i4.i.i, %if.end.i.i3.i.i ]
+  %cmp.not.i2.i = icmp ne ptr %__begin2.sroa.11.0.ph42, %add.ptr.i.i.i.i.i11.i.i.i
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.outer, %if.else.i.i
-  %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48 = phi i32 [ 0, %if.else.i.i ], [ %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48.ph, %for.cond.outer ]
-  %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44 = phi i32 [ 0, %if.else.i.i ], [ %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44.ph, %for.cond.outer ]
-  %cmp4.i.i = icmp ne i32 %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44, 0
+for.cond:                                         ; preds = %for.cond.outer40, %if.else.i.i
+  %__begin2.sroa.5.0 = phi i32 [ 0, %if.else.i.i ], [ %__begin2.sroa.5.0.ph41, %for.cond.outer40 ]
+  %__begin2.sroa.15.0 = phi i32 [ 0, %if.else.i.i ], [ %__begin2.sroa.15.0.ph43, %for.cond.outer40 ]
+  %cmp4.i.i = icmp ne i32 %__begin2.sroa.5.0, 0
   %12 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
-  %cmp4.i5.i = icmp ne i32 %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48, 0
+  %cmp4.i5.i = icmp ne i32 %__begin2.sroa.15.0, 0
   %13 = select i1 %cmp.not.i2.i, i1 true, i1 %cmp4.i5.i
   %or.cond = select i1 %12, i1 true, i1 %13
   br i1 %or.cond, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %tobool.i.i.not.i.i = icmp eq i32 %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44, 0
-  %tobool.not.i.i.i.i = icmp eq i32 %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48, 0
-  %spec.select.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr @_hb_NullPool, ptr %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre50.ph
-  %retval.0.i.i14 = select i1 %tobool.i.i.not.i.i, ptr %spec.select.i.i.i.i, ptr %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre42.ph
+  %tobool.i.i.not.i.i = icmp eq i32 %__begin2.sroa.5.0, 0
+  %tobool.not.i.i.i.i = icmp eq i32 %__begin2.sroa.15.0, 0
+  %spec.select.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr @_hb_NullPool, ptr %__begin2.sroa.11.0.ph42
+  %retval.0.i.i14 = select i1 %tobool.i.i.not.i.i, ptr %spec.select.i.i.i.i, ptr %__begin2.sroa.0.0.ph
   %objidx = getelementptr inbounds i8, ptr %retval.0.i.i14, i64 8
   %14 = load i32, ptr %objidx, align 4
   %15 = load i32, ptr %length.i, align 4
@@ -476,29 +470,20 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23: ; preds = %if.then.i
   %sub.i25 = add i32 %17, -1
   %sub20 = add i32 %17, -2
   tail call void @_ZN5graph7graph_t8vertex_t12remap_parentEjj(ptr noundef nonnull align 8 dereferenceable(136) %retval.0.i18, i32 noundef %sub20, i32 noundef %sub.i25)
-  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %if.end.sink.split.i.i
+  br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i
+
+_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i: ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23
+  %dec.i.i.i.i = add i32 %__begin2.sroa.5.0, -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.ph, i64 12
+  br label %for.cond.outer
 
 if.else.i.i:                                      ; preds = %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23
-  br i1 %tobool.not.i.i.i.i, label %for.cond, label %if.end.sink.split.i.i
+  br i1 %tobool.not.i.i.i.i, label %for.cond, label %if.end.i.i3.i.i
 
-if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23
-  %18 = phi ptr [ %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre42.ph, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre50.ph, %if.else.i.i ]
-  %.sink11.i.i = phi i32 [ %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48, %if.else.i.i ]
-  %length.i.i1.sink.i.i = phi ptr [ %__begin2.sroa.4, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.12, %if.else.i.i ]
-  %.sink.i.i.sroa.phi = phi ptr [ %__begin2.sroa.8, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.16, %if.else.i.i ]
-  %b.sink9.i.i = phi ptr [ %__begin2.sroa.0, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.9, %if.else.i.i ]
-  %dec.i.i4.i.i = add i32 %.sink11.i.i, -1
-  store i32 %dec.i.i4.i.i, ptr %length.i.i1.sink.i.i, align 8
-  %19 = load i32, ptr %.sink.i.i.sroa.phi, align 4
-  %inc.i.i6.i.i = add i32 %19, 1
-  store i32 %inc.i.i6.i.i, ptr %.sink.i.i.sroa.phi, align 4
-  %incdec.ptr.i.i7.i.i = getelementptr inbounds i8, ptr %18, i64 12
-  store ptr %incdec.ptr.i.i7.i.i, ptr %b.sink9.i.i, align 8
-  %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre.pre = load ptr, ptr %__begin2.sroa.0, align 8
-  %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre.pre = load i32, ptr %__begin2.sroa.4, align 8
-  %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre.pre = load i32, ptr %__begin2.sroa.12, align 8
-  %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre.pre = load ptr, ptr %__begin2.sroa.9, align 8
-  br label %for.cond.outer
+if.end.i.i3.i.i:                                  ; preds = %if.else.i.i
+  %dec.i.i4.i.i = add i32 %__begin2.sroa.15.0, -1
+  %incdec.ptr.i.i7.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.0.ph42, i64 12
+  br label %for.cond.outer40
 
 return:                                           ; preds = %for.cond, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE4pushEv.exit
   %retval.0 = phi i32 [ -1, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE4pushEv.exit ], [ %sub, %for.cond ]

@@ -1238,7 +1238,7 @@ link_dep.exit:                                    ; preds = %entry
   %dep_next5 = getelementptr inbounds i8, ptr %stream, i64 104
   %4 = load ptr, ptr %dep_next5, align 8
   %tobool6.not = icmp eq ptr %4, null
-  br i1 %tobool6.not, label %if.end, label %for.cond.i
+  br i1 %tobool6.not, label %link_dep.exit37, label %for.cond.i
 
 for.cond.i:                                       ; preds = %link_dep.exit, %for.cond.i
   %stream.addr.0.i = phi ptr [ %5, %for.cond.i ], [ %4, %link_dep.exit ]
@@ -1249,13 +1249,16 @@ for.cond.i:                                       ; preds = %link_dep.exit, %for
 
 link_sib.exit:                                    ; preds = %for.cond.i
   %sib_next.i.le = getelementptr inbounds i8, ptr %stream.addr.0.i, i64 120
+  store ptr %3, ptr %sib_next.i.le, align 8
   br label %if.end
 
-if.end:                                           ; preds = %link_dep.exit, %link_sib.exit
-  %dep_next5.sink = phi ptr [ %sib_next.i.le, %link_sib.exit ], [ %dep_next5, %link_dep.exit ]
-  %.sink = phi i64 [ 112, %link_sib.exit ], [ 96, %link_dep.exit ]
-  %stream.sink = phi ptr [ %stream.addr.0.i, %link_sib.exit ], [ %stream, %link_dep.exit ]
-  store ptr %3, ptr %dep_next5.sink, align 8
+link_dep.exit37:                                  ; preds = %link_dep.exit
+  store ptr %3, ptr %dep_next5, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %link_dep.exit37, %link_sib.exit
+  %.sink = phi i64 [ 96, %link_dep.exit37 ], [ 112, %link_sib.exit ]
+  %stream.sink = phi ptr [ %stream, %link_dep.exit37 ], [ %stream.addr.0.i, %link_sib.exit ]
   %dep_prev.i36 = getelementptr inbounds i8, ptr %3, i64 %.sink
   store ptr %stream.sink, ptr %dep_prev.i36, align 8
   %obq.i = getelementptr inbounds i8, ptr %dep_stream, i64 8

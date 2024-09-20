@@ -353,14 +353,23 @@ while.body.i:                                     ; preds = %for.body.i, %if.end
 
 if.then.i:                                        ; preds = %while.body.i
   %tobool5.not.i = icmp eq ptr %pp.014.i, null
+  br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.then.i
   %next7.i = getelementptr inbounds i8, ptr %pp.014.i, i64 288
-  %next7.sink.i = select i1 %tobool5.not.i, ptr %arrayidx.i.i7, ptr %next7.i
-  store ptr %9, ptr %next7.sink.i, align 8
+  store ptr %9, ptr %next7.i, align 8
+  br label %delete.notnull.i
+
+if.else.i:                                        ; preds = %if.then.i
+  store ptr %9, ptr %arrayidx.i.i7, align 8
+  br label %delete.notnull.i
+
+delete.notnull.i:                                 ; preds = %if.else.i, %if.then6.i
   tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i) #13
   br label %if.end8.i
 
-if.end8.i:                                        ; preds = %if.then.i, %while.body.i
-  %pc.1.i = phi ptr [ %pp.014.i, %if.then.i ], [ %pc.015.i, %while.body.i ]
+if.end8.i:                                        ; preds = %delete.notnull.i, %while.body.i
+  %pc.1.i = phi ptr [ %pp.014.i, %delete.notnull.i ], [ %pc.015.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %for.inc.loopexit.i, label %while.body.i, !llvm.loop !5
 
@@ -585,14 +594,23 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %if.e
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %tobool5.not.i.i = icmp eq ptr %pp.014.i.i, null
+  br i1 %tobool5.not.i.i, label %if.else.i.i, label %if.then6.i.i
+
+if.then6.i.i:                                     ; preds = %if.then.i.i
   %next7.i.i = getelementptr inbounds i8, ptr %pp.014.i.i, i64 288
-  %next7.sink.i.i = select i1 %tobool5.not.i.i, ptr %arrayidx.i.i7.i, ptr %next7.i.i
-  store ptr %9, ptr %next7.sink.i.i, align 8
+  store ptr %9, ptr %next7.i.i, align 8
+  br label %delete.notnull.i.i
+
+if.else.i.i:                                      ; preds = %if.then.i.i
+  store ptr %9, ptr %arrayidx.i.i7.i, align 8
+  br label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %if.else.i.i, %if.then6.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i.i) #13
   br label %if.end8.i.i
 
-if.end8.i.i:                                      ; preds = %if.then.i.i, %while.body.i.i
-  %pc.1.i.i = phi ptr [ %pp.014.i.i, %if.then.i.i ], [ %pc.015.i.i, %while.body.i.i ]
+if.end8.i.i:                                      ; preds = %delete.notnull.i.i, %while.body.i.i
+  %pc.1.i.i = phi ptr [ %pp.014.i.i, %delete.notnull.i.i ], [ %pc.015.i.i, %while.body.i.i ]
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %for.inc.loopexit.i.i, label %while.body.i.i, !llvm.loop !5
 
@@ -1829,14 +1847,23 @@ while.body.i.i:                                   ; preds = %for.body.i.i, %if.e
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %tobool5.not.i.i = icmp eq ptr %pp.014.i.i, null
+  br i1 %tobool5.not.i.i, label %if.else.i.i, label %if.then6.i.i
+
+if.then6.i.i:                                     ; preds = %if.then.i.i
   %next7.i.i = getelementptr inbounds i8, ptr %pp.014.i.i, i64 288
-  %next7.sink.i.i = select i1 %tobool5.not.i.i, ptr %arrayidx.i.i7.i, ptr %next7.i.i
-  store ptr %9, ptr %next7.sink.i.i, align 8
+  store ptr %9, ptr %next7.i.i, align 8
+  br label %delete.notnull.i.i
+
+if.else.i.i:                                      ; preds = %if.then.i.i
+  store ptr %9, ptr %arrayidx.i.i7.i, align 8
+  br label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %if.else.i.i, %if.then6.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i.i) #13
   br label %if.end8.i.i
 
-if.end8.i.i:                                      ; preds = %if.then.i.i, %while.body.i.i
-  %pc.1.i.i = phi ptr [ %pp.014.i.i, %if.then.i.i ], [ %pc.015.i.i, %while.body.i.i ]
+if.end8.i.i:                                      ; preds = %delete.notnull.i.i, %while.body.i.i
+  %pc.1.i.i = phi ptr [ %pp.014.i.i, %delete.notnull.i.i ], [ %pc.015.i.i, %while.body.i.i ]
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %for.inc.loopexit.i.i, label %while.body.i.i, !llvm.loop !5
 

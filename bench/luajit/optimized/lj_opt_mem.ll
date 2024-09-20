@@ -1760,14 +1760,24 @@ if.then22.i:                                      ; preds = %if.else16.i
   %11 = load i8, ptr %t.i, align 4
   %12 = and i8 %11, 31
   %cmp25.i = icmp eq i8 %12, 21
-  br i1 %cmp25.i, label %sw.epilog.sink.split, label %if.else32.i
+  br i1 %cmp25.i, label %if.then27.i, label %if.else32.i
+
+if.then27.i:                                      ; preds = %if.then22.i
+  %add.i = add nsw i8 %11, -12
+  store i8 %add.i, ptr %t.i, align 4
+  br label %sw.epilog
 
 if.else32.i:                                      ; preds = %if.then22.i
   %t33.i = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %13 = load i8, ptr %t33.i, align 4
   %14 = and i8 %13, 31
   %cmp37.i = icmp eq i8 %14, 21
-  br i1 %cmp37.i, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp37.i, label %if.then39.i, label %sw.epilog
+
+if.then39.i:                                      ; preds = %if.else32.i
+  %add43.i = add nsw i8 %13, -12
+  store i8 %add43.i, ptr %t33.i, align 4
+  br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.then.i
   %op2 = getelementptr inbounds i8, ptr %arrayidx7, i64 2
@@ -1775,14 +1785,7 @@ sw.bb14:                                          ; preds = %if.then.i
   %conv15 = zext i16 %15 to i32
   br label %return
 
-sw.epilog.sink.split:                             ; preds = %if.else32.i, %if.then22.i
-  %.sink = phi i8 [ %11, %if.then22.i ], [ %13, %if.else32.i ]
-  %t33.i.sink = phi ptr [ %t.i, %if.then22.i ], [ %t33.i, %if.else32.i ]
-  %add43.i = add nsw i8 %.sink, -12
-  store i8 %add43.i, ptr %t33.i.sink, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.then.i, %if.else10.i, %if.else32.i
+sw.epilog:                                        ; preds = %if.then.i, %if.else10.i, %if.else32.i, %if.then39.i, %if.then27.i
   %prev = getelementptr inbounds i8, ptr %arrayidx7, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, -32768
@@ -1915,14 +1918,24 @@ if.then22.i:                                      ; preds = %if.else16.i
   %12 = load i8, ptr %t.i, align 4
   %13 = and i8 %12, 31
   %cmp25.i = icmp eq i8 %13, 21
-  br i1 %cmp25.i, label %sw.epilog.sink.split, label %if.else32.i
+  br i1 %cmp25.i, label %if.then27.i, label %if.else32.i
+
+if.then27.i:                                      ; preds = %if.then22.i
+  %add.i = add nsw i8 %12, -12
+  store i8 %add.i, ptr %t.i, align 4
+  br label %sw.epilog
 
 if.else32.i:                                      ; preds = %if.then22.i
   %t33.i = getelementptr inbounds i8, ptr %arrayidx15, i64 4
   %14 = load i8, ptr %t33.i, align 4
   %15 = and i8 %14, 31
   %cmp37.i = icmp eq i8 %15, 21
-  br i1 %cmp37.i, label %sw.epilog.sink.split, label %sw.epilog
+  br i1 %cmp37.i, label %if.then39.i, label %sw.epilog
+
+if.then39.i:                                      ; preds = %if.else32.i
+  %add43.i = add nsw i8 %14, -12
+  store i8 %add43.i, ptr %t33.i, align 4
+  br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.else16.i
   %op217 = getelementptr inbounds i8, ptr %arrayidx10, i64 2
@@ -2019,14 +2032,7 @@ for.end78:                                        ; preds = %for.cond66
   store i16 0, ptr %prev72, align 2
   br label %doemit
 
-sw.epilog.sink.split:                             ; preds = %if.else32.i, %if.then22.i
-  %.sink = phi i8 [ %12, %if.then22.i ], [ %14, %if.else32.i ]
-  %t.i.sink = phi ptr [ %t.i, %if.then22.i ], [ %t33.i, %if.else32.i ]
-  %add.i = add nsw i8 %.sink, -12
-  store i8 %add.i, ptr %t.i.sink, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.else32.i, %if.else10.i, %if.then.i, %sw.bb16
+sw.epilog:                                        ; preds = %if.then27.i, %if.then39.i, %if.else32.i, %if.else10.i, %if.then.i, %sw.bb16
   %prev82 = getelementptr inbounds i8, ptr %arrayidx10, i64 6
   %ref.0.in = load i16, ptr %prev82, align 2
   %cmp = icmp ugt i16 %ref.0.in, %0

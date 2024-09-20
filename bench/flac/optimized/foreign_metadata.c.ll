@@ -1173,11 +1173,16 @@ if.then58.i:                                      ; preds = %if.then56.i
 if.end62.i:                                       ; preds = %if.then56.i
   %17 = load i64, ptr %audio_block74.i, align 8
   %tobool63.not.i = icmp eq i64 %17, 0
-  br i1 %tobool63.not.i, label %if.end91.sink.split.i, label %if.then64.i
+  br i1 %tobool63.not.i, label %if.end68.i, label %if.then64.i
 
 if.then64.i:                                      ; preds = %if.end62.i
   %tobool65.not.i = icmp eq ptr %error, null
   br i1 %tobool65.not.i, label %read_from_wave64_.exit, label %return.sink.split.i
+
+if.end68.i:                                       ; preds = %if.end62.i
+  %18 = load i64, ptr %num_blocks.i.i, align 8
+  store i64 %18, ptr %format_block81.i, align 8
+  br label %if.end91.i
 
 if.else.i:                                        ; preds = %if.end45.i
   %bcmp51.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %buffer.i, ptr noundef nonnull dereferenceable(16) @.str.73, i64 16)
@@ -1185,8 +1190,8 @@ if.else.i:                                        ; preds = %if.end45.i
   br i1 %tobool72.not.i, label %if.then73.i, label %if.end91.i
 
 if.then73.i:                                      ; preds = %if.else.i
-  %18 = load i64, ptr %audio_block74.i, align 8
-  %tobool75.not.i = icmp eq i64 %18, 0
+  %19 = load i64, ptr %audio_block74.i, align 8
+  %tobool75.not.i = icmp eq i64 %19, 0
   br i1 %tobool75.not.i, label %if.end80.i, label %if.then76.i
 
 if.then76.i:                                      ; preds = %if.then73.i
@@ -1194,21 +1199,20 @@ if.then76.i:                                      ; preds = %if.then73.i
   br i1 %tobool77.not.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end80.i:                                       ; preds = %if.then73.i
-  %19 = load i64, ptr %format_block81.i, align 8
-  %tobool82.not.i = icmp eq i64 %19, 0
-  br i1 %tobool82.not.i, label %if.then83.i, label %if.end91.sink.split.i
+  %20 = load i64, ptr %format_block81.i, align 8
+  %tobool82.not.i = icmp eq i64 %20, 0
+  br i1 %tobool82.not.i, label %if.then83.i, label %if.end87.i
 
 if.then83.i:                                      ; preds = %if.end80.i
   %tobool84.not.i = icmp eq ptr %error, null
   br i1 %tobool84.not.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
-if.end91.sink.split.i:                            ; preds = %if.end80.i, %if.end62.i
-  %audio_block74.sink.i = phi ptr [ %format_block81.i, %if.end62.i ], [ %audio_block74.i, %if.end80.i ]
-  %20 = load i64, ptr %num_blocks.i.i, align 8
-  store i64 %20, ptr %audio_block74.sink.i, align 8
+if.end87.i:                                       ; preds = %if.end80.i
+  %21 = load i64, ptr %num_blocks.i.i, align 8
+  store i64 %21, ptr %audio_block74.i, align 8
   br label %if.end91.i
 
-if.end91.i:                                       ; preds = %if.end91.sink.split.i, %if.else.i
+if.end91.i:                                       ; preds = %if.end87.i, %if.else.i, %if.end68.i
   %bcmp52.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %buffer.i, ptr noundef nonnull dereferenceable(16) @.str.73, i64 16)
   %tobool94.not.i = icmp eq i32 %bcmp52.i, 0
   %conv.i = trunc i64 %size.0.i to i32
@@ -1221,15 +1225,15 @@ if.then.i73.i:                                    ; preds = %if.end91.i
   br i1 %tobool.not.i74.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end2.i77.i:                                    ; preds = %if.end91.i
-  %21 = load i64, ptr %num_blocks.i.i, align 8
-  %or.cond.i.i80.i = icmp ugt i64 %21, 1152921504606846974
+  %22 = load i64, ptr %num_blocks.i.i, align 8
+  %or.cond.i.i80.i = icmp ugt i64 %22, 1152921504606846974
   br i1 %or.cond.i.i80.i, label %if.end12.i90.i, label %safe_realloc_nofree_muladd2_.exit.i81.i
 
 safe_realloc_nofree_muladd2_.exit.i81.i:          ; preds = %if.end2.i77.i
-  %22 = load ptr, ptr %blocks.i.i, align 8
-  %add.i.i82.i = shl nuw i64 %21, 4
+  %23 = load ptr, ptr %blocks.i.i, align 8
+  %add.i.i82.i = shl nuw i64 %22, 4
   %mul.i.i.i83.i = add nuw i64 %add.i.i82.i, 16
-  %call4.i.i.i84.i = tail call ptr @realloc(ptr noundef %22, i64 noundef %mul.i.i.i83.i) #15
+  %call4.i.i.i84.i = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul.i.i.i83.i) #15
   %tobool3.not.i85.i = icmp eq ptr %call4.i.i.i84.i, null
   br i1 %tobool3.not.i85.i, label %if.end12.i90.i, label %if.end98.i
 
@@ -1238,12 +1242,12 @@ if.end12.i90.i:                                   ; preds = %safe_realloc_nofree
   br i1 %tobool13.not.i91.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end98.i:                                       ; preds = %safe_realloc_nofree_muladd2_.exit.i81.i
-  %23 = load i64, ptr %num_blocks.i.i, align 8
-  %arrayidx.i87.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i84.i, i64 %23
+  %24 = load i64, ptr %num_blocks.i.i, align 8
+  %arrayidx.i87.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i84.i, i64 %24
   store i64 %call26.i, ptr %arrayidx.i87.i, align 8
-  %size9.i88.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i84.i, i64 %23, i32 1
+  %size9.i88.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i84.i, i64 %24, i32 1
   store i32 %cond.i, ptr %size9.i88.i, align 8
-  %inc.i89.i = add i64 %23, 1
+  %inc.i89.i = add i64 %24, 1
   store i64 %inc.i89.i, ptr %num_blocks.i.i, align 8
   store ptr %call4.i.i.i84.i, ptr %blocks.i.i, align 8
   %sub.i = add i64 %size.0.i, -24
@@ -1265,8 +1269,8 @@ if.then110.i:                                     ; preds = %while.end.i
   br i1 %tobool111.not.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end114.i:                                      ; preds = %while.end.i
-  %24 = load i64, ptr %format_block81.i, align 8
-  %tobool116.not.i = icmp eq i64 %24, 0
+  %25 = load i64, ptr %format_block81.i, align 8
+  %tobool116.not.i = icmp eq i64 %25, 0
   br i1 %tobool116.not.i, label %if.then117.i, label %if.end121.i
 
 if.then117.i:                                     ; preds = %if.end114.i
@@ -1274,8 +1278,8 @@ if.then117.i:                                     ; preds = %if.end114.i
   br i1 %tobool118.not.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end121.i:                                      ; preds = %if.end114.i
-  %25 = load i64, ptr %audio_block74.i, align 8
-  %tobool123.not.i = icmp eq i64 %25, 0
+  %26 = load i64, ptr %audio_block74.i, align 8
+  %tobool123.not.i = icmp eq i64 %26, 0
   br i1 %tobool123.not.i, label %if.then124.i, label %read_from_wave64_.exit
 
 if.then124.i:                                     ; preds = %if.end121.i

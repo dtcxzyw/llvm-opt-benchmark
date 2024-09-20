@@ -4586,22 +4586,18 @@ _ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIK
 
 809:                                              ; preds = %806
   %810 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i.i
-  br label %.sink.split.i.i.i.i.i.i.i
+  store ptr %.032.i.i.i.i.i.i.i, ptr %810, align 8
+  br label %814
 
 811:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %812 = load ptr, ptr %805, align 8
   store ptr %812, ptr %.032.i.i.i.i.i.i.i, align 8
   %813 = load ptr, ptr %804, align 8
-  br label %.sink.split.i.i.i.i.i.i.i
-
-.sink.split.i.i.i.i.i.i.i:                        ; preds = %811, %809
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %810, %809 ], [ %813, %811 ]
-  %.1.ph.i.i.i.i.i.i.i = phi i64 [ %803, %809 ], [ %.02531.i.i.i.i.i.i.i, %811 ]
-  store ptr %.032.i.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i.i, align 8
+  store ptr %.032.i.i.i.i.i.i.i, ptr %813, align 8
   br label %814
 
-814:                                              ; preds = %.sink.split.i.i.i.i.i.i.i, %806
-  %.1.i.i.i.i.i.i.i = phi i64 [ %803, %806 ], [ %.1.ph.i.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i ]
+814:                                              ; preds = %811, %809, %806
+  %.1.i.i.i.i.i.i.i = phi i64 [ %.02531.i.i.i.i.i.i.i, %811 ], [ %803, %809 ], [ %803, %806 ]
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.0.val.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !32
 
@@ -17951,7 +17947,8 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %61, %64
   store i64 %66, ptr %8, align 8
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
-  br label %.sink.split
+  store i8 %.0.i58, ptr %68, align 1
+  br label %88
 
 69:                                               ; preds = %58
   %70 = load ptr, ptr %7, align 8
@@ -17991,14 +17988,10 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47:  ; preds = %79, %82
   %86 = add i64 %85, 1
   store i64 %86, ptr %8, align 8
   %87 = getelementptr inbounds i8, ptr %84, i64 %85
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit
-  %.sink = phi ptr [ %68, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit ], [ %87, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47 ]
-  store i8 %.0.i58, ptr %.sink, align 1
+  store i8 %.0.i58, ptr %87, align 1
   br label %88
 
-88:                                               ; preds = %.sink.split, %69
+88:                                               ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit47, %69
   %89 = add i64 %.03676, 1
   %exitcond.not = icmp eq i64 %89, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !183

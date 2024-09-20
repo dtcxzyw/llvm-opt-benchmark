@@ -2671,6 +2671,7 @@ if.then13:                                        ; preds = %land.lhs.true
   store float 1.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %g.i, align 4
   store float 0.000000e+00, ptr %b.i, align 4
+  store float 1.000000e+00, ptr %a.i, align 4
   br label %for.inc
 
 if.else:                                          ; preds = %for.body9
@@ -2689,6 +2690,7 @@ if.then16:                                        ; preds = %if.else.thread, %if
   store float 5.000000e-01, ptr %ref.tmp17, align 4
   store float 5.000000e-01, ptr %g.i48, align 4
   store float 0x3FD3333340000000, ptr %b.i49, align 4
+  store float 1.000000e+00, ptr %a.i50, align 4
   br label %for.inc
 
 if.else18:                                        ; preds = %if.else
@@ -2701,12 +2703,14 @@ if.then21:                                        ; preds = %if.else18
   store float 5.000000e-01, ptr %ref.tmp22, align 4
   store float 0x3FECCCCCC0000000, ptr %g.i51, align 4
   store float 5.000000e-01, ptr %b.i52, align 4
+  store float 1.000000e+00, ptr %a.i53, align 4
   br label %for.inc
 
 if.then26:                                        ; preds = %if.else18
   store float 5.000000e-01, ptr %ref.tmp27, align 4
   store float 5.000000e-01, ptr %g.i54, align 4
   store float 0x3FECCCCCC0000000, ptr %b.i55, align 4
+  store float 1.000000e+00, ptr %a.i56, align 4
   br label %for.inc
 
 if.else28:                                        ; preds = %if.else18, %if.else.thread
@@ -2719,18 +2723,18 @@ if.then32:                                        ; preds = %if.else28
   store float 0x3FE3333340000000, ptr %ref.tmp33, align 4
   store float 0x3FE3333340000000, ptr %g.i59, align 4
   store float 0x3FE3333340000000, ptr %b.i60, align 4
+  store float 1.000000e+00, ptr %a.i61, align 4
   br label %for.inc
 
 if.else34:                                        ; preds = %if.else28
   store float 0x3FECCCCCC0000000, ptr %ref.tmp35, align 4
   store float 0x3FE6666660000000, ptr %g.i62, align 4
   store float 0x3FE6666660000000, ptr %b.i63, align 4
+  store float 1.000000e+00, ptr %a.i64, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then13, %if.then21, %if.then32, %if.else34, %if.then26, %if.then16
-  %a.i.sink = phi ptr [ %a.i, %if.then13 ], [ %a.i53, %if.then21 ], [ %a.i61, %if.then32 ], [ %a.i64, %if.else34 ], [ %a.i56, %if.then26 ], [ %a.i50, %if.then16 ]
   %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then13 ], [ %ref.tmp22, %if.then21 ], [ %ref.tmp33, %if.then32 ], [ %ref.tmp35, %if.else34 ], [ %ref.tmp27, %if.then26 ], [ %ref.tmp17, %if.then16 ]
-  store float 1.000000e+00, ptr %a.i.sink, align 4
   call void @_ZN7b2World9DrawShapeEP9b2FixtureRK11b2TransformRK7b2Color(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef nonnull %f.0102, ptr noundef nonnull align 4 dereferenceable(16) %m_xf.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sink)
   %m_next.i = getelementptr inbounds i8, ptr %f.0102, i64 8
   %f.0 = load ptr, ptr %m_next.i, align 8

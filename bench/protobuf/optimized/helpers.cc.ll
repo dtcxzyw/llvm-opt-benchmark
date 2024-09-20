@@ -11277,27 +11277,36 @@ invoke.cont:                                      ; preds = %.noexc
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %invoke.cont, %invoke.cont8
-  %descriptor.addr.0 = phi ptr [ %descriptor, %invoke.cont ], [ %6, %invoke.cont8 ]
+  %descriptor.addr.0 = phi ptr [ %descriptor, %invoke.cont ], [ %5, %invoke.cont8 ]
   store i64 1, ptr %ref.tmp1, align 8
   store ptr @.str.32, ptr %2, align 8
   %containing_type_.i = getelementptr inbounds i8, ptr %descriptor.addr.0, i64 24
   %3 = load ptr, ptr %containing_type_.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %nested_types_.i = getelementptr inbounds i8, ptr %3, i64 72
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %invoke.cont3
   %file_.i6 = getelementptr inbounds i8, ptr %descriptor.addr.0, i64 16
   %4 = load ptr, ptr %file_.i6, align 8
   %message_types_.i = getelementptr inbounds i8, ptr %4, i64 96
-  %nested_types_.sink.i = select i1 %cmp.i, ptr %message_types_.i, ptr %nested_types_.i
-  %5 = load ptr, ptr %nested_types_.sink.i, align 8
+  br label %_ZNK6google8protobuf10Descriptor5indexEv.exit
+
+if.else.i:                                        ; preds = %invoke.cont3
+  %nested_types_.i = getelementptr inbounds i8, ptr %3, i64 72
+  br label %_ZNK6google8protobuf10Descriptor5indexEv.exit
+
+_ZNK6google8protobuf10Descriptor5indexEv.exit:    ; preds = %if.then.i, %if.else.i
+  %.sink.in.i = phi ptr [ %nested_types_.i, %if.else.i ], [ %message_types_.i, %if.then.i ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %descriptor.addr.0 to i64
-  %sub.ptr.rhs.cast4.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i = ptrtoint ptr %.sink.i to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub5.i, 152
   %retval.0.i = trunc i64 %retval.0.in.i to i32
   %call.i8 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %retval.0.i, ptr noundef nonnull %digits_.i)
           to label %invoke.cont7 unwind label %lpad2.loopexit
 
-invoke.cont7:                                     ; preds = %invoke.cont3
+invoke.cont7:                                     ; preds = %_ZNK6google8protobuf10Descriptor5indexEv.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp4, align 8
@@ -11306,44 +11315,44 @@ invoke.cont7:                                     ; preds = %invoke.cont3
           to label %invoke.cont8 unwind label %lpad2.loopexit
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  %6 = load ptr, ptr %containing_type_.i, align 8
-  %cmp.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %containing_type_.i, align 8
+  %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %do.end, label %invoke.cont3, !llvm.loop !276
 
 do.end:                                           ; preds = %invoke.cont8
   %call11 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #28
-  %7 = extractvalue { i64, ptr } %call11, 0
-  %8 = extractvalue { i64, ptr } %call11, 1
+  %6 = extractvalue { i64, ptr } %call11, 0
+  %7 = extractvalue { i64, ptr } %call11, 1
   %name_.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %name_.i.i, align 8, !noalias !277
-  %call2.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #28, !noalias !277
-  %10 = extractvalue { i64, ptr } %call2.i, 0
-  %11 = extractvalue { i64, ptr } %call2.i, 1
+  %8 = load ptr, ptr %name_.i.i, align 8, !noalias !277
+  %call2.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #28, !noalias !277
+  %9 = extractvalue { i64, ptr } %call2.i, 0
+  %10 = extractvalue { i64, ptr } %call2.i, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i), !noalias !277
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i.i), !noalias !277
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i.i), !noalias !277
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i.i), !noalias !277
-  store i64 %7, ptr %ref.tmp.i.i, align 8, !noalias !280
+  store i64 %6, ptr %ref.tmp.i.i, align 8, !noalias !280
   %pc.sroa.2.0.piece_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %8, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i.i, align 8, !noalias !280
+  store ptr %7, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i.i, align 8, !noalias !280
   store i64 1, ptr %ref.tmp1.i.i, align 8, !noalias !280
-  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr @.str.32, ptr %12, align 8, !noalias !280
-  invoke void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %10, ptr readonly %11)
+  %11 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
+  store ptr @.str.32, ptr %11, align 8, !noalias !280
+  invoke void @_ZN6google8protobuf8compiler3cpp18FilenameIdentifierB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i.i, i64 %9, ptr readonly %10)
           to label %.noexc10 unwind label %lpad2.loopexit.split-lp
 
 .noexc10:                                         ; preds = %do.end
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #28, !noalias !280
-  %13 = extractvalue { i64, ptr } %call.i.i.i, 0
-  store i64 %13, ptr %ref.tmp2.i.i, align 8, !noalias !280
-  %14 = getelementptr inbounds i8, ptr %ref.tmp2.i.i, i64 8
-  %15 = extractvalue { i64, ptr } %call.i.i.i, 1
-  store ptr %15, ptr %14, align 8, !noalias !280
+  %12 = extractvalue { i64, ptr } %call.i.i.i, 0
+  store i64 %12, ptr %ref.tmp2.i.i, align 8, !noalias !280
+  %13 = getelementptr inbounds i8, ptr %ref.tmp2.i.i, i64 8
+  %14 = extractvalue { i64, ptr } %call.i.i.i, 1
+  store ptr %14, ptr %13, align 8, !noalias !280
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i.i)
           to label %invoke.cont12 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc10
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #28
   br label %lpad2.body
@@ -11358,16 +11367,16 @@ invoke.cont12:                                    ; preds = %.noexc10
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %lpad ], [ %1, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   br label %eh.resume
 
-lpad2.loopexit:                                   ; preds = %invoke.cont7, %invoke.cont3
+lpad2.loopexit:                                   ; preds = %invoke.cont7, %_ZNK6google8protobuf10Descriptor5indexEv.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad2.body
@@ -11378,7 +11387,7 @@ lpad2.loopexit.split-lp:                          ; preds = %do.end
   br label %lpad2.body
 
 lpad2.body:                                       ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad.i.i
-  %eh.lpad-body11 = phi { ptr, i32 } [ %16, %lpad.i.i ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %15, %lpad.i.i ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #28
   br label %eh.resume
 

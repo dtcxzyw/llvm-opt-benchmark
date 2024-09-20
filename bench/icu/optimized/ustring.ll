@@ -3282,22 +3282,21 @@ if.end63:                                         ; preds = %if.end57, %while.en
 if.then67:                                        ; preds = %if.end63
   %idxprom68 = sext i32 %i.4 to i64
   %arrayidx69 = getelementptr inbounds i16, ptr %dest, i64 %idxprom68
-  br label %return.sink.split
+  store i16 0, ptr %arrayidx69, align 2
+  br label %return
 
 err:                                              ; preds = %if.end12, %if.then.us.us
   %cmp71 = icmp ne ptr %dest, null
   %cmp73 = icmp sgt i32 %destCapacity, 0
   %or.cond = and i1 %cmp71, %cmp73
-  br i1 %or.cond, label %return.sink.split, label %return
+  br i1 %or.cond, label %if.then74, label %return
 
-return.sink.split:                                ; preds = %err, %if.then67
-  %dest.sink = phi ptr [ %arrayidx69, %if.then67 ], [ %dest, %err ]
-  %retval.0.ph = phi i32 [ %i.4, %if.then67 ], [ 0, %err ]
-  store i16 0, ptr %dest.sink, align 2
+if.then74:                                        ; preds = %err
+  store i16 0, ptr %dest, align 2
   br label %return
 
-return:                                           ; preds = %return.sink.split, %err, %if.end63
-  %retval.0 = phi i32 [ %i.4, %if.end63 ], [ 0, %err ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %err, %if.then74, %if.end63, %if.then67
+  %retval.0 = phi i32 [ %i.4, %if.then67 ], [ %i.4, %if.end63 ], [ 0, %if.then74 ], [ 0, %err ]
   ret i32 %retval.0
 }
 

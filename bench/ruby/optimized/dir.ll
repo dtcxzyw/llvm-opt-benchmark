@@ -2840,7 +2840,8 @@ glob_alloc_n.exit.i:                              ; preds = %64
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %69, %68
   %70 = getelementptr i8, ptr %67, i64 %63
-  br label %.sink.split.i
+  store i8 0, ptr %70, align 1
+  br label %82
 
 71:                                               ; preds = %62
   %72 = add i64 %.03348.i, 2
@@ -2864,18 +2865,12 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %69, %68
 ruby_nonempty_memcpy.exit44.i:                    ; preds = %78, %75
   %80 = add i64 %63, %76
   %81 = getelementptr i8, ptr %74, i64 %80
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %ruby_nonempty_memcpy.exit44.i, %ruby_nonempty_memcpy.exit.i
-  %.sink.i = phi ptr [ %70, %ruby_nonempty_memcpy.exit.i ], [ %81, %ruby_nonempty_memcpy.exit44.i ]
-  %.134.ph.i = phi i64 [ %63, %ruby_nonempty_memcpy.exit.i ], [ %80, %ruby_nonempty_memcpy.exit44.i ]
-  %.1.ph.i = phi ptr [ %67, %ruby_nonempty_memcpy.exit.i ], [ %74, %ruby_nonempty_memcpy.exit44.i ]
-  store i8 0, ptr %.sink.i, align 1
+  store i8 0, ptr %81, align 1
   br label %82
 
-82:                                               ; preds = %.sink.split.i, %71, %60
-  %.134.i = phi i64 [ %.03348.i, %71 ], [ %.03348.i, %60 ], [ %.134.ph.i, %.sink.split.i ]
-  %.1.i = phi ptr [ %.03149.i, %71 ], [ %.03149.i, %60 ], [ %.1.ph.i, %.sink.split.i ]
+82:                                               ; preds = %ruby_nonempty_memcpy.exit44.i, %71, %ruby_nonempty_memcpy.exit.i, %60
+  %.134.i = phi i64 [ %80, %ruby_nonempty_memcpy.exit44.i ], [ %.03348.i, %71 ], [ %63, %ruby_nonempty_memcpy.exit.i ], [ %.03348.i, %60 ]
+  %.1.i = phi ptr [ %74, %ruby_nonempty_memcpy.exit44.i ], [ %.03149.i, %71 ], [ %67, %ruby_nonempty_memcpy.exit.i ], [ %.03149.i, %60 ]
   %83 = getelementptr inbounds i8, ptr %.050.i, i64 16
   %.0.i = load ptr, ptr %83, align 8
   %.not.i = icmp eq ptr %.0.i, null

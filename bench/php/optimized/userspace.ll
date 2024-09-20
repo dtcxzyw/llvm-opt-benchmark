@@ -1342,10 +1342,12 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
 130:                                              ; preds = %128
   %131 = load i64, ptr %3, align 8
   store i64 %131, ptr %126, align 16
+  store i32 4, ptr %127, align 8
   br label %136
 
 132:                                              ; preds = %128
   store i64 8192, ptr %126, align 16
+  store i32 4, ptr %127, align 8
   br label %136
 
 133:                                              ; preds = %114
@@ -1355,19 +1357,19 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   store i64 %.sroa.0.0.copyload, ptr %124, align 16
   store i32 4, ptr %125, align 8
   store i64 %.sroa.2.0.copyload, ptr %126, align 16
+  store i32 4, ptr %127, align 8
   br label %136
 
 134:                                              ; preds = %114
   %135 = sext i32 %2 to i64
   store i64 %135, ptr %124, align 16
+  store i32 4, ptr %125, align 8
   br label %136
 
 default.unreachable:                              ; preds = %114
   unreachable
 
 136:                                              ; preds = %130, %132, %134, %133
-  %.sink = phi ptr [ %127, %130 ], [ %127, %132 ], [ %125, %134 ], [ %127, %133 ]
-  store i32 4, ptr %.sink, align 8
   %137 = getelementptr inbounds i8, ptr %9, i64 8
   %.val305 = load ptr, ptr %137, align 8
   %138 = call i32 @zend_call_method_if_exists(ptr noundef %.val305, ptr noundef nonnull %115, ptr noundef nonnull %6, i32 noundef 3, ptr noundef nonnull %7) #11
@@ -1399,9 +1401,9 @@ default.unreachable:                              ; preds = %114
   br label %.sink.split308
 
 .sink.split308:                                   ; preds = %73, %113, %81, %85, %35, %72, %149
-  %.sink309 = phi ptr [ %5, %149 ], [ %7, %72 ], [ %5, %35 ], [ %5, %85 ], [ %5, %81 ], [ %5, %113 ], [ %5, %73 ]
+  %.sink = phi ptr [ %5, %149 ], [ %7, %72 ], [ %5, %35 ], [ %5, %85 ], [ %5, %81 ], [ %5, %113 ], [ %5, %73 ]
   %.0.ph = phi i32 [ %.5, %149 ], [ %.2, %72 ], [ %.1, %35 ], [ -1, %85 ], [ %., %81 ], [ %.4, %113 ], [ -2, %73 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %.sink309) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %.sink) #11
   br label %150
 
 150:                                              ; preds = %.sink.split308, %4

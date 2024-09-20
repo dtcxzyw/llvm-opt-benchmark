@@ -40829,7 +40829,11 @@ if.then:                                          ; preds = %entry
   %firstDraw_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %firstDraw_, align 4, !tbaa !26, !range !79, !noundef !80
   %loadedv2 = trunc nuw i8 %2 to i1
-  br i1 %loadedv2, label %return.sink.split, label %if.else
+  br i1 %loadedv2, label %if.then3, label %if.else
+
+if.then3:                                         ; preds = %if.then
+  store i8 0, ptr %firstDraw_, align 4, !tbaa !26
+  br label %return
 
 if.else:                                          ; preds = %if.then
   %3 = load i32, ptr %sequenceCounter_, align 8, !tbaa !25
@@ -40998,7 +41002,11 @@ if.end33:                                         ; preds = %entry
   %firstDraw_34 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %25 = load i8, ptr %firstDraw_34, align 4, !tbaa !26, !range !79, !noundef !80
   %loadedv35 = trunc nuw i8 %25 to i1
-  br i1 %loadedv35, label %return.sink.split, label %if.end39
+  br i1 %loadedv35, label %if.then36, label %if.end39
+
+if.then36:                                        ; preds = %if.end33
+  store i8 0, ptr %firstDraw_34, align 4, !tbaa !26
+  br label %return
 
 if.end39:                                         ; preds = %if.end33
   %sequenceCounter_40 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -41209,12 +41217,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %exitcond.not = icmp eq i64 %inc91, %50
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !93
 
-return.sink.split:                                ; preds = %if.end33, %if.then
-  %firstDraw_.sink = phi ptr [ %firstDraw_, %if.then ], [ %firstDraw_34, %if.end33 ]
-  store i8 0, ptr %firstDraw_.sink, align 4, !tbaa !26
-  br label %return
-
-return:                                           ; preds = %for.body, %return.sink.split, %for.cond.preheader, %if.else
+return:                                           ; preds = %for.body, %for.cond.preheader, %if.then3, %if.else, %if.then36
   %retval.0 = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %retval.0
 

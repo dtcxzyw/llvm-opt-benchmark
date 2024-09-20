@@ -157,7 +157,7 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr nocapture noundef %0, 
 define void @PaUtil_GroupFreeMemory(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %14, label %.preheader
+  br i1 %4, label %17, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
   %.018.in = phi ptr [ %.018, %5 ], [ %3, %2 ]
@@ -176,20 +176,29 @@ define void @PaUtil_GroupFreeMemory(ptr nocapture noundef %0, ptr noundef %1) lo
   %10 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not19 = icmp eq ptr %.0, null
   %11 = load ptr, ptr %.018, align 8
-  %..0.lcssa25 = select i1 %.not19, ptr %3, ptr %.0
-  store ptr %11, ptr %..0.lcssa25, align 8
-  store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %.018, align 8
-  store ptr %.018, ptr %12, align 8
-  br label %.loopexit
+  br i1 %.not19, label %13, label %12
 
-.loopexit:                                        ; preds = %.preheader, %9
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %1) #2
+12:                                               ; preds = %9
+  store ptr %11, ptr %.0, align 8
   br label %14
 
-14:                                               ; preds = %2, %.loopexit
+13:                                               ; preds = %9
+  store ptr %11, ptr %3, align 8
+  br label %14
+
+14:                                               ; preds = %13, %12
+  store ptr null, ptr %10, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %.018, align 8
+  store ptr %.018, ptr %15, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %14
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %1) #2
+  br label %17
+
+17:                                               ; preds = %2, %.loopexit
   ret void
 }
 

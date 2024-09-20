@@ -44,18 +44,18 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   %24 = icmp ugt i64 %.183101.in, 1
   br i1 %24, label %.lr.ph102, label %.lr.ph109, !llvm.loop !6
 
-.lr.ph109:                                        ; preds = %23, %42
-  %.0108 = phi i64 [ %43, %42 ], [ 0, %23 ]
+.lr.ph109:                                        ; preds = %23, %45
+  %.0108 = phi i64 [ %46, %45 ], [ 0, %23 ]
   %25 = getelementptr inbounds i64, ptr %2, i64 %.0108
   %26 = load i64, ptr %25, align 8
   %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %28, label %42
+  br i1 %27, label %28, label %45
 
 28:                                               ; preds = %.lr.ph109
   %29 = getelementptr inbounds i64, ptr %5, i64 %.0108
   %30 = load i64, ptr %29, align 8
   %.not = icmp eq i64 %30, -1
-  br i1 %.not, label %42, label %.preheader96
+  br i1 %.not, label %45, label %.preheader96
 
 .preheader96:                                     ; preds = %28, %.preheader96
   %.074107 = phi i64 [ %.175, %.preheader96 ], [ -1, %28 ]
@@ -75,56 +75,65 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %.not91, label %35, label %.preheader96, !llvm.loop !7
 
 35:                                               ; preds = %.preheader96
-  %36 = getelementptr inbounds i64, ptr %6, i64 %.175
-  %37 = load i64, ptr %36, align 8
-  %.not92 = icmp eq i64 %37, -1
-  br i1 %.not92, label %42, label %38
+  %36 = getelementptr inbounds i64, ptr %6, i64 %.081103
+  %37 = getelementptr inbounds i64, ptr %6, i64 %.175
+  %38 = load i64, ptr %37, align 8
+  %.not92 = icmp eq i64 %38, -1
+  br i1 %.not92, label %45, label %39
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i64, ptr %6, i64 %.081103
+39:                                               ; preds = %35
   %40 = icmp eq i64 %.177, -1
-  %41 = getelementptr inbounds i64, ptr %6, i64 %.177
-  %.sink = select i1 %40, ptr %29, ptr %41
-  store i64 %37, ptr %.sink, align 8
-  store i64 -1, ptr %36, align 8
-  store i64 %.175, ptr %39, align 8
-  br label %42
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %.lr.ph109, %28, %38, %35
-  %43 = add nuw nsw i64 %.0108, 1
-  %exitcond115.not = icmp eq i64 %43, %0
+41:                                               ; preds = %39
+  store i64 %38, ptr %29, align 8
+  br label %44
+
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i64, ptr %6, i64 %.177
+  store i64 %38, ptr %43, align 8
+  br label %44
+
+44:                                               ; preds = %42, %41
+  store i64 -1, ptr %37, align 8
+  store i64 %.175, ptr %36, align 8
+  br label %45
+
+45:                                               ; preds = %.lr.ph109, %28, %44, %35
+  %46 = add nuw nsw i64 %.0108, 1
+  %exitcond115.not = icmp eq i64 %46, %0
   br i1 %exitcond115.not, label %.lr.ph114.preheader, label %.lr.ph109, !llvm.loop !8
 
-.lr.ph114.preheader:                              ; preds = %42
-  %44 = shl nuw i64 %0, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 -1, i64 %44, i1 false)
+.lr.ph114.preheader:                              ; preds = %45
+  %47 = shl nuw i64 %0, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 -1, i64 %47, i1 false)
   br label %.lr.ph114
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %54
-  %.2113 = phi i64 [ %55, %54 ], [ 0, %.lr.ph114.preheader ]
-  %.084112 = phi i64 [ %.185, %54 ], [ 0, %.lr.ph114.preheader ]
-  %45 = getelementptr inbounds i64, ptr %1, i64 %.2113
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, -1
-  br i1 %47, label %48, label %54
+.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %57
+  %.2113 = phi i64 [ %58, %57 ], [ 0, %.lr.ph114.preheader ]
+  %.084112 = phi i64 [ %.185, %57 ], [ 0, %.lr.ph114.preheader ]
+  %48 = getelementptr inbounds i64, ptr %1, i64 %.2113
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, -1
+  br i1 %50, label %51, label %57
 
-48:                                               ; preds = %.lr.ph114
-  %49 = getelementptr inbounds i64, ptr %2, i64 %.2113
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp sgt i64 %50, 0
-  br i1 %51, label %52, label %54
+51:                                               ; preds = %.lr.ph114
+  %52 = getelementptr inbounds i64, ptr %2, i64 %.2113
+  %53 = load i64, ptr %52, align 8
+  %54 = icmp sgt i64 %53, 0
+  br i1 %54, label %55, label %57
 
-52:                                               ; preds = %48
-  %53 = tail call i64 @amd_l_post_tree(i64 noundef %.2113, i64 noundef %.084112, ptr noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7) #4
-  br label %54
+55:                                               ; preds = %51
+  %56 = tail call i64 @amd_l_post_tree(i64 noundef %.2113, i64 noundef %.084112, ptr noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7) #4
+  br label %57
 
-54:                                               ; preds = %.lr.ph114, %48, %52
-  %.185 = phi i64 [ %53, %52 ], [ %.084112, %48 ], [ %.084112, %.lr.ph114 ]
-  %55 = add nuw nsw i64 %.2113, 1
-  %exitcond116.not = icmp eq i64 %55, %0
+57:                                               ; preds = %.lr.ph114, %51, %55
+  %.185 = phi i64 [ %56, %55 ], [ %.084112, %51 ], [ %.084112, %.lr.ph114 ]
+  %58 = add nuw nsw i64 %.2113, 1
+  %exitcond116.not = icmp eq i64 %58, %0
   br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph114, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %54, %8
+._crit_edge:                                      ; preds = %57, %8
   ret void
 }
 

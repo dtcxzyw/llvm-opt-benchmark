@@ -779,21 +779,27 @@ define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr nocapture noundef readonly 
   %.013.lcssa = phi ptr [ %1, %2 ], [ %.01319, %.lr.ph ]
   %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #12
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %.sink.split
+  br i1 %8, label %15, label %9
 
-.sink.split:                                      ; preds = %._crit_edge
+9:                                                ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false)
-  %9 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %.013.lcssa, align 8
-  %.not17 = icmp eq ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
-  %.sink = select i1 %.not17, ptr %.013.lcssa, ptr %11
-  store ptr %7, ptr %.sink, align 8
-  br label %12
+  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  store ptr null, ptr %10, align 8
+  %11 = load ptr, ptr %.013.lcssa, align 8
+  %.not17 = icmp eq ptr %11, null
+  br i1 %.not17, label %14, label %12
 
-12:                                               ; preds = %.sink.split, %._crit_edge
-  %.0 = phi i32 [ -3, %._crit_edge ], [ 1, %.sink.split ]
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %11, i64 48
+  store ptr %7, ptr %13, align 8
+  br label %15
+
+14:                                               ; preds = %9
+  store ptr %7, ptr %.013.lcssa, align 8
+  br label %15
+
+15:                                               ; preds = %12, %14, %._crit_edge
+  %.0 = phi i32 [ -3, %._crit_edge ], [ 1, %14 ], [ 1, %12 ]
   ret i32 %.0
 }
 

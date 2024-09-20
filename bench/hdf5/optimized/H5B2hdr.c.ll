@@ -1149,30 +1149,39 @@ define range(i32 -1, 1) i32 @H5B2__hdr_delete(ptr noundef %0) local_unnamed_addr
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @H5AC_unprotect(ptr noundef %17, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %19, ptr noundef nonnull %0, i32 noundef 0) #4
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %28, label %H5B2__hdr_unprotect.exit
+  br i1 %21, label %22, label %H5B2__hdr_unprotect.exit
+
+22:                                               ; preds = %.split14
+  %23 = load i64, ptr @H5E_BTREE_g, align 8
+  %24 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
+  %25 = load i64, ptr %18, align 8
+  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_unprotect, i32 noundef 553, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.22, i64 noundef %25) #4
+  br label %38
 
 .split:                                           ; preds = %1, %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 288
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 296
-  %25 = load i64, ptr %24, align 8
-  %26 = tail call i32 @H5AC_unprotect(ptr noundef %23, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %25, ptr noundef nonnull %0, i32 noundef 259) #4
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %H5B2__hdr_unprotect.exit
+  %27 = getelementptr inbounds i8, ptr %0, i64 288
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 296
+  %30 = load i64, ptr %29, align 8
+  %31 = tail call i32 @H5AC_unprotect(ptr noundef %28, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %30, ptr noundef nonnull %0, i32 noundef 259) #4
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %H5B2__hdr_unprotect.exit
 
-28:                                               ; preds = %.split, %.split14
-  %.sink21 = phi ptr [ %18, %.split14 ], [ %24, %.split ]
-  %29 = load i64, ptr @H5E_BTREE_g, align 8
-  %30 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
-  %31 = load i64, ptr %.sink21, align 8
-  %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_unprotect, i32 noundef 553, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.22, i64 noundef %31) #4
-  %33 = load i64, ptr @H5E_BTREE_g, align 8
-  %34 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
-  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_delete, i32 noundef 679, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.16) #4
+33:                                               ; preds = %.split
+  %34 = load i64, ptr @H5E_BTREE_g, align 8
+  %35 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
+  %36 = load i64, ptr %29, align 8
+  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_unprotect, i32 noundef 553, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.22, i64 noundef %36) #4
+  br label %38
+
+38:                                               ; preds = %22, %33
+  %39 = load i64, ptr @H5E_BTREE_g, align 8
+  %40 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
+  %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_delete, i32 noundef 679, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.16) #4
   br label %H5B2__hdr_unprotect.exit
 
-H5B2__hdr_unprotect.exit:                         ; preds = %.split14, %.split, %28
-  %.1 = phi i32 [ -1, %28 ], [ -1, %.split14 ], [ 0, %.split ]
+H5B2__hdr_unprotect.exit:                         ; preds = %.split14, %.split, %38
+  %.1 = phi i32 [ -1, %38 ], [ -1, %.split14 ], [ 0, %.split ]
   ret i32 %.1
 }
 

@@ -15931,7 +15931,7 @@ _ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EED2Ev
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %63, label %3
+  br i1 %.not, label %61, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15972,7 +15972,7 @@ define linkonce_odr void @_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ES
 
 _ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %24, ptr %4, align 8
-  br label %63
+  br label %61
 
 25:                                               ; preds = %3
   %26 = icmp ult i64 %17, %1
@@ -16012,15 +16012,15 @@ _ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35, %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %59, %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %31, %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35 ]
-  %.0911.i.i.i.i = phi ptr [ %58, %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35 ]
+  %.012.i.i.i.i = phi ptr [ %57, %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %31, %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35 ]
+  %.0911.i.i.i.i = phi ptr [ %56, %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !74, !noalias !71
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %53, label %42
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i, label %42
 
 42:                                               ; preds = %.lr.ph.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
@@ -16033,52 +16033,48 @@ _ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3
   store ptr %39, ptr %49, align 8, !noalias !76
   %50 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
   %51 = load i64, ptr %50, align 8, !alias.scope !74, !noalias !71
-  %52 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  store i64 %51, ptr %52, align 8, !alias.scope !71, !noalias !74
   store ptr null, ptr %40, align 8, !alias.scope !74, !noalias !71
   store ptr %43, ptr %45, align 8, !alias.scope !74, !noalias !71
   store ptr %43, ptr %47, align 8, !alias.scope !74, !noalias !71
+  store i64 0, ptr %50, align 8, !alias.scope !74, !noalias !71
   br label %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i
 
-53:                                               ; preds = %.lr.ph.i.i.i.i
-  %54 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  br label %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i
-
-_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %53, %42
-  %.sink15.i.i.i.i = phi i32 [ 0, %53 ], [ %44, %42 ]
-  %.sink13.i.i.i.i = phi ptr [ %39, %53 ], [ %46, %42 ]
-  %.sink.i.i.i.i = phi ptr [ %39, %53 ], [ %48, %42 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %54, %53 ], [ %50, %42 ]
+_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i
+  %.sink15.i.i.i.i = phi i32 [ %44, %42 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sink13.i.i.i.i = phi ptr [ %46, %42 ], [ %39, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi ptr [ %48, %42 ], [ %39, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi i64 [ %51, %42 ], [ 0, %.lr.ph.i.i.i.i ]
   store i32 %.sink15.i.i.i.i, ptr %39, align 8
-  %55 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  store ptr %41, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  store ptr %.sink13.i.i.i.i, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
-  store ptr %.sink.i.i.i.i, ptr %57, align 8
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !76
-  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
-  %59 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %58, %5
+  %52 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  store ptr %41, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  store ptr %.sink13.i.i.i.i, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  store ptr %.sink.i.i.i.i, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
+  store i64 %.sink.i.i.i.i.i, ptr %55, align 8, !alias.scope !71, !noalias !74
+  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
+  %57 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %56, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
 
 _ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %_ZSt19__relocate_object_aISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit35
   %.not.i37 = icmp eq ptr %6, null
-  br i1 %.not.i37, label %_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38, label %60
+  br i1 %.not.i37, label %_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38, label %58
 
-60:                                               ; preds = %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
+58:                                               ; preds = %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38
 
-_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38: ; preds = %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %60
+_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38: ; preds = %_ZNSt6vectorISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %58
   store ptr %31, ptr %0, align 8
-  %61 = getelementptr inbounds %"class.std::set", ptr %32, i64 %1
-  store ptr %61, ptr %4, align 8
-  %62 = getelementptr inbounds %"class.std::set", ptr %31, i64 %29
-  store ptr %62, ptr %11, align 8
-  br label %63
+  %59 = getelementptr inbounds %"class.std::set", ptr %32, i64 %1
+  store ptr %59, ptr %4, align 8
+  %60 = getelementptr inbounds %"class.std::set", ptr %31, i64 %29
+  store ptr %60, ptr %11, align 8
+  br label %61
 
-63:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38, %2
+61:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EEmS7_ET_S9_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt3setIN5Yosys5RTLIL6SigBitESt4lessIS3_ESaIS3_EESaIS7_EE13_M_deallocateEPS7_m.exit38, %2
   ret void
 }
 

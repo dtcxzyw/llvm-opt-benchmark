@@ -4098,12 +4098,7 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
   %.not = icmp eq i64 %4, %79
   br i1 %.not, label %92, label %93
 
-.sink.split:                                      ; preds = %119, %121
-  %.sink = phi ptr [ %123, %121 ], [ %120, %119 ]
-  store i64 %4, ptr %.sink, align 8
-  br label %92
-
-92:                                               ; preds = %.sink.split, %91
+92:                                               ; preds = %121, %119, %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   ret void
@@ -4135,8 +4130,8 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
   br i1 %trunc120, label %107, label %.invoke148
 
 107:                                              ; preds = %104, %109
-  %.sink151 = phi ptr [ %110, %109 ], [ %105, %104 ]
-  %108 = getelementptr inbounds i8, ptr %.sink151, i64 8
+  %.sink150 = phi ptr [ %110, %109 ], [ %105, %104 ]
+  %108 = getelementptr inbounds i8, ptr %.sink150, i64 8
   store i64 %4, ptr %108, align 8
   %trunc121 = trunc nuw i64 %96 to i1
   br i1 %trunc121, label %113, label %111
@@ -4170,13 +4165,15 @@ define internal fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds i8, ptr %116, i64 16
-  br label %.sink.split
+  store i64 %4, ptr %120, align 8
+  br label %92
 
 121:                                              ; preds = %113
   %122 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }], ptr %8, i64 0, i64 %97
   store i64 1, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 8
-  br label %.sink.split
+  store i64 %4, ptr %123, align 8
+  br label %92
 
 .invoke:                                          ; preds = %113, %111, %102, %100, %93
   %124 = phi i64 [ %4, %93 ], [ %99, %100 ], [ %99, %102 ], [ %97, %111 ], [ %97, %113 ]

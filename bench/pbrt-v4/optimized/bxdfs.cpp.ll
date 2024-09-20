@@ -4554,10 +4554,10 @@ for.body.lr.ph:                                   ; preds = %if.end25
   %z.i396 = getelementptr inbounds i8, ptr %rs, i64 24
   br i1 %cmp.i, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us.sink.split
-  %pdfSum.1863.us = phi float [ %pdfSum.2.us889.ph, %for.inc.us.sink.split ], [ %pdfSum.0, %for.body.lr.ph ]
-  %s.0862.us = phi i32 [ %inc.us, %for.inc.us.sink.split ], [ 0, %for.body.lr.ph ]
-  %rng.sroa.0.0861.us = phi i64 [ %rng.sroa.0.1.us888.ph, %for.inc.us.sink.split ], [ %add.i3.i.i, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %pdfSum.1863.us = phi float [ %pdfSum.2.us889, %for.inc.us ], [ %pdfSum.0, %for.body.lr.ph ]
+  %s.0862.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %rng.sroa.0.0861.us = phi i64 [ %rng.sroa.0.1.us888, %for.inc.us ], [ %add.i3.i.i, %for.body.lr.ph ]
   store ptr %bottom228, ptr %bottom.i, align 8
   store ptr null, ptr %rInterface, align 8
   store i8 0, ptr %set.i, align 4
@@ -4674,7 +4674,11 @@ invoke.cont72.us:                                 ; preds = %_ZN4pstd8optionalIN
   %tobool.i.i143.us = trunc i8 %25 to i1
   %spec.store.select794.us = select i1 %tobool.i.i143.us, i8 0, i8 %25
   store i8 %spec.store.select794.us, ptr %set.i3.i135, align 4
-  br i1 %tobool.i4.i.us, label %for.body.i.us, label %for.inc.us.sink.split
+  br i1 %tobool.i4.i.us, label %for.body.i.us, label %if.end221.us.thread
+
+if.end221.us.thread:                              ; preds = %invoke.cont72.us
+  store i8 0, ptr %set.i59, align 4
+  br label %for.inc.us
 
 for.body.i.us:                                    ; preds = %invoke.cont72.us, %for.body.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %for.body.i.us ], [ 0, %invoke.cont72.us ]
@@ -4933,13 +4937,12 @@ if.end221.us:                                     ; preds = %invoke.cont78.us, %
   %rng.sroa.0.1.us = phi i64 [ %add.i.i.i114.us, %invoke.cont120.us ], [ %add.i.i.i114.us, %invoke.cont94.us ], [ %add.i.i.i114.us, %invoke.cont91.us ], [ %add.i.i.i114.us, %invoke.cont78.us ], [ %add.i.i.i273.us, %if.end219.us ], [ %add.i.i.i273.us, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i429.us ]
   %pdfSum.2.us = phi float [ %add122.us, %invoke.cont120.us ], [ %pdfSum.1863.us, %invoke.cont94.us ], [ %pdfSum.1863.us, %invoke.cont91.us ], [ %pdfSum.1863.us, %invoke.cont78.us ], [ %pdfSum.3.us, %if.end219.us ], [ %pdfSum.3.us, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i429.us ]
   store i8 0, ptr %set.i59, align 4
-  br label %for.inc.us.sink.split
+  store i8 0, ptr %set.i, align 4
+  br label %for.inc.us
 
-for.inc.us.sink.split:                            ; preds = %if.end221.us, %invoke.cont72.us
-  %set.i59.sink = phi ptr [ %set.i59, %invoke.cont72.us ], [ %set.i, %if.end221.us ]
-  %pdfSum.2.us889.ph = phi float [ %pdfSum.1863.us, %invoke.cont72.us ], [ %pdfSum.2.us, %if.end221.us ]
-  %rng.sroa.0.1.us888.ph = phi i64 [ %add.i.i.i114.us, %invoke.cont72.us ], [ %rng.sroa.0.1.us, %if.end221.us ]
-  store i8 0, ptr %set.i59.sink, align 4
+for.inc.us:                                       ; preds = %if.end221.us.thread, %if.end221.us
+  %pdfSum.2.us889 = phi float [ %pdfSum.1863.us, %if.end221.us.thread ], [ %pdfSum.2.us, %if.end221.us ]
+  %rng.sroa.0.1.us888 = phi i64 [ %add.i.i.i114.us, %if.end221.us.thread ], [ %rng.sroa.0.1.us, %if.end221.us ]
   %inc.us = add nuw nsw i32 %s.0862.us, 1
   %72 = load i32, ptr %nSamples26, align 4
   %cmp27.us = icmp slt i32 %inc.us, %72
@@ -5279,9 +5282,9 @@ for.inc:                                          ; preds = %_ZN4pstd8optionalIN
   %cmp27 = icmp slt i32 %inc, %126
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !34
 
-for.end:                                          ; preds = %for.inc, %for.inc.us.sink.split, %if.end25
-  %pdfSum.1.lcssa = phi float [ %pdfSum.0, %if.end25 ], [ %pdfSum.2.us889.ph, %for.inc.us.sink.split ], [ %pdfSum.4, %for.inc ]
-  %.lcssa = phi i32 [ %8, %if.end25 ], [ %72, %for.inc.us.sink.split ], [ %126, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end25
+  %pdfSum.1.lcssa = phi float [ %pdfSum.0, %if.end25 ], [ %pdfSum.2.us889, %for.inc.us ], [ %pdfSum.4, %for.inc ]
+  %.lcssa = phi i32 [ %8, %if.end25 ], [ %72, %for.inc.us ], [ %126, %for.inc ]
   %conv378 = sitofp i32 %.lcssa to float
   %div379 = fdiv float %pdfSum.1.lcssa, %conv378
   %mul1.i = fmul float %div379, 0x3FECCCCCC0000000
@@ -26111,22 +26114,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !213
 

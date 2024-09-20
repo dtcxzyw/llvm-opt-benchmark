@@ -1666,37 +1666,41 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread: ; preds = %entry
   %6 = load float, ptr %border_.i101, align 4
   %add26248 = fadd float %6, %div219
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %7 = load float, ptr %padding_.i176, align 4
+  %add30300 = fadd float %add26248, %7
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
 
 _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95: ; preds = %entry
   %measuredDimensions_.i97 = getelementptr inbounds i8, ptr %parent, i64 500
-  %7 = load float, ptr %measuredDimensions_.i97, align 4
+  %8 = load float, ptr %measuredDimensions_.i97, align 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
   %border_.i113 = getelementptr inbounds i8, ptr %parent, i64 540
   %arrayidx.i.i.i27115 = getelementptr inbounds i8, ptr %parent, i64 548
-  %8 = load float, ptr %arrayidx.i.i.i27115, align 4
-  %sub116 = fsub float %7, %8
+  %9 = load float, ptr %arrayidx.i.i.i27115, align 4
+  %sub116 = fsub float %8, %9
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %9 = load float, ptr %border_.i113, align 4
-  %sub9 = fsub float %sub116, %9
+  %10 = load float, ptr %border_.i113, align 4
+  %sub9 = fsub float %sub116, %10
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
   %padding_.i = getelementptr inbounds i8, ptr %parent, i64 556
   %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %parent, i64 564
-  %10 = load float, ptr %arrayidx.i.i.i45, align 4
-  %sub13 = fsub float %sub9, %10
+  %11 = load float, ptr %arrayidx.i.i.i45, align 4
+  %sub13 = fsub float %sub9, %11
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %11 = load float, ptr %padding_.i, align 4
-  %sub17 = fsub float %sub13, %11
+  %12 = load float, ptr %padding_.i, align 4
+  %sub17 = fsub float %sub13, %12
   %measuredDimensions_.i62232 = getelementptr inbounds i8, ptr %child, i64 500
-  %12 = load float, ptr %measuredDimensions_.i62232, align 4
+  %13 = load float, ptr %measuredDimensions_.i62232, align 4
   %call21235 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 3, float noundef %containingBlockWidth)
-  %add236 = fadd float %12, %call21235
+  %add236 = fadd float %13, %call21235
   %sub22237 = fsub float %sub17, %add236
   %div238 = fmul float %sub22237, 5.000000e-01
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %13 = load float, ptr %arrayidx.i.i.i27115, align 4
-  %add26264 = fadd float %13, %div238
+  %14 = load float, ptr %arrayidx.i.i.i27115, align 4
+  %add26264 = fadd float %14, %div238
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %15 = load float, ptr %arrayidx.i.i.i45, align 4
+  %add30 = fadd float %add26264, %15
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
 
 sw.epilog.i:                                      ; preds = %entry
@@ -1705,33 +1709,33 @@ sw.epilog.i:                                      ; preds = %entry
 
 _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %entry, %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %parent, i64 504
-  %14 = load float, ptr %arrayidx.i.i.i, align 4
+  %16 = load float, ptr %arrayidx.i.i.i, align 4
   %switch = icmp eq i8 %axis, 0
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
   %. = select i1 %switch, i64 544, i64 552
-  %.312 = select i1 %switch, i64 552, i64 544
-  %.313 = select i1 %switch, i64 560, i64 568
-  %.314 = select i1 %switch, i64 3, i64 1
+  %.311 = select i1 %switch, i64 552, i64 544
+  %.312 = select i1 %switch, i64 560, i64 568
+  %.313 = select i1 %switch, i64 3, i64 1
   %arrayidx.i.i.i27123 = getelementptr inbounds i8, ptr %parent, i64 %.
-  %15 = load float, ptr %arrayidx.i.i.i27123, align 4
-  %sub124 = fsub float %14, %15
+  %17 = load float, ptr %arrayidx.i.i.i27123, align 4
+  %sub124 = fsub float %16, %17
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i36129 = getelementptr inbounds i8, ptr %parent, i64 %.312
-  %16 = load float, ptr %arrayidx.i.i.i36129, align 4
-  %sub9130 = fsub float %sub124, %16
+  %arrayidx.i.i.i36129 = getelementptr inbounds i8, ptr %parent, i64 %.311
+  %18 = load float, ptr %arrayidx.i.i.i36129, align 4
+  %sub9130 = fsub float %sub124, %18
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i45156 = getelementptr inbounds i8, ptr %parent, i64 %.313
-  %17 = load float, ptr %arrayidx.i.i.i45156, align 4
-  %sub13157 = fsub float %sub9130, %17
+  %arrayidx.i.i.i45156 = getelementptr inbounds i8, ptr %parent, i64 %.312
+  %19 = load float, ptr %arrayidx.i.i.i45156, align 4
+  %sub13157 = fsub float %sub9130, %19
   %padding_.i159.ph = getelementptr inbounds i8, ptr %parent, i64 556
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i55188 = getelementptr inbounds [4 x float], ptr %padding_.i159.ph, i64 0, i64 %.314
-  %18 = load float, ptr %arrayidx.i.i.i55188, align 4
-  %sub17189 = fsub float %sub13157, %18
+  %arrayidx.i.i.i55188 = getelementptr inbounds [4 x float], ptr %padding_.i159.ph, i64 0, i64 %.313
+  %20 = load float, ptr %arrayidx.i.i.i55188, align 4
+  %sub17189 = fsub float %sub13157, %20
   %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %child, i64 504
-  %19 = load float, ptr %arrayidx.i.i.i64, align 4
+  %21 = load float, ptr %arrayidx.i.i.i64, align 4
   %call21 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
-  %add = fadd float %19, %call21
+  %add = fadd float %21, %call21
   %sub22 = fsub float %sub17189, %add
   %div = fmul float %sub22, 5.000000e-01
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
@@ -1739,29 +1743,30 @@ _ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %entry, %entry
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
   %arrayidx.i.i.i74273 = getelementptr inbounds i8, ptr %parent, i64 544
-  %20 = load float, ptr %arrayidx.i.i.i74273, align 4
-  %add26274 = fadd float %div, %20
+  %22 = load float, ptr %arrayidx.i.i.i74273, align 4
+  %add26274 = fadd float %div, %22
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
   %arrayidx.i.i.i84279 = getelementptr inbounds i8, ptr %parent, i64 560
+  %23 = load float, ptr %arrayidx.i.i.i84279, align 4
+  %add30280 = fadd float %add26274, %23
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
 
 sw.bb1.i88:                                       ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
   %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %parent, i64 552
-  %21 = load float, ptr %arrayidx.i.i.i74, align 4
-  %add26 = fadd float %div, %21
+  %24 = load float, ptr %arrayidx.i.i.i74, align 4
+  %add26 = fadd float %div, %24
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
   %arrayidx.i.i.i84289 = getelementptr inbounds i8, ptr %parent, i64 568
+  %25 = load float, ptr %arrayidx.i.i.i84289, align 4
+  %add30290 = fadd float %add26, %25
   br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
 
 _ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread, %sw.bb1.i88, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95
-  %arrayidx.i.i.i84279.sink = phi ptr [ %arrayidx.i.i.i84279, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %arrayidx.i.i.i84289, %sw.bb1.i88 ], [ %padding_.i176, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ %arrayidx.i.i.i45, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
-  %add26274.sink = phi float [ %add26274, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %add26, %sw.bb1.i88 ], [ %add26248, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ %add26264, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
   %.sink310 = phi i8 [ 0, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %axis, %sw.bb1.i88 ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ 3, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
+  %add30280.sink = phi float [ %add30280, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %add30290, %sw.bb1.i88 ], [ %add30300, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ %add30, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
   %retval.0.i86 = phi i8 [ 1, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ 3, %sw.bb1.i88 ], [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
-  %22 = load float, ptr %arrayidx.i.i.i84279.sink, align 4
-  %add30280 = fadd float %add26274.sink, %22
   %call31281 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %.sink310, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
-  %add32282 = fadd float %add30280, %call31281
+  %add32282 = fadd float %add30280.sink, %call31281
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add32282, i8 noundef zeroext %retval.0.i86)
   ret void
 }

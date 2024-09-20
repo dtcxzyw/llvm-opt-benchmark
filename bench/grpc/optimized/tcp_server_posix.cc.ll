@@ -8008,18 +8008,14 @@ call38.i.i.i.noexc.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i.i.i, i64 4
   store i32 %5, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !81
   %19 = getelementptr inbounds i8, ptr %add.ptr.i4.i.i.i.i.i.i, i64 8
-  br label %invoke.cont.thread.i.i.i.i
+  store i32 %6, ptr %19, align 4, !noalias !81
+  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit"
 
 if.else.i.i2.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %11, i64 %and.i.i.i.i.i.i.i.i, i32 0, i32 1
   %add.ptr.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %second.i.i.i.i.i.i.i, i64 4
   store i32 %6, ptr %add.ptr.i2.i.i.i.i.i.i.i.i, align 4, !noalias !81
-  br label %invoke.cont.thread.i.i.i.i
-
-invoke.cont.thread.i.i.i.i:                       ; preds = %if.else.i.i2.i.i.i.i, %call38.i.i.i.noexc.i.i.i.i
-  %v.sink.i.sroa.speculated.i.i.i.i.i = phi i32 [ %5, %if.else.i.i2.i.i.i.i ], [ %6, %call38.i.i.i.noexc.i.i.i.i ]
-  %second.i.sink.i.i.i.i.i.i = phi ptr [ %second.i.i.i.i.i.i.i, %if.else.i.i2.i.i.i.i ], [ %19, %call38.i.i.i.noexc.i.i.i.i ]
-  store i32 %v.sink.i.sroa.speculated.i.i.i.i.i, ptr %second.i.sink.i.i.i.i.i.i, align 4, !noalias !81
+  store i32 %5, ptr %second.i.i.i.i.i.i.i, align 4, !noalias !81
   br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit"
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -8045,7 +8041,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i.i.i
   call void @_ZN4absl12lts_202308028StatusOrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp.i.i.i.i) #26
   resume { ptr, i32 } %22
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont.thread.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i3.i.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit": ; preds = %call38.i.i.i.noexc.i.i.i.i, %if.else.i.i2.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i3.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i)
   ret void
 }

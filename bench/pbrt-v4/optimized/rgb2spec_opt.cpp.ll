@@ -1923,19 +1923,28 @@ entry:
   %cmp.not = icmp eq ptr %0, null
   %next4 = getelementptr inbounds i8, ptr %job, i64 16
   %1 = load ptr, ptr %next4, align 8
+  br i1 %cmp.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
   %next3 = getelementptr inbounds i8, ptr %0, i64 16
-  %this.sink = select i1 %cmp.not, ptr %this, ptr %next3
-  store ptr %1, ptr %this.sink, align 8
+  store ptr %1, ptr %next3, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  store ptr %1, ptr %this, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end11, label %if.then7
 
-if.then7:                                         ; preds = %entry
+if.then7:                                         ; preds = %if.end
   %2 = load ptr, ptr %prev, align 8
   %prev10 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %prev10, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then7, %entry
+if.end11:                                         ; preds = %if.then7, %if.end
   %removed = getelementptr inbounds i8, ptr %job, i64 28
   store i8 1, ptr %removed, align 4
   ret void
@@ -2050,25 +2059,34 @@ entry:
   br i1 %call3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @_ZL10threadPool, align 8
   %prev.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %prev.i, align 8
-  %cmp.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %prev.i, align 8
+  %cmp.not.i = icmp eq ptr %4, null
   %next4.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %next4.i, align 8
-  %next3.i = getelementptr inbounds i8, ptr %5, i64 16
-  %this.sink.i = select i1 %cmp.not.i, ptr %4, ptr %next3.i
-  store ptr %6, ptr %this.sink.i, align 8
-  %cmp6.not.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %next4.i, align 8
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
+  %next3.i = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %5, ptr %next3.i, align 8
+  br label %if.end.i
+
+if.else.i:                                        ; preds = %if.then
+  %6 = load ptr, ptr @_ZL10threadPool, align 8
+  store ptr %5, ptr %6, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.else.i, %if.then.i
+  %cmp6.not.i = icmp eq ptr %5, null
   br i1 %cmp6.not.i, label %_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob.exit, label %if.then7.i
 
-if.then7.i:                                       ; preds = %if.then
+if.then7.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr %prev.i, align 8
-  %prev10.i = getelementptr inbounds i8, ptr %6, i64 8
+  %prev10.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %7, ptr %prev10.i, align 8
   br label %_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob.exit
 
-_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob.exit: ; preds = %if.then, %if.then7.i
+_ZN10ThreadPool17RemoveFromJobListEP11ParallelJob.exit: ; preds = %if.end.i, %if.then7.i
   %removed.i = getelementptr inbounds i8, ptr %this, i64 28
   store i8 1, ptr %removed.i, align 4
   br label %if.end
@@ -2077,23 +2095,23 @@ if.end:                                           ; preds = %_ZN10ThreadPool17Re
   %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %8 = load i8, ptr %_M_owns.i, align 8
   %tobool.i = trunc i8 %8 to i1
-  br i1 %tobool.i, label %if.else.i, label %if.then.i
+  br i1 %tobool.i, label %if.else.i4, label %if.then.i3
 
-if.then.i:                                        ; preds = %if.end
+if.then.i3:                                       ; preds = %if.end
   tail call void @_ZSt20__throw_system_errori(i32 noundef 1) #34
   unreachable
 
-if.else.i:                                        ; preds = %if.end
+if.else.i4:                                       ; preds = %if.end
   %9 = load ptr, ptr %lock, align 8
   %tobool2.not.i = icmp eq ptr %9, null
   br i1 %tobool2.not.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.else.i
+if.then3.i:                                       ; preds = %if.else.i4
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #33
   store i8 0, ptr %_M_owns.i, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
 
-_ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %if.else.i, %if.then3.i
+_ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %if.else.i4, %if.then3.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   store i64 %0, ptr %__args.addr.i, align 8
@@ -2101,9 +2119,9 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %if.else.i, %if.then
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i, label %if.then.i3, label %_ZNKSt8functionIFvllEEclEll.exit
+  br i1 %tobool.not.i.i, label %if.then.i6, label %_ZNKSt8functionIFvllEEclEll.exit
 
-if.then.i3:                                       ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
+if.then.i6:                                       ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
   tail call void @_ZSt25__throw_bad_function_callv() #34
   unreachable
 

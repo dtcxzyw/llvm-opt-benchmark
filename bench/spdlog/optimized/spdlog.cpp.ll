@@ -20563,22 +20563,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !318
 
@@ -30227,6 +30223,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit: ; preds = %sw
   %5 = load ptr, ptr %ptr_.i.i, align 8
   store i64 %inc.pre-phi.i.i, ptr %size_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
+  store i8 92, ptr %arrayidx.i.i, align 1
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
@@ -30253,6 +30250,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit27: ; preds = %
   %10 = load ptr, ptr %ptr_.i.i21, align 8
   store i64 %inc.pre-phi.i.i20, ptr %size_.i.i16, align 8
   %arrayidx.i.i22 = getelementptr inbounds i8, ptr %10, i64 %9
+  store i8 92, ptr %arrayidx.i.i22, align 1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
@@ -30279,6 +30277,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit40: ; preds = %
   %15 = load ptr, ptr %ptr_.i.i34, align 8
   store i64 %inc.pre-phi.i.i33, ptr %size_.i.i29, align 8
   %arrayidx.i.i35 = getelementptr inbounds i8, ptr %15, i64 %14
+  store i8 92, ptr %arrayidx.i.i35, align 1
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry, %entry, %entry
@@ -30305,6 +30304,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit53: ; preds = %
   %20 = load ptr, ptr %ptr_.i.i47, align 8
   store i64 %inc.pre-phi.i.i46, ptr %size_.i.i42, align 8
   %arrayidx.i.i48 = getelementptr inbounds i8, ptr %20, i64 %19
+  store i8 92, ptr %arrayidx.i.i48, align 1
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -30349,9 +30349,7 @@ for.body:                                         ; preds = %if.end62, %for.body
   br i1 %cmp68.not, label %return, label %for.body
 
 sw.epilog:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit53, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit40, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit27, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
-  %arrayidx.i.i48.sink = phi ptr [ %arrayidx.i.i48, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit53 ], [ %arrayidx.i.i35, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit40 ], [ %arrayidx.i.i22, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit27 ], [ %arrayidx.i.i, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
   %c.0 = phi i8 [ %conv, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit53 ], [ 116, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit40 ], [ 114, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit27 ], [ 110, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ]
-  store i8 92, ptr %arrayidx.i.i48.sink, align 1
   %size_.i.i56 = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %24 = load i64, ptr %size_.i.i56, align 8
   %add.i.i57 = add i64 %24, 1
@@ -56330,22 +56328,18 @@ if.then:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %if.then
   %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
-  br label %if.end22.sink.split
+  store ptr %__p.022, ptr %arrayidx16, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %while.body
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %__p.022, align 8
   %7 = load ptr, ptr %arrayidx, align 8
-  br label %if.end22.sink.split
-
-if.end22.sink.split:                              ; preds = %if.else, %if.then15
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %if.then15 ], [ %7, %if.else ]
-  %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then15 ], [ %__bbegin_bkt.021, %if.else ]
-  store ptr %__p.022, ptr %arrayidx16.sink, align 8
+  store ptr %__p.022, ptr %7, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %if.then
-  %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.then, %if.then15, %if.else
+  %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !554
 

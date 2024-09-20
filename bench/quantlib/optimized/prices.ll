@@ -996,22 +996,29 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i32 %t, label %do.body [
-    i32 0, label %sw.epilog
+    i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 2, label %sw.bb3
     i32 3, label %sw.bb4
   ]
 
+sw.bb:                                            ; preds = %entry
+  store double %value, ptr %this, align 8, !tbaa !18
+  br label %sw.epilog
+
 sw.bb2:                                           ; preds = %entry
   %close_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store double %value, ptr %close_, align 8, !tbaa !21
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %high_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store double %value, ptr %high_, align 8, !tbaa !22
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
   %low_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store double %value, ptr %low_, align 8, !tbaa !23
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
@@ -1170,9 +1177,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #20
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-sw.epilog:                                        ; preds = %entry, %sw.bb4, %sw.bb3, %sw.bb2
-  %low_.sink = phi ptr [ %low_, %sw.bb4 ], [ %high_, %sw.bb3 ], [ %close_, %sw.bb2 ], [ %this, %entry ]
-  store double %value, ptr %low_.sink, align 8, !tbaa !24
+sw.epilog:                                        ; preds = %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
   ret void
 
 unreachable:                                      ; preds = %invoke.cont16

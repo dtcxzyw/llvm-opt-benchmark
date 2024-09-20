@@ -3731,7 +3731,12 @@ if.then138.i:                                     ; preds = %if.then129.i
 if.end141.i:                                      ; preds = %if.then138.i, %if.then129.i
   %29 = load ptr, ptr %pubKey.i, align 8
   %cmp143.not.i = icmp eq ptr %29, null
-  br i1 %cmp143.not.i, label %if.end22, label %if.end22.sink.split
+  br i1 %cmp143.not.i, label %if.end22, label %if.then150.i
+
+if.then150.i:                                     ; preds = %if.end141.i
+  tail call void @wolfSSL_Free(ptr noundef nonnull %29) #16
+  store ptr null, ptr %pubKey.i, align 8
+  br label %if.end22
 
 if.else:                                          ; preds = %entry
   %.off = add i16 %0, -29
@@ -3838,18 +3843,15 @@ if.then78.i18:                                    ; preds = %if.end75.i
 if.end80.i:                                       ; preds = %if.then78.i18, %if.end75.i
   %43 = load ptr, ptr %key.i11, align 8
   %cmp82.not.i = icmp eq ptr %43, null
-  br i1 %cmp82.not.i, label %if.end22, label %if.end22.sink.split
+  br i1 %cmp82.not.i, label %if.end22, label %if.then89.i
 
-if.end22.sink.split:                              ; preds = %if.end80.i, %if.end141.i
-  %.sink = phi ptr [ %29, %if.end141.i ], [ %43, %if.end80.i ]
-  %key.i11.sink = phi ptr [ %pubKey.i, %if.end141.i ], [ %key.i11, %if.end80.i ]
-  %ret.0.ph = phi i32 [ %ret.0106.i, %if.end141.i ], [ %ret.2.ph.i, %if.end80.i ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.sink) #16
-  store ptr null, ptr %key.i11.sink, align 8
+if.then89.i:                                      ; preds = %if.end80.i
+  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #16
+  store ptr null, ptr %key.i11, align 8
   br label %if.end22
 
-if.end22:                                         ; preds = %if.else19, %if.end22.sink.split, %if.else, %if.end80.i, %if.then47.i, %if.then.i, %if.end141.i, %if.end126.i, %if.then10.i, %sw.epilog.i, %if.then
-  %ret.0 = phi i32 [ -173, %sw.epilog.i ], [ -125, %if.then10.i ], [ %ret.0106.i, %if.end141.i ], [ %ret.0106.i, %if.end126.i ], [ -173, %if.then ], [ -174, %if.else ], [ -173, %if.else19 ], [ -125, %if.then.i ], [ %ret.2.ph.i, %if.end80.i ], [ 0, %if.then47.i ], [ %ret.0.ph, %if.end22.sink.split ]
+if.end22:                                         ; preds = %if.else19, %if.else, %if.then89.i, %if.end80.i, %if.then47.i, %if.then.i, %if.then150.i, %if.end141.i, %if.end126.i, %if.then10.i, %sw.epilog.i, %if.then
+  %ret.0 = phi i32 [ -173, %sw.epilog.i ], [ -125, %if.then10.i ], [ %ret.0106.i, %if.end141.i ], [ %ret.0106.i, %if.then150.i ], [ %ret.0106.i, %if.end126.i ], [ -173, %if.then ], [ -174, %if.else ], [ -173, %if.else19 ], [ -125, %if.then.i ], [ %ret.2.ph.i, %if.end80.i ], [ %ret.2.ph.i, %if.then89.i ], [ 0, %if.then47.i ]
   ret i32 %ret.0
 }
 
@@ -4585,7 +4587,15 @@ if.end97.i:                                       ; preds = %if.then94.i, %if.en
   %ke99.i = getelementptr inbounds i8, ptr %keyShareEntry, i64 8
   %31 = load ptr, ptr %ke99.i, align 8
   %tobool101.not.i = icmp eq ptr %31, null
-  br i1 %tobool101.not.i, label %if.end27.sink.split, label %if.end27.sink.split.sink.split
+  br i1 %tobool101.not.i, label %if.end103.i, label %if.then102.i
+
+if.then102.i:                                     ; preds = %if.end97.i
+  tail call void @wolfSSL_Free(ptr noundef nonnull %31) #16
+  br label %if.end103.i
+
+if.end103.i:                                      ; preds = %if.then102.i, %if.end97.i
+  store ptr null, ptr %ke99.i, align 8
+  br label %if.end27
 
 if.else:                                          ; preds = %if.end
   %.off = add i16 %2, -29
@@ -4732,23 +4742,18 @@ if.end82.i:                                       ; preds = %if.end80.i, %if.end
   %ke84.i = getelementptr inbounds i8, ptr %keyShareEntry, i64 8
   %52 = load ptr, ptr %ke84.i, align 8
   %tobool86.not.i = icmp eq ptr %52, null
-  br i1 %tobool86.not.i, label %if.end27.sink.split, label %if.end27.sink.split.sink.split
+  br i1 %tobool86.not.i, label %if.end88.i, label %if.then87.i
 
-if.end27.sink.split.sink.split:                   ; preds = %if.end82.i, %if.end97.i
-  %.sink = phi ptr [ %31, %if.end97.i ], [ %52, %if.end82.i ]
-  %ke84.i.sink.ph = phi ptr [ %ke99.i, %if.end97.i ], [ %ke84.i, %if.end82.i ]
-  %ret.0.ph.ph = phi i32 [ %ret.172.i, %if.end97.i ], [ %ret.3.i, %if.end82.i ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.sink) #16
-  br label %if.end27.sink.split
+if.then87.i:                                      ; preds = %if.end82.i
+  tail call void @wolfSSL_Free(ptr noundef nonnull %52) #16
+  br label %if.end88.i
 
-if.end27.sink.split:                              ; preds = %if.end27.sink.split.sink.split, %if.end82.i, %if.end97.i
-  %ke84.i.sink = phi ptr [ %ke99.i, %if.end97.i ], [ %ke84.i, %if.end82.i ], [ %ke84.i.sink.ph, %if.end27.sink.split.sink.split ]
-  %ret.0.ph = phi i32 [ %ret.172.i, %if.end97.i ], [ %ret.3.i, %if.end82.i ], [ %ret.0.ph.ph, %if.end27.sink.split.sink.split ]
-  store ptr null, ptr %ke84.i.sink, align 8
+if.end88.i:                                       ; preds = %if.then87.i, %if.end82.i
+  store ptr null, ptr %ke84.i, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %if.else23, %if.end27.sink.split, %if.else, %if.then5.i, %sw.epilog.i, %if.then9
-  %ret.0 = phi i32 [ -342, %sw.epilog.i ], [ -125, %if.then5.i ], [ -342, %if.then9 ], [ -342, %if.else ], [ -352, %if.else23 ], [ %ret.0.ph, %if.end27.sink.split ]
+if.end27:                                         ; preds = %if.else23, %if.else, %if.end88.i, %if.end103.i, %if.then5.i, %sw.epilog.i, %if.then9
+  %ret.0 = phi i32 [ %ret.172.i, %if.end103.i ], [ -342, %sw.epilog.i ], [ -125, %if.then5.i ], [ -342, %if.then9 ], [ -342, %if.else ], [ %ret.3.i, %if.end88.i ], [ -352, %if.else23 ]
   ret i32 %ret.0
 }
 

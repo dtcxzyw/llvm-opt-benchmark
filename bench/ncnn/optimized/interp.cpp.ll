@@ -2730,7 +2730,8 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %64 = or disjoint i64 %31, 2
   %65 = getelementptr inbounds float, ptr %3, i64 %64
   store float 0.000000e+00, ptr %65, align 4
-  br label %.sink.split
+  store float 0.000000e+00, ptr %59, align 4
+  br label %79
 
 66:                                               ; preds = %20
   %67 = icmp eq i32 %28, 0
@@ -2750,17 +2751,12 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %77 = getelementptr inbounds float, ptr %3, i64 %76
   %78 = load float, ptr %77, align 4
   store float %78, ptr %74, align 4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %68, %.thread
-  %.sink = phi ptr [ %59, %.thread ], [ %77, %68 ]
-  %.ph = phi float [ %61, %.thread ], [ %72, %68 ]
-  store float 0.000000e+00, ptr %.sink, align 4
+  store float 0.000000e+00, ptr %77, align 4
   br label %79
 
-79:                                               ; preds = %.sink.split, %66
-  %80 = phi float [ %40, %66 ], [ %.ph, %.sink.split ]
-  %.1 = phi i32 [ %28, %66 ], [ 1, %.sink.split ]
+79:                                               ; preds = %.thread, %68, %66
+  %80 = phi float [ %72, %68 ], [ %40, %66 ], [ %61, %.thread ]
+  %.1 = phi i32 [ 1, %68 ], [ %28, %66 ], [ 1, %.thread ]
   %81 = icmp eq i32 %.1, %17
   br i1 %81, label %.thread91, label %92
 
@@ -2778,7 +2774,7 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %91 = load float, ptr %90, align 4
   store float %91, ptr %83, align 4
   store float %80, ptr %90, align 4
-  br label %.sink.split96
+  br label %.sink.split
 
 92:                                               ; preds = %79
   %.not89 = icmp slt i32 %.1, %18
@@ -2795,14 +2791,14 @@ define internal fastcc void @_ZN4ncnnL12cubic_coeffsEiiPiPfi(i32 noundef %0, i32
   %99 = or disjoint i64 %31, 1
   %100 = getelementptr inbounds float, ptr %3, i64 %99
   store float 0.000000e+00, ptr %100, align 4
-  br label %.sink.split96
+  br label %.sink.split
 
-.sink.split96:                                    ; preds = %93, %.thread91
+.sink.split:                                      ; preds = %93, %.thread91
   store float 0.000000e+00, ptr %32, align 4
   br label %101
 
-101:                                              ; preds = %.sink.split96, %92
-  %.3 = phi i32 [ %.1, %92 ], [ %19, %.sink.split96 ]
+101:                                              ; preds = %.sink.split, %92
+  %.3 = phi i32 [ %.1, %92 ], [ %19, %.sink.split ]
   %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   store i32 %.3, ptr %102, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

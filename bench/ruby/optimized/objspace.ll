@@ -1353,21 +1353,29 @@ define internal void @cs_i(i64 noundef %0, ptr nocapture noundef %1) #5 {
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 31
   %6 = icmp eq i64 %5, 20
-  br i1 %6, label %.sink.split, label %13
+  br i1 %6, label %7, label %19
 
-.sink.split:                                      ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  %8 = load i64, ptr %7, align 8
-  %9 = and i64 %8, -15
-  %10 = icmp eq i64 %9, 0
-  %.sink.idx = select i1 %10, i64 0, i64 8
-  %.sink = getelementptr inbounds i8, ptr %1, i64 %.sink.idx
-  %11 = load i64, ptr %.sink, align 8
-  %12 = add i64 %11, 1
-  store i64 %12, ptr %.sink, align 8
-  br label %13
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %9, -15
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %15
 
-13:                                               ; preds = %.sink.split, %2
+12:                                               ; preds = %7
+  %13 = load i64, ptr %1, align 8
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %1, align 8
+  br label %19
+
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8
+  br label %19
+
+19:                                               ; preds = %12, %15, %2
   ret void
 }
 

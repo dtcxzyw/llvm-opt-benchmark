@@ -2682,9 +2682,9 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit114, %79
   %97 = getelementptr inbounds i8, ptr %14, i64 288
   br label %.lr.ph119.split
 
-.lr.ph119.split:                                  ; preds = %.lr.ph119.split.preheader, %115
-  %98 = phi ptr [ %119, %115 ], [ %94, %.lr.ph119.split.preheader ]
-  %.086118 = phi ptr [ %118, %115 ], [ %74, %.lr.ph119.split.preheader ]
+.lr.ph119.split:                                  ; preds = %.lr.ph119.split.preheader, %124
+  %98 = phi ptr [ %126, %124 ], [ %94, %.lr.ph119.split.preheader ]
+  %.086118 = phi ptr [ %125, %124 ], [ %74, %.lr.ph119.split.preheader ]
   %99 = getelementptr inbounds i8, ptr %.086118, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, 19
@@ -2699,56 +2699,70 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit114, %79
 106:                                              ; preds = %102
   %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(15) @.str.8) #27
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %115, label %109
+  br i1 %108, label %109, label %112
 
 109:                                              ; preds = %106
-  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(19) @.str.9) #27
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %115, label %112
+  %110 = getelementptr inbounds i8, ptr %.086118, i64 16
+  %111 = load i64, ptr %110, align 8
+  store i64 %111, ptr %97, align 8
+  br label %124
 
-112:                                              ; preds = %109
-  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(21) @.str.28) #27
+112:                                              ; preds = %106
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(19) @.str.9) #27
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.loopexit.thread
+  br i1 %114, label %115, label %118
 
-115:                                              ; preds = %112, %109, %106
-  %.sink124 = phi ptr [ %97, %106 ], [ %96, %109 ], [ %95, %112 ]
+115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %.086118, i64 16
   %117 = load i64, ptr %116, align 8
-  store i64 %117, ptr %.sink124, align 8
-  %118 = getelementptr inbounds i8, ptr %.086118, i64 40
-  %119 = load ptr, ptr %118, align 8
-  %.not105 = icmp eq ptr %119, null
+  store i64 %117, ptr %96, align 8
+  br label %124
+
+118:                                              ; preds = %112
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(21) @.str.28) #27
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %.loopexit.thread
+
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds i8, ptr %.086118, i64 16
+  %123 = load i64, ptr %122, align 8
+  store i64 %123, ptr %95, align 8
+  br label %124
+
+124:                                              ; preds = %109, %121, %115
+  %125 = getelementptr inbounds i8, ptr %.086118, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %.not105 = icmp eq ptr %126, null
   br i1 %.not105, label %.loopexit, label %.lr.ph119.split, !llvm.loop !56
 
-.loopexit.thread:                                 ; preds = %.lr.ph119.split, %102, %112
-  %120 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %121 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %120, ptr noundef nonnull @.str.29)
-  br label %125
+.loopexit.thread:                                 ; preds = %.lr.ph119.split, %102, %118
+  %127 = load ptr, ptr @PyExc_RuntimeError, align 8
+  %128 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %127, ptr noundef nonnull @.str.29)
+  br label %132
 
-.loopexit:                                        ; preds = %115, %.preheader, %92, %91
-  %122 = trunc nuw i8 %.1 to i1
-  br i1 %122, label %125, label %123
+.loopexit:                                        ; preds = %124, %.preheader, %92, %91
+  %129 = trunc nuw i8 %.1 to i1
+  br i1 %129, label %132, label %130
 
-123:                                              ; preds = %.loopexit
-  %124 = tail call i32 @PyType_Ready(ptr noundef nonnull %14)
-  %.not106 = icmp eq i32 %124, 0
-  br i1 %.not106, label %_ZL10_Py_DECREFP7_object.exit, label %125
+130:                                              ; preds = %.loopexit
+  %131 = tail call i32 @PyType_Ready(ptr noundef nonnull %14)
+  %.not106 = icmp eq i32 %131, 0
+  br i1 %.not106, label %_ZL10_Py_DECREFP7_object.exit, label %132
 
-125:                                              ; preds = %.loopexit.thread, %123, %.loopexit
-  %126 = load i64, ptr %14, align 8
-  %127 = add nsw i64 %126, -1
-  store i64 %127, ptr %14, align 8
-  %.not.i110 = icmp eq i64 %127, 0
+132:                                              ; preds = %.loopexit.thread, %130, %.loopexit
+  %133 = load i64, ptr %14, align 8
+  %134 = add nsw i64 %133, -1
+  store i64 %134, ptr %14, align 8
+  %.not.i110 = icmp eq i64 %134, 0
   br i1 %.not.i110, label %_ZL10_Py_DECREFP7_object.exit.sink.split, label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %125, %15, %10
-  %.sink = phi ptr [ %7, %10 ], [ %7, %15 ], [ %14, %125 ]
+_ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %132, %15, %10
+  %.sink = phi ptr [ %7, %10 ], [ %7, %15 ], [ %14, %132 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink)
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %125, %15, %10, %123, %3
-  %.0 = phi ptr [ null, %3 ], [ %14, %123 ], [ null, %10 ], [ null, %15 ], [ null, %125 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %132, %15, %10, %130, %3
+  %.0 = phi ptr [ null, %3 ], [ %14, %130 ], [ null, %10 ], [ null, %15 ], [ null, %132 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret ptr %.0
 }
 

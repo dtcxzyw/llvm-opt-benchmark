@@ -7952,7 +7952,8 @@ _local_update_assoc_qos_list.exit:                ; preds = %_grab_parents_qos.e
 
 353:                                              ; preds = %350
   %354 = getelementptr inbounds i8, ptr %33, i64 56
-  br label %.thread513.thread.sink.split
+  store i32 0, ptr %354, align 8
+  br label %.thread513.thread
 
 355:                                              ; preds = %350
   %356 = load i32, ptr @g_qos_count, align 4
@@ -7962,7 +7963,8 @@ _local_update_assoc_qos_list.exit:                ; preds = %_grab_parents_qos.e
 357:                                              ; preds = %355
   %358 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, i32 noundef %352) #20
   %359 = getelementptr inbounds i8, ptr %33, i64 56
-  br label %.thread513.thread.sink.split
+  store i32 0, ptr %359, align 8
+  br label %.thread513.thread
 
 360:                                              ; preds = %355
   %361 = getelementptr inbounds i8, ptr %33, i64 56
@@ -8006,14 +8008,10 @@ _local_update_assoc_qos_list.exit:                ; preds = %_grab_parents_qos.e
   %380 = load i32, ptr %363, align 8
   %381 = tail call ptr @slurmdb_qos_str(ptr noundef %379, i32 noundef %380) #20
   %382 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i32 noundef %378, ptr noundef %381) #20
-  br label %.thread513.thread.sink.split
-
-.thread513.thread.sink.split:                     ; preds = %376, %357, %353
-  %.sink = phi ptr [ %354, %353 ], [ %359, %357 ], [ %363, %376 ]
-  store i32 0, ptr %.sink, align 8
+  store i32 0, ptr %363, align 8
   br label %.thread513.thread
 
-.thread513.thread:                                ; preds = %.thread513.thread.sink.split, %373, %370, %367, %364, %.thread513
+.thread513.thread:                                ; preds = %353, %357, %376, %373, %370, %367, %364, %.thread513
   %383 = getelementptr inbounds i8, ptr %10, i64 136
   %384 = load i16, ptr %383, align 8
   %.not450 = icmp eq i16 %384, -2

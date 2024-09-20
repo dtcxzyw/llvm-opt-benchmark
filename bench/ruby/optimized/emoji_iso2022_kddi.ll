@@ -160,29 +160,34 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
 
 20:                                               ; preds = %18, %10
   %.024 = phi ptr [ %.1, %18 ], [ %3, %10 ]
-  br i1 %6, label %27, label %21
+  br i1 %6, label %21, label %25
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 1
-  %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 127
-  %25 = getelementptr inbounds i8, ptr %.024, i64 1
-  store i8 %24, ptr %.024, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 2
-  br label %27
+  %22 = load i8, ptr %1, align 1
+  %23 = and i8 %22, 127
+  %24 = getelementptr inbounds i8, ptr %.024, i64 1
+  store i8 %23, ptr %.024, align 1
+  br label %34
 
-27:                                               ; preds = %20, %21
-  %.sink30 = phi ptr [ %26, %21 ], [ %1, %20 ]
-  %.sink28 = phi i64 [ 2, %21 ], [ 1, %20 ]
-  %.sink27 = phi ptr [ %25, %21 ], [ %.024, %20 ]
-  %28 = load i8, ptr %.sink30, align 1
-  %29 = and i8 %28, 127
-  %30 = getelementptr inbounds i8, ptr %.024, i64 %.sink28
-  store i8 %29, ptr %.sink27, align 1
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %3 to i64
-  %33 = sub i64 %31, %32
-  ret i64 %33
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = and i8 %27, 127
+  %29 = getelementptr inbounds i8, ptr %.024, i64 1
+  store i8 %28, ptr %.024, align 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 127
+  %33 = getelementptr inbounds i8, ptr %.024, i64 2
+  store i8 %32, ptr %29, align 1
+  br label %34
+
+34:                                               ; preds = %25, %21
+  %.2 = phi ptr [ %24, %21 ], [ %33, %25 ]
+  %35 = ptrtoint ptr %.2 to i64
+  %36 = ptrtoint ptr %3 to i64
+  %37 = sub i64 %35, %36
+  ret i64 %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

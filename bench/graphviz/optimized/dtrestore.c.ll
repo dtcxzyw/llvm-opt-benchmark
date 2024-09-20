@@ -97,27 +97,30 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   %45 = and i32 %21, 12
   %.not44 = icmp eq i32 %45, 0
   %46 = getelementptr inbounds i8, ptr %20, i64 8
-  br i1 %.not44, label %47, label %50
+  br i1 %.not44, label %48, label %47
 
 47:                                               ; preds = %44
+  store ptr %.036, ptr %46, align 8
+  br label %51
+
+48:                                               ; preds = %44
   store ptr null, ptr %46, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  br label %50
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr %.036, ptr %50, align 8
+  br label %51
 
-50:                                               ; preds = %44, %47
-  %.sink = phi ptr [ %49, %47 ], [ %46, %44 ]
-  store ptr %.036, ptr %.sink, align 8
-  br i1 %.not.not.not, label %.loopexit, label %51
+51:                                               ; preds = %48, %47
+  br i1 %.not.not.not, label %.loopexit, label %52
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 28
-  store i32 -1, ptr %53, align 4
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 28
+  store i32 -1, ptr %54, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %37, %40, %26, %51, %50, %14, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %14 ], [ 0, %50 ], [ 0, %51 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %37, %40, %26, %52, %51, %14, %8
+  %.0 = phi i32 [ -1, %8 ], [ -1, %14 ], [ 0, %51 ], [ 0, %52 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

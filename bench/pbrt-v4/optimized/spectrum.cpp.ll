@@ -15025,7 +15025,7 @@ lpad3.i:                                          ; preds = %lpad.i
           to label %common.resume unwind label %terminate.lpad.i
 
 common.resume:                                    ; preds = %lpad3.i.i, %lpad3.i
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad3.i ], [ %16, %lpad3.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad3.i ], [ %17, %lpad3.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i:                                 ; preds = %lpad3.i
@@ -15040,7 +15040,10 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit: ; preds = %if.then
   %second.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %second3.i.i.i.i = getelementptr inbounds i8, ptr %__arg, i64 32
   store i64 0, ptr %second.i.i.i.i, align 8
+  %13 = load i64, ptr %second3.i.i.i.i, align 8
+  store i64 %13, ptr %second.i.i.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -15050,25 +15053,25 @@ if.end:                                           ; preds = %entry
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.end
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #24
+  %15 = extractvalue { ptr, i32 } %14, 0
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #24
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #28
   invoke void @__cxa_rethrow() #25
           to label %unreachable.i.i unwind label %lpad3.i.i
 
 lpad3.i.i:                                        ; preds = %lpad.i.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad3.i.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #26
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 unreachable.i.i:                                  ; preds = %lpad.i.i
@@ -15076,14 +15079,13 @@ unreachable.i.i:                                  ; preds = %lpad.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit: ; preds = %if.end
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 64
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__arg, i64 32
+  %20 = load i64, ptr %second3.i.i.i.i.i, align 8
+  store i64 %20, ptr %second.i.i.i.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit
-  %second.i.i.i.i.i.sink = phi ptr [ %second.i.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %second.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
-  %retval.0 = phi ptr [ %call5.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
-  %second3.i.i.i.i.i.sink = getelementptr inbounds i8, ptr %__arg, i64 32
-  %19 = load i64, ptr %second3.i.i.i.i.i.sink, align 8
-  store i64 %19, ptr %second.i.i.i.i.i.sink, align 8
+  %retval.0 = phi ptr [ %0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %call5.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
   ret ptr %retval.0
 }
 

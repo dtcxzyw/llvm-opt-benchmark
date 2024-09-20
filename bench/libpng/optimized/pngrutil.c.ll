@@ -1131,7 +1131,7 @@ define void @png_handle_sBIT(ptr noalias noundef %0, ptr noalias noundef %1, i32
 12:                                               ; preds = %10
   %13 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #12
-  br label %61
+  br label %62
 
 14:                                               ; preds = %10
   %.not48 = icmp eq ptr %1, null
@@ -1147,7 +1147,7 @@ define void @png_handle_sBIT(ptr noalias noundef %0, ptr noalias noundef %1, i32
 19:                                               ; preds = %15
   %20 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #12
-  br label %61
+  br label %62
 
 21:                                               ; preds = %15, %14
   %22 = getelementptr inbounds i8, ptr %0, i64 615
@@ -1175,7 +1175,7 @@ define void @png_handle_sBIT(ptr noalias noundef %0, ptr noalias noundef %1, i32
 35:                                               ; preds = %32
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
   %36 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %2)
-  br label %61
+  br label %62
 
 png_crc_read.exit:                                ; preds = %32
   %37 = getelementptr inbounds i8, ptr %4, i64 3
@@ -1187,7 +1187,7 @@ png_crc_read.exit:                                ; preds = %32
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %40) #12
   %41 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
   %.not50 = icmp eq i32 %41, 0
-  br i1 %.not50, label %.preheader, label %61
+  br i1 %.not50, label %.preheader, label %62
 
 .preheader:                                       ; preds = %png_crc_read.exit
   %.not54 = icmp eq i32 %2, 0
@@ -1208,42 +1208,43 @@ png_crc_read.exit:                                ; preds = %32
 
 46:                                               ; preds = %.lr.ph
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.6) #12
-  br label %61
+  br label %62
 
 ._crit_edge:                                      ; preds = %42, %.preheader
   %47 = load i8, ptr %22, align 1
   %48 = and i8 %47, 2
   %.not51 = icmp eq i8 %48, 0
   %49 = load i8, ptr %4, align 1
-  br i1 %.not51, label %53, label %50
+  br i1 %.not51, label %54, label %50
 
 50:                                               ; preds = %._crit_edge
   %51 = load i8, ptr %39, align 1
   %52 = load i8, ptr %38, align 1
-  br label %55
+  %53 = load i8, ptr %37, align 1
+  br label %57
 
-53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %0, i64 731
-  store i8 %49, ptr %54, align 1
-  br label %55
+54:                                               ; preds = %._crit_edge
+  %55 = getelementptr inbounds i8, ptr %0, i64 731
+  store i8 %49, ptr %55, align 1
+  %56 = load i8, ptr %39, align 1
+  br label %57
 
-55:                                               ; preds = %53, %50
-  %.sink59 = phi ptr [ %39, %53 ], [ %37, %50 ]
-  %.sink57 = phi i8 [ %49, %53 ], [ %51, %50 ]
-  %.sink56 = phi i8 [ %49, %53 ], [ %52, %50 ]
-  %56 = load i8, ptr %.sink59, align 1
-  %57 = getelementptr inbounds i8, ptr %0, i64 728
-  store i8 %49, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 729
-  store i8 %.sink57, ptr %58, align 1
-  %59 = getelementptr inbounds i8, ptr %0, i64 730
-  store i8 %.sink56, ptr %59, align 2
-  %60 = getelementptr inbounds i8, ptr %0, i64 732
-  store i8 %56, ptr %60, align 4
-  call void @png_set_sBIT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %57) #12
-  br label %61
+57:                                               ; preds = %54, %50
+  %.sink57 = phi i8 [ %49, %54 ], [ %51, %50 ]
+  %.sink56 = phi i8 [ %49, %54 ], [ %52, %50 ]
+  %.sink = phi i8 [ %56, %54 ], [ %53, %50 ]
+  %58 = getelementptr inbounds i8, ptr %0, i64 728
+  store i8 %49, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 729
+  store i8 %.sink57, ptr %59, align 1
+  %60 = getelementptr inbounds i8, ptr %0, i64 730
+  store i8 %.sink56, ptr %60, align 2
+  %61 = getelementptr inbounds i8, ptr %0, i64 732
+  store i8 %.sink, ptr %61, align 4
+  call void @png_set_sBIT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %58) #12
+  br label %62
 
-61:                                               ; preds = %png_crc_read.exit, %55, %46, %35, %19, %12
+62:                                               ; preds = %png_crc_read.exit, %57, %46, %35, %19, %12
   ret void
 }
 

@@ -11289,7 +11289,8 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 .split.i.i.i:                                     ; preds = %27
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %28, align 8
-  br label %.sink.split.i.i.i
+  store i32 0, ptr %6, align 4
+  br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEaSERKS4_.exit
 
 .split12.i.i.i:                                   ; preds = %27, %.thread.i.i.i
   %29 = phi ptr [ %23, %.thread.i.i.i ], [ %6, %27 ]
@@ -11312,14 +11313,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit.i
   store i64 %5, ptr %35, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %5
-  br label %.sink.split.i.i.i
-
-.sink.split.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit.i.i.i, %.split.i.i.i
-  %.sink.i.i.i = phi ptr [ %37, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit.i.i.i ], [ %6, %.split.i.i.i ]
-  store i32 0, ptr %.sink.i.i.i, align 4
+  store i32 0, ptr %37, align 4
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEaSERKS4_.exit
 
-_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEaSERKS4_.exit: ; preds = %2, %.sink.split.i.i.i
+_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEaSERKS4_.exit: ; preds = %2, %.split.i.i.i, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = getelementptr inbounds i8, ptr %1, i64 32
   %40 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
@@ -27287,9 +27284,9 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
   %.not8081 = icmp eq ptr %6, %8
   br i1 %.not8081, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %209
-  %.04483 = phi i1 [ false, %209 ], [ true, %3 ]
-  %.sroa.077.082 = phi ptr [ %212, %209 ], [ %6, %3 ]
+.lr.ph:                                           ; preds = %3, %208
+  %.04483 = phi i1 [ false, %208 ], [ true, %3 ]
+  %.sroa.077.082 = phi ptr [ %211, %208 ], [ %6, %3 ]
   br i1 %.04483, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
@@ -27299,7 +27296,7 @@ define linkonce_odr void @_ZN7jsonnet8internal8Unparser13unparseFieldsERKSt6vect
 
 12:                                               ; preds = %9, %.lr.ph
   %13 = load i32, ptr %.sroa.077.082, align 8
-  switch i32 %13, label %209 [
+  switch i32 %13, label %208 [
     i32 4, label %14
     i32 0, label %193
     i32 1, label %91
@@ -27682,7 +27679,7 @@ switch.lookup:                                    ; preds = %184
   %201 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 256
   %202 = load ptr, ptr %201, align 8
   %.not = icmp eq ptr %202, null
-  br i1 %.not, label %209, label %203
+  br i1 %.not, label %208, label %203
 
 203:                                              ; preds = %193
   %204 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 224
@@ -27693,20 +27690,20 @@ switch.lookup:                                    ; preds = %184
   br label %.sink.split85
 
 .sink.split85:                                    ; preds = %_ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit, %191, %203
-  %.sink87 = phi ptr [ %201, %203 ], [ %192, %191 ], [ %88, %_ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit ]
-  %208 = load ptr, ptr %.sink87, align 8
-  call void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %208, i1 noundef zeroext true)
-  br label %209
+  %.sink86.in = phi ptr [ %201, %203 ], [ %192, %191 ], [ %88, %_ZN7jsonnet8internal8Unparser18unparseFieldParamsERKNS0_11ObjectFieldE.exit ]
+  %.sink86 = load ptr, ptr %.sink86.in, align 8
+  call void @_ZN7jsonnet8internal8Unparser7unparseEPKNS0_3ASTEb(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %.sink86, i1 noundef zeroext true)
+  br label %208
 
-209:                                              ; preds = %.sink.split85, %12, %193
-  %210 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 264
-  %211 = load ptr, ptr %0, align 8
-  call void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElementESaIS3_EEbbb(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull align 8 dereferenceable(24) %210, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
-  %212 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 288
-  %.not80 = icmp eq ptr %212, %8
+208:                                              ; preds = %.sink.split85, %12, %193
+  %209 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 264
+  %210 = load ptr, ptr %0, align 8
+  call void @_ZN7jsonnet8internal11fodder_fillERSoRKSt6vectorINS0_13FodderElementESaIS3_EEbbb(ptr noundef nonnull align 8 dereferenceable(8) %210, ptr noundef nonnull align 8 dereferenceable(24) %209, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  %211 = getelementptr inbounds i8, ptr %.sroa.077.082, i64 288
+  %.not80 = icmp eq ptr %211, %8
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %209, %3
+._crit_edge:                                      ; preds = %208, %3
   ret void
 }
 

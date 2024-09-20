@@ -2890,6 +2890,7 @@ string_assign_null.exit:                          ; preds = %.preheader.i, %31, 
 
 string_free.exit.i:                               ; preds = %.preheader.i60, %44, %41
   %45 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @empty_string, ptr %45, align 8
   br label %string_assign_null.exit65.sink.split
 
 46:                                               ; preds = %23
@@ -2957,6 +2958,7 @@ string_assign_null.exit73:                        ; preds = %.preheader.i67, %54
 
 string_free.exit.i78:                             ; preds = %.preheader.i75, %67, %64
   %68 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @empty_string, ptr %68, align 8
   br label %string_assign_null.exit65.sink.split
 
 .preheader139:                                    ; preds = %46, %.preheader139
@@ -3047,6 +3049,7 @@ string_assign_null.exit89:                        ; preds = %.preheader.i83, %87
 
 string_free.exit.i94:                             ; preds = %.preheader.i91, %100, %97
   %101 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr @empty_string, ptr %101, align 8
   br label %string_assign_null.exit65.sink.split
 
 102:                                              ; preds = %80
@@ -3306,7 +3309,7 @@ str_replace.exit122:                              ; preds = %157, %str_make_lowe
   %196 = add nsw i32 %195, -1
   store i32 %196, ptr %194, align 8
   %.not.i.i132 = icmp eq i32 %196, 0
-  br i1 %.not.i.i132, label %197, label %string_assign_null.exit65.sink.split
+  br i1 %.not.i.i132, label %197, label %string_assign_null.exit136
 
 197:                                              ; preds = %.preheader.i130
   %198 = load ptr, ptr %.0.i.i131, align 8
@@ -3317,10 +3320,14 @@ str_replace.exit122:                              ; preds = %157, %str_make_lowe
   %200 = getelementptr inbounds i8, ptr %.0.i.i131, i64 8
   %201 = load ptr, ptr %200, align 8
   %.not9.i.i135 = icmp eq ptr %201, null
-  br i1 %.not9.i.i135, label %string_assign_null.exit65.sink.split, label %202
+  br i1 %.not9.i.i135, label %string_assign_null.exit136, label %202
 
 202:                                              ; preds = %199
   tail call void @free(ptr noundef nonnull %201) #18
+  br label %string_assign_null.exit136
+
+string_assign_null.exit136:                       ; preds = %.preheader.i130, %199, %202
+  store ptr @empty_string, ptr %6, align 8
   br label %string_assign_null.exit65.sink.split
 
 .loopexit:                                        ; preds = %183, %189, %192
@@ -3339,10 +3346,8 @@ str_replace.exit122:                              ; preds = %157, %str_make_lowe
   %209 = tail call fastcc i32 @string_assign_dup(ptr noundef nonnull %0, ptr noundef %206, ptr noundef nonnull %208)
   br label %string_assign_null.exit65
 
-string_assign_null.exit65.sink.split:             ; preds = %.preheader.i130, %202, %199, %string_free.exit.i, %string_free.exit.i78, %string_free.exit.i94
-  %.sink14 = phi ptr [ %101, %string_free.exit.i94 ], [ %68, %string_free.exit.i78 ], [ %45, %string_free.exit.i ], [ %6, %199 ], [ %6, %202 ], [ %6, %.preheader.i130 ]
-  %.sink13 = phi ptr [ %1, %string_free.exit.i94 ], [ %1, %string_free.exit.i78 ], [ %1, %string_free.exit.i ], [ %0, %199 ], [ %0, %202 ], [ %0, %.preheader.i130 ]
-  store ptr @empty_string, ptr %.sink14, align 8
+string_assign_null.exit65.sink.split:             ; preds = %string_assign_null.exit136, %string_free.exit.i, %string_free.exit.i78, %string_free.exit.i94
+  %.sink13 = phi ptr [ %1, %string_free.exit.i94 ], [ %1, %string_free.exit.i78 ], [ %1, %string_free.exit.i ], [ %0, %string_assign_null.exit136 ]
   %210 = getelementptr inbounds i8, ptr %.sink13, i64 16
   store i32 -1, ptr %210, align 8
   store ptr null, ptr %.sink13, align 8

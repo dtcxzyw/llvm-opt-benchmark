@@ -247,22 +247,19 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 116:                                              ; preds = %115
   %117 = getelementptr inbounds i64, ptr %7, i64 %110
-  br label %.sink.split
+  store i64 %112, ptr %117, align 8
+  br label %122
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i64, ptr %11, i64 %100
   %120 = load i64, ptr %119, align 8
   %121 = getelementptr inbounds i64, ptr %9, i64 %120
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %116, %118
-  %.sink = phi ptr [ %121, %118 ], [ %117, %116 ]
-  store i64 %112, ptr %.sink, align 8
+  store i64 %112, ptr %121, align 8
   br label %122
 
-122:                                              ; preds = %.sink.split, %.lr.ph1113
-  %.1831 = phi i64 [ %.08301110, %.lr.ph1113 ], [ %105, %.sink.split ]
-  %.1797 = phi i64 [ %.07961111, %.lr.ph1113 ], [ %107, %.sink.split ]
+122:                                              ; preds = %.lr.ph1113, %118, %116
+  %.1831 = phi i64 [ %105, %116 ], [ %105, %118 ], [ %.08301110, %.lr.ph1113 ]
+  %.1797 = phi i64 [ %107, %116 ], [ %107, %118 ], [ %.07961111, %.lr.ph1113 ]
   %123 = add nsw i64 %.08381109, 1
   %124 = load i64, ptr %97, align 8
   %125 = add nsw i64 %124, %95
@@ -483,26 +480,23 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 209:                                              ; preds = %208
   %210 = getelementptr inbounds i64, ptr %7, i64 %203
-  br label %.sink.split1311
+  store i64 %205, ptr %210, align 8
+  br label %215
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i64, ptr %11, i64 %149
   %213 = load i64, ptr %212, align 8
   %214 = getelementptr inbounds i64, ptr %9, i64 %213
-  br label %.sink.split1311
-
-.sink.split1311:                                  ; preds = %209, %211
-  %.sink1312 = phi ptr [ %214, %211 ], [ %210, %209 ]
-  store i64 %205, ptr %.sink1312, align 8
+  store i64 %205, ptr %214, align 8
   br label %215
 
-215:                                              ; preds = %.sink.split1311, %146
-  %.5872 = phi i64 [ %.38701080, %146 ], [ %.4871, %.sink.split1311 ]
-  %.5843 = phi i64 [ %.38411081, %146 ], [ %.4842, %.sink.split1311 ]
-  %.5835 = phi i64 [ %.48341082, %146 ], [ %198, %.sink.split1311 ]
-  %.5817 = phi i64 [ %.38151083, %146 ], [ %200, %.sink.split1311 ]
-  %.3811 = phi i64 [ %147, %146 ], [ %.2810, %.sink.split1311 ]
-  %.4803 = phi i64 [ %.28011085, %146 ], [ %.3802, %.sink.split1311 ]
+215:                                              ; preds = %146, %211, %209
+  %.5872 = phi i64 [ %.4871, %209 ], [ %.4871, %211 ], [ %.38701080, %146 ]
+  %.5843 = phi i64 [ %.4842, %209 ], [ %.4842, %211 ], [ %.38411081, %146 ]
+  %.5835 = phi i64 [ %198, %209 ], [ %198, %211 ], [ %.48341082, %146 ]
+  %.5817 = phi i64 [ %200, %209 ], [ %200, %211 ], [ %.38151083, %146 ]
+  %.3811 = phi i64 [ %.2810, %209 ], [ %.2810, %211 ], [ %147, %146 ]
+  %.4803 = phi i64 [ %.3802, %209 ], [ %.3802, %211 ], [ %.28011085, %146 ]
   %216 = add nuw i64 %.09161078, 1
   %exitcond1267.not = icmp eq i64 %.09161078, %.0909
   br i1 %exitcond1267.not, label %._crit_edge1088, label %146, !llvm.loop !14
@@ -971,9 +965,9 @@ clear_flag.exit1012:                              ; preds = %354, %._crit_edge11
 397:                                              ; preds = %393
   %398 = getelementptr inbounds i64, ptr %10, i64 %.19111174
   %399 = load i64, ptr %398, align 8
-  %.not1313 = icmp eq i64 %399, %379
+  %.not1311 = icmp eq i64 %399, %379
   %400 = getelementptr inbounds i64, ptr %1, i64 %.19111174
-  br i1 %.not1313, label %.lr.ph1171, label %.critedge996
+  br i1 %.not1311, label %.lr.ph1171, label %.critedge996
 
 .lr.ph1171:                                       ; preds = %397
   %401 = load i64, ptr %400, align 8

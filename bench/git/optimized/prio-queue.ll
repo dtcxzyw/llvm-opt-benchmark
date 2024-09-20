@@ -342,16 +342,22 @@ if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %1, null
   %array = getelementptr inbounds i8, ptr %queue, i64 32
   %2 = load ptr, ptr %array, align 8
-  %data7 = getelementptr inbounds i8, ptr %2, i64 8
+  br i1 %tobool1.not, label %if.then2, label %if.end4
+
+if.then2:                                         ; preds = %if.end
   %3 = sext i32 %0 to i64
   %4 = getelementptr %struct.prio_queue_entry, ptr %2, i64 %3
   %data = getelementptr i8, ptr %4, i64 -8
-  %data7.sink = select i1 %tobool1.not, ptr %data, ptr %data7
-  %5 = load ptr, ptr %data7.sink, align 8
+  %5 = load ptr, ptr %data, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %5, %if.end ]
+if.end4:                                          ; preds = %if.end
+  %data7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = load ptr, ptr %data7, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %if.end4, %if.then2
+  %retval.0 = phi ptr [ %6, %if.end4 ], [ %5, %if.then2 ], [ null, %entry ]
   ret ptr %retval.0
 }
 

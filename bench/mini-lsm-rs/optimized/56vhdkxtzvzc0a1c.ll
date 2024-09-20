@@ -829,44 +829,53 @@ define hidden noundef align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_fr
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %21, label %5
+  br i1 %4, label %23, label %5
 
 5:                                                ; preds = %1
   %6 = load i64, ptr %0, align 8, !range !36, !noalias !176, !noundef !11
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit", label %7
+  br i1 %.not.i, label %.critedge.i, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !176, !noundef !11
   %10 = icmp eq ptr %9, %3
-  br i1 %10, label %.sink.split.i.i, label %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit"
+  br i1 %10, label %.sink.split.i.i, label %.critedge.i
+
+.critedge.i:                                      ; preds = %.sink.split.i.i, %7, %5
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load ptr, ptr %11, align 8, !noalias !176, !noundef !11
+  store ptr %12, ptr %2, align 8, !noalias !176
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %16, label %18
 
 .sink.split.i.i:                                  ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8, !noalias !182, !noundef !11
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = load ptr, ptr %14, align 8, !noalias !182, !noundef !11
   store i64 1, ptr %0, align 8, !alias.scope !179, !noalias !176
-  store ptr %12, ptr %8, align 8, !alias.scope !179, !noalias !176
+  store ptr %15, ptr %8, align 8, !alias.scope !179, !noalias !176
+  br label %.critedge.i
+
+16:                                               ; preds = %.critedge.i
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %17, align 8, !noalias !176
   br label %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit"
 
-"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit": ; preds = %5, %7, %.sink.split.i.i
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !noalias !176, !noundef !11
-  store ptr %14, ptr %2, align 8, !noalias !176
-  %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sink.i = select i1 %15, ptr %17, ptr %16
-  store ptr null, ptr %.sink.i, align 8, !noalias !176
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !noalias !176, !noundef !11
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %18, align 8, !noalias !176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !176
-  br label %21
+18:                                               ; preds = %.critedge.i
+  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr null, ptr %19, align 8, !noalias !176
+  br label %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit"
 
-21:                                               ; preds = %1, %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit"
+"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit": ; preds = %16, %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i64, ptr %20, align 8, !noalias !176, !noundef !11
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %20, align 8, !noalias !176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !176
+  br label %23
+
+23:                                               ; preds = %1, %"_ZN4moka6common5deque14Deque$LT$T$GT$9pop_front28_$u7b$$u7b$closure$u7d$$u7d$17h313f44d7d0638baeE.llvm.1533238098547642317.exit"
   ret ptr %3
 }
 
@@ -889,24 +898,33 @@ define hidden noundef nonnull align 8 ptr @"_ZN4moka6common5deque14Deque$LT$T$GT
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink = select i1 %12, ptr %14, ptr %13
-  store ptr null, ptr %.sink, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !11
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  ret ptr %1
+  br i1 %12, label %15, label %17
 
 .sink.split.i:                                    ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
-  %19 = load ptr, ptr %18, align 8, !noalias !184, !noundef !11
+  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = load ptr, ptr %13, align 8, !noalias !184, !noundef !11
   store i64 1, ptr %3, align 8, !alias.scope !184
-  store ptr %19, ptr %6, align 8, !alias.scope !184
+  store ptr %14, ptr %6, align 8, !alias.scope !184
   br label %.critedge
+
+15:                                               ; preds = %.critedge
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %16, align 8
+  br label %19
+
+17:                                               ; preds = %.critedge
+  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  store ptr null, ptr %18, align 8
+  br label %19
+
+19:                                               ; preds = %17, %15
+  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = load i64, ptr %20, align 8, !noundef !11
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  ret ptr %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable

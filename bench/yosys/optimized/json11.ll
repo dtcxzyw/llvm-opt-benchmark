@@ -986,7 +986,7 @@ define void @_ZN6json114JsonC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_trait
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !34
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %23, label %9
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %22, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1006,32 +1006,31 @@ define void @_ZN6json114JsonC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %6, ptr %19, align 8, !noalias !34
   %20 = getelementptr inbounds i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8, !noalias !34
-  %22 = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %21, ptr %22, align 8, !noalias !34
   store ptr null, ptr %7, align 8, !noalias !34
   store ptr %10, ptr %13, align 8, !noalias !34
   store ptr %10, ptr %16, align 8, !noalias !34
+  store i64 0, ptr %20, align 8, !noalias !34
   br label %_ZNSt10shared_ptrIN6json1110JsonObjectEED2Ev.exit
 
-23:                                               ; preds = %2
+22:                                               ; preds = %2
   store i32 0, ptr %6, align 8, !noalias !34
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr null, ptr %24, align 8, !noalias !34
-  %25 = getelementptr inbounds i8, ptr %3, i64 48
+  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr null, ptr %23, align 8, !noalias !34
+  %24 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %6, ptr %24, align 8, !noalias !34
+  %25 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %6, ptr %25, align 8, !noalias !34
-  %26 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %6, ptr %26, align 8, !noalias !34
-  %27 = getelementptr inbounds i8, ptr %3, i64 64
   br label %_ZNSt10shared_ptrIN6json1110JsonObjectEED2Ev.exit
 
-_ZNSt10shared_ptrIN6json1110JsonObjectEED2Ev.exit: ; preds = %23, %9
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %27, %23 ], [ %20, %9 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6json1110JsonObjectE, i64 16), ptr %28, align 8, !noalias !34
-  store ptr %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %29, align 8
+_ZNSt10shared_ptrIN6json1110JsonObjectEED2Ev.exit: ; preds = %22, %9
+  %.sink.i.i.i.i = phi i64 [ 0, %22 ], [ %21, %9 ]
+  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %.sink.i.i.i.i, ptr %27, align 8, !noalias !34
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6json1110JsonObjectE, i64 16), ptr %26, align 8, !noalias !34
+  store ptr %26, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %28, align 8
   ret void
 }
 

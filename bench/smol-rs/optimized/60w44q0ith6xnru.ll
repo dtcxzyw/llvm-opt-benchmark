@@ -111,8 +111,8 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   br label %.preheader.i
 
-41:                                               ; preds = %.loopexit, %.loopexit.split-lp, %145, %139, %138, %50
-  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %.pn77.pn.i, %138 ], [ %146, %145 ], [ %66, %139 ], [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+41:                                               ; preds = %.loopexit, %.loopexit.split-lp, %138, %192, %195, %145, %139, %50
+  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %146, %145 ], [ %66, %139 ], [ %51, %50 ], [ %.pn7711.i, %192 ], [ %159, %195 ], [ %.pn71.i, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %42 = getelementptr inbounds i8, ptr %22, i64 16
   invoke void @"_ZN4core3ptr125drop_in_place$LT$event_listener..Listener$LT$$LP$$RP$$C$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h1791e95088b67237E.llvm.14408593437386099104"(ptr noundef nonnull align 8 %42)
           to label %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i" unwind label %136
@@ -124,7 +124,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   %44 = phi ptr [ @str.1, %43 ], [ @str.0, %1 ]
   %45 = phi i64 [ 34, %43 ], [ 35, %1 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d0d7744a17e94df096bd8f26e91c0917.6) #12
-          to label %.cont unwind label %196
+          to label %.cont unwind label %197
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -503,16 +503,14 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %101
   store i64 0, ptr %135, align 8, !alias.scope !80, !noalias !83
   br label %162
 
-136:                                              ; preds = %192, %160, %158, %.body.i, %65, %41
+136:                                              ; preds = %193, %160, %158, %.body.i, %65, %41
   %137 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-138:                                              ; preds = %194, %192, %.thread.i, %.body.i
-  %.sink.i = phi ptr [ %195, %194 ], [ %164, %192 ], [ %164, %.thread.i ], [ %59, %.body.i ]
-  %.pn77.pn.i = phi { ptr, i32 } [ %159, %194 ], [ %.pn7711.i, %192 ], [ %.pn7711.i, %.thread.i ], [ %.pn71.i, %.body.i ]
-  store i8 0, ptr %.sink.i, align 1
+138:                                              ; preds = %.body.i
+  store i8 0, ptr %59, align 1
   br label %41
 
 139:                                              ; preds = %65
@@ -604,7 +602,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %101
 160:                                              ; preds = %158
   %161 = getelementptr inbounds i8, ptr %22, i64 104
   invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %161) #13
-          to label %194 unwind label %136
+          to label %195 unwind label %136
 
 162:                                              ; preds = %155, %.thread18.i
   %.sroa.4.0..sroa_idx.i102.i = getelementptr inbounds i8, ptr %22, i64 120
@@ -689,43 +687,48 @@ _ZN14event_listener5Event17notify_additional17ha3a4799c079cf104E.exit116.i: ; pr
   %.pn7711.i = phi { ptr, i32 } [ %177, %176 ], [ %189, %188 ]
   %190 = load i8, ptr %164, align 1, !range !8, !noundef !5
   %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %192, label %138
+  br i1 %191, label %193, label %192
 
-192:                                              ; preds = %.thread.i
-  %193 = getelementptr inbounds i8, ptr %22, i64 104
-  invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %193) #13
-          to label %138 unwind label %136
+192:                                              ; preds = %193, %.thread.i
+  store i8 0, ptr %164, align 1
+  br label %41
 
-194:                                              ; preds = %160
-  %195 = getelementptr inbounds i8, ptr %22, i64 97
-  br label %138
+193:                                              ; preds = %.thread.i
+  %194 = getelementptr inbounds i8, ptr %22, i64 104
+  invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %194) #13
+          to label %192 unwind label %136
 
-196:                                              ; preds = %.invoke
-  %197 = landingpad { ptr, i32 }
+195:                                              ; preds = %160
+  %196 = getelementptr inbounds i8, ptr %22, i64 97
+  store i8 0, ptr %196, align 1
+  br label %41
+
+197:                                              ; preds = %.invoke
+  %198 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit"
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit12": ; preds = %.loopexit12.i
-  %198 = getelementptr inbounds i8, ptr %22, i64 98
-  store i8 0, ptr %198, align 2
+  %199 = getelementptr inbounds i8, ptr %22, i64 98
+  store i8 0, ptr %199, align 2
   store i8 1, ptr %23, align 1
   call fastcc void @"_ZN4core3ptr653drop_in_place$LT$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..initialize_or_wait$LT$core..convert..Infallible$C$core..future..ready..Ready$LT$core..result..Result$LT$async_executor..Executor$C$core..convert..Infallible$GT$$GT$$C$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..get_or_try_init_blocking$LT$core..convert..Infallible$C$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..get_or_init_blocking$LT$smol..spawn..spawn..global..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$event_listener_strategy..Blocking$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa1b2f9dcb988834E"(ptr noundef nonnull align 8 %22)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %22)
   ret void
 
-199:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit"
-  %200 = landingpad { ptr, i32 }
+200:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit"
+  %201 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-201:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit"
+202:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit"
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit": ; preds = %196, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %197, %196 ], [ %.pn82.i, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i" ]
+"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit": ; preds = %197, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i"
+  %eh.lpad-body = phi { ptr, i32 } [ %198, %197 ], [ %.pn82.i, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i" ]
   invoke fastcc void @"_ZN4core3ptr653drop_in_place$LT$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..initialize_or_wait$LT$core..convert..Infallible$C$core..future..ready..Ready$LT$core..result..Result$LT$async_executor..Executor$C$core..convert..Infallible$GT$$GT$$C$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..get_or_try_init_blocking$LT$core..convert..Infallible$C$async_lock..once_cell..OnceCell$LT$async_executor..Executor$GT$..get_or_init_blocking$LT$smol..spawn..spawn..global..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$event_listener_strategy..Blocking$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa1b2f9dcb988834E"(ptr noundef nonnull align 8 %22) #13
-          to label %201 unwind label %199
+          to label %202 unwind label %200
 }
 
 ; Function Attrs: nonlazybind uwtable

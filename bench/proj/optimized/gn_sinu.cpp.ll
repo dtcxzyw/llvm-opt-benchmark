@@ -579,46 +579,43 @@ define internal { double, double } @_ZL17gn_sinu_s_inverse5PJ_XYP8PJconsts(doubl
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fcmp une double %10, 0.000000e+00
-  br i1 %11, label %12, label %17
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %2, align 8
   %14 = tail call double @sin(double noundef %8) #7
   %15 = tail call double @llvm.fmuladd.f64(double %10, double %8, double %14)
   %16 = getelementptr inbounds i8, ptr %5, i64 16
-  br label %.sink.split
+  %17 = load double, ptr %16, align 8
+  %18 = fdiv double %15, %17
+  %19 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %13, double noundef %18)
+  br label %30
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = load double, ptr %18, align 8
-  %20 = fcmp une double %19, 1.000000e+00
-  br i1 %20, label %21, label %27
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = load double, ptr %21, align 8
+  %23 = fcmp une double %22, 1.000000e+00
+  br i1 %23, label %24, label %30
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %2, align 8
-  %23 = tail call double @sin(double noundef %8) #7
-  br label %.sink.split
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %2, align 8
+  %26 = tail call double @sin(double noundef %8) #7
+  %27 = load double, ptr %21, align 8
+  %28 = fdiv double %26, %27
+  %29 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %25, double noundef %28)
+  br label %30
 
-.sink.split:                                      ; preds = %12, %21
-  %.sink20 = phi ptr [ %18, %21 ], [ %16, %12 ]
-  %.sink18 = phi double [ %23, %21 ], [ %15, %12 ]
-  %.sink = phi ptr [ %22, %21 ], [ %13, %12 ]
-  %24 = load double, ptr %.sink20, align 8
-  %25 = fdiv double %.sink18, %24
-  %26 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %.sink, double noundef %25)
-  br label %27
-
-27:                                               ; preds = %.sink.split, %17
-  %28 = phi double [ %8, %17 ], [ %26, %.sink.split ]
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = load double, ptr %29, align 8
-  %31 = load double, ptr %9, align 8
-  %32 = tail call double @cos(double noundef %8) #7
-  %33 = fadd double %31, %32
-  %34 = fmul double %30, %33
-  %35 = fdiv double %0, %34
-  %.fca.0.insert = insertvalue { double, double } poison, double %35, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %28, 1
+30:                                               ; preds = %20, %24, %12
+  %31 = phi double [ %19, %12 ], [ %29, %24 ], [ %8, %20 ]
+  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = load double, ptr %32, align 8
+  %34 = load double, ptr %9, align 8
+  %35 = tail call double @cos(double noundef %8) #7
+  %36 = fadd double %34, %35
+  %37 = fmul double %33, %36
+  %38 = fdiv double %0, %37
+  %.fca.0.insert = insertvalue { double, double } poison, double %38, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %31, 1
   ret { double, double } %.fca.1.insert
 }
 

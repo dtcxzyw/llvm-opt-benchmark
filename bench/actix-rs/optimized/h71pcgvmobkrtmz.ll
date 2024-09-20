@@ -4771,11 +4771,7 @@ default.unreachable:                              ; preds = %120
 128:                                              ; preds = %125
   store i64 0, ptr %39, align 8, !alias.scope !404
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 80
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %145, %144, %143, %142, %137, %128
-  %.sroa.527.0..sroa_idx.sink.i = phi ptr [ %.sroa.527.0..sroa_idx.i, %144 ], [ %134, %145 ], [ %.sroa.59.0..sroa_idx.i, %142 ], [ %130, %143 ], [ %130, %137 ], [ %.sroa.432.0..sroa_idx.i, %128 ]
-  store i64 %123, ptr %.sroa.527.0..sroa_idx.sink.i, align 8, !alias.scope !404
+  store i64 %123, ptr %.sroa.432.0..sroa_idx.i, align 8, !alias.scope !404
   br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 129:                                              ; preds = %120
@@ -4792,7 +4788,8 @@ default.unreachable:                              ; preds = %120
 
 137:                                              ; preds = %129
   store i64 0, ptr %39, align 8, !alias.scope !404
-  br label %.sink.split.i
+  store i64 %123, ptr %130, align 8, !alias.scope !404
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 138:                                              ; preds = %129
   %139 = getelementptr inbounds i8, ptr %3, i64 176
@@ -4803,22 +4800,26 @@ default.unreachable:                              ; preds = %120
 142:                                              ; preds = %138
   store i64 1, ptr %39, align 8, !alias.scope !404
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
-  br label %.sink.split.i
+  store i64 %123, ptr %.sroa.59.0..sroa_idx.i, align 8, !alias.scope !404
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 143:                                              ; preds = %138
   store i64 0, ptr %39, align 8, !alias.scope !404
-  br label %.sink.split.i
+  store i64 %123, ptr %130, align 8, !alias.scope !404
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 144:                                              ; preds = %133
   store i64 1, ptr %39, align 8, !alias.scope !404
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
-  br label %.sink.split.i
+  store i64 %123, ptr %.sroa.527.0..sroa_idx.i, align 8, !alias.scope !404
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 145:                                              ; preds = %133
   store i64 0, ptr %39, align 8, !alias.scope !404
-  br label %.sink.split.i
+  store i64 %123, ptr %134, align 8, !alias.scope !404
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
-_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit: ; preds = %.sink.split.i, %125, %117
+_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit: ; preds = %145, %144, %143, %142, %137, %128, %125, %117
   %146 = getelementptr inbounds i8, ptr %1, i64 96
   %147 = load i32, ptr %146, align 4, !range !32, !noundef !5
   %148 = getelementptr inbounds i8, ptr %1, i64 100
@@ -5550,11 +5551,7 @@ default.unreachable:                              ; preds = %120
 128:                                              ; preds = %125
   store i64 0, ptr %39, align 8, !alias.scope !437
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 80
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %145, %144, %143, %142, %137, %128
-  %.sroa.527.0..sroa_idx.sink.i = phi ptr [ %.sroa.527.0..sroa_idx.i, %144 ], [ %134, %145 ], [ %.sroa.59.0..sroa_idx.i, %142 ], [ %130, %143 ], [ %130, %137 ], [ %.sroa.432.0..sroa_idx.i, %128 ]
-  store i64 %123, ptr %.sroa.527.0..sroa_idx.sink.i, align 8, !alias.scope !437
+  store i64 %123, ptr %.sroa.432.0..sroa_idx.i, align 8, !alias.scope !437
   br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 129:                                              ; preds = %120
@@ -5571,7 +5568,8 @@ default.unreachable:                              ; preds = %120
 
 137:                                              ; preds = %129
   store i64 0, ptr %39, align 8, !alias.scope !437
-  br label %.sink.split.i
+  store i64 %123, ptr %130, align 8, !alias.scope !437
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 138:                                              ; preds = %129
   %139 = getelementptr inbounds i8, ptr %3, i64 176
@@ -5582,22 +5580,26 @@ default.unreachable:                              ; preds = %120
 142:                                              ; preds = %138
   store i64 1, ptr %39, align 8, !alias.scope !437
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
-  br label %.sink.split.i
+  store i64 %123, ptr %.sroa.59.0..sroa_idx.i, align 8, !alias.scope !437
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 143:                                              ; preds = %138
   store i64 0, ptr %39, align 8, !alias.scope !437
-  br label %.sink.split.i
+  store i64 %123, ptr %130, align 8, !alias.scope !437
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 144:                                              ; preds = %133
   store i64 1, ptr %39, align 8, !alias.scope !437
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 88
-  br label %.sink.split.i
+  store i64 %123, ptr %.sroa.527.0..sroa_idx.i, align 8, !alias.scope !437
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
 145:                                              ; preds = %133
   store i64 0, ptr %39, align 8, !alias.scope !437
-  br label %.sink.split.i
+  store i64 %123, ptr %134, align 8, !alias.scope !437
+  br label %_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit
 
-_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit: ; preds = %.sink.split.i, %125, %117
+_ZN2h25hpack7encoder7Encoder15update_max_size17h69fcf984a18589a4E.exit: ; preds = %145, %144, %143, %142, %137, %128, %125, %117
   %146 = getelementptr inbounds i8, ptr %1, i64 96
   %147 = load i32, ptr %146, align 4, !range !32, !noundef !5
   %148 = getelementptr inbounds i8, ptr %1, i64 100
