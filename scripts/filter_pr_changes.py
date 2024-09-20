@@ -6,6 +6,7 @@ import heapq
 
 max_diff_per_file = 500
 max_diff_total = 15000
+max_diff_size_total = 900_000
 max_file_total = 200
 trivial_penalty = 200
 diversity_penalty_inc = 30
@@ -34,6 +35,7 @@ diversity_penalty = dict()
 diff_pattern = set()
 file_count = 0
 diff_count = 0
+diff_size_count = 0
 while len(diff_heap) != 0:
     cnt, file, proj, add, sub = heapq.heappop(diff_heap)
     proj_list = diffs[proj]
@@ -51,6 +53,10 @@ while len(diff_heap) != 0:
     if file_count < max_file_total and diff_count + count <= max_diff_total:
         file_count += 1
         diff_count += count
-        subprocess.run(['git', 'add', file])
+        diff_content = len(subprocess.check_output(['git', 'diff', file]))
+        diff_size_count += diff_content
+        if diff_size_count > max_diff_size_total:
+            break
+        subprocess.check_call(['git', 'add', file])
     else:
         break

@@ -27,7 +27,7 @@ then
     git pull --rebase
     git submodule update
     git push -f
-    git show --name-only | grep bench
+    git show --name-only | grep -E "bench|stats.baseline"
     if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
     then
       scripts/gen_issue_report.py $(git rev-parse HEAD)
