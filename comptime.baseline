@@ -20247,7 +20247,7 @@ nuttx/lib_openat.c.ll 41545902
 nuttx/lib_pathconf.c.ll 40720326
 nuttx/lib_popcount.c.ll 35677977
 nuttx/lib_popcountl.c.ll 35802412
-nuttx/lib_popcountll.c.ll 35803753
+nuttx/lib_popcountll.c.ll 35839689
 nuttx/lib_posix_memalign.c.ll 37227466
 nuttx/lib_printf.c.ll 36835315
 nuttx/lib_psfa_addclose.c.ll 37769015
@@ -38988,7 +38988,7 @@ wasmtime-rs/3lfwio1v2vyjpz89.ll 37767030
 wasmtime-rs/3lkah5ftdp5rscww.ll 224414389
 wasmtime-rs/3lotaxjn51xvspys.ll 88639912
 wasmtime-rs/3m365z35ikq64urg.ll 105123685
-wasmtime-rs/3mv9bmhxukl3fzns.ll 44228326
+wasmtime-rs/3mv9bmhxukl3fzns.ll 44272609
 wasmtime-rs/3mzybv7dafz5g4fx.ll 63574012
 wasmtime-rs/3n0zrdpc82n5c9ib.ll 133986773
 wasmtime-rs/3nd0g65j44xxp7hy.ll 55790501
@@ -39892,7 +39892,7 @@ wireshark/packet-dcerpc-dnsserver.c.ll 526053842
 wireshark/packet-dcerpc-drsuapi.c.ll 3694762745
 wireshark/packet-dcerpc-dssetup.c.ll 185698696
 wireshark/packet-dcerpc-efs.c.ll 240995782
-wireshark/packet-dcerpc-epm.c.ll 179974071
+wireshark/packet-dcerpc-epm.c.ll 180154167
 wireshark/packet-dcerpc-eventlog.c.ll 391742862
 wireshark/packet-dcerpc-fileexp.c.ll 651036966
 wireshark/packet-dcerpc-fldb.c.ll 347498533
