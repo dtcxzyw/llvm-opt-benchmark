@@ -25216,7 +25216,7 @@ openmpi/ad_read.ll 49594604
 openmpi/ad_read_coll.ll 487137182
 openmpi/ad_read_str.ll 261523337
 openmpi/ad_read_str_naive.ll 158910339
-openmpi/ad_seek.ll 51092943
+openmpi/ad_seek.ll 51144136
 openmpi/ad_subarray.ll 77335598
 openmpi/ad_testfs_seek.ll 56853549
 openmpi/ad_write.ll 50550417
