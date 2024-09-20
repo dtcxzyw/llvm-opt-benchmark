@@ -6979,7 +6979,7 @@ Vec_IntFree.exit174:                              ; preds = %Vec_WrdFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkFinCheckTypesOk(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_NtkFinCheckTypesOk(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

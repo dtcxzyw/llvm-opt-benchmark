@@ -1545,7 +1545,7 @@ ma_wcscpy_s.exit:                                 ; preds = %6, %.sink.split.i, 
 declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @ma_fopen(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
+define hidden range(i32 -51, 1) i32 @ma_fopen(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -1579,7 +1579,7 @@ define hidden noundef i32 @ma_fopen(ptr noundef writeonly %0, ptr noundef readon
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @ma_result_from_errno(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 -51, 1) i32 @ma_result_from_errno(i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i32 %0, 130
   br i1 %2, label %switch.lookup, label %4
 
@@ -1598,7 +1598,7 @@ switch.lookup:                                    ; preds = %1
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
@@ -1764,7 +1764,7 @@ define hidden { ptr, ptr } @ma_log_callback_init(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_log_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_log_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_mutex_init.exit, label %4
 
@@ -1851,7 +1851,7 @@ ma_mutex_init.exit:                               ; preds = %35, %ma_allocation_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_mutex_init(ptr noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_mutex_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_mutex_init__posix.exit, label %3
 
@@ -2332,7 +2332,7 @@ define hidden void @ma_mutex_unlock(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_event_init(ptr noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_event_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_event_init__posix.exit, label %3
 
@@ -2434,7 +2434,7 @@ define hidden range(i32 -2, 1) i32 @ma_event_signal(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_semaphore_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_semaphore_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_semaphore_init__posix.exit, label %4
 
@@ -2537,7 +2537,7 @@ define hidden range(i32 -2, 1) i32 @ma_semaphore_release(ptr noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_fence_init(ptr noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_fence_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_event_init.exit, label %3
 
@@ -2760,7 +2760,7 @@ define hidden i32 @ma_async_notification_poll_is_signalled(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_async_notification_event_init(ptr noundef %0) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_async_notification_event_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_event_init.exit, label %3
 
@@ -4415,7 +4415,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ma_get_format_priority_index(i32 noundef %0) local_unnamed_addr #19 {
+define hidden range(i32 -1, 5) i32 @ma_get_format_priority_index(i32 noundef %0) local_unnamed_addr #19 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -5707,7 +5707,7 @@ define hidden { i64, i32 } @ma_device_job_thread_config_init() local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_device_job_thread_init(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_device_job_thread_init(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_job_queue_config, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %25, label %6
@@ -5762,7 +5762,7 @@ define hidden i32 @ma_device_job_thread_init(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_thread_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #4 {
+define internal fastcc range(i32 -51, 1) i32 @ma_thread_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #4 {
   %7 = alloca %union.pthread_attr_t, align 8
   %8 = alloca %struct.sched_param, align 4
   %9 = icmp eq ptr %0, null
@@ -6102,7 +6102,7 @@ define hidden void @ma_context_config_init(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_context_init(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -203, 1) i32 @ma_context_init(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_context_config, align 8
   %6 = alloca [15 x i32], align 16
   %7 = icmp eq ptr %3, null
@@ -7517,7 +7517,7 @@ ma_free.exit:                                     ; preds = %22, %13, %566, %563
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_init__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 -203, 1) i32 @ma_context_init__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = icmp eq ptr %0, null
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = getelementptr inbounds i8, ptr %0, i64 424
@@ -49572,7 +49572,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %39, %35, %31, %30, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_open(ptr nocapture readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_open(ptr nocapture readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_default_vfs_open__stdio.exit, label %6
 
@@ -49612,7 +49612,7 @@ ma_default_vfs_open__stdio.exit:                  ; preds = %ma_fopen.exit.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_default_vfs_open_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_open_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %18, label %7
@@ -49668,7 +49668,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr nocapture readnon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49714,7 +49714,7 @@ ma_default_vfs_read__stdio.exit:                  ; preds = %18, %16, %13, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49791,7 +49791,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_tell(ptr nocapture readnone
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ma_default_vfs_info(ptr nocapture readnone %0, ptr noundef %1, ptr noundef writeonly %2) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_info(ptr nocapture readnone %0, ptr noundef %1, ptr noundef writeonly %2) #6 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %18, label %6
@@ -58424,7 +58424,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @drwav_wfopen(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -51, 1) i32 @drwav_wfopen(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #4 {
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
@@ -69232,7 +69232,7 @@ vorbis_alloc.exit.thread:                         ; preds = %34, %vorbis_alloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @start_decoder(ptr noundef nonnull %0) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @start_decoder(ptr noundef nonnull %0) unnamed_addr #4 {
   %2 = alloca [6 x i8], align 1
   %3 = alloca [250 x %struct.stbv__floor_ordering], align 16
   %4 = alloca [64 x i8], align 16
@@ -103552,7 +103552,7 @@ ma_context_get_log.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_enumerate_devices__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
@@ -104729,7 +104729,7 @@ ma_free.exit:                                     ; preds = %391, %393, %396
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_get_device_info__alsa(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #4 {
+define internal range(i32 -401, 1) i32 @ma_context_get_device_info__alsa(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #4 {
   %5 = alloca %struct.ma_context_get_device_info_enum_callback_data__alsa, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -104970,7 +104970,7 @@ ma_free.exit84:                                   ; preds = %115, %118
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_init__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #4 {
+define internal range(i32 -401, 1) i32 @ma_device_init__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = load i32, ptr %1, align 8
@@ -105079,7 +105079,7 @@ ma_free.exit15:                                   ; preds = %40, %37, %24, %ma_f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_start__alsa(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 -51, 1) i32 @ma_device_start__alsa(ptr nocapture noundef readonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -2
@@ -105361,7 +105361,7 @@ ma_device_get_log.exit54:                         ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_read__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -302, 1) i32 @ma_device_read__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -105388,7 +105388,7 @@ ma_device_get_state.exit.lr.ph:                   ; preds = %6
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %11, align 4
   %18 = add nsw i32 %17, 1
-  %19 = tail call fastcc noundef i32 @ma_device_wait__alsa(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, i32 noundef %18, i16 noundef signext 1)
+  %19 = tail call fastcc range(i32 -302, 1) i32 @ma_device_wait__alsa(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, i32 noundef %18, i16 noundef signext 1)
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %20, label %.loopexit
 
@@ -105560,7 +105560,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_write__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -302, 1) i32 @ma_device_write__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -105587,7 +105587,7 @@ ma_device_get_state.exit.lr.ph:                   ; preds = %6
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %11, align 8
   %18 = add nsw i32 %17, 1
-  %19 = tail call fastcc noundef i32 @ma_device_wait__alsa(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, i32 noundef %18, i16 noundef signext 4)
+  %19 = tail call fastcc range(i32 -302, 1) i32 @ma_device_wait__alsa(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, i32 noundef %18, i16 noundef signext 4)
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %20, label %.loopexit
 
@@ -105759,7 +105759,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_data_loop_wakeup__alsa(ptr noundef readonly %0) #4 {
+define internal range(i32 -51, 1) i32 @ma_device_data_loop_wakeup__alsa(ptr noundef readonly %0) #4 {
   %2 = alloca i64, align 8
   store i64 1, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -106009,7 +106009,7 @@ ma_strncpy_s.exit35:                              ; preds = %.lr.ph.i29, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_context_open_pcm__alsa(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef range(i32 0, 524288) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #4 {
+define internal fastcc range(i32 -401, 1) i32 @ma_context_open_pcm__alsa(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef range(i32 0, 524288) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #4 {
   %7 = alloca ptr, align 8
   %8 = alloca [7 x ptr], align 16
   %9 = alloca %union.ma_device_id, align 8
@@ -106441,7 +106441,7 @@ ma_context_test_rate_and_add_native_data_format__alsa.exit54: ; preds = %68, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #4 {
+define internal fastcc range(i32 -401, 1) i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca [254 x i8], align 16
   %7 = alloca i64, align 8
@@ -107933,7 +107933,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #58
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #65
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ma_device_wait__alsa(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, i16 noundef signext range(i16 1, 5) %4) unnamed_addr #4 {
+define internal fastcc range(i32 -302, 1) i32 @ma_device_wait__alsa(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, i16 noundef signext range(i16 1, 5) %4) unnamed_addr #4 {
   %6 = alloca i16, align 2
   %7 = alloca i64, align 8
   %8 = sext i32 %3 to i64
@@ -108304,7 +108304,7 @@ ma_strncpy_s.exit:                                ; preds = %.lr.ph.i13, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_init__null(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #4 {
+define internal range(i32 -201, 1) i32 @ma_device_init__null(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(352) %5, i8 0, i64 352, i1 false)
   %6 = load i32, ptr %1, align 8
@@ -114510,7 +114510,7 @@ declare i16 @llvm.bswap.i16(i16) #35
 declare i32 @llvm.bswap.i32(i32) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @drwav_result_from_errno(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 -51, 1) i32 @drwav_result_from_errno(i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ult i32 %0, 134
   br i1 %2, label %switch.lookup, label %4
 

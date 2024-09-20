@@ -1548,7 +1548,7 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %106, label %8
+  br i1 %.not, label %111, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @proto_rdm, align 4
@@ -1685,52 +1685,62 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
   %.1.i = phi i32 [ 23, %63 ], [ %65, %64 ], [ %84, %83 ], [ 23, %8 ], [ 23, %68 ], [ 25, %69 ], [ 23, %66 ], [ 23, %74 ], [ 25, %75 ], [ 23, %72 ], [ 23, %78 ], [ %82, %79 ]
   %reass.sub = sub i32 %.1.i, %16
   %85 = icmp ult i32 %reass.sub, 2147483647
-  br i1 %85, label %86, label %91
+  br i1 %85, label %88, label %.thread
 
-86:                                               ; preds = %dissect_rdm_mdb.exit
-  %87 = add nuw nsw i32 %reass.sub, 1
-  %88 = load i32, ptr @hf_rdm_intron, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %88, ptr noundef %0, i32 noundef %.1.i, i32 noundef %87, i32 noundef 0) #2
-  %90 = add i32 %87, %.1.i
-  br label %91
+.thread:                                          ; preds = %dissect_rdm_mdb.exit
+  %86 = load i32, ptr @hf_rdm_checksum, align 4
+  %87 = load i32, ptr @hf_rdm_checksum_status, align 4
+  br label %.lr.ph.i.preheader
 
-91:                                               ; preds = %86, %dissect_rdm_mdb.exit
-  %.0 = phi i32 [ %90, %86 ], [ %.1.i, %dissect_rdm_mdb.exit ]
-  %92 = load i32, ptr @hf_rdm_checksum, align 4
-  %93 = load i32, ptr @hf_rdm_checksum_status, align 4
-  %.not.i76 = icmp eq i32 %.0, 0
-  br i1 %.not.i76, label %rdm_checksum.exit, label %.lr.ph.i
+88:                                               ; preds = %dissect_rdm_mdb.exit
+  %89 = add nuw nsw i32 %reass.sub, 1
+  %90 = load i32, ptr @hf_rdm_intron, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %90, ptr noundef %0, i32 noundef %.1.i, i32 noundef %89, i32 noundef 0) #2
+  %92 = add i32 %89, %.1.i
+  %93 = load i32, ptr @hf_rdm_checksum, align 4
+  %94 = load i32, ptr @hf_rdm_checksum_status, align 4
+  %.not.i76 = icmp eq i32 %92, 0
+  br i1 %.not.i76, label %rdm_checksum.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %91, %.lr.ph.i
-  %.08.i = phi i32 [ %97, %.lr.ph.i ], [ 0, %91 ]
-  %.067.i = phi i16 [ %96, %.lr.ph.i ], [ 204, %91 ]
-  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i) #2
-  %95 = zext i8 %94 to i16
-  %96 = add i16 %.067.i, %95
-  %97 = add nuw i32 %.08.i, 1
-  %exitcond.not.i = icmp eq i32 %97, %.0
+.lr.ph.i.preheader:                               ; preds = %.thread, %88
+  %95 = phi i32 [ %87, %.thread ], [ %94, %88 ]
+  %96 = phi i32 [ %86, %.thread ], [ %93, %88 ]
+  %.080 = phi i32 [ %.1.i, %.thread ], [ %92, %88 ]
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.08.i = phi i32 [ %100, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.067.i = phi i16 [ %99, %.lr.ph.i ], [ 204, %.lr.ph.i.preheader ]
+  %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i) #2
+  %98 = zext i8 %97 to i16
+  %99 = add i16 %.067.i, %98
+  %100 = add nuw i32 %.08.i, 1
+  %exitcond.not.i = icmp eq i32 %100, %.080
   br i1 %exitcond.not.i, label %rdm_checksum.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 rdm_checksum.exit.loopexit:                       ; preds = %.lr.ph.i
-  %98 = zext i16 %96 to i32
+  %101 = zext i16 %99 to i32
   br label %rdm_checksum.exit
 
-rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %91
-  %.06.lcssa.i = phi i32 [ 204, %91 ], [ %98, %rdm_checksum.exit.loopexit ]
-  %99 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.0, i32 noundef %92, i32 noundef %93, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1) #2
-  %100 = add i32 %.0, 2
-  %101 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %102 = icmp ult i32 %100, %101
-  br i1 %102, label %103, label %106
+rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %88
+  %102 = phi i32 [ %94, %88 ], [ %95, %rdm_checksum.exit.loopexit ]
+  %103 = phi i32 [ %93, %88 ], [ %96, %rdm_checksum.exit.loopexit ]
+  %.081 = phi i32 [ 0, %88 ], [ %.080, %rdm_checksum.exit.loopexit ]
+  %.06.lcssa.i = phi i32 [ 204, %88 ], [ %101, %rdm_checksum.exit.loopexit ]
+  %104 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.081, i32 noundef %103, i32 noundef %102, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1) #2
+  %105 = add i32 %.081, 2
+  %106 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %107 = icmp ult i32 %105, %106
+  br i1 %107, label %108, label %111
 
-103:                                              ; preds = %rdm_checksum.exit
-  %104 = load i32, ptr @hf_rdm_trailer, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %104, ptr noundef %0, i32 noundef %100, i32 noundef -1, i32 noundef 0) #2
-  br label %106
+108:                                              ; preds = %rdm_checksum.exit
+  %109 = load i32, ptr @hf_rdm_trailer, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %109, ptr noundef %0, i32 noundef %105, i32 noundef -1, i32 noundef 0) #2
+  br label %111
 
-106:                                              ; preds = %rdm_checksum.exit, %103, %4
-  %107 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %107
+111:                                              ; preds = %rdm_checksum.exit, %108, %4
+  %112 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %112
 }
 
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
@@ -1771,7 +1781,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc range(i32 2, 0) i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #1 {
   %7 = icmp slt i16 %3, 0
   br i1 %7, label %8, label %154
 
@@ -3165,7 +3175,7 @@ define internal fastcc range(i32 23, 32) i32 @dissect_rdm_pd_disc_un_mute(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 6, 0) i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 5
   %or.cond = and i1 %cond, %5
@@ -3223,7 +3233,7 @@ define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_comms_status(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 9, 0) i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 32, label %6
     i8 33, label %.preheader
@@ -3290,7 +3300,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 2, 0) i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %6 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %6
@@ -3388,7 +3398,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_descript
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 2, 0) i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %5
@@ -3410,7 +3420,7 @@ define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 2, 0) i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 1
   %or.cond = and i1 %cond, %5
@@ -3486,7 +3496,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 5, 0) i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 4
   %or.cond = and i1 %cond, %5
@@ -3541,7 +3551,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 3, 0) i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 2
   %or.cond = and i1 %cond, %5
@@ -3988,7 +3998,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 6, 0) i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %5 = icmp ugt i8 %3, 5
   %or.cond = and i1 %cond, %5
@@ -4465,7 +4475,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 3, 0) i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   br i1 %cond, label %5, label %.loopexit
 
@@ -4825,7 +4835,7 @@ define internal fastcc range(i32 23, 30) i32 @dissect_rdm_pd_endpoint_responder_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 6, 0) i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 32, label %5
     i8 33, label %8
@@ -4861,7 +4871,7 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 23, 0) i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %.loopexit [
     i8 33, label %.preheader
     i8 48, label %23

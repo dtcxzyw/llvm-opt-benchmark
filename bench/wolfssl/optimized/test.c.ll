@@ -1266,7 +1266,7 @@ return:                                           ; preds = %const_byte_ptr_test
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @base64_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1636115009, 1) i32 @base64_test() local_unnamed_addr #0 {
 entry:
   %good = alloca [8 x i8], align 8
   %goodEnd = alloca [8 x i8], align 8
@@ -1814,7 +1814,7 @@ return:                                           ; preds = %for.end80, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @md5_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1611115324, 1) i32 @md5_test() local_unnamed_addr #0 {
 entry:
   %md5 = alloca %struct.wc_Md5, align 8
   %md5Copy = alloca %struct.wc_Md5, align 8
@@ -2018,7 +2018,7 @@ return:                                           ; preds = %exit, %if.then46, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sha_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1611015521, 1) i32 @sha_test() local_unnamed_addr #0 {
 entry:
   %sha = alloca %struct.wc_Sha, align 8
   %shaCopy = alloca %struct.wc_Sha, align 8
@@ -2216,7 +2216,7 @@ return:                                           ; preds = %exit, %if.then39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sha224_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610815837, 1) i32 @sha224_test() local_unnamed_addr #0 {
 entry:
   %sha = alloca %struct.wc_Sha256, align 16
   %shaCopy = alloca %struct.wc_Sha256, align 16
@@ -2356,7 +2356,7 @@ return:                                           ; preds = %exit, %if.then25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sha256_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610815915, 1) i32 @sha256_test() local_unnamed_addr #0 {
 entry:
   %sha = alloca %struct.wc_Sha256, align 16
   %shaCopy = alloca %struct.wc_Sha256, align 16
@@ -2542,7 +2542,7 @@ return:                                           ; preds = %exit, %if.then25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sha384_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610816475, 1) i32 @sha384_test() local_unnamed_addr #0 {
 entry:
   %sha = alloca %struct.wc_Sha512, align 8
   %shaCopy = alloca %struct.wc_Sha512, align 8
@@ -3349,7 +3349,7 @@ return:                                           ; preds = %exit, %if.then25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sha3_test() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 536867081) i32 @sha3_test() local_unnamed_addr #0 {
 entry:
   %sha.i126 = alloca %struct.wc_Sha3, align 8
   %hash.i127 = alloca [64 x i8], align 16
@@ -4054,7 +4054,7 @@ return:                                           ; preds = %sha3_384_test.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hash_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1611517987, 1) i32 @hash_test() local_unnamed_addr #0 {
 entry:
   %hash = alloca %union.wc_HashAlg, align 16
   %data = alloca [40 x i8], align 16
@@ -4545,7 +4545,7 @@ return:                                           ; preds = %if.end726, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_md5_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610818216, 1) i32 @hmac_md5_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [16 x i8], align 16
@@ -4664,7 +4664,7 @@ return:                                           ; preds = %for.end, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610818298, 1) i32 @hmac_sha_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [20 x i8], align 16
@@ -4783,7 +4783,7 @@ return:                                           ; preds = %for.end, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha224_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610918393, 1) i32 @hmac_sha224_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [28 x i8], align 16
@@ -4908,7 +4908,7 @@ return:                                           ; preds = %for.end, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha256_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610918495, 1) i32 @hmac_sha256_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [32 x i8], align 16
@@ -5057,7 +5057,7 @@ return:                                           ; preds = %if.end135, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha384_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610918606, 1) i32 @hmac_sha384_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [48 x i8], align 16
@@ -5182,7 +5182,7 @@ return:                                           ; preds = %for.end, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha512_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610918717, 1) i32 @hmac_sha512_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [64 x i8], align 16
@@ -6221,7 +6221,7 @@ return:                                           ; preds = %if.end47, %if.end37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1611119893, 1) i32 @poly1305_test() local_unnamed_addr #0 {
 entry:
   %tag = alloca [16 x i8], align 16
   %enc = alloca %struct.Poly1305, align 8
@@ -8227,7 +8227,7 @@ return:                                           ; preds = %if.end14, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @rsa_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1278460772, 1) i32 @rsa_test() local_unnamed_addr #0 {
 entry:
   %inOutIdx.i = alloca i32, align 4
   %n.i = alloca [2 x i8], align 2
@@ -8995,7 +8995,7 @@ return:                                           ; preds = %exit_rsa, %if.end33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dh_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1611632622, 1) i32 @dh_test() local_unnamed_addr #0 {
 entry:
   %idx = alloca i32, align 4
   %privSz = alloca i32, align 4
@@ -12810,7 +12810,7 @@ exit_gen_test:                                    ; preds = %if.end304, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dh_test_check_pubvalue() unnamed_addr #0 {
+define internal fastcc range(i32 -1611632622, 1) i32 @dh_test_check_pubvalue() unnamed_addr #0 {
 entry:
   %prime = alloca [3 x i8], align 1
   %pubValZero = alloca [1 x i8], align 1

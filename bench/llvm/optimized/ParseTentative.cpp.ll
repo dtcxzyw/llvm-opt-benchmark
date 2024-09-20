@@ -1318,7 +1318,7 @@ _ZN5clang6Parser9NextTokenEv.exit121:             ; preds = %341, %345
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang6Parser25TryParseSimpleDeclarationEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6Parser25TryParseSimpleDeclarationEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 77
@@ -2001,7 +2001,7 @@ define dso_local noundef range(i32 2, 4) i32 @_ZN5clang6Parser26TryParseProtocol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang6Parser26TryParseInitDeclaratorListEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6Parser26TryParseInitDeclaratorListEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i16, align 2
   %4 = tail call noundef i32 @_ZN5clang6Parser18TryParseDeclaratorEbbbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %1)
   %.not6 = icmp eq i32 %4, 2
@@ -2063,7 +2063,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang6Parser18TryParseDeclaratorEbbbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6Parser18TryParseDeclaratorEbbbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CXXScopeSpec", align 8
   %7 = tail call noundef i32 @_ZN5clang6Parser22TryParsePtrOperatorSeqEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
   %8 = icmp eq i32 %7, 3
@@ -2687,10 +2687,11 @@ _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE
 
 72:                                               ; preds = %.preheader, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
   %73 = call noundef i32 @_ZN5clang6Parser18TryParseDeclaratorEbbbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %51)
-  switch i32 %73, label %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit15 [
+  switch i32 %73, label %default.unreachable [
     i32 0, label %74
     i32 1, label %75
     i32 3, label %76
+    i32 2, label %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit15
   ]
 
 74:                                               ; preds = %72
@@ -2706,6 +2707,9 @@ _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE
 76:                                               ; preds = %72
   store i32 0, ptr %8, align 8
   br label %_ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit15
+
+default.unreachable:                              ; preds = %72
+  unreachable
 
 _ZN5clang6Parser40ConditionDeclarationOrInitStatementState6updateENS0_8TPResultE.exit15: ; preds = %72, %74, %75, %76
   %77 = load i8, ptr %8, align 8
@@ -3942,7 +3946,7 @@ declare void @_ZN5clang4Sema36RestoreNestedNameSpecifierAnnotationEPvNS_11Source
 declare noundef zeroext i1 @_ZN5clang6Parser22isDeclarationSpecifierENS_23ImplicitTypenameContextEb(ptr noundef nonnull align 8 dereferenceable(2936), i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang6Parser26TryParseFunctionDeclaratorEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6Parser26TryParseFunctionDeclaratorEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2

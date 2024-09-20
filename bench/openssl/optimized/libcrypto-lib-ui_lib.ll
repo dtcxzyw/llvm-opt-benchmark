@@ -209,14 +209,14 @@ declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_u
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_add_input_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_input_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %prompt, i32 noundef 0, i32 noundef 1, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @general_allocate_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @general_allocate_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @general_allocate_prompt(ptr noundef %prompt, i32 noundef %prompt_freeable, i32 noundef %type, i32 noundef %input_flags, ptr noundef %result_buf)
   %cmp.not = icmp eq ptr %call, null
@@ -333,14 +333,14 @@ return:                                           ; preds = %if.then, %if.end3
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_add_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %prompt, i32 noundef 0, i32 noundef 2, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_dup_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prompt, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -361,14 +361,14 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_add_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_boolean(ptr noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef 0, i32 noundef %flags, ptr noundef %result_buf)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @general_allocate_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @general_allocate_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ok_chars, null
   br i1 %cmp, label %if.then, label %if.else
@@ -509,7 +509,7 @@ if.end34:                                         ; preds = %if.then2, %free_str
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_dup_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prompt, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -570,14 +570,14 @@ return:                                           ; preds = %err, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_add_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %text, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_dup_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %text, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -598,14 +598,14 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_add_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %text, i32 noundef 0, i32 noundef 5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_dup_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %text, null
   br i1 %cmp.not, label %if.end3, label %if.then

@@ -37,7 +37,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -113,7 +113,7 @@ return:                                           ; preds = %if.else10, %for.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -166,7 +166,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDiii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDiii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
@@ -198,7 +198,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2147483648) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDiii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDiii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
 entry:
   %path8 = alloca [1024 x i8], align 16
   %call.i = call i64 @readlink(ptr noundef nonnull @.str, ptr noundef nonnull %path8, i64 noundef 1024) #14
