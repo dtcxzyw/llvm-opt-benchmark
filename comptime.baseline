@@ -15018,7 +15018,7 @@ llvm/Action.cpp.ll 529068566
 llvm/AddDiscriminators.cpp.ll 1514202118
 llvm/AddressPool.cpp.ll 297483291
 llvm/AddressSanitizer.cpp.ll 9538075141
-llvm/AffectedRangeManager.cpp.ll 132428170
+llvm/AffectedRangeManager.cpp.ll 132560603
 llvm/AggressiveAntiDepBreaker.cpp.ll 2872430112
 llvm/AggressiveInstCombine.cpp.ll 4503492303
 llvm/AliasAnalysis.cpp.ll 1873304890
@@ -24596,7 +24596,7 @@ openjdk/narrowptrnode.ll 87585954
 openjdk/nativeCallStack.ll 71347455
 openjdk/nativeCallStackPrinter.ll 92141053
 openjdk/nativeEntryPoint.ll 1104841583
-openjdk/nativeInst_x86.ll 218382181
+openjdk/nativeInst_x86.ll 218600689
 openjdk/nativeLookup.ll 706726110
 openjdk/net_util.ll 143630467
 openjdk/net_util_md.ll 126570003
