@@ -20134,7 +20134,7 @@ nuttx/irq_attach.c.ll 45348301
 nuttx/irq_dispatch.c.ll 38125901
 nuttx/lib_abs.c.ll 36314840
 nuttx/lib_access.c.ll 45629005
-nuttx/lib_asprintf.c.ll 36499448
+nuttx/lib_asprintf.c.ll 36462913
 nuttx/lib_assert.c.ll 36005312
 nuttx/lib_b16sin.c.ll 52970274
 nuttx/lib_base64.c.ll 97016995
@@ -33037,7 +33037,7 @@ qemu/stubs_ram-block.c.ll 39294159
 qemu/stubs_ramfb.c.ll 36647471
 qemu/stubs_replay-tools.c.ll 47355079
 qemu/stubs_replay.c.ll 37849593
-qemu/stubs_runstate-check.c.ll 35433688
+qemu/stubs_runstate-check.c.ll 35398046
 qemu/stubs_semihost-all.c.ll 34861038
 qemu/stubs_semihost.c.ll 40055969
 qemu/stubs_sysbus.c.ll 34846471
@@ -35028,7 +35028,7 @@ ruby/iso_8859_10.ll 76748545
 ruby/iso_8859_11.ll 42318874
 ruby/iso_8859_13.ll 77010935
 ruby/iso_8859_14.ll 81644835
-ruby/iso_8859_15.ll 77772414
+ruby/iso_8859_15.ll 77694629
 ruby/iso_8859_16.ll 80208983
 ruby/iso_8859_2.ll 76303851
 ruby/iso_8859_3.ll 80102446
@@ -36935,7 +36935,7 @@ spike/s_roundMToI64.ll 48259780
 spike/s_roundPackMToI64.ll 48220106
 spike/s_roundPackToBF16.ll 62177546
 spike/s_roundPackToF128.ll 67868973
-spike/s_roundPackToF16.ll 62186087
+spike/s_roundPackToF16.ll 62123781
 spike/s_roundPackToF32.ll 62150083
 spike/s_roundPackToI32.ll 49295978
 spike/s_roundPackToI64.ll 46449646
