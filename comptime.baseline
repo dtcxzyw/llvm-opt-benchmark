@@ -33059,7 +33059,7 @@ qemu/system_device_tree.c.ll 228205745
 qemu/system_dirtylimit.c.ll 264724257
 qemu/system_dma-helpers.c.ll 214396202
 qemu/system_ioport.c.ll 225536032
-qemu/system_main.c.ll 36870560
+qemu/system_main.c.ll 36833627
 qemu/system_memory.c.ll 2311852664
 qemu/system_memory_mapping.c.ll 164914704
 qemu/system_physmem.c.ll 1708097095
