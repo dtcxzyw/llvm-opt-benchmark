@@ -41848,7 +41848,7 @@ z3/dl_mk_rule_inliner.cpp.ll 2394246239
 z3/dl_mk_scale.cpp.ll 1537329212
 z3/dl_mk_separate_negated_tails.cpp.ll 507467273
 z3/dl_mk_similarity_compressor.cpp.ll 1849962884
-z3/dl_mk_simple_joins.cpp.ll 2499526614
+z3/dl_mk_simple_joins.cpp.ll 2497026994
 z3/dl_mk_slice.cpp.ll 3452313078
 z3/dl_mk_subsumption_checker.cpp.ll 1535369563
 z3/dl_mk_synchronize.cpp.ll 1744332788
