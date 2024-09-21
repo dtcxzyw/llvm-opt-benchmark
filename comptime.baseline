@@ -9221,7 +9221,7 @@ gromacs/ssytd2.cpp.ll 81482981
 gromacs/ssytrd.cpp.ll 105084546
 gromacs/stat.cpp.ll 272563343
 gromacs/state.cpp.ll 2295815435
-gromacs/state_propagator_data_gpu_impl.cpp.ll 107748877
+gromacs/state_propagator_data_gpu_impl.cpp.ll 107640503
 gromacs/statepropagatordata.cpp.ll 3182269795
 gromacs/statistics.cpp.ll 316057696
 gromacs/status.cpp.ll 98632024
@@ -22248,7 +22248,7 @@ opencv/gapi_render_perf_tests.cpp.ll 10925472638
 opencv/gapi_render_perf_tests_ocv.cpp.ll 9893718657
 opencv/gapi_video_perf_tests.cpp.ll 11651117502
 opencv/gapi_video_perf_tests_cpu.cpp.ll 8957774460
-opencv/garray.cpp.ll 234952506
+opencv/garray.cpp.ll 234716343
 opencv/gasync.cpp.ll 2085986032
 opencv/gather_elements_layer.cpp.ll 870237710
 opencv/gather_layer.cpp.ll 709849799
@@ -29835,7 +29835,7 @@ openusd/surfaceFactory.cpp.ll 918566745
 openusd/surfaceFactoryCache.cpp.ll 329750170
 openusd/symbols.cpp.ll 63035809
 openusd/systemInfo.cpp.ll 143554479
-openusd/systemMessages.cpp.ll 161098105
+openusd/systemMessages.cpp.ll 160935660
 openusd/systemSchema.cpp.ll 519299788
 openusd/targetIndex.cpp.ll 1775508388
 openusd/task.cpp.ll 232955690
