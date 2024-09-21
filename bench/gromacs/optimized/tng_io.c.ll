@@ -20161,7 +20161,7 @@ define range(i32 0, 3) i32 @tng_data_block_add(ptr nocapture noundef %0, i64 nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, i8 noundef signext %4, i8 noundef signext %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef readonly %12) unnamed_addr #4 {
-  %spec.store.select = tail call noundef i64 @llvm.smax.i64(i64 %8, i64 1)
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %8, i64 1)
   %.not = icmp eq i32 %2, 0
   %14 = getelementptr inbounds i8, ptr %0, i64 424
   %15 = load i64, ptr %14, align 8

@@ -1600,7 +1600,7 @@ arrow/bitmap_builders.cc.ll 278190373
 arrow/bitmap_ops.cc.ll 1711329759
 arrow/bpacking.cc.ll 3634901058
 arrow/bpacking_avx2.cc.ll 1466420499
-arrow/bpacking_avx512.cc.ll 1840308465
+arrow/bpacking_avx512.cc.ll 1842175407
 arrow/bridge.cc.ll 10136708992
 arrow/buffer.cc.ll 890944753
 arrow/buffered.cc.ll 1202833964
@@ -33726,7 +33726,7 @@ quantlib/inflationcapfloorengines.ll 1418321789
 quantlib/inflationcoupon.ll 787180502
 quantlib/inflationcouponpricer.ll 1217317655
 quantlib/inflationhelpers.ll 1870947657
-quantlib/inflationindex.ll 2057179874
+quantlib/inflationindex.ll 2059253153
 quantlib/inflationtermstructure.ll 703531378
 quantlib/instrument.ll 821722309
 quantlib/integral.ll 202298919
