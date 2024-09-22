@@ -1,0 +1,23 @@
+name: PR Action
+
+on:
+  issue_comment:
+    types: created
+
+jobs:
+  build:
+    if: github.event.issue.pull_request && github.event.sender.type == 'User'
+    runs-on: self-hosted
+
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: PR action
+        run: python3 scripts/github_rest.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_COMMAND: ${{ github.event.comment.body }}
+          GH_ACTOR: ${{ github.event.sender.login }}
+          GH_PR_NUMBER: ${{ github.event.issue.number }}
