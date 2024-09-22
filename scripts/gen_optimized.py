@@ -78,6 +78,19 @@ if __name__ == '__main__':
     progress = tqdm.tqdm(work_list, miniters=len(work_list)/200)
     fail = False
     stats_acc = dict()
+    stats_nondeter_keys = {
+        'dse.NumDomMemDefChecks',
+        'ir.NumInstrRenumberings',
+        'basicaa.SearchTimes',
+        'aa.NumMayAlias',
+        'capture-tracking.NumCaptured',
+        'aa.NumMustAlias',
+        'memory-builtins.ObjectVisitorArgument',
+        'aa.NumNoAlias',
+        'assume-queries.NumAssumeQueries',
+        'capture-tracking.NumNotCaptured'
+    }
+
     with open('test.log', 'w') as log:
         for file, status, res, stats in pool.imap_unordered(run_opt, work_list):
             file = os.path.relpath(file, bench_dir)
@@ -89,6 +102,8 @@ if __name__ == '__main__':
             elif comptime:
                 comptime_res.append((file, res))
                 for k in stats:
+                    if k in stats_nondeter_keys:
+                        continue
                     stats_acc[k] = stats_acc.get(k, 0) + stats[k]
             progress.update()
         progress.close()
