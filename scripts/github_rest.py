@@ -13,7 +13,7 @@ if actor not in authorized_users:
 number = os.getenv('GH_PR_NUMBER')
 
 if cmd == '/close':
-    subprocess.check_call(['gh', 'pr', 'close', number, '-d'])
+    subprocess.check_call(['gh', 'pr', 'close', number])
 elif cmd == '/reopen':
     subprocess.check_call(['gh', 'pr', 'reopen', number])
 else:

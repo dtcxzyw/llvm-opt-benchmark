@@ -29,6 +29,13 @@ Please cite this work with the following BibTex entry:
 
   Ping me if you want to see what is affected by your PR. It is useful for reviewers to find potential performance regressions and new optimization opportunities.
 
+  For convenience, some senior middle-end maintainers are authorized to request pre-commit tests in https://github.com/dtcxzyw/llvm-opt-benchmark/issues/1312. Some basic PR editing commands are also supported by leaving a comment starts with ```/```:
+
+  + ```/close``` : Close the PR
+  + ```/reopen```: Reopen the PR
+  + ```/add-label labels```: Add labels (separated by comma). Available labels: ```reviewed```, ```regression```, ```crash```, ```hang``` and ```miscompilation```.
+  + ```/remove-label labels```: Remove labels.
+
 + Codegen pre-commit testing
 
   See also [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark).
