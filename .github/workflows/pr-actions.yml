@@ -14,6 +14,11 @@ jobs:
       contents: write
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
       - name: PR action
         run: python3 scripts/github_rest.py
         env:
